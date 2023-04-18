@@ -1,0 +1,104 @@
+{
+    "0": [
+        2,
+        {
+            "1": [
+                "pl.edu.wat.wcy.pz.restaurantServer.security.service.UserDetailsServiceImpl",
+                "pl.edu.wat.wcy.pz.restaurantServer.security.service.UserPrinciple"
+            ]
+        }
+    ],
+    "1": [
+        4,
+        {
+            "5": [
+                "pl.edu.wat.wcy.pz.restaurantServer.repository.ReservationRepository",
+                "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation"
+            ],
+            "6": [
+                "pl.edu.wat.wcy.pz.restaurantServer.entity.Role",
+                "pl.edu.wat.wcy.pz.restaurantServer.email.MailService"
+            ]
+        }
+    ],
+    "2": [
+        4,
+        {
+            "4": [
+                "pl.edu.wat.wcy.pz.restaurantServer.entity.Dish",
+                "pl.edu.wat.wcy.pz.restaurantServer.service.DishService"
+            ],
+            "3": [
+                "pl.edu.wat.wcy.pz.restaurantServer.entity.RTable",
+                "pl.edu.wat.wcy.pz.restaurantServer.repository.RTableRepository"
+            ]
+        }
+    ],
+    "3": [
+        4,
+        {
+            "5": [
+                "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation",
+                "pl.edu.wat.wcy.pz.restaurantServer.repository.ReservationRepository"
+            ],
+            "2": [
+                "pl.edu.wat.wcy.pz.restaurantServer.entity.Bill"
+            ],
+            "0": [
+                "pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtAuthEntryPoint"
+            ]
+        }
+    ],
+    "4": [
+        6,
+        {
+            "6": [
+                "pl.edu.wat.wcy.pz.restaurantServer.repository.RoleRepository",
+                "pl.edu.wat.wcy.pz.restaurantServer.entity.Role"
+            ],
+            "1": [
+                "pl.edu.wat.wcy.pz.restaurantServer.repository.UserRepository",
+                "pl.edu.wat.wcy.pz.restaurantServer.entity.User"
+            ],
+            "3": [
+                "pl.edu.wat.wcy.pz.restaurantServer.entity.RTable",
+                "pl.edu.wat.wcy.pz.restaurantServer.repository.RTableRepository"
+            ]
+        }
+    ],
+    "5": [
+        6,
+        {
+            "0": [
+                "pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtAuthEntryPoint"
+            ],
+            "1": [
+                "pl.edu.wat.wcy.pz.restaurantServer.service.UserService",
+                "pl.edu.wat.wcy.pz.restaurantServer.entity.User"
+            ],
+            "3": [
+                "pl.edu.wat.wcy.pz.restaurantServer.entity.RTable",
+                "pl.edu.wat.wcy.pz.restaurantServer.service.RTableService"
+            ],
+            "6": [
+                "pl.edu.wat.wcy.pz.restaurantServer.email.MailService"
+            ]
+        }
+    ],
+    "6": [
+        5,
+        {
+            "1": [
+                "pl.edu.wat.wcy.pz.restaurantServer.entity.User",
+                "pl.edu.wat.wcy.pz.restaurantServer.repository.UserRepository"
+            ],
+            "5": [
+                "pl.edu.wat.wcy.pz.restaurantServer.repository.ReservationRepository",
+                "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation"
+            ],
+            "0": [
+                "pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtProvider"
+            ]
+        }
+    ]
+}
