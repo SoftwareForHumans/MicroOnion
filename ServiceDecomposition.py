@@ -9,7 +9,7 @@ class ServiceDecomposition:
         self.clusters = service_decomposition
         services = []
 
-        for _, c in service_decomposition.items():
+        for _, c in self.clusters.items():
             s = Service()
             s.add_files(c)
             services.append(s)

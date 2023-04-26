@@ -30,7 +30,8 @@ def write_json_to_results(filename, content):
 
 def get_is_part_of_key(classes, key):
     for i in classes.keys():
-        if key in i: return i
+        parts = i.split('.')
+        if key == parts[-1]: return i
     return None
 
 def check_if_primitive(variable):

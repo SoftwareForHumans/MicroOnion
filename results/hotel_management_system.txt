@@ -1,0 +1,1392 @@
+0
+com.hmm.room.service.IFloorService
+com.hmm.room.util.TreeNode
+com.hmm.room.controller.FloorController
+com.hmm.room.service.FloorService
+com.hmm.logistics.roomClean.entity.RoomCleanRecord
+com.hmm.logistics.roomClean.controller.RoomCleanController
+com.hmm.logistics.roomClean.controller.RoomCleanRecordController
+com.hmm.room.controller.RoomController
+com.hmm.logistics.roomClean.service.RoomCleanService
+com.hmm.logistics.roomClean.service.IRoomCleanService
+com.hmm.room.entity.Room
+com.hmm.room.entity.Floor
+com.hmm.room.repository.FloorRepository
+com.hmm.room.repository.RoomRepository
+com.hmm.logistics.roomClean.entity.RoomClean
+com.hmm.room.service.RoomService
+com.hmm.room.service.IRoomService
+com.hmm.logistics.roomClean.repository.RoomCleanRecordRepository
+com.hmm.logistics.roomClean.service.RoomCleanRecordService
+com.hmm.logistics.roomClean.service.IRoomCleanRecordService
+com.hmm.logistics.stock.repository.OutStorageRepository
+com.hmm.logistics.roomClean.repository.RoomCleanRepository
+com.hmm.logistics.roomClean.repository.FloorVoRoomVoRoomCleanRepository
+com.hmm.logistics.stock.repository.OutDetailedRepository
+com.hmm.logistics.roomClean.entity.FloorVoRoomVoRoomClean
+com.hmm.logistics.roomClean.dto.FloorVoRoomVoRoomCleanDTO
+com.hmm.room.dto.RoomDto
+
+
+
+1
+com.hmm.Work.service.BcardServiceImpl
+com.hmm.Work.service.BcardService
+com.hmm.Work.dao.BcardDao
+com.hmm.Work.entity.Bcard
+com.hmm.Work.entity.BcardDTO
+com.hmm.Work.entity.BcardEmpDTO
+com.hmm.Work.listener.AfterAttenceModifyApplyContentProcessor
+com.hmm.Work.web.BcardController
+com.hmm.Work.listener.AttenceDeptApproveListener
+com.hmm.Work.listener.ReportBackAttenceEndProcessor
+com.hmm.Work.entity.BcardQueryDTO
+com.hmm.activiti.util.WorkflowVariable
+
+
+
+2
+com.hmm.activiti.service.IWorkflowService
+com.hmm.activiti.domain.WorkflowDTO
+com.hmm.employee.entity.Employee
+com.hmm.employee.service.EmployeeServiceImpl
+com.hmm.activiti.service.WorkflowService
+com.hmm.employee.controller.EmployeeController
+com.hmm.employee.service.EmployeeService
+com.hmm.employee.dao.EmployeeDao
+com.hmm.employee.entity.EmployeeDTO
+com.hmm.system.LoginController
+com.hmm.employee.entity.EmployeeQueryDTO
+com.hmm.menu.MenuController
+com.hmm.common.web.ExtAjaxResponse
+com.hmm.common.SessionUtil
+com.hmm.activiti.controller.ProcessDefinitionController
+com.hmm.employee.util.ExcelUtils
+com.hmm.employee.util.ExportExcel
+com.hmm.employee.util.ExtForm
+com.hmm.activiti.domain.ProcessDefinitionDTO
+
+
+
+3
+com.hmm.department.entity.Department
+com.hmm.department.service.IDeptService
+com.hmm.department.controller.DeptController
+com.hmm.department.service.DeptService
+com.hmm.department.dao.DeptDao
+com.hmm.department.entity.DeptDTO
+com.hmm.department.entity.DeptQueryDTO
+com.hmm.department.entity.DeptDTOCombox
+com.hmm.common.beans.BeanUtils
+
+
+
+4
+com.hmm.finance.logisticst.service.InStorageService
+com.hmm.finance.logisticst.repository.InStorageRepository
+com.hmm.finance.logisticst.domain.InStorage
+com.hmm.finance.logisticst.controller.InStorageController
+com.hmm.finance.logisticst.activiti.ConfirmReceipt
+com.hmm.finance.logisticst.domain.InStorageDTO
+com.hmm.finance.logisticst.activiti.Pay
+com.hmm.finance.logisticst.service.IInStorageService
+com.hmm.logistics.stock.repository.InDetailedRepository
+com.hmm.finance.logisticst.domain.InStorageDetailedDTO
+com.hmm.finance.logisticst.util.MailUtil
+
+
+
+5
+com.hmm.userRole.service.GroupRoleImpl
+com.hmm.userRole.entity.GroupRole
+com.hmm.userRole.controller.GroupController
+com.hmm.userRole.service.GroupRoleService
+com.hmm.userRole.entity.GroupRoleDTO
+com.hmm.userRole.dao.GroupRoleDao
+com.hmm.userRole.entity.GroupRoleQueryDTO
+
+
+
+6
+com.hmm.travel.service.TravelServiceImpl
+com.hmm.travel.entity.Travel
+com.hmm.travel.web.TravelController
+com.hmm.travel.entity.TravelQueryDTO
+com.hmm.travel.service.TravelService
+com.hmm.travel.entity.TravelEmpDTO
+com.hmm.travel.entity.TravelDTO
+com.hmm.travel.Listener.afterEmployModifyApplyContentProcessor
+com.hmm.travel.Listener.travelPocessReportBack
+com.hmm.travel.dao.TravelDao
+
+
+
+7
+com.hmm.Work.service.workServiceImpl
+com.hmm.Work.entity.Work
+com.hmm.Work.dao.WorkDao
+com.hmm.Work.service.workService
+com.hmm.Work.entity.WorkQueryDTO
+com.hmm.Work.web.workController
+com.hmm.Work.entity.ExtTotalworkForm
+com.hmm.Work.entity.WorkTatalRecord
+com.hmm.Work.entity.WorkEmpDTO
+com.hmm.Work.entity.ExtworkForm
+com.hmm.Work.entity.WorkRecord
+com.hmm.Work.entity.WorkEmpChart
+com.hmm.Work.entity.Workchart
+
+
+
+8
+com.hmm.leave.service.LeaveService
+com.hmm.leave.entity.Leave
+com.hmm.leave.listener.ReportBackEndProcessor
+com.hmm.leave.listener.AfterModifyApplyContentProcessor
+com.hmm.leave.controller.LeaveController
+com.hmm.leave.entity.LeaveQueryDTO
+com.hmm.leave.service.ILeaveService
+com.hmm.leave.entity.LeaveDTO
+com.hmm.leave.entity.LeaveEmpDTO
+com.hmm.leave.dao.LeaveRepository
+
+
+
+9
+com.hmm.calendars.entity.SchedulEvent
+com.hmm.calendars.dao.SchedulEventDao
+com.hmm.calendars.controller.CalendarEventController
+com.hmm.calendars.service.SchedulEventService
+com.hmm.calendars.service.SchedulEventServiceImpl
+com.hmm.calendars.entity.SchedulQueryDTO
+com.hmm.calendars.controller.CalendarContreller
+com.hmm.calendars.entity.Calendar
+com.hmm.calendars.entity.SchedulEventDto
+com.hmm.calendars.entity.SchedulEventEmpDTO
+com.hmm.calendars.entity.EventCalendarDTO
+com.hmm.calendars.entity.CalendarDTO
+com.hmm.calendars.service.CalendarService
+com.hmm.calendars.service.CalendarServiceImpl
+com.hmm.calendars.entity.ExtResultJson
+com.hmm.calendars.dao.CalendarDao
+
+
+
+10
+com.hmm.logistics.stock.controller.OutController
+com.hmm.logistics.stock.entity.OutStorage
+com.hmm.logistics.stock.controller.InController
+com.hmm.logistics.stock.entity.DoSend
+com.hmm.common.web.ExtjsPageRequest
+com.hmm.logistics.stock.controller.StockController
+com.hmm.logistics.stock.controller.InSendController
+com.hmm.logistics.stock.service.IInDetailedService
+com.hmm.logistics.stock.service.IOutDetailedService
+com.hmm.logistics.stock.service.IOutStorageService
+com.hmm.logistics.stock.service.IStockService
+com.hmm.logistics.stock.dto.OutDTO
+com.hmm.logistics.stock.entity.InDetailed
+com.hmm.logistics.stock.service.InDetailedService
+com.hmm.logistics.stock.entity.OutDetailed
+com.hmm.logistics.stock.service.OutDetailedService
+com.hmm.logistics.stock.service.OutStorageService
+com.hmm.logistics.stock.entity.Stock
+com.hmm.room.dto.DailyNecessaryDto
+com.hmm.logistics.stock.service.StockService
+com.hmm.logistics.stock.dto.ShowInDetailedWinGrilDTO
+com.hmm.logistics.stock.service.IDoSendService
+com.hmm.logistics.stock.dto.InDTO
+com.hmm.logistics.stock.service.DoSendService
+com.hmm.logistics.stock.repository.StockRepository
+com.hmm.logistics.stock.dto.StockDTO
+com.hmm.logistics.stock.repository.DoSendRepository
+com.hmm.logistics.stock.dto.InSendDTO
+
+
+
+11
+com.hmm.finance.roomOrder.domain.RoomOrder
+com.hmm.finance.roomOrder.service.RoomOrderService
+com.hmm.finance.roomOrder.controller.RoomOrderController
+com.hmm.finance.roomOrder.service.IRoomOrderService
+com.hmm.finance.roomOrder.domain.RoomOrderDTO
+com.hmm.finance.roomOrder.domain.RoomOrderQueryDTO
+com.hmm.finance.roomOrder.repository.RoomOrderRepository
+
+
+
+12
+com.hmm.finance.salary.service.SalaryService
+com.hmm.finance.salary.domain.SalaryOrder
+com.hmm.finance.salary.controller.SalaryController
+com.hmm.finance.salary.service.ISalaryService
+com.hmm.finance.salary.domain.SalaryOrderDTO
+com.hmm.finance.salary.domain.SalaryOrderQueryDTO
+com.hmm.finance.salary.repository.SalaryOrderRepository
+
+
+
+13
+com.hmm.logistics.loseGoods.controller.LoseGoodsController
+com.hmm.logistics.loseGoods.service.ILoseGoodsService
+com.hmm.logistics.loseGoods.entity.LoseGoods
+com.hmm.logistics.loseGoods.entity.LoseGoodsDTO
+com.hmm.logistics.loseGoods.service.LoseGoodsService
+com.hmm.logistics.loseGoods.repository.LoseGoodsRepository
+
+
+
+14
+com.hmm.guest.controller.GuestController
+com.hmm.guest.service.GuestService
+com.hmm.guest.service.IGuestService
+com.hmm.guest.repository.GuestRepository
+com.hmm.guest.entity.Guest
+com.hmm.guest.dto.GuestDto
+com.hmm.guest.dto.GuestInfoDto
+
+
+
+15
+com.hmm.finance.financeReportDaily.controller.FinanceReportDailyController
+com.hmm.finance.financeReportDaily.service.FinanceReportDailyService
+com.hmm.finance.financeReportDaily.activiti.CreateDailyReport
+com.hmm.finance.financeReportDaily.service.IFinanceReportDailyService
+com.hmm.finance.financeReportDaily.domain.FinanceReportDaily
+com.hmm.finance.financeReportDaily.domain.FinanceReportDailyQueryDTO
+com.hmm.finance.financeReportDaily.util.ExportExcel
+com.hmm.finance.financeReportDaily.Repository.FinanceReportDailyRepository
+com.hmm.finance.financeReport.service.FinanceReportService
+com.hmm.finance.financeReport.service.IFinanceReportService
+com.hmm.finance.financeReport.domain.FinanceReport
+com.hmm.finance.financeReport.controller.FinanceReportController
+
+
+
+16
+com.hmm.activiti.util.CustomProcessDiagramGenerator.ArtifactDrawInstruction
+com.hmm.activiti.util.CustomProcessDiagramCanvas
+com.hmm.activiti.util.CustomProcessDiagramGenerator
+com.hmm.activiti.util.CustomProcessDiagramGenerator.ActivityDrawInstruction
+
+
+
+
+
+We gonna take incremental steps towards the new architecture and ensure that each step is easily reversible, reducing risks. We are going to focus the initial refactoring in a high level refactoring: Strangler Fig
+
+
+
+
+STRANGLER FIG
+
+
+Now that the order by which we will extract each microservice is defined, we are going to extract each microservice.
+
+
+As all dependencies were already identified, we are going to focus on breaking them.
+
+
+
+EXTRACT MICROSERVICE 16
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 9
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - SchedulEvent/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - SchedulEventDao/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - CalendarEventController/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - CalendarEventController/com.hmm.common.SessionUtil
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - CalendarEventController/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - CalendarEventController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - SchedulEventService/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - SchedulEventServiceImpl/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - SchedulEventServiceImpl/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - CalendarContreller/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 2 with microservice 9
+
+DATA TYPE DEPENDENCY - Employee/com.hmm.calendars.entity.SchedulEvent
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 3 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - CalendarEventController/com.hmm.common.beans.BeanUtils
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - CalendarEventController/com.hmm.department.service.DeptService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - SchedulEventServiceImpl/com.hmm.department.entity.Department
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - SchedulQueryDTO/com.hmm.department.entity.Department
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - CalendarContreller/com.hmm.common.beans.BeanUtils
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 11
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - RoomOrder/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - RoomOrderService/com.hmm.employee.dao.EmployeeDao
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - RoomOrderController/com.hmm.common.SessionUtil
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - RoomOrderController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 10 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - RoomOrderController/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - RoomOrderController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 13
+---
+Breaking dependencies with microservice 10 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - LoseGoodsController/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - LoseGoodsController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - LoseGoodsController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 1
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - BcardServiceImpl/com.hmm.activiti.service.IWorkflowService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - BcardServiceImpl/com.hmm.activiti.domain.WorkflowDTO
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - BcardServiceImpl/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - Bcard/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - BcardController/com.hmm.common.SessionUtil
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - BcardController/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - BcardController/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - BcardController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 2 with microservice 1
+
+DATA TYPE DEPENDENCY - Employee/com.hmm.Work.entity.Bcard
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 3 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - BcardServiceImpl/com.hmm.department.entity.Department
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - BcardController/com.hmm.common.beans.BeanUtils
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - BcardController/com.hmm.department.entity.Department
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - BcardQueryDTO/com.hmm.department.entity.Department
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 10 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - BcardController/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - BcardController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 3
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - Department/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - IDeptService/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - IDeptService/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - DeptController/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - DeptController/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - DeptController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 2 with microservice 3
+
+DATA TYPE DEPENDENCY - Employee/com.hmm.department.entity.Department
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - EmployeeServiceImpl/com.hmm.department.service.DeptService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - EmployeeServiceImpl/com.hmm.department.entity.Department
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - EmployeeController/com.hmm.department.service.DeptService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - EmployeeController/com.hmm.common.beans.BeanUtils
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - EmployeeController/com.hmm.department.entity.Department
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - MenuController/com.hmm.department.entity.Department
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+---
+Breaking dependencies with microservice 5 
+
+DATA TYPE DEPENDENCY - Department/com.hmm.userRole.entity.GroupRole
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 5 with microservice 3
+
+DATA TYPE DEPENDENCY - GroupRoleImpl/com.hmm.department.service.DeptService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - GroupRoleImpl/com.hmm.department.entity.Department
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - GroupRole/com.hmm.department.entity.Department
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - GroupController/com.hmm.common.beans.BeanUtils
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+---
+Breaking dependencies with microservice 10 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - DeptController/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - DeptController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 4
+---
+Breaking dependencies with microservice 2 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - InStorageService/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - InStorageService/com.hmm.activiti.service.IWorkflowService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - InStorageService/com.hmm.employee.dao.EmployeeDao
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - InStorageService/com.hmm.activiti.domain.WorkflowDTO
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - InStorageService/com.hmm.activiti.domain.WorkflowDTO
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - InStorageRepository/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - InStorage/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - InStorageController/com.hmm.common.SessionUtil
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - InStorageController/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - InStorageController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 10 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - InStorageService/com.hmm.logistics.stock.entity.InDetailed
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - InStorage/com.hmm.logistics.stock.entity.InDetailed
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - InStorageController/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - InStorageController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 10 with microservice 4
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - InController/com.hmm.finance.logisticst.domain.InStorage
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - DoSend/com.hmm.finance.logisticst.domain.InStorage
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - StockController/com.hmm.finance.logisticst.domain.InStorage
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - InSendController/com.hmm.finance.logisticst.domain.InStorage
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - InSendController/com.hmm.finance.logisticst.service.IInStorageService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - InDetailed/com.hmm.finance.logisticst.domain.InStorage
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - InDetailedService/com.hmm.logistics.stock.repository.InDetailedRepository
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 1 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - InStorageController/com.hmm.activiti.util.WorkflowVariable
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - InStorageController/com.hmm.activiti.util.WorkflowVariable
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 5
+---
+Breaking dependencies with microservice 3 
+
+
+Breaking dependencies of microservice 3 with microservice 5
+
+---
+Breaking dependencies with microservice 2 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - GroupRoleImpl/com.hmm.activiti.service.IWorkflowService
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - GroupRole/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - GroupController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 2 with microservice 5
+
+DATA TYPE DEPENDENCY - Employee/com.hmm.userRole.entity.GroupRole
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - EmployeeServiceImpl/com.hmm.userRole.service.GroupRoleService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - EmployeeServiceImpl/com.hmm.userRole.entity.GroupRole
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - EmployeeController/com.hmm.userRole.service.GroupRoleService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - EmployeeController/com.hmm.userRole.entity.GroupRole
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+---
+Breaking dependencies with microservice 10 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - GroupController/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - GroupController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 10
+---
+Breaking dependencies with microservice 2 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - OutController/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - OutStorage/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - InController/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - InController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - DoSend/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - StockController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - InSendController/com.hmm.common.SessionUtil
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - InSendController/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - InSendController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 2 with microservice 10
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - EmployeeController/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - EmployeeController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ProcessDefinitionController/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ProcessDefinitionController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 0 
+
+DATA TYPE DEPENDENCY - OutStorage/com.hmm.logistics.roomClean.entity.RoomCleanRecord
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - OutDetailedService/com.hmm.logistics.stock.repository.OutDetailedRepository
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - OutStorageService/com.hmm.logistics.stock.repository.OutStorageRepository
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 0 with microservice 10
+
+DATA TYPE DEPENDENCY - RoomCleanRecord/com.hmm.logistics.stock.entity.OutStorage
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - RoomCleanController/com.hmm.logistics.stock.entity.OutStorage
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - RoomCleanController/com.hmm.logistics.stock.entity.OutDetailed
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - RoomCleanController/com.hmm.logistics.stock.service.IStockService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - RoomCleanController/com.hmm.logistics.stock.entity.Stock
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - RoomCleanController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - RoomController/com.hmm.logistics.stock.service.IStockService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - RoomController/com.hmm.room.dto.DailyNecessaryDto
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - RoomCleanService/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - RoomCleanService/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - RoomCleanService/com.hmm.logistics.stock.repository.StockRepository
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - RoomCleanService/com.hmm.logistics.stock.entity.OutStorage
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - RoomCleanService/com.hmm.logistics.stock.entity.OutDetailed
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - RoomCleanService/com.hmm.logistics.stock.entity.Stock
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - IRoomCleanService/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 4 
+
+
+Breaking dependencies of microservice 4 with microservice 10
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 12
+---
+Breaking dependencies with microservice 2 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - SalaryService/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - SalaryOrder/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 3 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - SalaryService/com.hmm.department.entity.Department
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+---
+Breaking dependencies with microservice 10 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - SalaryController/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - SalaryController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 14
+---
+Breaking dependencies with microservice 10 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - GuestController/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - GuestController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 0 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - GuestController/com.hmm.room.entity.Room
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - Guest/com.hmm.room.entity.Room
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 0 with microservice 14
+
+DATA TYPE DEPENDENCY - RoomController/com.hmm.guest.service.IGuestService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - RoomController/com.hmm.guest.entity.Guest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - GuestController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 0
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - RoomCleanRecord/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - RoomCleanController/com.hmm.common.SessionUtil
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - RoomCleanController/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - RoomCleanController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - RoomCleanRecordController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - RoomController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - RoomCleanService/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 10 
+
+
+Breaking dependencies of microservice 10 with microservice 0
+
+---
+Breaking dependencies with microservice 3 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - RoomCleanController/com.hmm.common.beans.BeanUtils
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+---
+Breaking dependencies with microservice 14 
+
+
+Breaking dependencies of microservice 14 with microservice 0
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 6
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - TravelServiceImpl/com.hmm.activiti.service.IWorkflowService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - TravelServiceImpl/com.hmm.activiti.domain.WorkflowDTO
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - TravelServiceImpl/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - TravelServiceImpl/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - Travel/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - TravelController/com.hmm.common.SessionUtil
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - TravelController/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - TravelController/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - TravelController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 2 with microservice 6
+
+DATA TYPE DEPENDENCY - Employee/com.hmm.travel.entity.Travel
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 3 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - TravelServiceImpl/com.hmm.department.entity.Department
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - TravelController/com.hmm.common.beans.BeanUtils
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - TravelQueryDTO/com.hmm.department.entity.Department
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 10 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - TravelController/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - TravelController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 1 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - TravelController/com.hmm.activiti.util.WorkflowVariable
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - TravelController/com.hmm.activiti.util.WorkflowVariable
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 8
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - LeaveService/com.hmm.activiti.service.IWorkflowService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - LeaveService/com.hmm.activiti.domain.WorkflowDTO
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - LeaveService/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - Leave/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ReportBackEndProcessor/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ReportBackEndProcessor/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - AfterModifyApplyContentProcessor/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - AfterModifyApplyContentProcessor/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - LeaveController/com.hmm.common.SessionUtil
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - LeaveController/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - LeaveController/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - LeaveController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 2 with microservice 8
+
+DATA TYPE DEPENDENCY - Employee/com.hmm.leave.entity.Leave
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 3 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - LeaveService/com.hmm.department.entity.Department
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ReportBackEndProcessor/com.hmm.department.entity.Department
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - AfterModifyApplyContentProcessor/com.hmm.department.entity.Department
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - LeaveController/com.hmm.common.beans.BeanUtils
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - LeaveController/com.hmm.department.entity.Department
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - LeaveQueryDTO/com.hmm.department.entity.Department
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 10 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - LeaveController/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - LeaveController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 1 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - LeaveController/com.hmm.activiti.util.WorkflowVariable
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - LeaveController/com.hmm.activiti.util.WorkflowVariable
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 15
+---
+Breaking dependencies with microservice 10 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - FinanceReportDailyController/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - FinanceReportDailyController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 12 
+
+DATA TYPE DEPENDENCY - FinanceReportDailyService/com.hmm.finance.salary.repository.SalaryOrderRepository
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 11 
+
+DATA TYPE DEPENDENCY - FinanceReportDailyService/com.hmm.finance.roomOrder.repository.RoomOrderRepository
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 4 
+
+DATA TYPE DEPENDENCY - FinanceReportDailyService/com.hmm.finance.logisticst.repository.InStorageRepository
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 7
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - workServiceImpl/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - workServiceImpl/com.hmm.employee.entity.Employee
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - workServiceImpl/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - workServiceImpl/com.hmm.activiti.service.IWorkflowService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - workServiceImpl/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - Work/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - WorkDao/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - workService/com.hmm.employee.entity.Employee
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - workService/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - workController/com.hmm.common.SessionUtil
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - workController/com.hmm.employee.service.EmployeeService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - workController/com.hmm.common.web.ExtAjaxResponse
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 2 with microservice 7
+
+DATA TYPE DEPENDENCY - Employee/com.hmm.Work.entity.Work
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 9 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - workServiceImpl/com.hmm.calendars.entity.SchedulQueryDTO
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - workServiceImpl/com.hmm.calendars.service.SchedulEventService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - workServiceImpl/com.hmm.calendars.entity.SchedulEvent
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - workServiceImpl/com.hmm.calendars.entity.Calendar
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - workController/com.hmm.calendars.service.SchedulEventService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 3 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - workServiceImpl/com.hmm.department.entity.Department
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - workServiceImpl/com.hmm.department.service.IDeptService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - WorkQueryDTO/com.hmm.department.entity.Department
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - workController/com.hmm.common.beans.BeanUtils
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - workController/com.hmm.department.service.IDeptService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 10 
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - workController/com.hmm.common.web.ExtjsPageRequest
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - workController/com.hmm.common.web.ExtjsPageRequest
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 8 
+
+DATA TYPE DEPENDENCY - workController/com.hmm.leave.service.ILeaveService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 6 
+
+DATA TYPE DEPENDENCY - workController/com.hmm.travel.service.TravelService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 2
+---
+Breaking dependencies with microservice 3 
+
+
+Breaking dependencies of microservice 3 with microservice 2
+
+---
+Breaking dependencies with microservice 1 
+
+
+Breaking dependencies of microservice 1 with microservice 2
+
+---
+Breaking dependencies with microservice 9 
+
+
+Breaking dependencies of microservice 9 with microservice 2
+
+---
+Breaking dependencies with microservice 8 
+
+
+Breaking dependencies of microservice 8 with microservice 2
+
+---
+Breaking dependencies with microservice 5 
+
+
+Breaking dependencies of microservice 5 with microservice 2
+
+---
+Breaking dependencies with microservice 7 
+
+
+Breaking dependencies of microservice 7 with microservice 2
+
+---
+Breaking dependencies with microservice 6 
+
+
+Breaking dependencies of microservice 6 with microservice 2
+
+---
+Breaking dependencies with microservice 10 
+
+
+Breaking dependencies of microservice 10 with microservice 2
+
+
+------------------------------------
+

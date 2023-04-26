@@ -40,5 +40,18 @@ class Method:
                 w = re.search('\w*<(.+?)>', i["type"])
                 if w:
                     dep.add(w.group(1))
-
+        
         return list(dep)
+
+    def to_json(self):
+        res = dict()
+        res['name'] = self.name
+        res['annotations'] = self.annotations
+        res['route'] = self.route
+        res['modifier'] = self.modifier
+        res['identifier'] = self.identifier
+        res['returnType'] = self.return_type
+        res['parameters'] = self.parameters
+        res['body'] = self.body
+        res['exceptions'] = self.exceptions
+        return res

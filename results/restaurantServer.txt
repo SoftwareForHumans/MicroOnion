@@ -1,0 +1,334 @@
+0
+pl.edu.wat.wcy.pz.restaurantServer.security.WebSecurityConfiguration
+pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtAuthEntryPoint
+pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtAuthTokenFilter
+pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtProvider
+
+
+
+1
+pl.edu.wat.wcy.pz.restaurantServer.security.service.UserDetailsServiceImpl
+pl.edu.wat.wcy.pz.restaurantServer.repository.UserRepository
+pl.edu.wat.wcy.pz.restaurantServer.entity.User
+pl.edu.wat.wcy.pz.restaurantServer.security.service.UserPrinciple
+pl.edu.wat.wcy.pz.restaurantServer.service.UserService
+pl.edu.wat.wcy.pz.restaurantServer.controller.UserController
+
+
+
+2
+pl.edu.wat.wcy.pz.restaurantServer.entity.Bill
+pl.edu.wat.wcy.pz.restaurantServer.entity.BillPosition
+pl.edu.wat.wcy.pz.restaurantServer.service.BillService
+pl.edu.wat.wcy.pz.restaurantServer.controller.BillController
+pl.edu.wat.wcy.pz.restaurantServer.service.BillPositionService
+pl.edu.wat.wcy.pz.restaurantServer.controller.BillPositionController
+pl.edu.wat.wcy.pz.restaurantServer.repository.BillPositionRepository
+pl.edu.wat.wcy.pz.restaurantServer.repository.BillRepository
+
+
+
+3
+pl.edu.wat.wcy.pz.restaurantServer.service.RTableService
+pl.edu.wat.wcy.pz.restaurantServer.entity.RTable
+pl.edu.wat.wcy.pz.restaurantServer.controller.RTableController
+pl.edu.wat.wcy.pz.restaurantServer.repository.RTableRepository
+
+
+
+4
+pl.edu.wat.wcy.pz.restaurantServer.entity.Dish
+pl.edu.wat.wcy.pz.restaurantServer.RestaurantServerApplication
+pl.edu.wat.wcy.pz.restaurantServer.repository.DishRepository
+pl.edu.wat.wcy.pz.restaurantServer.service.DishService
+pl.edu.wat.wcy.pz.restaurantServer.controller.DishController
+
+
+
+5
+pl.edu.wat.wcy.pz.restaurantServer.repository.ReservationRepository
+pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation
+pl.edu.wat.wcy.pz.restaurantServer.service.ReservationService
+pl.edu.wat.wcy.pz.restaurantServer.controller.ReservationController
+
+
+
+6
+pl.edu.wat.wcy.pz.restaurantServer.form.response.JwtResponse
+pl.edu.wat.wcy.pz.restaurantServer.email.MailService
+pl.edu.wat.wcy.pz.restaurantServer.controller.AuthController
+pl.edu.wat.wcy.pz.restaurantServer.entity.Role
+pl.edu.wat.wcy.pz.restaurantServer.repository.RoleRepository
+pl.edu.wat.wcy.pz.restaurantServer.form.LoginForm
+pl.edu.wat.wcy.pz.restaurantServer.form.SignUpForm
+
+
+
+
+
+We gonna take incremental steps towards the new architecture and ensure that each step is easily reversible, reducing risks. We are going to focus the initial refactoring in a high level refactoring: Strangler Fig
+
+
+
+
+STRANGLER FIG
+
+
+Now that the order by which we will extract each microservice is defined, we are going to extract each microservice.
+
+
+As all dependencies were already identified, we are going to focus on breaking them.
+
+
+
+EXTRACT MICROSERVICE 0
+---
+Breaking dependencies with microservice 1 
+
+DATA TYPE DEPENDENCY - WebSecurityConfiguration/pl.edu.wat.wcy.pz.restaurantServer.security.service.UserDetailsServiceImpl
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - JwtAuthTokenFilter/pl.edu.wat.wcy.pz.restaurantServer.security.service.UserDetailsServiceImpl
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - JwtProvider/pl.edu.wat.wcy.pz.restaurantServer.security.service.UserPrinciple
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 1
+---
+Breaking dependencies with microservice 5 
+
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - User/pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - UserService/pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - UserController/pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 5 with microservice 1
+
+DATA TYPE DEPENDENCY - ReservationService/pl.edu.wat.wcy.pz.restaurantServer.service.UserService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ReservationService/pl.edu.wat.wcy.pz.restaurantServer.entity.User
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+---
+Breaking dependencies with microservice 6 
+
+CHANGE DATA OWNERSHIP
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - User/pl.edu.wat.wcy.pz.restaurantServer.entity.Role
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - UserController/pl.edu.wat.wcy.pz.restaurantServer.email.MailService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 6 with microservice 1
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - JwtResponse/pl.edu.wat.wcy.pz.restaurantServer.entity.User
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - AuthController/pl.edu.wat.wcy.pz.restaurantServer.repository.UserRepository
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - AuthController/pl.edu.wat.wcy.pz.restaurantServer.entity.User
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 2
+---
+Breaking dependencies with microservice 4 
+
+CHANGE DATA OWNERSHIP
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - BillPosition/pl.edu.wat.wcy.pz.restaurantServer.entity.Dish
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - BillPositionService/pl.edu.wat.wcy.pz.restaurantServer.entity.Dish
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - BillPositionService/pl.edu.wat.wcy.pz.restaurantServer.service.DishService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 3 
+
+DATA TYPE DEPENDENCY - BillService/pl.edu.wat.wcy.pz.restaurantServer.repository.RTableRepository
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - BillController/pl.edu.wat.wcy.pz.restaurantServer.repository.RTableRepository
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 3 with microservice 2
+
+DATA TYPE DEPENDENCY - RTableService/pl.edu.wat.wcy.pz.restaurantServer.entity.Bill
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - RTable/pl.edu.wat.wcy.pz.restaurantServer.entity.Bill
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - RTableController/pl.edu.wat.wcy.pz.restaurantServer.entity.Bill
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 3
+---
+Breaking dependencies with microservice 2 
+
+
+Breaking dependencies of microservice 2 with microservice 3
+
+---
+Breaking dependencies with microservice 5 
+
+DATA TYPE DEPENDENCY - RTableService/pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - RTable/pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - RTableController/pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 5 with microservice 3
+
+DATA TYPE DEPENDENCY - ReservationService/pl.edu.wat.wcy.pz.restaurantServer.service.RTableService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ReservationService/pl.edu.wat.wcy.pz.restaurantServer.entity.RTable
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 4
+---
+Breaking dependencies with microservice 6 
+
+DATA TYPE DEPENDENCY - RestaurantServerApplication/pl.edu.wat.wcy.pz.restaurantServer.repository.RoleRepository
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 1 
+
+DATA TYPE DEPENDENCY - RestaurantServerApplication/pl.edu.wat.wcy.pz.restaurantServer.repository.UserRepository
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 3 
+
+DATA TYPE DEPENDENCY - RestaurantServerApplication/pl.edu.wat.wcy.pz.restaurantServer.repository.RTableRepository
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 5
+---
+Breaking dependencies with microservice 1 
+
+
+Breaking dependencies of microservice 1 with microservice 5
+
+---
+Breaking dependencies with microservice 6 
+
+DATA TYPE DEPENDENCY - ReservationService/pl.edu.wat.wcy.pz.restaurantServer.email.MailService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 6 with microservice 5
+
+DATA TYPE DEPENDENCY - JwtResponse/pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 3 
+
+
+Breaking dependencies of microservice 3 with microservice 5
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 6
+---
+Breaking dependencies with microservice 1 
+
+
+Breaking dependencies of microservice 1 with microservice 6
+
+---
+Breaking dependencies with microservice 5 
+
+
+Breaking dependencies of microservice 5 with microservice 6
+
+---
+Breaking dependencies with microservice 0 
+
+DATA TYPE DEPENDENCY - AuthController/pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtProvider
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+

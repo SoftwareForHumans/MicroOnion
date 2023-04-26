@@ -5,6 +5,9 @@ from ServiceDecomposition import ServiceDecomposition
 from Service import Service 
 from datetime import datetime
 from BreakDependencies import BreakDependencies
+from Refactoring import Refactoring
+
+
 
 
 # we expect to receive two files paths as arguments, the code representation and the services decomposition
@@ -37,7 +40,6 @@ def main():
         for file in service.get_files():
             if file in classes.keys():
                 service_classes.append(classes[file])
-
         service.add_classes(service_classes)
    
 
@@ -49,28 +51,32 @@ def main():
         print("\n\n")
 
 
-    # analyze the dependencies of each class, identify the dependencies of each microservice and provide some visualization
+    # analyze the dependencies of each class, identify the dependencies of each microservice
     dependencies = {}
     for s in services:
-        num_dep, dep = s.analyze_dependencies(services, classes)
-        dependencies[str(s.get_id())] = [num_dep, dep]
+        dep = s.analyze_dependencies(services, classes)
+        dependencies[str(s.get_id())] = dep
     
     #write dependencies to a file
     utils.write_json_to_results("dependencies", dependencies)
 
-    
+
+    # refactorings = utils.read_json("./refactorings.json")
+    # sequence = Refactoring("STRANGLER FIG")
+
+    print("\n\nWe gonna take incremental steps towards the new architecture and ensure that each step is easily reversible, reducing risks. We are going to focus the initial refactoring in a high level refactoring: Strangler Fig\n\n")
+    print("\n\nSTRANGLER FIG")
 
 
+    #eventualmente perguntar a estrategia de começar a partir
 
+    print("\n\nNow that the order by which we will extract each microservice is defined, we are going to extract each microservice.")
 
+    print("\n\nAs all dependencies were already identified, we are going to focus on breaking them.\n\n")
 
-
-    
-    # começar por maior numero de dependencias, menor, alguma métrica - por default vamos começar com  o menor
-    dependencies = sorted(dependencies.items(), key = lambda x: x[1][0])
+    # começar por maior numero de dependencias, menor, alguma métrica - por default vamos começar com o menor
     break_dependencies = BreakDependencies(services, dependencies)
-    break_dependencies.break_database_dependencies()
-
+    break_dependencies.break_dependencies()
 
 
 

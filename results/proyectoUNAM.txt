@@ -1,0 +1,984 @@
+0
+com.cocay.sicecd.model.Estado
+com.cocay.sicecd.model.Profesor
+com.cocay.sicecd.repo.EstadoRep
+com.cocay.sicecd.controller.ConsultaProfesorController
+com.cocay.sicecd.controller.ProfesoresController
+com.cocay.sicecd.controller.ModificarProfesor
+com.cocay.sicecd.controller.ModificarAsesores
+com.cocay.sicecd.step.ProcessorProfesor
+com.cocay.sicecd.model.Turno
+com.cocay.sicecd.model.Genero
+com.cocay.sicecd.model.Grado_profesor
+com.cocay.sicecd.repo.ProfesorRep
+com.cocay.sicecd.step.ReaderProfesor
+com.cocay.sicecd.repo.GeneroRep
+com.cocay.sicecd.repo.Grado_profesorRep
+com.cocay.sicecd.repo.TurnoRep
+com.cocay.sicecd.dto.ProfesorDto
+
+
+
+1
+com.cocay.sicecd.model.Inscripcion
+com.cocay.sicecd.controller.ConsultaInscripcionController
+com.cocay.sicecd.step.ProcessorInscripcion
+com.cocay.sicecd.controller.InscripcionesController
+com.cocay.sicecd.controller.ModificarInscripcion
+com.cocay.sicecd.repo.InscripcionRep
+com.cocay.sicecd.dto.InscripcionDto
+
+
+
+2
+com.cocay.sicecd.model.Certificado
+com.cocay.sicecd.controller.DescargasController
+com.cocay.sicecd.controller.ClienteCertificadoController
+com.cocay.sicecd.controller.CertificadoMasivoController
+com.cocay.sicecd.service.Logging
+com.cocay.sicecd.repo.Log_sysRep
+com.cocay.sicecd.repo.Log_evento_sysRep
+com.cocay.sicecd.model.Log_sys
+com.cocay.sicecd.repo.Url_wsRep
+com.cocay.sicecd.model.Url_ws
+com.cocay.sicecd.model.Log_evento_sys
+com.cocay.sicecd.controller.AuditoriasController
+com.cocay.sicecd.repo.CertificadoRep
+com.cocay.sicecd.security.pdf.SeguridadPDF
+
+
+
+3
+com.cocay.sicecd.model.Grupo
+com.cocay.sicecd.controller.BatchController
+com.cocay.sicecd.step.ProcessorGrupo
+com.cocay.sicecd.controller.GrupoController
+com.cocay.sicecd.controller.ModificarGrupos
+com.cocay.sicecd.repo.GrupoRep
+com.cocay.sicecd.controller.ConsultaGrupoController
+com.cocay.sicecd.step.ReaderGrupo
+com.cocay.sicecd.dto.GrupoDto
+
+
+
+4
+com.cocay.sicecd.service.WebService
+com.cocay.sicecd.repo.Url_ws_profesorRep
+com.cocay.sicecd.repo.Url_ws_cursoRep
+com.cocay.sicecd.repo.Url_ws_inscripcionRep
+com.cocay.sicecd.service.WebService.ReturnTypeOne
+com.cocay.sicecd.service.WebService.ReturnTypeTwo
+com.cocay.sicecd.service.WebService.ReturnTypeThree
+com.cocay.sicecd.model.Url_ws_profesor
+com.cocay.sicecd.model.Url_ws_curso
+com.cocay.sicecd.model.Url_ws_inscripcion
+
+
+
+5
+com.cocay.sicecd.config.BatchConfig
+com.cocay.sicecd.step.WriterCurso
+com.cocay.sicecd.repo.CursoBatchRep
+com.cocay.sicecd.step.WriterGrupo
+com.cocay.sicecd.repo.GrupoBatchRep
+com.cocay.sicecd.step.WriterInscripcion
+com.cocay.sicecd.repo.InscripcionBatchRep
+com.cocay.sicecd.repo.ProfesorBatchRep
+com.cocay.sicecd.step.WriterProfesor
+
+
+
+6
+com.cocay.sicecd.controller.ModificarCursos
+com.cocay.sicecd.repo.CursoRep
+com.cocay.sicecd.repo.Tipo_cursoRep
+com.cocay.sicecd.model.Curso
+com.cocay.sicecd.model.Tipo_curso
+com.cocay.sicecd.controller.ConsultaController
+com.cocay.sicecd.step.ProcessorCurso
+com.cocay.sicecd.controller.ConsultaCursoController
+com.cocay.sicecd.controller.CursosController
+com.cocay.sicecd.step.ReaderCurso
+com.cocay.sicecd.dto.CursoDto
+com.cocay.sicecd.config.ExcelConfig
+com.cocay.sicecd.step.CursoExcelRowMapper
+com.cocay.sicecd.step.LoggingCursoProcessor
+
+
+
+7
+com.cocay.sicecd.repo.Usuario_sysRep
+com.cocay.sicecd.controller.AltaUsuarios
+com.cocay.sicecd.controller.RecuperaContrasena
+com.cocay.sicecd.controller.EditarPerfil
+com.cocay.sicecd.model.Usuario_sys
+com.cocay.sicecd.model.Estatus_usuario_sys
+com.cocay.sicecd.model.Perfil_sys
+com.cocay.sicecd.service.MyAppUserDetailsService
+com.cocay.sicecd.service.SendMailService
+com.cocay.sicecd.controller.ExampleContoller
+com.cocay.sicecd.repo.Estatus_usuario_sysRep
+com.cocay.sicecd.repo.Perfil_sysRep
+com.cocay.sicecd.SecurityConfig
+
+
+
+8
+com.cocay.sicecd.webService.CargaBatchService
+com.cocay.sicecd.dto.ResponseGeneric
+com.cocay.sicecd.webService.CargaBatchServiceImpl
+com.cocay.sicecd.controller.ejemploServiceImpl
+com.cocay.sicecd.controller.ejemploService
+com.cocay.sicecd.webService.CorreoServiceImpl
+com.cocay.sicecd.webService.CorreoService
+com.cocay.sicecd.dao.AvisosCorreoDAO
+com.cocay.sicecd.dao.CargaBatchServiceDAO
+com.cocay.sicecd.dto.ErroresDTO
+com.cocay.sicecd.dto.FiltroCorreoDTO
+com.cocay.sicecd.dto.ResponseGenericPagination
+
+
+
+
+
+We gonna take incremental steps towards the new architecture and ensure that each step is easily reversible, reducing risks. We are going to focus the initial refactoring in a high level refactoring: Strangler Fig
+
+
+
+
+STRANGLER FIG
+
+
+Now that the order by which we will extract each microservice is defined, we are going to extract each microservice.
+
+
+As all dependencies were already identified, we are going to focus on breaking them.
+
+
+
+EXTRACT MICROSERVICE 7
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - AltaUsuarios/com.cocay.sicecd.service.Logging
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - RecuperaContrasena/com.cocay.sicecd.service.Logging
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - EditarPerfil/com.cocay.sicecd.service.Logging
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - Usuario_sys/com.cocay.sicecd.model.Log_sys
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+
+Breaking dependencies of microservice 2 with microservice 7
+
+DATA TYPE DEPENDENCY - Logging/com.cocay.sicecd.repo.Usuario_sysRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - Log_sys/com.cocay.sicecd.model.Usuario_sys
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE DATA OWNERSHIP
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 0
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - Profesor/com.cocay.sicecd.model.Certificado
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - ConsultaProfesorController/com.cocay.sicecd.repo.CertificadoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ConsultaProfesorController/com.cocay.sicecd.model.Certificado
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ProfesoresController/com.cocay.sicecd.service.Logging
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarProfesor/com.cocay.sicecd.service.Logging
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarAsesores/com.cocay.sicecd.service.Logging
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 2 with microservice 0
+
+DATA TYPE DEPENDENCY - Certificado/com.cocay.sicecd.model.Profesor
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE DATA OWNERSHIP
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - DescargasController/com.cocay.sicecd.model.Profesor
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - DescargasController/com.cocay.sicecd.repo.ProfesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ClienteCertificadoController/com.cocay.sicecd.model.Profesor
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ClienteCertificadoController/com.cocay.sicecd.model.Profesor
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ClienteCertificadoController/com.cocay.sicecd.repo.ProfesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - CertificadoMasivoController/com.cocay.sicecd.repo.ProfesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - CertificadoMasivoController/com.cocay.sicecd.model.Profesor
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+---
+Breaking dependencies with microservice 1 
+
+DATA TYPE DEPENDENCY - Profesor/com.cocay.sicecd.model.Inscripcion
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - ModificarProfesor/com.cocay.sicecd.repo.InscripcionRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarAsesores/com.cocay.sicecd.repo.InscripcionRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 1 with microservice 0
+
+DATA TYPE DEPENDENCY - Inscripcion/com.cocay.sicecd.model.Profesor
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE DATA OWNERSHIP
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - ConsultaInscripcionController/com.cocay.sicecd.repo.ProfesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ConsultaInscripcionController/com.cocay.sicecd.model.Profesor
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ConsultaInscripcionController/com.cocay.sicecd.model.Grado_profesor
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ConsultaInscripcionController/com.cocay.sicecd.model.Genero
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ConsultaInscripcionController/com.cocay.sicecd.model.Turno
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ProcessorInscripcion/com.cocay.sicecd.repo.ProfesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - InscripcionesController/com.cocay.sicecd.repo.ProfesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - InscripcionesController/com.cocay.sicecd.model.Profesor
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ModificarInscripcion/com.cocay.sicecd.repo.ProfesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ModificarInscripcion/com.cocay.sicecd.model.Profesor
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ModificarInscripcion/com.cocay.sicecd.repo.GeneroRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarInscripcion/com.cocay.sicecd.repo.EstadoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarInscripcion/com.cocay.sicecd.repo.Grado_profesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarInscripcion/com.cocay.sicecd.repo.TurnoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 3 
+
+DATA TYPE DEPENDENCY - ConsultaProfesorController/com.cocay.sicecd.repo.GrupoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarProfesor/com.cocay.sicecd.repo.GrupoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarAsesores/com.cocay.sicecd.repo.GrupoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 3 with microservice 0
+
+DATA TYPE DEPENDENCY - Grupo/com.cocay.sicecd.model.Profesor
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE DATA OWNERSHIP
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - BatchController/com.cocay.sicecd.repo.ProfesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - BatchController/com.cocay.sicecd.model.Profesor
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ProcessorGrupo/com.cocay.sicecd.repo.ProfesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - GrupoController/com.cocay.sicecd.repo.ProfesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - GrupoController/com.cocay.sicecd.model.Profesor
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ModificarGrupos/com.cocay.sicecd.model.Profesor
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ModificarGrupos/com.cocay.sicecd.repo.ProfesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarGrupos/com.cocay.sicecd.repo.GeneroRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarGrupos/com.cocay.sicecd.repo.EstadoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarGrupos/com.cocay.sicecd.repo.Grado_profesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarGrupos/com.cocay.sicecd.repo.TurnoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 6 
+
+DATA TYPE DEPENDENCY - ModificarProfesor/com.cocay.sicecd.repo.CursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarProfesor/com.cocay.sicecd.repo.Tipo_cursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarAsesores/com.cocay.sicecd.repo.CursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarAsesores/com.cocay.sicecd.repo.Tipo_cursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 6 with microservice 0
+
+DATA TYPE DEPENDENCY - ModificarCursos/com.cocay.sicecd.repo.ProfesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarCursos/com.cocay.sicecd.repo.GeneroRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarCursos/com.cocay.sicecd.repo.EstadoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarCursos/com.cocay.sicecd.repo.Grado_profesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarCursos/com.cocay.sicecd.repo.TurnoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ConsultaController/com.cocay.sicecd.repo.ProfesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 1
+---
+Breaking dependencies with microservice 3 
+
+DATA TYPE DEPENDENCY - Inscripcion/com.cocay.sicecd.model.Grupo
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE DATA OWNERSHIP
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - ConsultaInscripcionController/com.cocay.sicecd.repo.GrupoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ConsultaInscripcionController/com.cocay.sicecd.model.Grupo
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ProcessorInscripcion/com.cocay.sicecd.repo.GrupoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - InscripcionesController/com.cocay.sicecd.repo.GrupoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - InscripcionesController/com.cocay.sicecd.model.Grupo
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ModificarInscripcion/com.cocay.sicecd.repo.GrupoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ModificarInscripcion/com.cocay.sicecd.model.Grupo
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+
+Breaking dependencies of microservice 3 with microservice 1
+
+DATA TYPE DEPENDENCY - Grupo/com.cocay.sicecd.model.Inscripcion
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - BatchController/com.cocay.sicecd.repo.InscripcionRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarGrupos/com.cocay.sicecd.repo.InscripcionRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 0 
+
+
+Breaking dependencies of microservice 0 with microservice 1
+
+---
+Breaking dependencies with microservice 6 
+
+DATA TYPE DEPENDENCY - ConsultaInscripcionController/com.cocay.sicecd.repo.CursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ConsultaInscripcionController/com.cocay.sicecd.model.Curso
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ProcessorInscripcion/com.cocay.sicecd.repo.CursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarInscripcion/com.cocay.sicecd.repo.CursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarInscripcion/com.cocay.sicecd.repo.Tipo_cursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 6 with microservice 1
+
+DATA TYPE DEPENDENCY - ModificarCursos/com.cocay.sicecd.repo.InscripcionRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - ConsultaInscripcionController/com.cocay.sicecd.repo.CertificadoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ConsultaInscripcionController/com.cocay.sicecd.model.Certificado
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - InscripcionesController/com.cocay.sicecd.service.Logging
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarInscripcion/com.cocay.sicecd.service.Logging
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 2 with microservice 1
+
+DATA TYPE DEPENDENCY - DescargasController/com.cocay.sicecd.repo.InscripcionRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - CertificadoMasivoController/com.cocay.sicecd.model.Inscripcion
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 5
+---
+Breaking dependencies with microservice 3 
+
+DATA TYPE DEPENDENCY - BatchConfig/com.cocay.sicecd.step.ProcessorGrupo
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - BatchConfig/com.cocay.sicecd.model.Grupo
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 6 
+
+DATA TYPE DEPENDENCY - BatchConfig/com.cocay.sicecd.step.ProcessorCurso
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - BatchConfig/com.cocay.sicecd.model.Curso
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 1 
+
+DATA TYPE DEPENDENCY - BatchConfig/com.cocay.sicecd.step.ProcessorInscripcion
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - BatchConfig/com.cocay.sicecd.model.Inscripcion
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 0 
+
+DATA TYPE DEPENDENCY - BatchConfig/com.cocay.sicecd.step.ProcessorProfesor
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - BatchConfig/com.cocay.sicecd.model.Profesor
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 6
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - ModificarCursos/com.cocay.sicecd.service.Logging
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - Curso/com.cocay.sicecd.model.Certificado
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - CursosController/com.cocay.sicecd.service.Logging
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 2 with microservice 6
+
+DATA TYPE DEPENDENCY - Certificado/com.cocay.sicecd.model.Curso
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE DATA OWNERSHIP
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ClienteCertificadoController/com.cocay.sicecd.model.Curso
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ClienteCertificadoController/com.cocay.sicecd.model.Curso
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ClienteCertificadoController/com.cocay.sicecd.repo.CursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - CertificadoMasivoController/com.cocay.sicecd.repo.CursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - CertificadoMasivoController/com.cocay.sicecd.model.Curso
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+---
+Breaking dependencies with microservice 0 
+
+
+Breaking dependencies of microservice 0 with microservice 6
+
+---
+Breaking dependencies with microservice 1 
+
+
+Breaking dependencies of microservice 1 with microservice 6
+
+---
+Breaking dependencies with microservice 3 
+
+DATA TYPE DEPENDENCY - ModificarCursos/com.cocay.sicecd.repo.GrupoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - Curso/com.cocay.sicecd.model.Grupo
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE DATA OWNERSHIP
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - ProcessorCurso/com.cocay.sicecd.repo.GrupoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 3 with microservice 6
+
+DATA TYPE DEPENDENCY - Grupo/com.cocay.sicecd.model.Curso
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE DATA OWNERSHIP
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - BatchController/com.cocay.sicecd.repo.CursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ProcessorGrupo/com.cocay.sicecd.repo.CursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - GrupoController/com.cocay.sicecd.repo.CursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - GrupoController/com.cocay.sicecd.model.Curso
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ModificarGrupos/com.cocay.sicecd.model.Curso
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ModificarGrupos/com.cocay.sicecd.repo.CursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarGrupos/com.cocay.sicecd.repo.Tipo_cursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - GrupoRep/com.cocay.sicecd.model.Curso
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ConsultaGrupoController/com.cocay.sicecd.model.Curso
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 2
+---
+Breaking dependencies with microservice 0 
+
+
+Breaking dependencies of microservice 0 with microservice 2
+
+---
+Breaking dependencies with microservice 6 
+
+
+Breaking dependencies of microservice 6 with microservice 2
+
+---
+Breaking dependencies with microservice 3 
+
+DATA TYPE DEPENDENCY - Certificado/com.cocay.sicecd.model.Grupo
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE DATA OWNERSHIP
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - ClienteCertificadoController/com.cocay.sicecd.model.Grupo
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - ClienteCertificadoController/com.cocay.sicecd.model.Grupo
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ClienteCertificadoController/com.cocay.sicecd.repo.GrupoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - CertificadoMasivoController/com.cocay.sicecd.model.Grupo
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+DATA TYPE DEPENDENCY - CertificadoMasivoController/com.cocay.sicecd.repo.GrupoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+Breaking dependencies of microservice 3 with microservice 2
+
+DATA TYPE DEPENDENCY - Grupo/com.cocay.sicecd.model.Certificado
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+MOVE FOREIGN-KEY RELATIONSHIP TO CODE
+Split Table
+Replicate Data
+DATA TYPE DEPENDENCY - GrupoController/com.cocay.sicecd.service.Logging
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - ModificarGrupos/com.cocay.sicecd.service.Logging
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 1 
+
+
+Breaking dependencies of microservice 1 with microservice 2
+
+---
+Breaking dependencies with microservice 7 
+
+
+Breaking dependencies of microservice 7 with microservice 2
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 3
+---
+Breaking dependencies with microservice 6 
+
+
+Breaking dependencies of microservice 6 with microservice 3
+
+---
+Breaking dependencies with microservice 0 
+
+
+Breaking dependencies of microservice 0 with microservice 3
+
+---
+Breaking dependencies with microservice 2 
+
+
+Breaking dependencies of microservice 2 with microservice 3
+
+---
+Breaking dependencies with microservice 1 
+
+
+Breaking dependencies of microservice 1 with microservice 3
+
+---
+Breaking dependencies with microservice 7 
+
+DATA TYPE DEPENDENCY - BatchController/com.cocay.sicecd.service.SendMailService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 4
+---
+Breaking dependencies with microservice 2 
+
+DATA TYPE DEPENDENCY - WebService/com.cocay.sicecd.service.Logging
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 6 
+
+DATA TYPE DEPENDENCY - WebService/com.cocay.sicecd.repo.CursoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - WebService/com.cocay.sicecd.model.Curso
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+---
+Breaking dependencies with microservice 3 
+
+DATA TYPE DEPENDENCY - WebService/com.cocay.sicecd.repo.GrupoRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - WebService/com.cocay.sicecd.model.Grupo
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+---
+Breaking dependencies with microservice 0 
+
+DATA TYPE DEPENDENCY - WebService/com.cocay.sicecd.repo.ProfesorRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - WebService/com.cocay.sicecd.model.Profesor
+By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+---
+Breaking dependencies with microservice 1 
+
+DATA TYPE DEPENDENCY - WebService/com.cocay.sicecd.repo.InscripcionRep
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
+
+EXTRACT MICROSERVICE 8
+---
+Breaking dependencies with microservice 0 
+
+DATA TYPE DEPENDENCY - CorreoServiceImpl/com.cocay.sicecd.dto.ProfesorDto
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - CorreoService/com.cocay.sicecd.dto.ProfesorDto
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - AvisosCorreoDAO/com.cocay.sicecd.dto.ProfesorDto
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - CargaBatchServiceDAO/com.cocay.sicecd.dto.ProfesorDto
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - FiltroCorreoDTO/com.cocay.sicecd.dto.ProfesorDto
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 7 
+
+DATA TYPE DEPENDENCY - AvisosCorreoDAO/com.cocay.sicecd.service.SendMailService
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 1 
+
+DATA TYPE DEPENDENCY - CargaBatchServiceDAO/com.cocay.sicecd.dto.InscripcionDto
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - FiltroCorreoDTO/com.cocay.sicecd.dto.InscripcionDto
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 3 
+
+DATA TYPE DEPENDENCY - CargaBatchServiceDAO/com.cocay.sicecd.dto.GrupoDto
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+---
+Breaking dependencies with microservice 6 
+
+DATA TYPE DEPENDENCY - CargaBatchServiceDAO/com.cocay.sicecd.dto.CursoDto
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+DATA TYPE DEPENDENCY - FiltroCorreoDTO/com.cocay.sicecd.dto.CursoDto
+By default we assume the data type is owned and exist only on the microservice where it was first defined.
+However, there are two other options that can be used keeping it in both microservices: to use one as a proxy or to do replication
+
+
+------------------------------------
+
