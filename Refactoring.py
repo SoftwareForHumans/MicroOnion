@@ -1,14 +1,25 @@
 class Refactoring:
-    def __init__(self, name):
-        self.name = name    
-        self.children = []
+    def __init__(self, name, level):
+        self.name = name
+        self.level = level
+        self.refactorings = []
 
-    def add_child(self, child):
-        self.children.append(child)
-        return child
+    def to_json(self):
+        res =  {}
+        res["name"] = self.name
+        res["level"] = self.level
+        refactorings = []
+        for r in self.refactorings:
+            refactorings.append(r.to_json())
+        res['refactorings'] = refactorings
+        return res
 
-    def get_children(self):
-        return self.children
+    def add_refactoring(self, refactoring):
+        self.refactorings.append(refactoring)
+        return refactoring
 
-    def get_name(self):
-        return self.name
+    def get_level(self):
+        return self.level
+    
+    def get_refactorings(self):
+        return self.refactorings
