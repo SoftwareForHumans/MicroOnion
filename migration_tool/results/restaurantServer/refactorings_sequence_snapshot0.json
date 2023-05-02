@@ -4,20 +4,32 @@
         {
             "name": "EXTRACT MICROSERVICE",
             "level": 1,
+            "microservice": 0,
+            "dependent_microservice": -1,
+            "notes": "",
             "refactorings": [
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "1",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "1",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
                     "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "1",
+                    "notes": "",
                     "refactorings": []
                 }
             ]
@@ -25,44 +37,71 @@
         {
             "name": "EXTRACT MICROSERVICE",
             "level": 1,
+            "microservice": 1,
+            "dependent_microservice": -1,
+            "notes": "",
             "refactorings": [
                 {
                     "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
                     "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "5",
+                    "notes": "OneToMany",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "5",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "5",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "5",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "1",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
                     "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "1",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "CHANGE DATA OWNERSHIP",
                     "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "6",
+                    "notes": "",
                     "refactorings": [
                         {
                             "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
                             "level": 3,
+                            "microservice": 1,
+                            "dependent_microservice": "6",
+                            "notes": "ManyToMany",
                             "refactorings": []
                         }
                     ]
@@ -70,26 +109,41 @@
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "6",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "6",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
                     "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "1",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "1",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
                     "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "1",
+                    "notes": "",
                     "refactorings": []
                 }
             ]
@@ -97,14 +151,23 @@
         {
             "name": "EXTRACT MICROSERVICE",
             "level": 1,
+            "microservice": 2,
+            "dependent_microservice": -1,
+            "notes": "",
             "refactorings": [
                 {
                     "name": "CHANGE DATA OWNERSHIP",
                     "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "4",
+                    "notes": "",
                     "refactorings": [
                         {
                             "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
                             "level": 3,
+                            "microservice": 2,
+                            "dependent_microservice": "4",
+                            "notes": "ManyToOne",
                             "refactorings": []
                         }
                     ]
@@ -112,46 +175,73 @@
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "4",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
                     "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "4",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "4",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
                     "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": "OneToMany",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": "",
                     "refactorings": []
                 }
             ]
@@ -159,35 +249,56 @@
         {
             "name": "EXTRACT MICROSERVICE",
             "level": 1,
+            "microservice": 3,
+            "dependent_microservice": -1,
+            "notes": "",
             "refactorings": [
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "5",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
                     "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "5",
+                    "notes": "OneToMany",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "5",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "5",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "3",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
                     "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "3",
+                    "notes": "",
                     "refactorings": []
                 }
             ]
@@ -195,20 +306,32 @@
         {
             "name": "EXTRACT MICROSERVICE",
             "level": 1,
+            "microservice": 4,
+            "dependent_microservice": -1,
+            "notes": "",
             "refactorings": [
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "6",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "1",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "3",
+                    "notes": "",
                     "refactorings": []
                 }
             ]
@@ -216,15 +339,24 @@
         {
             "name": "EXTRACT MICROSERVICE",
             "level": 1,
+            "microservice": 5,
+            "dependent_microservice": -1,
+            "notes": "",
             "refactorings": [
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "6",
+                    "notes": "",
                     "refactorings": []
                 },
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "5",
+                    "notes": "",
                     "refactorings": []
                 }
             ]
@@ -232,10 +364,16 @@
         {
             "name": "EXTRACT MICROSERVICE",
             "level": 1,
+            "microservice": 6,
+            "dependent_microservice": -1,
+            "notes": "",
             "refactorings": [
                 {
                     "name": "DATA TYPE DEPENDENCY",
                     "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "0",
+                    "notes": "",
                     "refactorings": []
                 }
             ]

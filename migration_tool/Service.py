@@ -71,3 +71,8 @@ class Service:
         for i in self.classes:
             if i.get_name() == class_name:
                 return i.get_database_dependency(database_dependency)
+            
+    def check_if_class_is_interface(self, class_name):
+        for i in self.classes:
+            if i.get_name() == class_name:
+                return i.is_interface()

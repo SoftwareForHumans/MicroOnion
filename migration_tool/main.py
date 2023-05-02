@@ -71,7 +71,7 @@ def main():
 
     print("\n\nWe gonna take incremental steps towards the new architecture and ensure that each step is easily reversible, reducing risks. We are going to focus the initial refactoring in a high level refactoring: Strangler Fig\n\n")
     print("\n\nSTRANGLER FIG")
-    initial_refactoring = Refactoring("STRANGLER FIG", 0)
+    initial_refactoring = Refactoring("STRANGLER FIG", 0, -1, -1)
     refactoring_sequence.set_initial_refactoring(initial_refactoring)
 
     #eventualmente perguntar a estrategia de começar a partir
@@ -85,7 +85,7 @@ def main():
     break_dependencies.break_dependencies()
 
     refactoring_sequence.write_refactoring_sequence()
-
+    
 
 
 

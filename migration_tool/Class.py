@@ -51,6 +51,9 @@ class Class:
     def get_name(self):
         return self.class_name
     
+    def is_interface(self):
+        return self.interface
+    
     def get_dependencies(self):
         return self.dependencies
     
@@ -80,7 +83,7 @@ class Class:
             if i['targetClassName'] in classes.keys():
                 self.add_dependency("methodInvocation", i['targetClassName'])
 
-        #verify variables        
+        # verify variables        
         for i in self.variables:
             type = i["type"]
             type_class = get_is_part_of_key(classes, type)
@@ -93,7 +96,7 @@ class Class:
                 if class_name != None:
                     self.add_dependency("methodVariable", class_name)
         
-        #verify other things that may have not been catched in the previous code
+        # verify other things that may have not been catched in the previous code
         for i in self.imports:
             class_name = get_is_part_of_key(classes, i)
             if class_name != None:
@@ -109,12 +112,10 @@ class Class:
             for variable in self.variables:
                 variable_annotations = variable["annotations"]
                 if any(re.match("^@OneToMany",line) for line in variable_annotations):
-                    # print("OneToMany")
                     param = self.get_primary_key()
                     self.database_dependencies["variables"].append(["OneToMany", variable["identifier"][1], param[1]])
 
                 elif any(re.match("^@ManyToMany",line) for line in variable_annotations):
-                    # print("ManyToMany")
                     if any(re.match("^@JoinTable",line) for line in variable_annotations):
                         s = [x for x in variable_annotations if re.match("^@JoinTable", x)][0]
                         s = s.replace(" ", "")
@@ -131,7 +132,6 @@ class Class:
                         self.database_dependencies["variables"].append(["ManyToMany", variable["identifier"][1]])
 
                 elif any(re.match("^@OneToOne",line) for line in variable_annotations):
-                    # print("OneToOne")
                     if any(re.match("^@JoinColumn",line) for line in variable_annotations):
                         annotation = [x for x in variable_annotations if re.match("^@JoinColumn", x)][0]
                         column_name = annotation.replace(" ", "")
@@ -145,7 +145,6 @@ class Class:
                         self.database_dependencies["variables"].append(["OneToOne", variable["identifier"]])
 
                 elif any(re.match("^@ManyToOne",line) for line in variable_annotations):
-                    # print("ManyToOne")
                     if any(re.match("^@JoinColumn",line) for line in variable_annotations):
                         annotation = [x for x in variable_annotations if re.match("^@JoinColumn", x)][0]
                         column_name = annotation.replace(" ", "")
