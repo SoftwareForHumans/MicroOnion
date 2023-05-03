@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
@@ -6,15 +7,22 @@ import React, { useState, useEffect } from "react";
 
 function ChooseProject(props) {
   let descriptions = {
-    "Restaurant Server": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "Restaurant Server": "It is an event based server for the operation of a restaurant regarding their table service, reservations, bills, among others.",
     "Proyecto UNAM": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    "Hotel Management System": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "Hotel Management System": "This is a hotel information management system. It supports the management of employees, guests, rooms, logistics, lost items and finances.",
   };
+  let gits = {
+    "Restaurant Server":"https://github.com/asledziewski/restaurantServer",
+    "ProyectoUNAM": "https://github.com/CocayUNAM/ProyectoUNAM",
+    "Hotel Management System":"https://github.com/NiuPiFiveTeam/HotelManageSystem"
+  }
   const [description, setDescription] = useState("");
+  const [git, setGit] = useState("");
   const [project, setProject] = useState("Choose the project");
   useEffect(() => {
     setDescription(descriptions[project]);
-  }, [project, descriptions]);
+    setGit(gits[project]);
+  }, [project, descriptions, gits]);
   return (
     <div
       className="my-5"
@@ -25,7 +33,7 @@ function ChooseProject(props) {
         justifyContent: "center",
       }}
     >
-      <h3>Choose the project you want to test</h3>
+      <h5 className="mt-4" style={{color: "#1E488F"}}>From the 3 available projects, choose the one you want to see the proposed refactoring sequence</h5>
       <div style={{
         display: "flex",
         flexDirection: "row",
@@ -60,11 +68,22 @@ function ChooseProject(props) {
             Hotel Management System
           </Dropdown.Item>
         </DropdownButton>
-        <div>{description}</div>
+        {
+          description &&
+          <div>
+            <div>
+            {description}<br></br> You can find more on its <a href={git}>Github repository</a>
+            </div>
+            <div style={{fontWeight: 'bold'}}>Microservices proposition</div>
+            </div>
+
+          // add service decomposition
+        }
+        
       </div>
 
-      <Link to="/project" state={{ projectName: project }} className="mt-4">
-        <Button style={{backgroundColor: "#092256"}} size="lg">Next</Button>{" "}
+      <Link to="/categories" state={{ projectName: project }} className="mt-4">
+        <Button style={{backgroundColor: "#092256"}} size="lg">Show Proposed Migration</Button>{" "}
       </Link>
     </div>
   );

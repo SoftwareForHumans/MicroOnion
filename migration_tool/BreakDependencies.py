@@ -1,8 +1,9 @@
 from Refactoring import Refactoring
 from ServiceRepresentation import ServiceRepresentation
-
+from RefactoringRepresentation import RefactoringRepresentation
 class BreakDependencies:
-    def __init__(self, services, dependencies, initial_refactoring, refactoring_representation):
+    def __init__(self, project_name, services, dependencies, initial_refactoring, refactoring_representation):
+        self.project_name = project_name
         self.services = services
         self.dependencies = dependencies
         self.to_remove = []
@@ -24,6 +25,11 @@ class BreakDependencies:
 
     def break_dependencies(self, strategy = None):
         dependencies = dict(sorted(self.dependencies.items(), key=lambda x: len(x[1]), reverse=False))
+
+        refactoring_representation = RefactoringRepresentation(self.project_name)
+        refactoring_representation.set_services(self.services)
+        refactoring_representation.create_new_snapshot()
+
         for microservice, deps in dependencies.items():
             print(f"\nEXTRACT MICROSERVICE {microservice}")
             current_refactoring = self.initial_refactoring.add_refactoring(Refactoring("EXTRACT MICROSERVICE", self.initial_refactoring.get_level() + 1, int(microservice), -1))
@@ -34,12 +40,15 @@ class BreakDependencies:
                 if microservice in dependencies[k].keys():
                     print(f"\nBreaking dependencies of microservice {k} with microservice {microservice}\n")
                     self.break_dependency_file_by_file(k, microservice, dependencies[k][microservice], current_refactoring)
-
+                
+            refactoring_representation.set_services(self.get_service_by_id(microservice))
+            refactoring_representation.create_new_snapshot()
             print("\n------------------------------------\n")
 
         for i in self.services:
             i.clean_dependencies()
-        
+        refactoring_representation.set_services(self.services)
+        refactoring_representation.create_new_snapshot()
 
 
     def break_dependency_file_by_file(self, microservice, k, v, current_refactoring):
@@ -83,21 +92,38 @@ class BreakDependencies:
     def break_database_dependency(self, microservice, dependent_microservice, file, dependent_file, types, current_refactoring):
         dependency = microservice.get_class_database_dependecy(file, dependent_file)
 
+        # in spring it corresponds to the annotation in the entities so we don't need to check if the classes are entities or not
         # if a join table was defined then the microservice is the owner of the data
         if ((dependency[0] == "ManyToMany" or dependency[0] == "OneToOne") and len(dependency) > 2) or dependency[0] == "ManyToOne": 
             print("CHANGE DATA OWNERSHIP")
             current_refactoring = current_refactoring.add_refactoring(Refactoring("CHANGE DATA OWNERSHIP", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice))
             
 
-        #which one comes next
-        print("MOVE FOREIGN-KEY RELATIONSHIP TO CODE")
-        current_refactoring.add_refactoring(Refactoring("MOVE FOREIGN-KEY RELATIONSHIP TO CODE", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice, dependency[0]))
-        # print("Split Table")
-        # print("Replicate Data")
+        print(f"MOVE FOREIGN-KEY RELATIONSHIP TO CODE - {file}/{dependent_file}")
 
-        #ver se sao objetos da base de dados, do tipo entity
+        notes = {}
+        notes["relationship"] = dependency[0]
+        notes["entities"] = []
+        notes["interfaces"] = []
+        dependent_service = self.get_service_by_id(dependent_microservice)
+        entity_name = dependent_file.split('.')[-1]
+        if microservice.check_if_class_is_entity(file):
+            notes["entities"].append(file)
+            microservice.add_interface(file + "Interface")
+            notes["interfaces"].append(file + "Interface")
+        if dependent_service.check_if_class_is_entity(entity_name):
+            notes["entities"].append(entity_name)
+            dependent_service.add_interface(entity_name+ "Interface")
+            notes["interfaces"].append(entity_name + "Interface")
+            
         
+
+        #TODO: change methods to use these interfaces
+        #TODO: check local method call 
+
+        current_refactoring.add_refactoring(Refactoring("MOVE FOREIGN-KEY RELATIONSHIP TO CODE", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice, notes))
         types.remove('databaseDependency')
+
         return types, [dependent_microservice, file, dependent_file, "databaseDependency"]
 
         
@@ -107,7 +133,7 @@ class BreakDependencies:
         #decide between synchornous or asynchronous
         print(f"CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - {file}/{dependent_file}")
  
-        
+
         current_refactoring.add_refactoring(Refactoring("CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice))
 
         types.remove('methodInvocation')
@@ -116,8 +142,6 @@ class BreakDependencies:
 
     def break_type_dependency(self, microservice, dependent_microservice, file, dependent_file, types, current_refactoring):
         print(f"DATA TYPE DEPENDENCY - {file}/{dependent_file}")
-
-        current_refactoring.add_refactoring(Refactoring("DATA TYPE DEPENDENCY", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice))
 
         to_append = []
         res = []
@@ -141,16 +165,45 @@ class BreakDependencies:
         elif "methodVariable" in types:
             to_append.append("methodVariable")
 
-        for i in to_append:
-            types.remove(i)
-            res.append([dependent_microservice, file, dependent_file, i]) 
+        notes = {}
+        notes["DTOs"] = []
+        notes["interfaces"] = []
 
+        for i in to_append:
+            if i == "methodInvocation":
+                # TODO: add method invocation to notes
+                [types, r] = self.break_method_invocation_dependency(microservice, dependent_microservice, file, dependent_file, types, current_refactoring)
+                res.append(r)
+            else:
+                object_name = dependent_file.split(".")[-1]
+                dto_name = object_name + "DTO"
+
+                microservice.add_dto(dto_name)
+                interface_name  = object_name + "DTOInterface"
+                microservice.add_interface(interface_name)
+
+                if dto_name not in notes["DTOs"]:
+                    notes["DTOs"].append(dto_name)
+                if interface_name not in notes["interfaces"]:
+                    notes["interfaces"].append(interface_name)
+
+                types.remove(i)
+                res.append([dependent_microservice, file, dependent_file, i]) 
+
+
+        current_refactoring.add_refactoring(Refactoring("DATA TYPE DEPENDENCY", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice, notes))
         return types, res
     
     def break_import_dependency(self, microservice, dependent_microservice, file, dependent_file, types, current_refactoring):
-        print("We identified a dependency in the file " + file +  " with the file " + dependent_file + " in the imports. However, we aren't able to fix it")
-        
-        current_refactoring.add_refactoring(Refactoring("IMPORT DEPENDENCY", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice))
+        print(f"IMPORT DEPENDENCY - {file}/{dependent_file}")
+
+        file_name = dependent_file.split('.')[-1]
+        notes = {}
+
+        microservice.add_new_class(file_name)
+        notes["new_classes"] = [file_name]
+
+        current_refactoring.add_refactoring(Refactoring("IMPORT DEPENDENCY", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice, notes))
 
         types.remove('imports')
         return types, [dependent_microservice, file, dependent_file, "imports"]
@@ -159,46 +212,19 @@ class BreakDependencies:
         print(f"FILE DEPENDENCY - {file}/{dependent_file}")
         m = self.get_service_by_id(dependent_microservice)
         is_interface = m.check_if_class_is_interface(dependent_file)
-        current_refactoring.add_refactoring(Refactoring("FILE DEPENDENCY", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice))
+        file_name = dependent_file.split('.')[-1]
+        notes = {}
+        if is_interface:
+            microservice.add_interface(file_name)
+            notes["interfaces"] = [file_name]
+        else:
+            microservice.add_new_class(file_name)
+            notes["new_classes"] = [file_name]
+
+        current_refactoring.add_refactoring(Refactoring("FILE DEPENDENCY", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice, notes))
         
         type = "implements" if is_interface else "extends"
         types.remove(type)
         return types, [dependent_microservice, file, dependent_file, type]
     
 
-    def implement_move_foreign_key(self, microservice, dependent_microservice, file, dependent_file, current_refactoring, dependency):
-
-
-        # - remove foreign key constraints - remover anotação
-        # - in th entity class creare an instance variable that represents the other entity involved 
-        # - create two separate databases
-        # - create an interface for each of these database that implements the methods of data manipulation - criar interface para a entidade
-        # - identify the methods tha use/manipulate data from different databases and change them to use the newly created interfaces 
-
-
-        # - change local methods call to service calls using the primary key as a parameter
-        pass
-
-
-    def implement_change_local_methods_call_synchronous(self, microservice, dependent_microservice, file, dependent_file, current_refactoring):
-        # decide the protocol
-        # change the calls
-        # create an interface
-        # create a class that implements that interface
-        # create a variabke of the interface type
-        # store necessary microservice information
-        # change the other microservice to receive the requestz
-        # create a class that defines the resource paths
-        # create a class to process the requestz requests# add methods to entity to perform the actions
-        pass
-
-    def implement_data_transfer_object(self, microservice, dependent_microservice, file, dependent_file, current_refactoring):
-        # create an entity with the necessary data 
-        pass
-    
-    def implement_data_type_dependency(self, microservice, dependent_microservice, file, dependent_file, current_refactoring):
-        # idenitfy where it is used
-        # change local method call to service call
-        #data transfer object
-        # create an interface with the same as the data type that defines the methods invocations identified
-        pass

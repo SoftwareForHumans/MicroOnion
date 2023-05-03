@@ -12,13 +12,19 @@ class RefactoringRepresentation:
         res['snapshot_number'] = self.snapshot_number
         
         services = []
-        for s in self.services:
-            services.append(s.to_json())
-        res['services'] = services
-
-        utils.write_json_to_results(self.project_name, "snapshot" + self.snapshot_number , res)
+        if isinstance(self.services, list):
+            for s in self.services:
+                services.append(s.to_json())
+                res['services'] = services
+        else:
+            res['services'] = [self.services.to_json()]
+ 
+        utils.write_json_to_results(self.project_name, "snapshot" + str(self.snapshot_number) , res)
 
         self.snapshot_number += 1
 
     def add_service(self, service):
         self.services.append(service)
+    
+    def set_services(self, services):
+        self.services = services

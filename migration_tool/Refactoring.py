@@ -1,5 +1,9 @@
+import itertools
 class Refactoring:
-    def __init__(self, name, level, microservice_id, dependent_microservice_id, notes=""):
+    newid = itertools.count()
+
+    def __init__(self, name, level, microservice_id, dependent_microservice_id, notes={}):
+        self.id = next(self.newid)
         self.name = name
         self.level = level
         self.microservice = microservice_id
@@ -9,6 +13,7 @@ class Refactoring:
 
     def to_json(self):
         res =  {}
+        res["id"] = self.id
         res["name"] = self.name
         res["level"] = self.level
         res["microservice"] = self.microservice
@@ -17,7 +22,8 @@ class Refactoring:
         refactorings = []
         for r in self.refactorings:
             refactorings.append(r.to_json())
-        res['refactorings'] = refactorings
+        if len(refactorings) > 0:
+            res['refactorings'] = refactorings
         return res
 
     def add_refactoring(self, refactoring):
@@ -29,3 +35,6 @@ class Refactoring:
     
     def get_refactorings(self):
         return self.refactorings
+    
+    def set_notes(self, notes):
+        self.notes = notes

@@ -8,12 +8,43 @@ class Service:
         self.file_names = list()
         self.classes = list()
         self.dependencies = {}
+        self.service_calls = [] # to which microservice 
+        self.interfaces = []
+        self.dtos = []
+        self.new_classes = []
+        self.independent = False
 
+    def to_json(self):
+        res = {}
+        res["id"] = self.id
+        res["files"] = self.file_names
+        # res["classes"] = self.classes
+        res["new_classes"] = self.new_classes
+        res["service_calls"] = self.service_calls
+        res["dtos"] = self.dtos
+        res["interfaces"] = self.interfaces
+        res["dependencies"] = self.dependencies
+        res["independent"] = self.independent
+        return res
+    
     def get_id(self):
         return self.id
 
     def get_dependencies(self):
         return self.dependencies
+    def set_service_independence(self):
+        self.independent = True
+
+    def add_interface(self, interface):
+        if interface not in self.interfaces:
+            self.interfaces.append(interface)
+
+    def add_dto(self, dto):
+        if dto not in self.dtos:
+            self.dtos.append(dto)
+    def add_new_class(self, new_class):
+        if new_class not in self.new_classes:
+            self.new_classes.append(new_class)
 
     def add_files(self, files):
         self.file_names.extend(files)
@@ -66,6 +97,9 @@ class Service:
             self.dependencies[i] = dict(filter(lambda x: len(x[1]) > 0, self.dependencies[i].items()))
         
         self.dependencies = dict(filter(lambda x: len(x[1]) > 0, self.dependencies.items()))
+
+        if not self.dependencies:
+            self.set_service_independence()
    
     def get_class_database_dependecy(self, class_name, database_dependency):
         for i in self.classes:
@@ -76,3 +110,10 @@ class Service:
         for i in self.classes:
             if i.get_name() == class_name:
                 return i.is_interface()
+            
+    def check_if_class_is_entity(self, class_name):
+        if '.' in class_name:
+            class_name = class_name.split('.')[-1]
+        for i in self.classes:
+            if i.get_name() == class_name:
+                return i.is_entity()

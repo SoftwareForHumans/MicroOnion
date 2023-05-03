@@ -81,7 +81,7 @@ def main():
     print("\n\nAs all dependencies were already identified, we are going to focus on breaking them.\n\n")
 
     # começar por maior numero de dependencias, menor, alguma métrica - por default vamos começar com o menor
-    break_dependencies = BreakDependencies(services, dependencies, initial_refactoring, refactoring_representation)
+    break_dependencies = BreakDependencies(project_name, services, dependencies, initial_refactoring, refactoring_representation)
     break_dependencies.break_dependencies()
 
     refactoring_sequence.write_refactoring_sequence()

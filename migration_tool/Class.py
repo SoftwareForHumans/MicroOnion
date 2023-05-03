@@ -53,6 +53,9 @@ class Class:
     
     def is_interface(self):
         return self.interface
+
+    def is_entity(self):
+        return any(re.match("^@Entity",line) for line in self.annotations)
     
     def get_dependencies(self):
         return self.dependencies

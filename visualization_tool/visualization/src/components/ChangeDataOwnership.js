@@ -1,0 +1,1 @@
+//this service becomes the owener of the data/table/entity
