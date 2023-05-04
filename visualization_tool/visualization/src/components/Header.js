@@ -18,7 +18,7 @@ function Header() {
           Assisted Refactoring Towards a Microservice Architecture
         </h3>
         
-        <h1 style={{ color: "white" }}>MicroPeeler</h1>
+        <h1 style={{ color: "white" }}>OctopusRefact</h1>
       </Link>
     </div>
   );

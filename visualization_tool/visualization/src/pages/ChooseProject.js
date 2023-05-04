@@ -4,18 +4,23 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Button from "react-bootstrap/Button";
 import React, { useState, useEffect } from "react";
+import RestaurantServer from "../assets/RestaurantServer.png";
 
 function ChooseProject(props) {
   let descriptions = {
-    "Restaurant Server": "It is an event based server for the operation of a restaurant regarding their table service, reservations, bills, among others.",
-    "Proyecto UNAM": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    "Hotel Management System": "This is a hotel information management system. It supports the management of employees, guests, rooms, logistics, lost items and finances.",
+    "Restaurant Server":
+      "An event based server for the operation of a restaurant regarding their table service, reservations, bills, among others.",
+    "Proyecto UNAM":
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    "Hotel Management System":
+      "A hotel information management system. It supports the management of employees, guests, rooms, logistics, lost items and finances.",
   };
   let gits = {
-    "Restaurant Server":"https://github.com/asledziewski/restaurantServer",
-    "ProyectoUNAM": "https://github.com/CocayUNAM/ProyectoUNAM",
-    "Hotel Management System":"https://github.com/NiuPiFiveTeam/HotelManageSystem"
-  }
+    "Restaurant Server": "https://github.com/asledziewski/restaurantServer",
+    ProyectoUNAM: "https://github.com/CocayUNAM/ProyectoUNAM",
+    "Hotel Management System":
+      "https://github.com/NiuPiFiveTeam/HotelManageSystem",
+  };
   const [description, setDescription] = useState("");
   const [git, setGit] = useState("");
   const [project, setProject] = useState("Choose the project");
@@ -33,19 +38,22 @@ function ChooseProject(props) {
         justifyContent: "center",
       }}
     >
-      <h5 className="mt-4" style={{color: "#1E488F"}}>From the 3 available projects, choose the one you want to see the proposed refactoring sequence</h5>
-      <div style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-      }}>
+      <h6 className="mt-2" style={{ color: "#092256" }}>
+        From the 3 available projects, choose the one you want to see the
+        proposed refactoring sequence
+      </h6>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <DropdownButton
           id="dropdown-basic-button"
           title={project}
-          variant="secondary"
-          size="lg"
-          className="my-5 mx-5"
+          variant= "secondary"
+          className="my-3"
         >
           <Dropdown.Item
             id="Restaurant Server"
@@ -69,22 +77,32 @@ function ChooseProject(props) {
           </Dropdown.Item>
         </DropdownButton>
         {
-          description &&
-          <div>
-            <div>
-            {description}<br></br> You can find more on its <a href={git}>Github repository</a>
+          description && (
+            <div style={{ width:"60rem", background: '#687f8c', color:"#ededed", borderRadius:"15px", 'box-shadow': '0 0 1em 0 rgba(0, 0, 0, 0.2)'}} className="m-2 p-4">
+              <div>
+                {description}
+                <br></br> You can find more on its{" "}
+                <a style={{color: "#ededed", fontWeight:"bold"}}href={git}>Github repository</a>.
+              </div>
+              <div className="my-3" style={{ fontWeight: "bold", color: "#e3e3e3" }}>
+                Microservices proposition
+              </div>
+              <img src={RestaurantServer} />
             </div>
-            <div style={{fontWeight: 'bold'}}>Microservices proposition</div>
-            </div>
-
-          // add service decomposition
+          )
         }
-        
       </div>
-
-      <Link to="/categories" state={{ projectName: project }} className="mt-4">
-        <Button style={{backgroundColor: "#092256"}} size="lg">Show Proposed Migration</Button>{" "}
-      </Link>
+      {description && (
+        <Link
+          to="/categories"
+          state={{ projectName: project }}
+          className="my-4"
+        >
+          <Button style={{ backgroundColor: "#092256" }} size="md">
+            Show Proposed Migration
+          </Button>{" "}
+        </Link>
+      )}
     </div>
   );
 }

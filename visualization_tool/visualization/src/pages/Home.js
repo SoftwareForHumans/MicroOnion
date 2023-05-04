@@ -25,10 +25,11 @@ function Home() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize:'18px',
+              fontSize:'16px',
               background: 'rgba(30,72,143,0.8)',
               borderColor: "#1E488F",
             }}
+            className="p-4"
           >
             This tool was created as part of a dissertation on assisted refactoring in the context of a microservice architecture. 
             It gets two files as input: one with the proposal of separating the files into different microservices and another with the source code representation. The format of these files can be found in Github's README file.
