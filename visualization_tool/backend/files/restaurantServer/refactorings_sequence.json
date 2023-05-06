@@ -1,1 +1,727 @@
-{"project_name": "restaurantServer", "refactorings": [{"id": 1, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 0, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 2, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "1", "notes": {"DTOs": ["UserDetailsServiceImplDTO"], "interfaces": ["UserDetailsServiceImplDTOInterface"]}}, {"id": 3, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "1", "notes": {}}, {"id": 4, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "1", "notes": {"DTOs": ["UserDetailsServiceImplDTO"], "interfaces": ["UserDetailsServiceImplDTOInterface"]}}, {"id": 5, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "1", "notes": {}}]}, {"id": 6, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 1, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 7, "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE", "level": 2, "microservice": 1, "dependent_microservice": "5", "notes": {"relationship": "OneToMany", "entities": ["User", "Reservation"], "interfaces": ["UserInterface", "ReservationInterface"]}}, {"id": 8, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 1, "dependent_microservice": "5", "notes": {"DTOs": ["ReservationDTO"], "interfaces": ["ReservationDTOInterface"]}}, {"id": 9, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 1, "dependent_microservice": "5", "notes": {"DTOs": ["ReservationDTO"], "interfaces": ["ReservationDTOInterface"]}}, {"id": 10, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 1, "dependent_microservice": "5", "notes": {"DTOs": ["ReservationDTO"], "interfaces": ["ReservationDTOInterface"]}}, {"id": 11, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 5, "dependent_microservice": "1", "notes": {}}, {"id": 12, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 5, "dependent_microservice": "1", "notes": {"DTOs": ["UserServiceDTO"], "interfaces": ["UserServiceDTOInterface"]}}, {"id": 13, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 5, "dependent_microservice": "1", "notes": {}}, {"id": 14, "name": "CHANGE DATA OWNERSHIP", "level": 2, "microservice": 1, "dependent_microservice": "6", "notes": {}, "refactorings": [{"id": 15, "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE", "level": 3, "microservice": 1, "dependent_microservice": "6", "notes": {"relationship": "ManyToMany", "entities": ["User", "Role"], "interfaces": ["UserInterface", "RoleInterface"]}}]}, {"id": 16, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 1, "dependent_microservice": "6", "notes": {"DTOs": ["RoleDTO"], "interfaces": ["RoleDTOInterface"]}}, {"id": 17, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 1, "dependent_microservice": "6", "notes": {}}, {"id": 18, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 1, "dependent_microservice": "6", "notes": {"DTOs": ["MailServiceDTO"], "interfaces": ["MailServiceDTOInterface"]}}, {"id": 19, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "1", "notes": {}}, {"id": 20, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "1", "notes": {}}, {"id": 21, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 6, "dependent_microservice": "1", "notes": {"DTOs": ["UserRepositoryDTO"], "interfaces": ["UserRepositoryDTOInterface"]}}, {"id": 22, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "1", "notes": {}}]}, {"id": 23, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 2, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 24, "name": "CHANGE DATA OWNERSHIP", "level": 2, "microservice": 2, "dependent_microservice": "4", "notes": {}, "refactorings": [{"id": 25, "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE", "level": 3, "microservice": 2, "dependent_microservice": "4", "notes": {"relationship": "ManyToOne", "entities": ["BillPosition", "Dish"], "interfaces": ["BillPositionInterface", "DishInterface"]}}]}, {"id": 26, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "4", "notes": {"DTOs": ["DishDTO"], "interfaces": ["DishDTOInterface"]}}, {"id": 27, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "4", "notes": {}}, {"id": 28, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "4", "notes": {"DTOs": ["DishServiceDTO"], "interfaces": ["DishServiceDTOInterface"]}}, {"id": 29, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "3", "notes": {}}, {"id": 30, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "3", "notes": {"DTOs": ["RTableRepositoryDTO"], "interfaces": ["RTableRepositoryDTOInterface"]}}, {"id": 31, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "3", "notes": {}}, {"id": 32, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "3", "notes": {"DTOs": ["RTableRepositoryDTO"], "interfaces": ["RTableRepositoryDTOInterface"]}}, {"id": 33, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 3, "dependent_microservice": "2", "notes": {}}, {"id": 34, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 3, "dependent_microservice": "2", "notes": {"DTOs": ["BillDTO"], "interfaces": ["BillDTOInterface"]}}, {"id": 35, "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE", "level": 2, "microservice": 3, "dependent_microservice": "2", "notes": {"relationship": "OneToMany", "entities": ["RTable", "Bill"], "interfaces": ["RTableInterface", "BillInterface"]}}, {"id": 36, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 3, "dependent_microservice": "2", "notes": {"DTOs": ["BillDTO"], "interfaces": ["BillDTOInterface"]}}, {"id": 37, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 3, "dependent_microservice": "2", "notes": {"DTOs": ["BillDTO"], "interfaces": ["BillDTOInterface"]}}]}, {"id": 38, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 3, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 39, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 3, "dependent_microservice": "5", "notes": {"DTOs": ["ReservationDTO"], "interfaces": ["ReservationDTOInterface"]}}, {"id": 40, "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE", "level": 2, "microservice": 3, "dependent_microservice": "5", "notes": {"relationship": "OneToMany", "entities": ["RTable", "Reservation"], "interfaces": ["RTableInterface", "ReservationInterface"]}}, {"id": 41, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 3, "dependent_microservice": "5", "notes": {"DTOs": ["ReservationDTO"], "interfaces": ["ReservationDTOInterface"]}}, {"id": 42, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 3, "dependent_microservice": "5", "notes": {"DTOs": ["ReservationDTO"], "interfaces": ["ReservationDTOInterface"]}}, {"id": 43, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 5, "dependent_microservice": "3", "notes": {}}, {"id": 44, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 5, "dependent_microservice": "3", "notes": {"DTOs": ["RTableServiceDTO"], "interfaces": ["RTableServiceDTOInterface"]}}, {"id": 45, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 5, "dependent_microservice": "3", "notes": {}}]}, {"id": 46, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 4, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 47, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 4, "dependent_microservice": "6", "notes": {}}, {"id": 48, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 4, "dependent_microservice": "6", "notes": {"DTOs": ["RoleRepositoryDTO"], "interfaces": ["RoleRepositoryDTOInterface"]}}, {"id": 49, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 4, "dependent_microservice": "1", "notes": {}}, {"id": 50, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 4, "dependent_microservice": "1", "notes": {"DTOs": ["UserRepositoryDTO"], "interfaces": ["UserRepositoryDTOInterface"]}}, {"id": 51, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 4, "dependent_microservice": "3", "notes": {}}, {"id": 52, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 4, "dependent_microservice": "3", "notes": {"DTOs": ["RTableRepositoryDTO"], "interfaces": ["RTableRepositoryDTOInterface"]}}]}, {"id": 53, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 5, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 54, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 5, "dependent_microservice": "6", "notes": {}}, {"id": 55, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 5, "dependent_microservice": "6", "notes": {"DTOs": ["MailServiceDTO"], "interfaces": ["MailServiceDTOInterface"]}}, {"id": 56, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 6, "dependent_microservice": "5", "notes": {"DTOs": ["ReservationDTO"], "interfaces": ["ReservationDTOInterface"]}}]}, {"id": 57, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 6, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 58, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "0", "notes": {}}, {"id": 59, "name": "DATA TYPE DEPENDENCY", "level": 2, "microservice": 6, "dependent_microservice": "0", "notes": {"DTOs": ["JwtProviderDTO"], "interfaces": ["JwtProviderDTOInterface"]}}]}]}
+{
+    "project_name": "restaurantServer",
+    "refactorings": [
+        {
+            "id": 1,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 0,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 2,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "DTOs": [
+                            "UserDetailsServiceImplDTO"
+                        ],
+                        "interfaces": [
+                            "UserDetailsServiceImplDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "1",
+                    "notes": {}
+                },
+                {
+                    "id": 4,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "DTOs": [
+                            "UserDetailsServiceImplDTO"
+                        ],
+                        "interfaces": [
+                            "UserDetailsServiceImplDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "1",
+                    "notes": {}
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 1,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 7,
+                    "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "relationship": "OneToMany",
+                        "entities": [
+                            "User",
+                            "Reservation"
+                        ],
+                        "interfaces": [
+                            "UserInterface",
+                            "ReservationInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "DTOs": [
+                            "ReservationDTO"
+                        ],
+                        "interfaces": [
+                            "ReservationDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 9,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "DTOs": [
+                            "ReservationDTO"
+                        ],
+                        "interfaces": [
+                            "ReservationDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 10,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "DTOs": [
+                            "ReservationDTO"
+                        ],
+                        "interfaces": [
+                            "ReservationDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 11,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "1",
+                    "notes": {}
+                },
+                {
+                    "id": 12,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "DTOs": [
+                            "UserServiceDTO"
+                        ],
+                        "interfaces": [
+                            "UserServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 13,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "1",
+                    "notes": {}
+                },
+                {
+                    "id": 14,
+                    "name": "CHANGE DATA OWNERSHIP",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "6",
+                    "notes": {},
+                    "refactorings": [
+                        {
+                            "id": 15,
+                            "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
+                            "level": 3,
+                            "microservice": 1,
+                            "dependent_microservice": "6",
+                            "notes": {
+                                "relationship": "ManyToMany",
+                                "entities": [
+                                    "User",
+                                    "Role"
+                                ],
+                                "interfaces": [
+                                    "UserInterface",
+                                    "RoleInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 16,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "6",
+                    "notes": {
+                        "DTOs": [
+                            "RoleDTO"
+                        ],
+                        "interfaces": [
+                            "RoleDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 17,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "6",
+                    "notes": {}
+                },
+                {
+                    "id": 18,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "6",
+                    "notes": {
+                        "DTOs": [
+                            "MailServiceDTO"
+                        ],
+                        "interfaces": [
+                            "MailServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 19,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "1",
+                    "notes": {}
+                },
+                {
+                    "id": 20,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "1",
+                    "notes": {}
+                },
+                {
+                    "id": 21,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "DTOs": [
+                            "UserRepositoryDTO"
+                        ],
+                        "interfaces": [
+                            "UserRepositoryDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 22,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "1",
+                    "notes": {}
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 2,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 24,
+                    "name": "CHANGE DATA OWNERSHIP",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "4",
+                    "notes": {},
+                    "refactorings": [
+                        {
+                            "id": 25,
+                            "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
+                            "level": 3,
+                            "microservice": 2,
+                            "dependent_microservice": "4",
+                            "notes": {
+                                "relationship": "ManyToOne",
+                                "entities": [
+                                    "BillPosition",
+                                    "Dish"
+                                ],
+                                "interfaces": [
+                                    "BillPositionInterface",
+                                    "DishInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 26,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "4",
+                    "notes": {
+                        "DTOs": [
+                            "DishDTO"
+                        ],
+                        "interfaces": [
+                            "DishDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 27,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "4",
+                    "notes": {}
+                },
+                {
+                    "id": 28,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "4",
+                    "notes": {
+                        "DTOs": [
+                            "DishServiceDTO"
+                        ],
+                        "interfaces": [
+                            "DishServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 29,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 30,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "RTableRepositoryDTO"
+                        ],
+                        "interfaces": [
+                            "RTableRepositoryDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 31,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 32,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "RTableRepositoryDTO"
+                        ],
+                        "interfaces": [
+                            "RTableRepositoryDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 33,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 34,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "BillDTO"
+                        ],
+                        "interfaces": [
+                            "BillDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 35,
+                    "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "relationship": "OneToMany",
+                        "entities": [
+                            "RTable",
+                            "Bill"
+                        ],
+                        "interfaces": [
+                            "RTableInterface",
+                            "BillInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 36,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "BillDTO"
+                        ],
+                        "interfaces": [
+                            "BillDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 37,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "BillDTO"
+                        ],
+                        "interfaces": [
+                            "BillDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 38,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 3,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 39,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "DTOs": [
+                            "ReservationDTO"
+                        ],
+                        "interfaces": [
+                            "ReservationDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 40,
+                    "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "relationship": "OneToMany",
+                        "entities": [
+                            "RTable",
+                            "Reservation"
+                        ],
+                        "interfaces": [
+                            "RTableInterface",
+                            "ReservationInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 41,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "DTOs": [
+                            "ReservationDTO"
+                        ],
+                        "interfaces": [
+                            "ReservationDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 42,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "DTOs": [
+                            "ReservationDTO"
+                        ],
+                        "interfaces": [
+                            "ReservationDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 43,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 44,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "RTableServiceDTO"
+                        ],
+                        "interfaces": [
+                            "RTableServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 45,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                }
+            ]
+        },
+        {
+            "id": 46,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 4,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 47,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "6",
+                    "notes": {}
+                },
+                {
+                    "id": 48,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "6",
+                    "notes": {
+                        "DTOs": [
+                            "RoleRepositoryDTO"
+                        ],
+                        "interfaces": [
+                            "RoleRepositoryDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 49,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "1",
+                    "notes": {}
+                },
+                {
+                    "id": 50,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "DTOs": [
+                            "UserRepositoryDTO"
+                        ],
+                        "interfaces": [
+                            "UserRepositoryDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 51,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 52,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "RTableRepositoryDTO"
+                        ],
+                        "interfaces": [
+                            "RTableRepositoryDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 53,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 5,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 54,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "6",
+                    "notes": {}
+                },
+                {
+                    "id": 55,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "6",
+                    "notes": {
+                        "DTOs": [
+                            "MailServiceDTO"
+                        ],
+                        "interfaces": [
+                            "MailServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 56,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "DTOs": [
+                            "ReservationDTO"
+                        ],
+                        "interfaces": [
+                            "ReservationDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 57,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 6,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 58,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "0",
+                    "notes": {}
+                },
+                {
+                    "id": 59,
+                    "name": "DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "0",
+                    "notes": {
+                        "DTOs": [
+                            "JwtProviderDTO"
+                        ],
+                        "interfaces": [
+                            "JwtProviderDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

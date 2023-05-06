@@ -10,6 +10,7 @@ import ExtractionSequence from "./pages/ExtractionSequence";
 import Infrastructure from "./pages/Infrastructure";
 import Deployment from "./pages/Deployment";
 import Principles from "./pages/Principles";
+import ExtractService from "./pages/ExtractService";
 function App() {
   return (
     <div className="App">
@@ -20,6 +21,7 @@ function App() {
         <Route path="/categories" element={<Categories/>} />
         <Route path="/dependencies" element={<Dependencies/>} />
         <Route path="/extractionSequence" element={<ExtractionSequence/>} />
+        <Route path="/extractService" element={<ExtractService/>} />
         <Route path="/infrastructure" element={<Infrastructure/>} />
         <Route path="/deployment" element={<Deployment/>} />
         <Route path="/principles" element={<Principles/>} />

@@ -68,7 +68,7 @@ function Categories() {
                   borderRadius: "30px",
                 }}
               >
-                Deployment and Orchestration
+                Deployment & Orchestration
               </Button>
             </Link>
           </Col>
@@ -83,7 +83,7 @@ function Categories() {
                   borderRadius: "30px",
                 }}
               >
-                Check Microservices Principles
+                Check Microservices Architecture Characteristics
               </Button>
             </Link>
           </Col>

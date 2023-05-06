@@ -4,6 +4,7 @@ const controller = require('../controllers/projects');
 const router = express.Router();
 
 router.post('/', controller.getProjects);
-router.get('/:name', controller.getProject)
+router.get('/refactoringsSequence/:name', controller.getRefactoringsSequence);
+router.get('/:project/serviceDependencies/:service', controller.getServiceDependencies);
 
 module.exports = router;
