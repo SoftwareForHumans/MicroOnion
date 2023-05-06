@@ -45,12 +45,10 @@ exports.getRefactoringsSequence = async (req, res) => {
 };
 
 exports.getServiceDependencies = async (req, res) => {
-    console.log("hello")
   const { project } = req.params;
   let { service } = req.params;
   service = service.toString();
   const folder = getProjectFolder(project);
-  
 
   try {
     let response = {};
@@ -63,15 +61,21 @@ exports.getServiceDependencies = async (req, res) => {
     );
     const data = fs.readFileSync(jsonPath, "utf8");
     let jsonData = JSON.parse(data);
-    response["from"] = jsonData[service];
-    console.log(response)
+    response["from"] = []
+    for( j in jsonData[service] ) {
+        response["from"].push([j, jsonData[service][j]])
+    }
+
+    
+    response["to"] = []
     for (i in jsonData) {
       for (j in jsonData[i]) {
         if (j === service) {
-          response["to"]= {[i]: jsonData[i][j]};
+          response["to"].push([i, jsonData[i][j]]);
         }
       }
     }
+    console.log(response)
     res.status(200).json(response);
   } catch (err) {
     console.log(err);

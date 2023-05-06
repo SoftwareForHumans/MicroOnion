@@ -88,8 +88,8 @@ function Categories() {
             </Link>
           </Col>
         </Row>
-        <Row className="mt-5">
-          <p style={{ color: "#1E488F" }}>
+        <Row className="my-4 pb-5">
+          <p className="mb-2" style={{ color: "#1E488F" }}>
             These categories <b>are not</b> in any particular order and can be
             swapped out anytime you see fit.
           </p>

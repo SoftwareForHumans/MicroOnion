@@ -1,12 +1,13 @@
 import Card from "react-bootstrap/Card";
 import { Link } from 'react-router-dom';
 import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 
 function Home() {
   return (
-    <div>
+    <Container className="my-5 pb-5">
       <div
-        className="my-5"
+        className="my-4"
         style={{
           display: "flex",
           alignItems: "center",
@@ -39,11 +40,11 @@ function Home() {
           </Card.Body>
         </Card>
       </div>
-      <Link to="/chooseProject"><Button className="mb-5" variant="dark" style={{backgroundColor: "#092256"}}>
+      <Link to="/chooseProject"><Button className="mb-3" variant="dark" style={{backgroundColor: "#092256"}}>
         Let's get started!
       </Button></Link>
       {/* {" "} */}
-      <div>
+  
         <p>
           Check the source code and documentation on{" "}
           <a href="https://github.com/RitaPeixoto/FEUP-Microservices_assisted_refactoring">
@@ -53,8 +54,8 @@ function Home() {
         <p>
           Further documentation: <a href="">here (dissertation)</a>
         </p>
-      </div>
-    </div>
+
+    </Container>
   );
 }
 

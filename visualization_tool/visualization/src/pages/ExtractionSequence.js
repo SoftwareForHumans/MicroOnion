@@ -29,7 +29,7 @@ function ExtractionSequence() {
   }, []);
 
   return (
-    <Container className="my-4">
+    <Container className="my-5 pb-5">
       <Row className="mt-5" style={{ justifyContent: "center", color: "#092256" }}>
         <p>To begin extracting service, we must first understand <b>what makes the service dependent on the monolith</b>. The first step in extracting a service is to identify all of its dependencies.</p>
       </Row>
@@ -64,7 +64,7 @@ function ExtractionSequence() {
           }
         </Row>
       </div>
-      <Row className="my-5" style={{ justifyContent: "center", color: "#092256" }}>
+      <Row  style={{ justifyContent: "center", color: "#092256" }}>
         <p>In this scenario, we prioritized the breaking of dependencies <b>from least to most coupled</b>. Other approaches are possible.</p>
       </Row>
     </Container>

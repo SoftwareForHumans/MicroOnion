@@ -20,12 +20,10 @@ function ExtractService() {
           `http://localhost:8000/projects/${project}/serviceDependencies/${service.microservice}`
         )
         .then((res) => {
-            
-            console.log(res)
-          setFrom(res.data.from);
-          setTo(res.data.to);
-          console.log(res.data.from);
-          console.log(from)
+            const obj = Object.create(res.data)
+            console.log(obj.from)
+            setFrom(obj.from);
+            setTo(obj.to);
         });
     } catch (err) {
       console.log(err);
@@ -34,6 +32,7 @@ function ExtractService() {
   return (
     <Container>
       <Row>
+        <h4>Extract service {service.microservice}</h4>
         <h6>
           To extract the service, identify the dependencies to the monolith and
           of the monolith to the service
@@ -49,9 +48,11 @@ function ExtractService() {
       >
         <Col>
           <Row>Service dependencies</Row>
-          {from.map((service) => (
-            <div></div>
-          ))}
+          
+          {/* {from.map((key) =>(
+            <div> {key}</div>
+          ))} */}
+         
         </Col>
         <Col>
           <Row>Service dependents</Row>
