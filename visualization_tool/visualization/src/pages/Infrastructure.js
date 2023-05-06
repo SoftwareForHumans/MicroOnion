@@ -34,7 +34,7 @@ function Infrastructure() {
         <Row>
           <Card
             className="mx-3 my-3"
-            style={{ width: "400px", backgroundColor: "#1E488F" }}
+            style={{ width: "400px", backgroundColor: "rgba(30, 72, 143,0.9)" }}
           >
             <Card.Body>
               <Card.Title className="mb-2" style={{ color: "#c0c0c0" }}>
@@ -66,7 +66,7 @@ function Infrastructure() {
           </Card>
           <Card
             className="mx-3 my-3"
-            style={{ width: "400px", backgroundColor: "#1E488F" }}
+            style={{ width: "400px", backgroundColor: "rgba(30, 72, 143,0.9)" }}
           >
             <Card.Body>
               <Card.Title className="mb-2" style={{ color: "#c0c0c0" }}>
@@ -104,7 +104,7 @@ function Infrastructure() {
           </Card>
           <Card
             className="mx-3 my-3"
-            style={{ width: "400px", backgroundColor: "#1E488F" }}
+            style={{ width: "400px", backgroundColor: "rgba(30, 72, 143,0.9)" }}
           >
             <Card.Body>
               <Card.Title className="mb-2" style={{ color: "#c0c0c0" }}>
@@ -139,7 +139,7 @@ function Infrastructure() {
           </Card>
           <Card
             className="mx-3 my-3"
-            style={{ width: "400px", backgroundColor: "#1E488F" }}
+            style={{ width: "400px", backgroundColor: "rgba(30, 72, 143,0.9)" }}
           >
             <Card.Body>
               <Card.Title className="mb-2" style={{ color: "#c0c0c0" }}>
@@ -175,6 +175,22 @@ function Infrastructure() {
           </Card>
         </Row>
       </div>
+      <Row
+        className="my-4 pb-5"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "#092256",
+        }}
+      >
+        <p className="my-2">
+          {" "}
+          You can find{" "}
+          <b>more information and examples on the catalog (link)</b> developed
+          for source of this tool.
+        </p>
+      </Row>
     </Container>
   );
 }
