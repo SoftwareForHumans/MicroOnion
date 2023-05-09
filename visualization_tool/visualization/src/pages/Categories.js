@@ -12,7 +12,7 @@ function Categories() {
 
   return (
     <div>
-      <h6 className="mt-5" style={{ color: "#092256" }}>
+      <h6 className="mt-4" style={{ color: "#092256" }}>
         Check our suggestions on the different concerns of the migration
       </h6>
 
@@ -91,7 +91,7 @@ function Categories() {
         <Row className="my-4 pb-5">
           <p className="mb-2" style={{ color: "#1E488F" }}>
             These categories <b>are not</b> in any particular order and can be
-            swapped out anytime you see fit.
+            swapped out anytime you see fit.<br></br> We suggest a <b>Strangler Fig</b> approach to the migration, taking incremental steps that are reversible, reducing the risks. 
           </p>
         </Row>
       </Container>

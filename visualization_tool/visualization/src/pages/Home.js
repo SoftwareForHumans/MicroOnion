@@ -33,9 +33,8 @@ function Home() {
             className="p-4"
           >
             This tool was created as part of a dissertation on assisted refactoring in the context of a microservice architecture. 
-            It gets two files as input: one with the proposal of separating the files into different microservices and another with the source code representation. The format of these files can be found in Github's README file.
+            It gets two files as input: one with the proposal of separating the files into different microservices and another with the source code representation. The format of these files can be found in Github's README file and the information for these can be gathered by other existing tools.
             This website graphically displays the tool's results for three Java Spring projects in order to improve the developer experience and provide additional information on how to conduct the migration. 
-            We propose a Strangler Fig approach to the migration, taking incremental steps that are reversible, reducing the risks.
             You can find more information on the dissertation document.
           </Card.Body>
         </Card>
