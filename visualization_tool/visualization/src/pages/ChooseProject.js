@@ -5,6 +5,10 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Button from "react-bootstrap/Button";
 import React, { useState, useEffect } from "react";
 import RestaurantServer from "../assets/RestaurantServer.png";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import "../styles/service.css";
 
 function ChooseProject(props) {
   let descriptions = {
@@ -24,10 +28,13 @@ function ChooseProject(props) {
   const [description, setDescription] = useState("");
   const [git, setGit] = useState("");
   const [project, setProject] = useState("Choose the project");
+
+
   useEffect(() => {
     setDescription(descriptions[project]);
     setGit(gits[project]);
   }, [project, descriptions, gits]);
+
   return (
     <div
       className="my-5"
@@ -42,6 +49,7 @@ function ChooseProject(props) {
         From the 3 available projects, choose the one you want to see the
         proposed refactoring sequence
       </h6>
+      <p style={{fontSize:"9px"}}>This tool allows any project with files in the format specified in the README file, previously mentioned. However, here we want you to focus on these 3 examples.</p>
       <div
         style={{
           display: "flex",
@@ -50,9 +58,8 @@ function ChooseProject(props) {
         }}
       >
         <DropdownButton
-          id="dropdown-basic-button"
+          id="dropdown-button"
           title={project}
-          variant= "secondary"
           className="my-3"
         >
           <Dropdown.Item
@@ -76,33 +83,55 @@ function ChooseProject(props) {
             Hotel Management System
           </Dropdown.Item>
         </DropdownButton>
-        {
-          description && (
-            <div style={{ width:"60rem", background: '#687f8c', color:"#ededed", borderRadius:"15px", 'box-shadow': '0 0 1em 0 rgba(0, 0, 0, 0.2)'}} className="m-2 p-4">
-              <div>
+        {description && (
+          <Container style={{ display: "flex", flexDirection: "row" }}>
+            <Col
+              style={{
+                width: "60rem",
+              }}
+              className="m-2 p-4"
+            >
+              <div className="mb-4">
                 {description}
                 <br></br> You can find more on its{" "}
-                <a style={{color: "#ededed", fontWeight:"bold"}}href={git}>Github repository</a>.
+                <a style={{  fontWeight: "bold", color: "#092256" }} href={git}>
+                  Github repository
+                </a>
+                .
               </div>
-              <div className="my-3" style={{ fontWeight: "bold", color: "#e3e3e3" }}>
+              {description && (
+                <Link
+                  to="/extractionSequence"
+                  state={{ projectName: project }}
+                  className="my-4"
+                >
+                  <Button style={{ backgroundColor: "#687f8c", borderColor: "#687f8c" }} size="md" >
+                    Show Proposed Migration
+                  </Button>{" "}
+                </Link>
+              )}
+            </Col>
+            <Col
+              style={{
+                width: "60rem",
+                background: "#687f8c",
+                color: "#ededed",
+                borderRadius: "10px",
+                
+              }}
+              className="m-2 p-4"
+            >
+              <div
+                className="my-3"
+                style={{ fontWeight: "bold", color: "#e3e3e3" }}
+              >
                 Microservices proposition
               </div>
               <img src={RestaurantServer} />
-            </div>
-          )
-        }
+            </Col>
+          </Container>
+        )}
       </div>
-      {description && (
-        <Link
-          to="/categories"
-          state={{ projectName: project }}
-          className="my-4"
-        >
-          <Button style={{ backgroundColor: "#092256" }} size="md">
-            Show Proposed Migration
-          </Button>{" "}
-        </Link>
-      )}
     </div>
   );
 }

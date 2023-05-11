@@ -47,10 +47,10 @@ exports.getRefactoringsSequence = async (req, res) => {
 exports.getServiceDependencies = async (req, res) => {
   const { project } = req.params;
   let { service } = req.params;
-  service = service.toString();
-  const folder = getProjectFolder(project);
 
   try {
+    service = service.toString();
+    const folder = getProjectFolder(project);
     let response = {};
     const jsonPath = path.join(
       __dirname,
@@ -61,13 +61,12 @@ exports.getServiceDependencies = async (req, res) => {
     );
     const data = fs.readFileSync(jsonPath, "utf8");
     let jsonData = JSON.parse(data);
-    response["from"] = []
-    for( j in jsonData[service] ) {
-        response["from"].push([j, jsonData[service][j]])
+    response["from"] = [];
+    for (j in jsonData[service]) {
+      response["from"].push([j, jsonData[service][j]]);
     }
 
-    
-    response["to"] = []
+    response["to"] = [];
     for (i in jsonData) {
       for (j in jsonData[i]) {
         if (j === service) {
@@ -75,8 +74,57 @@ exports.getServiceDependencies = async (req, res) => {
         }
       }
     }
-    console.log(response)
+    console.log(response);
     res.status(200).json(response);
+  } catch (err) {
+    console.log(err);
+    res.status(400).send();
+  }
+};
+
+exports.getServiceExtractionSequence = async (req, res) => {
+  const { project } = req.params;
+  let { service } = req.params;
+  let response = {}
+
+  try {
+    service = service.toString();
+    const folder = getProjectFolder(project);
+    const jsonPath = path.join(
+      __dirname,
+      "..",
+      "files",
+      folder,
+      "/refactorings_sequence.json"
+    );
+    const data = fs.readFileSync(jsonPath, "utf8");
+    let jsonData = JSON.parse(data);
+    let refactorings = [];
+    let counter = 0;
+
+    jsonData["refactorings"].forEach(i => {
+      counter++;
+      if (i["microservice"] === parseInt(service) && i["name"] == "EXTRACT MICROSERVICE") {
+        refactorings = i["refactorings"];
+        return;
+      }
+    }); 
+      
+    response["sequence"] = refactorings;
+    
+    const jsonPath2 = path.join(
+      __dirname,
+      "..",
+      "files",
+      folder,
+      "/snapshot"+ counter + ".json"
+    );
+    const data2 = fs.readFileSync(jsonPath2, "utf8");
+    let jsonData2 = JSON.parse(data2);
+    response["finalState"] = jsonData2["services"]
+
+    console.log(response);
+    res.status(200).json(response)
   } catch (err) {
     console.log(err);
     res.status(400).send();

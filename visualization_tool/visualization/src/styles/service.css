@@ -1,0 +1,19 @@
+.service{
+    background-color: rgba(60,118,225, 1);
+    height: 20vh;
+    width: 20vh;
+    border-radius: 50%;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  }
+  .service:hover{
+    background-color: rgb(0, 60, 172);
+    height: 20vh;
+    width: 20vh;
+    border-radius: 50%;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  }
+  
+#dropdown-button{
+  background-color: #687f8c;
+  border-color: #687f8c;
+}

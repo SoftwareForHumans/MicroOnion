@@ -191,7 +191,7 @@ class BreakDependencies:
                 res.append([dependent_microservice, file, dependent_file, i]) 
 
 
-        current_refactoring.add_refactoring(Refactoring("DATA TYPE DEPENDENCY", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice, notes))
+        current_refactoring.add_refactoring(Refactoring("BREAK DATA TYPE DEPENDENCY", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice, notes))
         return types, res
     
     def break_import_dependency(self, microservice, dependent_microservice, file, dependent_file, types, current_refactoring):

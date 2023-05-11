@@ -39,7 +39,7 @@ function Home() {
           </Card.Body>
         </Card>
       </div>
-      <Link to="/chooseProject"><Button className="mb-3" variant="dark" style={{backgroundColor: "#092256"}}>
+      <Link to="/categories"><Button className="mb-3" variant="dark" style={{backgroundColor: "#092256"}}>
         Let's get started!
       </Button></Link>
       {/* {" "} */}

@@ -1,14 +1,38 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-
 function Categories() {
-  let { state } = useLocation();
-  const project = state.projectName;
+  const [hoverExtract, setHoverExtract] = useState(false);
+  const [hoverInfrastructure, setHoverInfrastructure] = useState(false);
+  const [hoverDeployment, setHoverDeployment] = useState(false);
+  const [hoverCharacteristics, setHoverCharacteristics] = useState(false);
+  const handleMouseEnterExtract = () => {
+    setHoverExtract(true);
+  };
+  const handleMouseLeaveExtract = () => {
+    setHoverExtract(false);
+  };
+  const handleMouseEnterInfrastructure = () => {
+    setHoverInfrastructure(true);
+  };
+  const handleMouseLeaveInfrastructure = () => {
+    setHoverInfrastructure(false);
+  };
+  const handleMouseEnterDeployment = () => {
+    setHoverDeployment(true);
+  };
+  const handleMouseLeaveDeployment = () => {
+    setHoverDeployment(false);
+  };
+  const handleMouseEnterCharacteristics = () => {
+    setHoverCharacteristics(true);
+  };
+  const handleMouseLeaveCharacteristics = () => {
+    setHoverCharacteristics(false);
+  };
 
   return (
     <div>
@@ -27,15 +51,17 @@ function Categories() {
       >
         <Row className="m-0 p-0" style={{ color: "white" }}>
           <Col lg={3}>
-            <Link to="/extractionSequence" state={{ projectName: project }}>
+            <Link to="/chooseProject">
               <Button
                 size="lg"
+                onMouseEnter={handleMouseEnterExtract}
+                onMouseLeave={handleMouseLeaveExtract}
                 style={{
-                  backgroundColor: "#092256",
-                  color: "white",
+                  backgroundColor: hoverExtract? "#092256": "rgba(9, 34, 86, 0.7)",
                   height: "30vh",
                   width: "35vh",
                   borderRadius: "30px",
+                  "box-shadow": "0 0 1em 0 rgba(0, 0, 0, 0.2)",
                 }}
               >
                 Extract Services
@@ -43,14 +69,17 @@ function Categories() {
             </Link>
           </Col>
           <Col style={{ marginTop: "7rem" }} lg={3}>
-            <Link to="/infrastructure" state={{ projectName: project }}>
+            <Link to="/infrastructure">
               <Button
                 size="lg"
+                onMouseEnter={handleMouseEnterInfrastructure}
+                onMouseLeave={handleMouseLeaveInfrastructure}
                 style={{
-                  backgroundColor: "#1E488F",
+                  backgroundColor: hoverInfrastructure? "#1E488F": "rgba(30, 72, 143, 0.7)",
                   height: "30vh",
                   width: "35vh",
                   borderRadius: "30px",
+                  "box-shadow": "0 0 1em 0 rgba(0, 0, 0, 0.2)",
                 }}
               >
                 Infrastructure Improvement
@@ -58,14 +87,17 @@ function Categories() {
             </Link>
           </Col>
           <Col lg={3}>
-            <Link to="/deployment" state={{ projectName: project }}>
+            <Link to="/deployment">
               <Button
                 size="lg"
+                onMouseEnter={handleMouseEnterDeployment}
+                onMouseLeave={handleMouseLeaveDeployment}
                 style={{
-                  backgroundColor: "#3C76E1",
+                  backgroundColor: hoverDeployment?"#3C76E1":"rgba(60,118,225,0.7)",
                   height: "30vh",
                   width: "35vh",
                   borderRadius: "30px",
+                  "box-shadow": "0 0 1em 0 rgba(0, 0, 0, 0.2)",
                 }}
               >
                 Deployment & Orchestration
@@ -73,14 +105,17 @@ function Categories() {
             </Link>
           </Col>
           <Col style={{ marginTop: "7rem" }} lg={2}>
-            <Link to="/principles" state={{ projectName: project }}>
+            <Link to="/principles">
               <Button
                 size="lg"
+                onMouseEnter={handleMouseEnterCharacteristics}
+                onMouseLeave={handleMouseLeaveCharacteristics}
                 style={{
-                  backgroundColor: "#687f8c",
+                  backgroundColor: hoverCharacteristics? "#687f8c":"rgba(104,127,140,0.7)",
                   height: "30vh",
                   width: "35vh",
                   borderRadius: "30px",
+                  "box-shadow": "0 0 1em 0 rgba(0, 0, 0, 0.2)",
                 }}
               >
                 Check Microservices Architecture Characteristics
@@ -91,7 +126,9 @@ function Categories() {
         <Row className="my-4 pb-5">
           <p className="mb-2" style={{ color: "#1E488F" }}>
             These categories <b>are not</b> in any particular order and can be
-            swapped out anytime you see fit.<br></br> We suggest a <b>Strangler Fig</b> approach to the migration, taking incremental steps that are reversible, reducing the risks. 
+            swapped out anytime you see fit.<br></br> We suggest a{" "}
+            <b>Strangler Fig</b> approach to the migration, taking incremental
+            steps that are reversible, reducing the risks.
           </p>
         </Row>
       </Container>
