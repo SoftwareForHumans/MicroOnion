@@ -1,0 +1,65 @@
+@startuml
+!theme plain
+allow_mixing
+left to right direction
+
+
+folder 0{
+  class security.WebSecurityConfiguration
+  class security.jwt.JwtAuthEntryPoint
+  class security.jwt.JwtAuthTokenFilter
+  class security.jwt.JwtProvider
+}
+
+folder 1{
+  class security.service.UserDetailsServiceImpl
+  class repository.UserRepository
+  entity entity.User 
+  class security.service.UserPrinciple
+  class service.UserService
+  class controller.UserController
+}
+
+folder 2{
+  entity entity.Bill
+  entity entity.BillPosition
+  class service.BillService
+  class controller.BillController
+  class service.BillPositionService
+  class controller.BillPositionController
+  class repository.BillPositionRepository
+  class repository.BillRepository
+}
+
+folder 3{
+  class service.RTableService
+  entity entity.RTable
+  class controller.RTableController
+  class repository.RTableRepository
+}
+
+folder 4{
+  entity entity.Dish
+  class RestaurantServerApplication
+  class repository.DishRepository
+  class service.DishService
+  class controller.DishController
+}
+
+folder 5{
+  class repository.ReservationRepository
+  entity entity.Reservation
+  class service.ReservationService
+  class controller.ReservationController
+}
+
+folder 6{
+  class form.response.JwtResponse
+  class email.MailService
+  class controller.AuthController
+  entity entity.Role
+  class repository.RoleRepository
+  class form.LoginForm
+  class form.SignUpForm
+}
+@enduml

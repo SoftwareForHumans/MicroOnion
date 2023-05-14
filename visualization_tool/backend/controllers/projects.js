@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 exports.getProjects = async (req, res) => {
-  res.status(200).send();
+  res.status(200).send("hello");
 };
 
 exports.getRefactoringsSequence = async (req, res) => {

@@ -4,12 +4,13 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Button from "react-bootstrap/Button";
 import React, { useState, useEffect } from "react";
-import RestaurantServer from "../assets/RestaurantServer.png";
+// import RestaurantServer from "../assets/restaurantServer_microservices.png";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../styles/service.css";
 
+import restaurantServer from "../assets/restaurantServer_microservices_edited.png";
 function ChooseProject(props) {
   let descriptions = {
     "Restaurant Server":
@@ -28,7 +29,6 @@ function ChooseProject(props) {
   const [description, setDescription] = useState("");
   const [git, setGit] = useState("");
   const [project, setProject] = useState("Choose the project");
-
 
   useEffect(() => {
     setDescription(descriptions[project]);
@@ -49,7 +49,11 @@ function ChooseProject(props) {
         From the 3 available projects, choose the one you want to see the
         proposed refactoring sequence
       </h6>
-      <p style={{fontSize:"9px"}}>This tool allows any project with files in the format specified in the README file, previously mentioned. However, here we want you to focus on these 3 examples.</p>
+      <p style={{ fontSize: "9px" }}>
+        This tool allows any project with files in the format specified in the
+        README file, previously mentioned. However, here we want you to focus on
+        these 3 examples.
+      </p>
       <div
         style={{
           display: "flex",
@@ -57,11 +61,7 @@ function ChooseProject(props) {
           justifyContent: "center",
         }}
       >
-        <DropdownButton
-          id="dropdown-button"
-          title={project}
-          className="my-3"
-        >
+        <DropdownButton id="dropdown-button" title={project} className="my-3">
           <Dropdown.Item
             id="Restaurant Server"
             onClick={(e) => setProject(e.target.id)}
@@ -83,55 +83,63 @@ function ChooseProject(props) {
             Hotel Management System
           </Dropdown.Item>
         </DropdownButton>
-        {description && (
-          <Container style={{ display: "flex", flexDirection: "row" }}>
-            <Col
-              style={{
-                width: "60rem",
-              }}
-              className="m-2 p-4"
-            >
-              <div className="mb-4">
-                {description}
-                <br></br> You can find more on its{" "}
-                <a style={{  fontWeight: "bold", color: "#092256" }} href={git}>
-                  Github repository
-                </a>
-                .
-              </div>
-              {description && (
-                <Link
-                  to="/extractionSequence"
-                  state={{ projectName: project }}
-                  className="my-4"
-                >
-                  <Button style={{ backgroundColor: "#687f8c", borderColor: "#687f8c" }} size="md" >
-                    Show Proposed Migration
-                  </Button>{" "}
-                </Link>
-              )}
-            </Col>
-            <Col
-              style={{
-                width: "60rem",
-                background: "#687f8c",
-                color: "#ededed",
-                borderRadius: "10px",
-                
-              }}
-              className="m-2 p-4"
-            >
-              <div
-                className="my-3"
-                style={{ fontWeight: "bold", color: "#e3e3e3" }}
-              >
-                Microservices proposition
-              </div>
-              <img src={RestaurantServer} />
-            </Col>
-          </Container>
-        )}
       </div>
+      {description && (
+        <>
+          <Row
+            style={{
+              width: "60rem",
+            }}
+            className="p-4"
+          >
+            <p>
+              {description}
+              <br></br> You can find more on its{" "}
+              <a style={{ fontWeight: "bold", color: "#092256" }} href={git}>
+                Github repository
+              </a>
+              .
+            </p>
+            <Link
+              to="/extractionSequence"
+              state={{ projectName: project }}
+              className="mt-4"
+            >
+              <Button
+                style={{ backgroundColor: "#092256", borderColor: "#687f8c" }}
+                size="md"
+              >
+                Show Proposed Migration
+              </Button>{" "}
+            </Link>
+          </Row>
+          <Row
+            style={{
+              background: "#687f8c",
+              color: "#ededed",
+              borderRadius: "10px",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            className="m-5 p-4"
+          >
+            <div
+              className="mb-3"
+              style={{
+                fontWeight: "bold",
+                color: "#e3e3e3",
+                fontSize: "18px",
+              }}
+            >
+              Microservices proposition
+            </div>
+            {/* {project === "Restaurant Server" && <RestaurantServer />}
+            {project === "Proyecto UNAM" && <RestaurantServer />}
+            {project === "Hotel Management System" && <RestaurantServer />} */}
+            <img src={restaurantServer} alt="react logo" />
+          </Row>{" "}
+        </>
+      )}
     </div>
   );
 }

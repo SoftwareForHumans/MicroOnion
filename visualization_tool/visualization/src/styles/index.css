@@ -25,3 +25,12 @@ footer {
   text-align: center;
 }
 
+.center-all{
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+.blue-text{
+  color: #092256,
+}

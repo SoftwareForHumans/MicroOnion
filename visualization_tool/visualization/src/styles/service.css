@@ -1,15 +1,17 @@
 .service{
-    background-color: rgba(60,118,225, 1);
-    height: 20vh;
-    width: 20vh;
-    border-radius: 50%;
+    background-color: rgb(0, 60, 172);
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 8rem;
+    border-color:rgb(0, 60, 172);
     box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
   }
   .service:hover{
-    background-color: rgb(0, 60, 172);
-    height: 20vh;
-    width: 20vh;
-    border-radius: 50%;
+    background-color: rgba(0,60,172, 0.85);
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 8rem;
+    border-color: rgb(0,60,172);
     box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
   }
   

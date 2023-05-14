@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import "../styles/service.css";
 
 function ExtractionSequence() {
@@ -32,43 +33,60 @@ function ExtractionSequence() {
         style={{ justifyContent: "center", color: "#092256" }}
       >
         <p>
-          To begin extracting service, we must first understand{" "}
-          <b>what makes the service dependent on the monolith</b>. The first
-          step in extracting a service is to identify all of its dependencies.
+          {" "}
+          Here we present the order by which we propose the services to be
+          extracted. <br></br>
+          <b>Click on each of them to find out how to extract them.</b>
         </p>
       </Row>
-      <div
+
+      <Row
         style={{
           display: "flex",
-          flexDirection: "column",
-          alignItems: "left",
           justifyContent: "center",
-          paddingTop: "5%",
+          color: "white",
         }}
+        className="m-0 pt-5"
       >
-        <Row style={{ color: "white" }}>
-          {extract_services.map((service) => (
+        {extract_services.map((service, index) => (
+          <>
             <Col className="my-2 ">
               <Link
                 to="/extractService"
                 state={{ projectName: project, service: service }}
-                className="mt-4 service"
+                className="mt-4"
               >
                 <Button size="lg" className="service">
-                  Extract Service {service.microservice}
+                  {service.microservice}
                 </Button>
               </Link>
             </Col>
-          ))}
-        </Row>
-      </div>
+            { index !== extract_services.length -1 &&
+            <Col
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                display: "flex",
+                color:"grey"
+              }}
+            >
+              <MdKeyboardDoubleArrowRight
+                size={"30px"}
+                style={{ color: "#687f8c" }}
+              ></MdKeyboardDoubleArrowRight>
+            </Col>
+}
+          </>
+        ))}
+      </Row>
       <Row
         style={{ justifyContent: "center", color: "#092256" }}
         className="mt-5"
       >
         <p>
-          In this scenario, we prioritized the breaking of dependencies{" "}
-          <b>from least to most coupled</b>. Other approaches are possible.
+          In this scenario, we prioritized the services' extraction{" "}
+          <b>from least to most coupled</b>, but other approaches are possible
+          to decide this order.
         </p>
       </Row>
     </Container>
