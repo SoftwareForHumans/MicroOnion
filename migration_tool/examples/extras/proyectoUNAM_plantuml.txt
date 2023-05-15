@@ -1,0 +1,136 @@
+@startuml
+!theme plain
+allow_mixing
+left to right direction
+
+folder 0{
+  entity model.Estado
+  entity model.Profesor
+  class repo.EstadoRep
+  class controller.ConsultaProfesorController
+  class controller.ProfesoresController
+  class controller.ModificarProfesor
+  class controller.ModificarAsesores
+  class step.ProcessorProfesor
+  entity model.Turno
+  entity model.Genero
+  entity model.Grado_profesor
+  class repo.ProfesorRep
+  class step.ReaderProfesor
+  class repo.GeneroRep
+  class repo.Grado_profesorRep
+  class repo.TurnoRep
+  class dto.ProfesorDto
+}
+
+folder 1{
+  entity model.Inscripcion
+  class controller.ConsultaInscripcionController
+  class step.ProcessorInscripcion
+  class controller.InscripcionesController
+  class controller.ModificarInscripcion
+  class repo.InscripcionRep
+  class dto.InscripcionDto
+}
+
+folder 2{
+  entity model.Certificado
+  class controller.DescargasController
+  class controller.ClienteCertificadoController
+  class controller.CertificadoMasivoController
+  class service.Logging
+  class repo.Log_sysRep
+  class repo.Log_evento_sysRep
+  entity model.Log_sys
+  class repo.Url_wsRep
+  entity model.Url_ws
+  entity model.Log_evento_sys
+  class controller.AuditoriasController
+  class repo.CertificadoRep
+  class security.pdf.SeguridadPDF
+}
+
+folder 3{
+  entity model.Grupo
+  class controller.BatchController
+  class step.ProcessorGrupo
+  class controller.GrupoController
+  class controller.ModificarGrupos
+  class repo.GrupoRep
+  class controller.ConsultaGrupoController
+  class step.ReaderGrupo
+  class dto.GrupoDto
+}
+
+
+folder 4{
+  class service.WebService.
+  class repo.Url_ws_profesorRep
+  class repo.Url_ws_cursoRep
+  class repo.Url_ws_inscripcionRep
+  class service.webService.ReturnTypeOne
+  class service.webService.ReturnTypeTwo
+  class service.webService.ReturnTypeThree
+  entity Url_ws_profesor
+  entity Url_ws_curso
+  entity Url_ws_inscripcion
+}
+
+folder 5{
+  class config.BatchConfig
+  class step.WriterCurso
+  class repo.CursoBatchRep
+  class step.WriterGrupo
+  class repo.GrupoBatchRep
+  class step.WriterInscripcion
+  class repo.InscripcionBatchRep
+  class repo.ProfesorBatchRep
+  class step.WriterProfesor
+}
+
+folder 6{
+  class controller.ModificarCursos
+  class repo.CursoRep
+  class repo.Tipo_cursoRep
+  entity model.Curso
+  entity model.Tipo_curso
+  class controller.ConsultaController
+  class step.ProcessorCurso
+  class controller.ConsultaCursoController
+  class controller.CursosController
+  class step.ReaderCurso
+  class dto.CursoDto
+  class config.ExcelConfig
+  class step.CursoExcelRowMapper
+  class step.LoggingCursoProcessor
+}
+folder 7{
+  class repo.Usuario_sysRep
+  class controller.AltaUsuarios
+  class controller.RecuperaContrasena
+  class controller.EditarPerfil
+  entity model.Usuario_sys
+  entity model.Estatus_usuario_sys
+  entity model.Perfil_sys
+  class service.MyAppUserDetailsService
+  class service.SendMailService
+  class controller.ExampleContoller
+  class repo.Estatus_usuario_sysRep
+  class repo.Perfil_sysRep
+  class SecurityConfig
+}
+folder 8{
+  class webService.CargaBatchService
+  class dto.ResponseGeneric
+  class webService.CargaBatchServiceImpl
+  class controller.ejemploServiceImpl
+  class controller.ejemploService
+  class webService.CorreoServiceImpl
+  class webService.CorreoService
+  class dao.AvisosCorreoDAO
+  class dao.CargaBatchServiceDAO
+  class dto.ErroresDTO
+  class dto.FiltroCorreoDTO 
+  class dto.ResponseGenericPagination
+}
+@enduml

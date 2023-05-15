@@ -1,0 +1,253 @@
+@startuml
+!theme plain
+allow_mixing
+left to right direction
+
+folder 0{
+  class room.service.IFloorService
+  class room.util.TreeNode
+  class room.controller.FloorController
+  class room.service.FloorService
+  entity logistics.roomClean.entity.RoomCleanRecord
+  class logistics.roomClean.controller.RoomCleanController
+  class logistics.roomClean.controller.RoomCleanRecordController
+  class room.controller.RoomController
+  class logistics.roomClean.service.RoomCleanService
+  class logistics.roomClean.service.IRoomCleanService
+  entity room.entity.Room
+  entity room.entity.Floor
+  class room.repository.FloorRepository
+  class room.repository.RoomRepository
+  entity  logistics.roomClean.entity.RoomClean
+  class room.service.RoomService
+  class room.service.IRoomService
+  class logistics.roomClean.repository.RoomCleanRecordRepository
+  class logistics.roomClean.service.RoomCleanRecordService
+  class logistics.roomClean.service.IRoomCleanRecordService
+  class logistics.stock.repository.OutStorageRepository
+  class logistics.roomClean.repository.RoomCleanRepository
+  class logistics.roomClean.repository.FloorVoRoomVoRoomCleanRepository
+  class logistics.stock.repository.OutDetailedRepository
+  entity logistics.roomClean.entity.FloorVoRoomVoRoomClean
+  class logistics.roomClean.dto.FloorVoRoomVoRoomCleanDTO
+  class room.dto.RoomDto
+}
+
+folder 1{
+  class Work.service.BcardServiceImpl
+  class Work.service.BcardService
+  class Work.dao.BcardDao
+  entity Work.entity.Bcard
+  entity Work.entity.BcardDTO
+  entity Work.entity.BcardEmpDTO
+  class Work.listener.AfterAttenceModifyApplyContentProcessor
+  class Work.web.BcardController
+  class Work.listener.AttenceDeptApproveListener
+  class Work.listener.ReportBackAttenceEndProcessor
+  entity Work.entity.BcardQueryDTO
+  class activiti.util.WorkflowVariable
+}
+
+folder 2{
+  class activiti.service.IWorkflowService
+  class activiti.domain.WorkflowDTO
+  entity employee.entity.Employee
+  class employee.service.EmployeeServiceImpl
+  class activiti.service.WorkflowService
+  class employee.controller.EmployeeController
+  class employee.service.EmployeeService
+  class employee.dao.EmployeeDao
+  entity employee.entity.EmployeeDTO
+  class system.LoginController
+  entity employee.entity.EmployeeQueryDTO
+  class menu.MenuController
+  class common.web.ExtAjaxResponse
+  class common.SessionUtil
+  class activiti.controller.ProcessDefinitionController
+  class employee.util.ExcelUtils
+  class employee.util.ExportExcel
+  class employee.util.ExtForm
+  class activiti.domain.ProcessDefinitionDTO
+}
+
+folder 3{
+  entity department.entity.Department
+  class department.service.IDeptService
+  class department.controller.DeptController
+  class department.service.DeptService
+  class department.dao.DeptDao
+  entity department.entity.DeptDTO
+  entity department.entity.DeptQueryDTO
+  entity department.entity.DeptDTOCombox
+  class common.beans.BeanUtils
+}
+
+
+folder 4{
+  class finance.logisticst.service.InStorageService
+  class finance.logisticst.repository.InStorageRepository
+  class finance.logisticst.domain.InStorage
+  class finance.logisticst.controller.InStorageController
+  class finance.logisticst.activiti.ConfirmReceipt
+  class finance.logisticst.domain.InStorageDTO
+  class finance.logisticst.activiti.Pay
+  class finance.logisticst.service.IInStorageService
+  class logistics.stock.repository.InDetailedRepository
+  class finance.logisticst.domain.InStorageDetailedDTO
+  class finance.logisticst.util.MailUtil
+}
+
+folder 5{
+  class userRole.service.GroupRoleImpl
+  entity userRole.entity.GroupRole
+  class userRole.controller.GroupController
+  class userRole.service.GroupRoleService
+  entity userRole.entity.GroupRoleDTO
+  class userRole.dao.GroupRoleDao
+  entity userRole.entity.GroupRoleQueryDTO
+}
+
+folder 6{
+  class travel.service.TravelServiceImpl
+  entity travel.entity.Travel
+  class travel.web.TravelController
+  entity travel.entity.TravelQueryDTO
+  class travel.service.TravelService
+  entity travel.entity.TravelEmpDTO
+  entity travel.entity.TravelDTO
+  class travel.Listener.afterEmployModifyApplyContentProcessor
+  class travel.Listener.travelPocessReportBack
+  class travel.dao.TravelDao
+}
+folder 7{
+  class Work.service.workServiceImpl
+  entity Work.entity.Work
+  class Work.dao.WorkDao
+  class Work.service.workService
+  entity Work.entity.WorkQueryDTO
+  class Work.web.workController
+  entity Work.entity.ExtTotalworkForm
+  entity Work.entity.WorkTatalRecord
+  entity Work.entity.WorkEmpDTO
+  entity Work.entity.ExtworkForm
+  entity Work.entity.WorkRecord
+  entity Work.entity.WorkEmpChart
+  entity Work.entity.Workchart
+}
+folder 8{
+  class leave.service.LeaveService
+  entity leave.entity.Leave
+  class leave.listener.ReportBackEndProcessor
+  class leave.listener.AfterModifyApplyContentProcessor
+  class leave.controller.LeaveController
+  entity leave.entity.LeaveQueryDTO
+  class leave.service.ILeaveService
+  entity leave.entity.LeaveDTO
+  entity leave.entity.LeaveEmpDTO
+  class leave.dao.LeaveRepository
+}
+
+folder 9{
+  entity calendars.entity.SchedulEvent
+  class calendars.dao.SchedulEventDao
+  class calendars.controller.CalendarEventController
+  class calendars.service.SchedulEventService
+  class calendars.service.SchedulEventServiceImpl
+  entity calendars.entity.SchedulQueryDTO
+  class calendars.controller.CalendarContreller
+  entity calendars.entity.Calendar
+  entity calendars.entity.SchedulEventDto
+  entity calendars.entity.SchedulEventEmpDTO
+  entity calendars.entity.EventCalendarDTO
+  entity calendars.entity.CalendarDTO
+  class calendars.service.CalendarService
+  class calendars.service.CalendarServiceImpl
+  entity calendars.entity.ExtResultJson
+  class calendars.dao.CalendarDao
+}
+folder 10{
+  class logistics.stock.controller.OutController
+  entity logistics.stock.entity.OutStorage
+  class logistics.stock.controller.InController
+  entity logistics.stock.entity.DoSend
+  class common.web.ExtjsPageRequest
+  class logistics.stock.controller.StockController
+  class logistics.stock.controller.InSendController
+  class logistics.stock.service.IInDetailedService
+  class logistics.stock.service.IOutDetailedService
+  class logistics.stock.service.IOutStorageService
+  class logistics.stock.service.IStockService
+  class logistics.stock.dto.OutDTO
+  class logistics.stock.entity.InDetailed
+  class logistics.stock.service.InDetailedService
+  entity logistics.stock.entity.OutDetailed
+  class logistics.stock.service.OutDetailedService
+  class logistics.stock.service.OutStorageService
+  entity logistics.stock.entity.Stock
+  class room.dto.DailyNecessaryDto
+  class logistics.stock.service.StockService
+  class logistics.stock.dto.ShowInDetailedWinGrilDTO
+  class logistics.stock.service.IDoSendService
+  class logistics.stock.dto.InDTO
+  class logistics.stock.service.DoSendService
+  class logistics.stock.repository.StockRepository
+  class logistics.stock.dto.StockDTO
+  class logistics.stock.repository.DoSendRepository
+  class logistics.stock.dto.InSendDTO
+}
+folder 11{
+  class finance.roomOrder.domain.RoomOrder
+  class finance.roomOrder.service.RoomOrderService
+  class finance.roomOrder.controller.RoomOrderController
+  class finance.roomOrder.service.IRoomOrderService
+  class finance.roomOrder.domain.RoomOrderDTO
+  class finance.roomOrder.domain.RoomOrderQueryDTO
+  class finance.roomOrder.repository.RoomOrderRepository
+}
+folder 12{
+  class finance.salary.service.SalaryService
+  class finance.salary.domain.SalaryOrder
+  class finance.salary.controller.SalaryController
+  class finance.salary.service.ISalaryService
+  class finance.salary.domain.SalaryOrderDTO
+  class finance.salary.domain.SalaryOrderQueryDTO
+  class finance.salary.repository.SalaryOrderRepository
+}
+folder 13{
+  class logistics.loseGoods.controller.LoseGoodsController
+  class logistics.loseGoods.service.ILoseGoodsService
+  entity logistics.loseGoods.entity.LoseGoods
+  entity logistics.loseGoods.entity.LoseGoodsDTO
+  class logistics.loseGoods.service.LoseGoodsService
+  class logistics.loseGoods.repository.LoseGoodsRepository
+}
+folder 14{
+  class guest.controller.GuestController
+  class guest.service.GuestService
+  class guest.service.IGuestService
+  class guest.repository.GuestRepository
+  entity guest.entity.Guest
+  class guest.dto.GuestDto
+  class guest.dto.GuestInfoDto
+}
+folder 15{
+  class finance.financeReportDaily.controller.FinanceReportDailyController
+  class finance.financeReportDaily.service.FinanceReportDailyService
+  class finance.financeReportDaily.activiti.CreateDailyReport
+  class finance.financeReportDaily.service.IFinanceReportDailyService
+  class finance.financeReportDaily.domain.FinanceReportDaily
+  class finance.financeReportDaily.domain.FinanceReportDailyQueryDTO
+  class finance.financeReportDaily.util.ExportExcel
+  class finance.financeReportDaily.Repository.FinanceReportDailyRepository
+  class finance.financeReport.service.FinanceReportService
+  class finance.financeReport.service.IFinanceReportService
+  class finance.financeReport.domain.FinanceReport
+  class finance.financeReport.controller.FinanceReportController
+}
+folder 16{
+  class activiti.util.customProcessDiagramGenerator.ArtifactDrawInstruction
+  class activiti.util.CustomProcessDiagramCanvas
+  class activiti.util.CustomProcessDiagramGenerator
+  class activiti.util.customProcessDiagramGenerator.ActivityDrawInstruction
+}
+@enduml
