@@ -59,7 +59,10 @@ function Principles() {
             className="mx-3 mb-4 pt-2 pb-4"
             style={{
               width: "85%",
-              backgroundColor: index % 2 === 0 ? "rgba(30,72,143, 0.75)" : "rgba(9,34,86, 0.9)",
+              backgroundColor:
+                index % 2 === 0
+                  ? "rgba(30,72,143, 0.75)"
+                  : "rgba(9,34,86, 0.9)",
               borderColor: index % 2 === 0 ? "#1E488F" : "#092256",
             }}
           >

@@ -44,15 +44,22 @@ function ChooseProject(props) {
         alignItems: "center",
       }}
     >
-      <h5 className="mt-2" style={{ color: "#092256", justifyContent: "center" }}>
+      <h5
+        className="mt-2"
+        style={{ color: "#092256", justifyContent: "center" }}
+      >
         From the 3 available projects, choose the one you want to see the
         proposed refactoring sequence
       </h5>
-      <p style={{ fontSize:"0.7rem", width:"40%" }}>
-      This tool receives two files as input: one with the proposal of separating the files into different microservices and another with the source code representation. The format of these files can be found in Github's README file and the information for these can be gathered by other existing tools.
+      <p style={{ fontSize: "0.7rem", width: "40%" }}>
+        This tool receives two files as input: one with the proposal of
+        separating the files into different microservices and another with the
+        source code representation. The format of these files can be found in
+        Github's README file and the information for these can be gathered by
+        other existing tools.
         <br></br>It allows any project with files in the format specified in the
-        README file, previously mentioned.<br></br> However, here we want you to focus on
-        these 3 examples.
+        README file, previously mentioned.<br></br> However, here we want you to
+        focus on these 3 examples.
       </p>
       <div
         style={{
@@ -92,7 +99,7 @@ function ChooseProject(props) {
             }}
             className="p-4"
           >
-            <p style={{fontSize:"0.9rem"}}>
+            <p style={{ fontSize: "0.9rem" }}>
               {description}
               <br></br> You can find more on its{" "}
               <a style={{ fontWeight: "bold", color: "#092256" }} href={git}>

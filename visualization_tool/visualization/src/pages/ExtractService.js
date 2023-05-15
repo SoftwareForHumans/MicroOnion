@@ -41,14 +41,23 @@ function ExtractService() {
         }
         let dep = listOfDependencies[k][0][0].split(".").pop();
         let deps = "";
-        const size2 = listOfDependencies[k][0][0].length;
-        el.push(<td className="px-3" style={{borderRight:"2px solid #092256",borderLeft:"2px solid #092256"}}>{k}</td>);
+        el.push(
+          <td
+            className="px-3"
+            style={{
+              borderRight: "2px solid #092256",
+              borderLeft: "2px solid #092256",
+            }}
+          >
+            {k}
+          </td>
+        );
         el.push(
           <td
             className="px-3"
             data-tooltip-id="file-name"
             data-tooltip-content={listOfDependencies[k][0][0]}
-            style={{borderRight:"2px solid #092256"}}
+            style={{ borderRight: "2px solid #092256" }}
           >
             {dep}
           </td>
@@ -106,7 +115,7 @@ function ExtractService() {
     <>
       <Container
         className="mb-5"
-        style={{ display: "flex", flexDirection: "row",color: "#092256"  }}
+        style={{ display: "flex", flexDirection: "row", color: "#092256" }}
       >
         <div
           style={{
@@ -190,7 +199,13 @@ function ExtractService() {
                 ) : (
                   <table style={{ border: "2px solid #092256", width: "100%" }}>
                     <thead>
-                      <tr style={{ border: "2px solid #092256", backgroundColor: "#092256", color:"white"}}>
+                      <tr
+                        style={{
+                          border: "2px solid #092256",
+                          backgroundColor: "#092256",
+                          color: "white",
+                        }}
+                      >
                         <th className="px-3">Component</th>
                         <th className="px-3">File</th>
                         <th className="px-3">Dependency</th>
@@ -219,12 +234,38 @@ function ExtractService() {
                   </>
                 ) : (
                   <table style={{ border: "2px solid #092256", width: "100%" }}>
-                    <thead >
-                    <tr style={{ border: "2px solid #092256", backgroundColor: "#092256", color:"white"}}>
-                        <th className="px-3" style={{borderRight:"2px solid #092256"}}>Component</th>
-                        <th className="px-3" style={{borderRight:"2px solid #092256"}}>File</th>
-                        <th className="px-3" style={{borderRight:"2px solid #092256"}}>Dependency</th>
-                        <th className="px-3" style={{borderRight:"2px solid #092256"}}>Type</th>
+                    <thead>
+                      <tr
+                        style={{
+                          border: "2px solid #092256",
+                          backgroundColor: "#092256",
+                          color: "white",
+                        }}
+                      >
+                        <th
+                          className="px-3"
+                          style={{ borderRight: "2px solid #092256" }}
+                        >
+                          Component
+                        </th>
+                        <th
+                          className="px-3"
+                          style={{ borderRight: "2px solid #092256" }}
+                        >
+                          File
+                        </th>
+                        <th
+                          className="px-3"
+                          style={{ borderRight: "2px solid #092256" }}
+                        >
+                          Dependency
+                        </th>
+                        <th
+                          className="px-3"
+                          style={{ borderRight: "2px solid #092256" }}
+                        >
+                          Type
+                        </th>
                       </tr>
                     </thead>
                     <tbody>

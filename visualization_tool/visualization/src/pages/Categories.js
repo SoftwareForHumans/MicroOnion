@@ -45,7 +45,7 @@ function Categories() {
         color: "#1E488F",
       }}
     >
-      <p className="my-4" style={{width:"80%", fontSize:"0.9rem"}} >
+      <p className="my-4" style={{ width: "80%", fontSize: "0.9rem" }}>
         The goal of this tool is to graphically displays the tool's results for
         three Java Spring projects in order to improve the developer experience
         and provide additional information on how to conduct the migration.
@@ -145,7 +145,7 @@ function Categories() {
         </Col>
       </Row>
       <Row className="my-4">
-        <p className="mb-2" style={{ color:"#1E488F", fontSize:"0.9rem" }}>
+        <p className="mb-2" style={{ color: "#1E488F", fontSize: "0.9rem" }}>
           These categories <b>are not</b> in any particular order and can be
           swapped out anytime you see fit.<br></br> We suggest a{" "}
           <b>Strangler Fig</b> approach to the migration, taking incremental
@@ -153,14 +153,15 @@ function Categories() {
         </p>
       </Row>
       <Row className="mt-2 pb-5">
-      <p style={{fontSize:"0.9rem"}}>
+        <p style={{ fontSize: "0.9rem" }}>
           Check the source code and documentation on{" "}
           <a href="https://github.com/RitaPeixoto/FEUP-Microservices_assisted_refactoring">
             Github
           </a>
         </p>
-        <p style={{fontSize:"14px"}}>
-          Further documentation: <a href="https://www.google.com">here (dissertation)</a>
+        <p style={{ fontSize: "14px" }}>
+          Further documentation:{" "}
+          <a href="https://www.google.com">here (dissertation)</a>
         </p>
       </Row>
     </Container>

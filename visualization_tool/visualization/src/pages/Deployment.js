@@ -30,10 +30,10 @@ function Deployment() {
         <h4>Deployment & Orchestration</h4>
         <p className="mt-2">
           Another major difference between monoliths and microservices is their{" "}
-          <b>deployment</b>. Each service usually has multiple
-          running instances and each of these instances has to be deployed,
-          configured and monitored. In addition, having multiple instances
-          running simultaneously, <b>orchestration becomes more demanding</b>.<br></br>
+          <b>deployment</b>. Each service usually has multiple running instances
+          and each of these instances has to be deployed, configured and
+          monitored. In addition, having multiple instances running
+          simultaneously, <b>orchestration becomes more demanding</b>.<br></br>
           Explore the refactorings/introductions to answer the demands of
           deployment and orchestration.
         </p>

@@ -7,7 +7,6 @@ function ShowState() {
   let { state } = useLocation();
   const project = state.projectName.replaceAll(" ", "");
   const stateObject = state.stateObject
-  console.log(stateObject)
 
 
   return (
