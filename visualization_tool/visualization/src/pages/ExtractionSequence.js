@@ -24,13 +24,13 @@ function ExtractionSequence() {
     } catch (err) {
       console.log(err);
     }
-  }, []);
+  }, [project]);
 
   return (
     <Container className="my-5 pb-5 col-major">
       <Row
         className="mt-5"
-        style={{ justifyContent: "center", color: "#092256" }}
+        style={{ justifyContent: "center", color: "#1E488F" }}
       >
         <p>
           {" "}
@@ -42,45 +42,35 @@ function ExtractionSequence() {
 
       <Row
         style={{
-          display: "flex",
-          justifyContent: "center",
+          display: "inline-block",
+          flexDirection: "row",
+          justifyContent: "start",
           color: "white",
         }}
         className="m-0 pt-5"
       >
         {extract_services.map((service, index) => (
-          <>
-            <Col className="my-2 ">
-              <Link
-                to="/extractService"
-                state={{ projectName: project, service: service }}
-                className="mt-4"
-              >
-                <Button size="lg" className="service">
-                  {service.microservice}
-                </Button>
-              </Link>
-            </Col>
-            { index !== extract_services.length -1 &&
-            <Col
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-                display: "flex",
-                color:"grey"
-              }}
+          <Col className="d-inline" key={index}>
+            <Link
+              to="/extractService"
+              state={{ projectName: project, service: service }}
             >
+              <Button size="lg" className="service my-2">
+                {service.microservice}
+              </Button>
+            </Link>
+            {index !== extract_services.length - 1 && (
               <MdKeyboardDoubleArrowRight
                 size={"30px"}
+                className="ms-4"
                 style={{ color: "#687f8c" }}
               ></MdKeyboardDoubleArrowRight>
-            </Col>
-}
-          </>
+            )}
+          </Col>
         ))}
       </Row>
       <Row
-        style={{ justifyContent: "center", color: "#092256" }}
+        style={{ justifyContent: "center", color: "#1E488F" }}
         className="mt-5"
       >
         <p>

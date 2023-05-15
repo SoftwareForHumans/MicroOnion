@@ -42,11 +42,20 @@ function Categories() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        color: "#1E488F",
       }}
     >
-      <h6 className="my-4" style={{ color: "#092256" }}>
-        Check our suggestions on the different concerns of the migration
-      </h6>
+      <p className="my-4" style={{width:"80%", fontSize:"0.9rem"}} >
+        The goal of this tool is to graphically displays the tool's results for
+        three Java Spring projects in order to improve the developer experience
+        and provide additional information on how to conduct the migration.
+        <br></br>
+        <b>
+          Please choose below the concern that you would like to address in the
+          migration.
+        </b>
+      </p>
+
       <Row className="mx-0 px-0 mt-3 mb-2" style={{ color: "white" }}>
         <Col lg={3}>
           <Link to="/chooseProject">
@@ -62,7 +71,7 @@ function Categories() {
                 height: "14rem",
                 borderRadius: "30px",
                 borderColor: "#092256",
-                "box-shadow": "0 0 1em 0 rgba(0, 0, 0, 0.2)",
+                boxShadow: "0 0 1em 0 rgba(0, 0, 0, 0.2)",
               }}
             >
               Extract Services
@@ -83,7 +92,7 @@ function Categories() {
                 height: "14rem",
                 borderRadius: "30px",
                 borderColor: "#1E488F",
-                "box-shadow": "0 0 1em 0 rgba(0, 0, 0, 0.2)",
+                boxShadow: "0 0 1em 0 rgba(0, 0, 0, 0.2)",
               }}
             >
               Infrastructure Improvement
@@ -106,7 +115,7 @@ function Categories() {
                   ? "#3C76E1"
                   : "rgba(60,118,225,0.7)",
                 borderRadius: "30px",
-                "box-shadow": "0 0 1em 0 rgba(0, 0, 0, 0.2)",
+                boxShadow: "0 0 1em 0 rgba(0, 0, 0, 0.2)",
               }}
             >
               Deployment & Orchestration
@@ -127,7 +136,7 @@ function Categories() {
                 height: "14rem",
                 borderRadius: "30px",
                 borderColor: "#687f8c",
-                "box-shadow": "0 0 1em 0 rgba(0, 0, 0, 0.2)",
+                boxShadow: "0 0 1em 0 rgba(0, 0, 0, 0.2)",
               }}
             >
               Check Microservices Architecture Characteristics
@@ -135,12 +144,23 @@ function Categories() {
           </Link>
         </Col>
       </Row>
-      <Row className="my-4 pb-5">
-        <p className="mb-2" style={{ color: "#1E488F" }}>
+      <Row className="my-4">
+        <p className="mb-2" style={{ color:"#1E488F", fontSize:"0.9rem" }}>
           These categories <b>are not</b> in any particular order and can be
           swapped out anytime you see fit.<br></br> We suggest a{" "}
           <b>Strangler Fig</b> approach to the migration, taking incremental
           steps that are reversible, reducing the risks.
+        </p>
+      </Row>
+      <Row className="mt-2 pb-5">
+      <p style={{fontSize:"0.9rem"}}>
+          Check the source code and documentation on{" "}
+          <a href="https://github.com/RitaPeixoto/FEUP-Microservices_assisted_refactoring">
+            Github
+          </a>
+        </p>
+        <p style={{fontSize:"14px"}}>
+          Further documentation: <a href="https://www.google.com">here (dissertation)</a>
         </p>
       </Row>
     </Container>

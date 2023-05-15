@@ -59,7 +59,7 @@ function Principles() {
             className="mx-3 mb-4 pt-2 pb-4"
             style={{
               width: "85%",
-              backgroundColor: index % 2 === 0 ? "#1E488F" : "#092256",
+              backgroundColor: index % 2 === 0 ? "rgba(30,72,143, 0.75)" : "rgba(9,34,86, 0.9)",
               borderColor: index % 2 === 0 ? "#1E488F" : "#092256",
             }}
           >
@@ -71,6 +71,13 @@ function Principles() {
             </Card.Body>
           </Card>
         ))}
+      </Row>
+      <Row className="my-4 pb-5 center-all " style={{ color: "#092256" }}>
+        <p className="my-2">
+          {" "}
+          You can find <b>more information on the catalog (link)</b> developed
+          for source of this tool.
+        </p>
       </Row>
     </Container>
   );
