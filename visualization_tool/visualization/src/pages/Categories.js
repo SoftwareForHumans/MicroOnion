@@ -46,7 +46,7 @@ function Categories() {
       }}
     >
       <p className="my-4" style={{ width: "80%", fontSize: "0.9rem" }}>
-        The goal of this tool is to graphically displays the tool's results for
+        The goal of this tool is to graphically display the tool's results for
         three Java Spring projects in order to improve the developer experience
         and provide additional information on how to conduct the migration.
         <br></br>
