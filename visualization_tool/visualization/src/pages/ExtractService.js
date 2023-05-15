@@ -6,9 +6,11 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+
 import { Tooltip } from "react-tooltip";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
+import Refactoring from "../components/Refactoring";
+import SquaredButton from "../components/SquaredButton";
 
 function ExtractService() {
   let { state } = useLocation();
@@ -19,10 +21,7 @@ function ExtractService() {
   const [loading, setLoading] = useState(true);
   const [sequence, setSequence] = useState();
   const [finalState, setFinalState] = useState();
-
-  function implementRefactoring() {
-    return;
-  }
+  const [refactoring, setRefactoring] = useState();
 
   function createArrayElement(arr) {
     let res = [];
@@ -40,7 +39,7 @@ function ExtractService() {
           el.push(<td></td>);
         }
         let dep = listOfDependencies[k][0][0].split(".").pop();
-        let deps = "";
+
         el.push(
           <td
             className="px-3"
@@ -63,6 +62,7 @@ function ExtractService() {
           </td>
         );
 
+        let deps = "";
         listOfDependencies[k][0].map((v, index) => {
           if (v !== listOfDependencies[k][0][0]) {
             deps += v;
@@ -70,9 +70,11 @@ function ExtractService() {
               deps += ", ";
             }
           }
+          return deps;
         });
         el.push(<td className="px-3">{deps}</td>);
         res.push(el);
+        return res;
       });
     }
 
@@ -86,7 +88,6 @@ function ExtractService() {
           `http://localhost:8000/projects/${project}/serviceDependencies/${service.microservice}`
         )
         .then((res) => {
-          console.log(res.data);
           setFrom(res.data.from);
           setTo(res.data.to);
         });
@@ -96,14 +97,13 @@ function ExtractService() {
           `http://localhost:8000/projects/${project}/serviceExtraction/${service.microservice}`
         )
         .then((res) => {
-          console.log(res.data);
           setFinalState(res.data.finalState);
           setSequence(res.data.sequence);
         });
     } catch (err) {
       console.log(err);
     }
-  }, []);
+  }, [project, service]);
 
   useEffect(() => {
     if (finalState !== undefined) {
@@ -314,47 +314,31 @@ function ExtractService() {
                       return (
                         <>
                           <Col className="d-inline">
-                            <Button
-                              onClick={implementRefactoring}
-                              key={item.name}
-                              size="lg"
-                              className="mb-3 p-2"
-                              style={{
-                                backgroundColor: "#092256",
-                                borderColor: "#092256",
-                                height: "12vh",
-                                width: "12vh",
-                                fontSize: "0.8rem",
-                                borderRadius: "12%",
-                                boxShadow: "0 0 1em 0 rgba(0, 0, 0, 0.2)",
-                              }}
-                            >
-                              {item.name.charAt(0) +
-                                item.name.slice(1).toLowerCase()}
-                            </Button>
-                            {index !== sequence.length - 1 ? (
-                              <MdKeyboardDoubleArrowRight
-                                size={"20px"}
-                                className="d-inline ms-3"
-                                style={{ color: "#687f8c" }}
-                              ></MdKeyboardDoubleArrowRight>
-                            ) : (
-                              <></>
-                            )}
+                            <SquaredButton
+                              item={item}
+                              handleClick={setRefactoring}
+                              sequence={sequence}
+                              index={index}
+                              color="#092256"
+                            ></SquaredButton>
+                            
                           </Col>
                         </>
                       );
                     })}
                   </Row>
-                  <Row
-                    id="implementation"
-                    className="mt-5"
-                    style={{
-                      width: "500px",
-                      backgroundColor: "black",
-                      height: "200px",
-                    }}
-                  ></Row>
+                  {refactoring !== undefined && (
+                    <Row id="implementation" className="mt-5" style={{border: "3px dashed", width: "90%"}}>
+                      {refactoring !== undefined && 
+                        <Refactoring
+                          project={project}
+                          service={service}
+                          sequence={sequence}
+                          index={refactoring}
+                        ></Refactoring>
+                      }
+                    </Row>
+                  )}
                 </>
               )}
             </>

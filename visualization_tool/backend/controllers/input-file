@@ -1,0 +1,11 @@
+@startuml
+package "Monolith" {
+  [Microservice 1]
+[Microservice 2]
+[Microservice 3]
+[Microservice 4]
+[Microservice 5]
+[Microservice 6]
+}
+[Microservice 7] ..> "Monolith" : getBar, getDrinks
+@enduml

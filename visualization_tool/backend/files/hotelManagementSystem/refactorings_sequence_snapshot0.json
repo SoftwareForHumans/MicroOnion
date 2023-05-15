@@ -1,1 +1,3116 @@
-{"project_name": "HotelManagementSystem", "refactorings": [{"id": 1, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 16, "dependent_microservice": -1, "notes": {}}, {"id": 2, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 9, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 3, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 9, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 4, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 9, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 5, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 9, "dependent_microservice": "2", "notes": {}}, {"id": 6, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 9, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 7, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 9, "dependent_microservice": "2", "notes": {}}, {"id": 8, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 9, "dependent_microservice": "2", "notes": {}}, {"id": 9, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 9, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 10, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 9, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 11, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 9, "dependent_microservice": "2", "notes": {}}, {"id": 12, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 9, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 13, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 9, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 14, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "9", "notes": {"DTOs": ["SchedulEventDTO"], "interfaces": ["SchedulEventDTOInterface"]}}, {"id": 15, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 9, "dependent_microservice": "3", "notes": {}}, {"id": 16, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 9, "dependent_microservice": "3", "notes": {}}, {"id": 17, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 9, "dependent_microservice": "3", "notes": {"DTOs": ["DeptServiceDTO"], "interfaces": ["DeptServiceDTOInterface"]}}, {"id": 18, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 9, "dependent_microservice": "3", "notes": {}}, {"id": 19, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 9, "dependent_microservice": "3", "notes": {"DTOs": ["DepartmentDTO"], "interfaces": ["DepartmentDTOInterface"]}}, {"id": 20, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 9, "dependent_microservice": "3", "notes": {}}]}, {"id": 21, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 11, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 22, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 11, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 23, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 11, "dependent_microservice": "2", "notes": {}}, {"id": 24, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 11, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDaoDTO"], "interfaces": ["EmployeeDaoDTOInterface"]}}, {"id": 25, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 11, "dependent_microservice": "2", "notes": {}}, {"id": 26, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 11, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 27, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 11, "dependent_microservice": "10", "notes": {}}, {"id": 28, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 11, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}]}, {"id": 29, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 13, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 30, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 13, "dependent_microservice": "10", "notes": {}}, {"id": 31, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 13, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}, {"id": 32, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 13, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}]}, {"id": 33, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 1, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 34, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 1, "dependent_microservice": "2", "notes": {}}, {"id": 35, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 1, "dependent_microservice": "2", "notes": {"DTOs": ["IWorkflowServiceDTO"], "interfaces": ["IWorkflowServiceDTOInterface"]}}, {"id": 36, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 1, "dependent_microservice": "2", "notes": {}}, {"id": 37, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 1, "dependent_microservice": "2", "notes": {}}, {"id": 38, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 1, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 39, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 1, "dependent_microservice": "2", "notes": {}}, {"id": 40, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 1, "dependent_microservice": "2", "notes": {}}, {"id": 41, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 1, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 42, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 1, "dependent_microservice": "2", "notes": {}}, {"id": 43, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 1, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 44, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "1", "notes": {"DTOs": ["BcardDTO"], "interfaces": ["BcardDTOInterface"]}}, {"id": 45, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 1, "dependent_microservice": "3", "notes": {}}, {"id": 46, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 1, "dependent_microservice": "3", "notes": {}}, {"id": 47, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 1, "dependent_microservice": "3", "notes": {}}, {"id": 48, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 1, "dependent_microservice": "3", "notes": {"DTOs": ["DepartmentDTO"], "interfaces": ["DepartmentDTOInterface"]}}, {"id": 49, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 1, "dependent_microservice": "10", "notes": {}}, {"id": 50, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 1, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}]}, {"id": 51, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 3, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 52, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 3, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 53, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 3, "dependent_microservice": "2", "notes": {}}, {"id": 54, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 3, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 55, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 3, "dependent_microservice": "2", "notes": {}}, {"id": 56, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 3, "dependent_microservice": "2", "notes": {}}, {"id": 57, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 3, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 58, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 3, "dependent_microservice": "2", "notes": {}}, {"id": 59, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 3, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 60, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "3", "notes": {"DTOs": ["DepartmentDTO"], "interfaces": ["DepartmentDTOInterface"]}}, {"id": 61, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "3", "notes": {}}, {"id": 62, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "3", "notes": {"DTOs": ["DeptServiceDTO"], "interfaces": ["DeptServiceDTOInterface"]}}, {"id": 63, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "3", "notes": {}}, {"id": 64, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "3", "notes": {}}, {"id": 65, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "3", "notes": {"DTOs": ["DeptServiceDTO"], "interfaces": ["DeptServiceDTOInterface"]}}, {"id": 66, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "3", "notes": {}}, {"id": 67, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "3", "notes": {}}, {"id": 68, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "3", "notes": {}}, {"id": 69, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 3, "dependent_microservice": "5", "notes": {"DTOs": ["GroupRoleDTO"], "interfaces": ["GroupRoleDTOInterface"]}}, {"id": 70, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 5, "dependent_microservice": "3", "notes": {}}, {"id": 71, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 5, "dependent_microservice": "3", "notes": {"DTOs": ["DeptServiceDTO"], "interfaces": ["DeptServiceDTOInterface"]}}, {"id": 72, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 5, "dependent_microservice": "3", "notes": {}}, {"id": 73, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 5, "dependent_microservice": "3", "notes": {"DTOs": ["DepartmentDTO"], "interfaces": ["DepartmentDTOInterface"]}}, {"id": 74, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 5, "dependent_microservice": "3", "notes": {}}, {"id": 75, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 3, "dependent_microservice": "10", "notes": {}}, {"id": 76, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 3, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}]}, {"id": 77, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 4, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 78, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 4, "dependent_microservice": "2", "notes": {}}, {"id": 79, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 4, "dependent_microservice": "2", "notes": {}}, {"id": 80, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 4, "dependent_microservice": "2", "notes": {"DTOs": ["IWorkflowServiceDTO"], "interfaces": ["IWorkflowServiceDTOInterface"]}}, {"id": 81, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 4, "dependent_microservice": "2", "notes": {}}, {"id": 82, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 4, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDaoDTO"], "interfaces": ["EmployeeDaoDTOInterface"]}}, {"id": 83, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 4, "dependent_microservice": "2", "notes": {}}, {"id": 84, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 4, "dependent_microservice": "2", "notes": {"DTOs": ["WorkflowDTODTO"], "interfaces": ["WorkflowDTODTOInterface"]}}, {"id": 85, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 4, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 86, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 4, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 87, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 4, "dependent_microservice": "2", "notes": {}}, {"id": 88, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 4, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 89, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 4, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 90, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 4, "dependent_microservice": "10", "notes": {}}, {"id": 91, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 4, "dependent_microservice": "10", "notes": {"DTOs": ["InDetailedDTO"], "interfaces": ["InDetailedDTOInterface"]}}, {"id": 92, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 4, "dependent_microservice": "10", "notes": {}}, {"id": 93, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 4, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}, {"id": 94, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 10, "dependent_microservice": "4", "notes": {}}, {"id": 95, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 10, "dependent_microservice": "4", "notes": {"DTOs": ["InStorageDTO"], "interfaces": ["InStorageDTOInterface"]}}, {"id": 96, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 10, "dependent_microservice": "4", "notes": {}}, {"id": 97, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 10, "dependent_microservice": "4", "notes": {}}, {"id": 98, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 10, "dependent_microservice": "4", "notes": {}}, {"id": 99, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 10, "dependent_microservice": "4", "notes": {"DTOs": ["IInStorageServiceDTO"], "interfaces": ["IInStorageServiceDTOInterface"]}}, {"id": 100, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 10, "dependent_microservice": "4", "notes": {"DTOs": ["InStorageDTO"], "interfaces": ["InStorageDTOInterface"]}}, {"id": 101, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 10, "dependent_microservice": "4", "notes": {}}, {"id": 102, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 10, "dependent_microservice": "4", "notes": {"DTOs": ["InDetailedRepositoryDTO"], "interfaces": ["InDetailedRepositoryDTOInterface"]}}, {"id": 103, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 4, "dependent_microservice": "1", "notes": {}}, {"id": 104, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 4, "dependent_microservice": "1", "notes": {"DTOs": ["WorkflowVariableDTO"], "interfaces": ["WorkflowVariableDTOInterface"]}}]}, {"id": 105, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 5, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 106, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 5, "dependent_microservice": "2", "notes": {}}, {"id": 107, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 5, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 108, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 5, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 109, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "5", "notes": {"DTOs": ["GroupRoleDTO"], "interfaces": ["GroupRoleDTOInterface"]}}, {"id": 110, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "5", "notes": {}}, {"id": 111, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "5", "notes": {"DTOs": ["GroupRoleServiceDTO"], "interfaces": ["GroupRoleServiceDTOInterface"]}}, {"id": 112, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "5", "notes": {}}, {"id": 113, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "5", "notes": {}}, {"id": 114, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "5", "notes": {"DTOs": ["GroupRoleServiceDTO"], "interfaces": ["GroupRoleServiceDTOInterface"]}}, {"id": 115, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "5", "notes": {}}, {"id": 116, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 5, "dependent_microservice": "10", "notes": {}}, {"id": 117, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 5, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}]}, {"id": 118, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 10, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 119, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 10, "dependent_microservice": "2", "notes": {}}, {"id": 120, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 10, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 121, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 10, "dependent_microservice": "2", "notes": {}}, {"id": 122, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 10, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 123, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 10, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 124, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 10, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 125, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 10, "dependent_microservice": "2", "notes": {}}, {"id": 126, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 10, "dependent_microservice": "2", "notes": {}}, {"id": 127, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 10, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 128, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 10, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 129, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "10", "notes": {}}, {"id": 130, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}, {"id": 131, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 2, "dependent_microservice": "10", "notes": {}}, {"id": 132, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}, {"id": 133, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 10, "dependent_microservice": "0", "notes": {"DTOs": ["RoomCleanRecordDTO"], "interfaces": ["RoomCleanRecordDTOInterface"]}}, {"id": 134, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 10, "dependent_microservice": "0", "notes": {}}, {"id": 135, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 10, "dependent_microservice": "0", "notes": {"DTOs": ["OutDetailedRepositoryDTO"], "interfaces": ["OutDetailedRepositoryDTOInterface"]}}, {"id": 136, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 10, "dependent_microservice": "0", "notes": {}}, {"id": 137, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 10, "dependent_microservice": "0", "notes": {"DTOs": ["OutStorageRepositoryDTO"], "interfaces": ["OutStorageRepositoryDTOInterface"]}}, {"id": 138, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {"DTOs": ["OutStorageDTO"], "interfaces": ["OutStorageDTOInterface"]}}, {"id": 139, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {}}, {"id": 140, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {}}, {"id": 141, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {}}, {"id": 142, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {"DTOs": ["IStockServiceDTO"], "interfaces": ["IStockServiceDTOInterface"]}}, {"id": 143, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {}}, {"id": 144, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}, {"id": 145, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {}}, {"id": 146, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {"DTOs": ["IStockServiceDTO"], "interfaces": ["IStockServiceDTOInterface"]}}, {"id": 147, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {"DTOs": ["DailyNecessaryDtoDTO"], "interfaces": ["DailyNecessaryDtoDTOInterface"]}}, {"id": 148, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {}}, {"id": 149, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}, {"id": 150, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {}}, {"id": 151, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {"DTOs": ["StockRepositoryDTO"], "interfaces": ["StockRepositoryDTOInterface"]}}, {"id": 152, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {}}, {"id": 153, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {}}, {"id": 154, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {}}, {"id": 155, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}]}, {"id": 156, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 12, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 157, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 12, "dependent_microservice": "2", "notes": {}}, {"id": 158, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 12, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 159, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 12, "dependent_microservice": "3", "notes": {}}, {"id": 160, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 12, "dependent_microservice": "10", "notes": {}}, {"id": 161, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 12, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}]}, {"id": 162, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 14, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 163, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 14, "dependent_microservice": "10", "notes": {}}, {"id": 164, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 14, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}, {"id": 165, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 14, "dependent_microservice": "0", "notes": {}}, {"id": 166, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 14, "dependent_microservice": "0", "notes": {"DTOs": ["RoomDTO"], "interfaces": ["RoomDTOInterface"]}}, {"id": 167, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "14", "notes": {}}, {"id": 168, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "14", "notes": {"DTOs": ["IGuestServiceDTO"], "interfaces": ["IGuestServiceDTOInterface"]}}, {"id": 169, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "14", "notes": {}}, {"id": 170, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 14, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}]}, {"id": 171, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 0, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 172, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 173, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "2", "notes": {}}, {"id": 174, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "2", "notes": {}}, {"id": 175, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 176, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 177, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 178, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 179, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 0, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 180, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 0, "dependent_microservice": "3", "notes": {}}]}, {"id": 181, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 6, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 182, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "2", "notes": {}}, {"id": 183, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 6, "dependent_microservice": "2", "notes": {"DTOs": ["IWorkflowServiceDTO"], "interfaces": ["IWorkflowServiceDTOInterface"]}}, {"id": 184, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "2", "notes": {}}, {"id": 185, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "2", "notes": {}}, {"id": 186, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "2", "notes": {}}, {"id": 187, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 6, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 188, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 6, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 189, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "2", "notes": {}}, {"id": 190, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "2", "notes": {}}, {"id": 191, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 6, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 192, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "2", "notes": {}}, {"id": 193, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 6, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 194, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "6", "notes": {"DTOs": ["TravelDTO"], "interfaces": ["TravelDTOInterface"]}}, {"id": 195, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "3", "notes": {}}, {"id": 196, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "3", "notes": {}}, {"id": 197, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 6, "dependent_microservice": "3", "notes": {"DTOs": ["DepartmentDTO"], "interfaces": ["DepartmentDTOInterface"]}}, {"id": 198, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "10", "notes": {}}, {"id": 199, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 6, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}, {"id": 200, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 6, "dependent_microservice": "1", "notes": {}}, {"id": 201, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 6, "dependent_microservice": "1", "notes": {"DTOs": ["WorkflowVariableDTO"], "interfaces": ["WorkflowVariableDTOInterface"]}}]}, {"id": 202, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 8, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 203, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {}}, {"id": 204, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {"DTOs": ["IWorkflowServiceDTO"], "interfaces": ["IWorkflowServiceDTOInterface"]}}, {"id": 205, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {}}, {"id": 206, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {}}, {"id": 207, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 208, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {}}, {"id": 209, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {}}, {"id": 210, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 211, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {}}, {"id": 212, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {}}, {"id": 213, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 214, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {}}, {"id": 215, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {}}, {"id": 216, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 217, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {}}, {"id": 218, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 8, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 219, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "8", "notes": {"DTOs": ["LeaveDTO"], "interfaces": ["LeaveDTOInterface"]}}, {"id": 220, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "3", "notes": {}}, {"id": 221, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "3", "notes": {}}, {"id": 222, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "3", "notes": {}}, {"id": 223, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "3", "notes": {}}, {"id": 224, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "3", "notes": {}}, {"id": 225, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 8, "dependent_microservice": "3", "notes": {"DTOs": ["DepartmentDTO"], "interfaces": ["DepartmentDTOInterface"]}}, {"id": 226, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "10", "notes": {}}, {"id": 227, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 8, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}, {"id": 228, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 8, "dependent_microservice": "1", "notes": {}}, {"id": 229, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 8, "dependent_microservice": "1", "notes": {"DTOs": ["WorkflowVariableDTO"], "interfaces": ["WorkflowVariableDTOInterface"]}}]}, {"id": 230, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 15, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 231, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 15, "dependent_microservice": "10", "notes": {}}, {"id": 232, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 15, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}, {"id": 233, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 15, "dependent_microservice": "12", "notes": {}}, {"id": 234, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 15, "dependent_microservice": "12", "notes": {"DTOs": ["SalaryOrderRepositoryDTO"], "interfaces": ["SalaryOrderRepositoryDTOInterface"]}}, {"id": 235, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 15, "dependent_microservice": "11", "notes": {}}, {"id": 236, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 15, "dependent_microservice": "11", "notes": {"DTOs": ["RoomOrderRepositoryDTO"], "interfaces": ["RoomOrderRepositoryDTOInterface"]}}, {"id": 237, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 15, "dependent_microservice": "4", "notes": {}}, {"id": 238, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 15, "dependent_microservice": "4", "notes": {"DTOs": ["InStorageRepositoryDTO"], "interfaces": ["InStorageRepositoryDTOInterface"]}}]}, {"id": 239, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 7, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 240, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "2", "notes": {}}, {"id": 241, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 242, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "2", "notes": {}}, {"id": 243, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 244, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "2", "notes": {"DTOs": ["IWorkflowServiceDTO"], "interfaces": ["IWorkflowServiceDTOInterface"]}}, {"id": 245, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 246, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 247, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 248, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeDTO"], "interfaces": ["EmployeeDTOInterface"]}}, {"id": 249, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 250, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "2", "notes": {}}, {"id": 251, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "2", "notes": {"DTOs": ["EmployeeServiceDTO"], "interfaces": ["EmployeeServiceDTOInterface"]}}, {"id": 252, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "2", "notes": {"DTOs": ["ExtAjaxResponseDTO"], "interfaces": ["ExtAjaxResponseDTOInterface"]}}, {"id": 253, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 2, "dependent_microservice": "7", "notes": {"DTOs": ["WorkDTO"], "interfaces": ["WorkDTOInterface"]}}, {"id": 254, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "9", "notes": {}}, {"id": 255, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "9", "notes": {}}, {"id": 256, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "9", "notes": {"DTOs": ["SchedulEventServiceDTO"], "interfaces": ["SchedulEventServiceDTOInterface"]}}, {"id": 257, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "9", "notes": {}}, {"id": 258, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "9", "notes": {}}, {"id": 259, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "9", "notes": {}}, {"id": 260, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "9", "notes": {"DTOs": ["SchedulEventServiceDTO"], "interfaces": ["SchedulEventServiceDTOInterface"]}}, {"id": 261, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "3", "notes": {}}, {"id": 262, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "3", "notes": {}}, {"id": 263, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "3", "notes": {"DTOs": ["IDeptServiceDTO"], "interfaces": ["IDeptServiceDTOInterface"]}}, {"id": 264, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "3", "notes": {"DTOs": ["DepartmentDTO"], "interfaces": ["DepartmentDTOInterface"]}}, {"id": 265, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "3", "notes": {}}, {"id": 266, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "3", "notes": {}}, {"id": 267, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "3", "notes": {"DTOs": ["IDeptServiceDTO"], "interfaces": ["IDeptServiceDTOInterface"]}}, {"id": 268, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "10", "notes": {}}, {"id": 269, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "10", "notes": {"DTOs": ["ExtjsPageRequestDTO"], "interfaces": ["ExtjsPageRequestDTOInterface"]}}, {"id": 270, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "8", "notes": {}}, {"id": 271, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "8", "notes": {"DTOs": ["ILeaveServiceDTO"], "interfaces": ["ILeaveServiceDTOInterface"]}}, {"id": 272, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": 7, "dependent_microservice": "6", "notes": {}}, {"id": 273, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": 7, "dependent_microservice": "6", "notes": {"DTOs": ["TravelServiceDTO"], "interfaces": ["TravelServiceDTOInterface"]}}]}, {"id": 274, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 2, "dependent_microservice": -1, "notes": {}}]}
+{
+    "project_name": "HotelManagementSystem",
+    "refactorings": [
+        {
+            "id": 1,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 16,
+            "dependent_microservice": -1,
+            "notes": {}
+        },
+        {
+            "id": 2,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 9,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 3,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 6,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 8,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 9,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 10,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 11,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 12,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 13,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 14,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "9",
+                    "notes": {
+                        "DTOs": [
+                            "SchedulEventDTO"
+                        ],
+                        "interfaces": [
+                            "SchedulEventDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 15,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 16,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 17,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "DeptServiceDTO"
+                        ],
+                        "interfaces": [
+                            "DeptServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 18,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 19,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "DepartmentDTO"
+                        ],
+                        "interfaces": [
+                            "DepartmentDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 20,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 9,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                }
+            ]
+        },
+        {
+            "id": 21,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 11,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 22,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 11,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 23,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 11,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 24,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 11,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDaoDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDaoDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 25,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 11,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 26,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 11,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 27,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 11,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 28,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 11,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 29,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 13,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 30,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 13,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 31,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 13,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 32,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 13,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 33,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 1,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 34,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 35,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "IWorkflowServiceDTO"
+                        ],
+                        "interfaces": [
+                            "IWorkflowServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 36,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 37,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 38,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 39,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 40,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 41,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 42,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 43,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 44,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "DTOs": [
+                            "BcardDTO"
+                        ],
+                        "interfaces": [
+                            "BcardDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 45,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 46,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 47,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 48,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "DepartmentDTO"
+                        ],
+                        "interfaces": [
+                            "DepartmentDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 49,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 50,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 51,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 3,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 52,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 53,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 54,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 55,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 56,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 57,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 58,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 59,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 60,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "DepartmentDTO"
+                        ],
+                        "interfaces": [
+                            "DepartmentDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 61,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 62,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "DeptServiceDTO"
+                        ],
+                        "interfaces": [
+                            "DeptServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 63,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 64,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 65,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "DeptServiceDTO"
+                        ],
+                        "interfaces": [
+                            "DeptServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 66,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 67,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 68,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 69,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "DTOs": [
+                            "GroupRoleDTO"
+                        ],
+                        "interfaces": [
+                            "GroupRoleDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 70,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 71,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "DeptServiceDTO"
+                        ],
+                        "interfaces": [
+                            "DeptServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 72,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 73,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "DepartmentDTO"
+                        ],
+                        "interfaces": [
+                            "DepartmentDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 74,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 75,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 76,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 3,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 77,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 4,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 78,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 79,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 80,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "IWorkflowServiceDTO"
+                        ],
+                        "interfaces": [
+                            "IWorkflowServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 81,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 82,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDaoDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDaoDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 83,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 84,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "WorkflowDTODTO"
+                        ],
+                        "interfaces": [
+                            "WorkflowDTODTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 85,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 86,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 87,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 88,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 89,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 90,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 91,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "InDetailedDTO"
+                        ],
+                        "interfaces": [
+                            "InDetailedDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 92,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 93,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 94,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "4",
+                    "notes": {}
+                },
+                {
+                    "id": 95,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "4",
+                    "notes": {
+                        "DTOs": [
+                            "InStorageDTO"
+                        ],
+                        "interfaces": [
+                            "InStorageDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 96,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "4",
+                    "notes": {}
+                },
+                {
+                    "id": 97,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "4",
+                    "notes": {}
+                },
+                {
+                    "id": 98,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "4",
+                    "notes": {}
+                },
+                {
+                    "id": 99,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "4",
+                    "notes": {
+                        "DTOs": [
+                            "IInStorageServiceDTO"
+                        ],
+                        "interfaces": [
+                            "IInStorageServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 100,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "4",
+                    "notes": {
+                        "DTOs": [
+                            "InStorageDTO"
+                        ],
+                        "interfaces": [
+                            "InStorageDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 101,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "4",
+                    "notes": {}
+                },
+                {
+                    "id": 102,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "4",
+                    "notes": {
+                        "DTOs": [
+                            "InDetailedRepositoryDTO"
+                        ],
+                        "interfaces": [
+                            "InDetailedRepositoryDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 103,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "1",
+                    "notes": {}
+                },
+                {
+                    "id": 104,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 4,
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "DTOs": [
+                            "WorkflowVariableDTO"
+                        ],
+                        "interfaces": [
+                            "WorkflowVariableDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 105,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 5,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 106,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 107,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 108,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 109,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "DTOs": [
+                            "GroupRoleDTO"
+                        ],
+                        "interfaces": [
+                            "GroupRoleDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 110,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "5",
+                    "notes": {}
+                },
+                {
+                    "id": 111,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "DTOs": [
+                            "GroupRoleServiceDTO"
+                        ],
+                        "interfaces": [
+                            "GroupRoleServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 112,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "5",
+                    "notes": {}
+                },
+                {
+                    "id": 113,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "5",
+                    "notes": {}
+                },
+                {
+                    "id": 114,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "DTOs": [
+                            "GroupRoleServiceDTO"
+                        ],
+                        "interfaces": [
+                            "GroupRoleServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 115,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "5",
+                    "notes": {}
+                },
+                {
+                    "id": 116,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 117,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 5,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 118,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 10,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 119,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 120,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 121,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 122,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 123,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 124,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 125,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 126,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 127,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 128,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 129,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 130,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 131,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 132,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 133,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "0",
+                    "notes": {
+                        "DTOs": [
+                            "RoomCleanRecordDTO"
+                        ],
+                        "interfaces": [
+                            "RoomCleanRecordDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 134,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "0",
+                    "notes": {}
+                },
+                {
+                    "id": 135,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "0",
+                    "notes": {
+                        "DTOs": [
+                            "OutDetailedRepositoryDTO"
+                        ],
+                        "interfaces": [
+                            "OutDetailedRepositoryDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 136,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "0",
+                    "notes": {}
+                },
+                {
+                    "id": 137,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 10,
+                    "dependent_microservice": "0",
+                    "notes": {
+                        "DTOs": [
+                            "OutStorageRepositoryDTO"
+                        ],
+                        "interfaces": [
+                            "OutStorageRepositoryDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 138,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "OutStorageDTO"
+                        ],
+                        "interfaces": [
+                            "OutStorageDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 139,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 140,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 141,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 142,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "IStockServiceDTO"
+                        ],
+                        "interfaces": [
+                            "IStockServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 143,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 144,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 145,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 146,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "IStockServiceDTO"
+                        ],
+                        "interfaces": [
+                            "IStockServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 147,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "DailyNecessaryDtoDTO"
+                        ],
+                        "interfaces": [
+                            "DailyNecessaryDtoDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 148,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 149,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 150,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 151,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "StockRepositoryDTO"
+                        ],
+                        "interfaces": [
+                            "StockRepositoryDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 152,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 153,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 154,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 155,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 156,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 12,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 157,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 12,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 158,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 12,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 159,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 12,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 160,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 12,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 161,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 12,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 162,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 14,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 163,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 14,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 164,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 14,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 165,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 14,
+                    "dependent_microservice": "0",
+                    "notes": {}
+                },
+                {
+                    "id": 166,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 14,
+                    "dependent_microservice": "0",
+                    "notes": {
+                        "DTOs": [
+                            "RoomDTO"
+                        ],
+                        "interfaces": [
+                            "RoomDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 167,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "14",
+                    "notes": {}
+                },
+                {
+                    "id": 168,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "14",
+                    "notes": {
+                        "DTOs": [
+                            "IGuestServiceDTO"
+                        ],
+                        "interfaces": [
+                            "IGuestServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 169,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "14",
+                    "notes": {}
+                },
+                {
+                    "id": 170,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 14,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 171,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 0,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 172,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 173,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 174,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 175,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 176,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 177,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 178,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 179,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 180,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 0,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                }
+            ]
+        },
+        {
+            "id": 181,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 6,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 182,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 183,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "IWorkflowServiceDTO"
+                        ],
+                        "interfaces": [
+                            "IWorkflowServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 184,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 185,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 186,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 187,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 188,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 189,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 190,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 191,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 192,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 193,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 194,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "6",
+                    "notes": {
+                        "DTOs": [
+                            "TravelDTO"
+                        ],
+                        "interfaces": [
+                            "TravelDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 195,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 196,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 197,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "DepartmentDTO"
+                        ],
+                        "interfaces": [
+                            "DepartmentDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 198,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 199,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 200,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "1",
+                    "notes": {}
+                },
+                {
+                    "id": 201,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 6,
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "DTOs": [
+                            "WorkflowVariableDTO"
+                        ],
+                        "interfaces": [
+                            "WorkflowVariableDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 202,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 8,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 203,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 204,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "IWorkflowServiceDTO"
+                        ],
+                        "interfaces": [
+                            "IWorkflowServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 205,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 206,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 207,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 208,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 209,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 210,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 211,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 212,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 213,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 214,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 215,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 216,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 217,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 218,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 219,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "8",
+                    "notes": {
+                        "DTOs": [
+                            "LeaveDTO"
+                        ],
+                        "interfaces": [
+                            "LeaveDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 220,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 221,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 222,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 223,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 224,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 225,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "DepartmentDTO"
+                        ],
+                        "interfaces": [
+                            "DepartmentDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 226,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 227,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 228,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "1",
+                    "notes": {}
+                },
+                {
+                    "id": 229,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 8,
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "DTOs": [
+                            "WorkflowVariableDTO"
+                        ],
+                        "interfaces": [
+                            "WorkflowVariableDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 230,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 15,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 231,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 15,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 232,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 15,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 233,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 15,
+                    "dependent_microservice": "12",
+                    "notes": {}
+                },
+                {
+                    "id": 234,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 15,
+                    "dependent_microservice": "12",
+                    "notes": {
+                        "DTOs": [
+                            "SalaryOrderRepositoryDTO"
+                        ],
+                        "interfaces": [
+                            "SalaryOrderRepositoryDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 235,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 15,
+                    "dependent_microservice": "11",
+                    "notes": {}
+                },
+                {
+                    "id": 236,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 15,
+                    "dependent_microservice": "11",
+                    "notes": {
+                        "DTOs": [
+                            "RoomOrderRepositoryDTO"
+                        ],
+                        "interfaces": [
+                            "RoomOrderRepositoryDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 237,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 15,
+                    "dependent_microservice": "4",
+                    "notes": {}
+                },
+                {
+                    "id": 238,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 15,
+                    "dependent_microservice": "4",
+                    "notes": {
+                        "DTOs": [
+                            "InStorageRepositoryDTO"
+                        ],
+                        "interfaces": [
+                            "InStorageRepositoryDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 239,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 7,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 240,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 241,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 242,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 243,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 244,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "IWorkflowServiceDTO"
+                        ],
+                        "interfaces": [
+                            "IWorkflowServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 245,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 246,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 247,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 248,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 249,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 250,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "2",
+                    "notes": {}
+                },
+                {
+                    "id": 251,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "EmployeeServiceDTO"
+                        ],
+                        "interfaces": [
+                            "EmployeeServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 252,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "DTOs": [
+                            "ExtAjaxResponseDTO"
+                        ],
+                        "interfaces": [
+                            "ExtAjaxResponseDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 253,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 2,
+                    "dependent_microservice": "7",
+                    "notes": {
+                        "DTOs": [
+                            "WorkDTO"
+                        ],
+                        "interfaces": [
+                            "WorkDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 254,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "9",
+                    "notes": {}
+                },
+                {
+                    "id": 255,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "9",
+                    "notes": {}
+                },
+                {
+                    "id": 256,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "9",
+                    "notes": {
+                        "DTOs": [
+                            "SchedulEventServiceDTO"
+                        ],
+                        "interfaces": [
+                            "SchedulEventServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 257,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "9",
+                    "notes": {}
+                },
+                {
+                    "id": 258,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "9",
+                    "notes": {}
+                },
+                {
+                    "id": 259,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "9",
+                    "notes": {}
+                },
+                {
+                    "id": 260,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "9",
+                    "notes": {
+                        "DTOs": [
+                            "SchedulEventServiceDTO"
+                        ],
+                        "interfaces": [
+                            "SchedulEventServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 261,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 262,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 263,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "IDeptServiceDTO"
+                        ],
+                        "interfaces": [
+                            "IDeptServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 264,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "DepartmentDTO"
+                        ],
+                        "interfaces": [
+                            "DepartmentDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 265,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 266,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "3",
+                    "notes": {}
+                },
+                {
+                    "id": 267,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "DTOs": [
+                            "IDeptServiceDTO"
+                        ],
+                        "interfaces": [
+                            "IDeptServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 268,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "10",
+                    "notes": {}
+                },
+                {
+                    "id": 269,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "10",
+                    "notes": {
+                        "DTOs": [
+                            "ExtjsPageRequestDTO"
+                        ],
+                        "interfaces": [
+                            "ExtjsPageRequestDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 270,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "8",
+                    "notes": {}
+                },
+                {
+                    "id": 271,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "8",
+                    "notes": {
+                        "DTOs": [
+                            "ILeaveServiceDTO"
+                        ],
+                        "interfaces": [
+                            "ILeaveServiceDTOInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 272,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "6",
+                    "notes": {}
+                },
+                {
+                    "id": 273,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 7,
+                    "dependent_microservice": "6",
+                    "notes": {
+                        "DTOs": [
+                            "TravelServiceDTO"
+                        ],
+                        "interfaces": [
+                            "TravelServiceDTOInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 274,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 2,
+            "dependent_microservice": -1,
+            "notes": {}
+        }
+    ]
+}
