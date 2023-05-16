@@ -130,12 +130,12 @@ class BreakDependencies:
         
     
     def break_method_invocation_dependency(self, microservice, dependent_microservice, file, dependent_file, types, current_refactoring):  
-        #decide between synchornous or asynchronous
         print(f"CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL - {file}/{dependent_file}")
- 
+        notes = {}
+        notes["protocol"] = "HTTP"
 
         current_refactoring.add_refactoring(Refactoring("CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice))
-
+        #TODO: make changes
         types.remove('methodInvocation')
         return types, [dependent_microservice, file, dependent_file, "methodInvocation"]
         
@@ -166,32 +166,43 @@ class BreakDependencies:
             to_append.append("methodVariable")
 
         notes = {}
-        notes["DTOs"] = []
         notes["interfaces"] = []
+        notes_dtos = {"created": []}
+        createdDTO = False
+        if "variableType" in to_append or "methodVariable" in to_append: # we will only create a DTO for this dependency once
+            object_name = dependent_file.split(".")[-1]
+            dto_name = object_name + "DTO"
 
-        for i in to_append:
-            if i == "methodInvocation":
-                # TODO: add method invocation to notes
-                [types, r] = self.break_method_invocation_dependency(microservice, dependent_microservice, file, dependent_file, types, current_refactoring)
-                res.append(r)
-            else:
-                object_name = dependent_file.split(".")[-1]
-                dto_name = object_name + "DTO"
+            microservice.add_dto(dto_name)
+            interface_name  = object_name + "DTOInterface"
+            microservice.add_interface(interface_name)
 
-                microservice.add_dto(dto_name)
-                interface_name  = object_name + "DTOInterface"
-                microservice.add_interface(interface_name)
+            if dto_name not in notes_dtos["created"]:
+                notes_dtos["created"].append(dto_name)
+            if interface_name not in notes["interfaces"]:
+                notes["interfaces"].append(interface_name)
+            if "variableType" in to_append:
+                types.remove("variableType")
+                res.append([dependent_microservice, file, dependent_file, "variableType"])
+            if "methodVariable" in to_append:
+                types.remove("methodVariable")
+                res.append([dependent_microservice, file, dependent_file, "methodVariable"])
+            createdDTO = True
 
-                if dto_name not in notes["DTOs"]:
-                    notes["DTOs"].append(dto_name)
-                if interface_name not in notes["interfaces"]:
-                    notes["interfaces"].append(interface_name)
+        current_refactoring = current_refactoring.add_refactoring(Refactoring("BREAK DATA TYPE DEPENDENCY", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice, notes))
+        if createdDTO:
+            current_refactoring.add_refactoring(Refactoring("CREATE DATA TRANSFER OBJECT", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice, notes_dtos))
+            
 
-                types.remove(i)
-                res.append([dependent_microservice, file, dependent_file, i]) 
+        if "methodInvocation" in to_append:
+            # TODO: add method invocation to notes
+            [types, r] = self.break_method_invocation_dependency(microservice, dependent_microservice, file, dependent_file, types, current_refactoring)
+            res.append(r)
+           
+                    
 
 
-        current_refactoring.add_refactoring(Refactoring("BREAK DATA TYPE DEPENDENCY", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice, notes))
+        
         return types, res
     
     def break_import_dependency(self, microservice, dependent_microservice, file, dependent_file, types, current_refactoring):

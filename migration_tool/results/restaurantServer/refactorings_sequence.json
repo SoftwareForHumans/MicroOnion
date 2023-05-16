@@ -11,44 +11,66 @@
             "refactorings": [
                 {
                     "id": 2,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 0,
                     "dependent_microservice": "1",
                     "notes": {
-                        "DTOs": [
-                            "UserDetailsServiceImplDTO"
-                        ],
                         "interfaces": [
                             "UserDetailsServiceImplDTOInterface"
                         ]
-                    }
-                },
-                {
-                    "id": 3,
-                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
-                    "level": 2,
-                    "microservice": 0,
-                    "dependent_microservice": "1",
-                    "notes": {}
+                    },
+                    "refactorings": [
+                        {
+                            "id": 3,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 0,
+                            "dependent_microservice": "1",
+                            "notes": {
+                                "created": [
+                                    "UserDetailsServiceImplDTO"
+                                ]
+                            }
+                        }
+                    ]
                 },
                 {
                     "id": 4,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 0,
                     "dependent_microservice": "1",
                     "notes": {
-                        "DTOs": [
-                            "UserDetailsServiceImplDTO"
-                        ],
                         "interfaces": [
                             "UserDetailsServiceImplDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 5,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 0,
+                            "dependent_microservice": "1",
+                            "notes": {
+                                "created": [
+                                    "UserDetailsServiceImplDTO"
+                                ]
+                            }
+                        },
+                        {
+                            "id": 6,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": 0,
+                            "dependent_microservice": "1",
+                            "notes": {}
+                        }
+                    ]
                 },
                 {
-                    "id": 5,
+                    "id": 7,
                     "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
                     "level": 2,
                     "microservice": 0,
@@ -58,7 +80,7 @@
             ]
         },
         {
-            "id": 6,
+            "id": 8,
             "name": "EXTRACT MICROSERVICE",
             "level": 1,
             "microservice": 1,
@@ -66,7 +88,7 @@
             "notes": {},
             "refactorings": [
                 {
-                    "id": 7,
+                    "id": 9,
                     "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
                     "level": 2,
                     "microservice": 1,
@@ -84,75 +106,119 @@
                     }
                 },
                 {
-                    "id": 8,
-                    "name": "DATA TYPE DEPENDENCY",
-                    "level": 2,
-                    "microservice": 1,
-                    "dependent_microservice": "5",
-                    "notes": {
-                        "DTOs": [
-                            "ReservationDTO"
-                        ],
-                        "interfaces": [
-                            "ReservationDTOInterface"
-                        ]
-                    }
-                },
-                {
-                    "id": 9,
-                    "name": "DATA TYPE DEPENDENCY",
-                    "level": 2,
-                    "microservice": 1,
-                    "dependent_microservice": "5",
-                    "notes": {
-                        "DTOs": [
-                            "ReservationDTO"
-                        ],
-                        "interfaces": [
-                            "ReservationDTOInterface"
-                        ]
-                    }
-                },
-                {
                     "id": 10,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 1,
                     "dependent_microservice": "5",
                     "notes": {
-                        "DTOs": [
-                            "ReservationDTO"
-                        ],
                         "interfaces": [
                             "ReservationDTOInterface"
                         ]
-                    }
-                },
-                {
-                    "id": 11,
-                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
-                    "level": 2,
-                    "microservice": 5,
-                    "dependent_microservice": "1",
-                    "notes": {}
+                    },
+                    "refactorings": [
+                        {
+                            "id": 11,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 1,
+                            "dependent_microservice": "5",
+                            "notes": {
+                                "created": [
+                                    "ReservationDTO"
+                                ]
+                            }
+                        }
+                    ]
                 },
                 {
                     "id": 12,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "interfaces": [
+                            "ReservationDTOInterface"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 13,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 1,
+                            "dependent_microservice": "5",
+                            "notes": {
+                                "created": [
+                                    "ReservationDTO"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 14,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": 1,
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "interfaces": [
+                            "ReservationDTOInterface"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 15,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 1,
+                            "dependent_microservice": "5",
+                            "notes": {
+                                "created": [
+                                    "ReservationDTO"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 16,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 5,
                     "dependent_microservice": "1",
                     "notes": {
-                        "DTOs": [
-                            "UserServiceDTO"
-                        ],
                         "interfaces": [
                             "UserServiceDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 17,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 5,
+                            "dependent_microservice": "1",
+                            "notes": {
+                                "created": [
+                                    "UserServiceDTO"
+                                ]
+                            }
+                        },
+                        {
+                            "id": 18,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": 5,
+                            "dependent_microservice": "1",
+                            "notes": {}
+                        }
+                    ]
                 },
                 {
-                    "id": 13,
+                    "id": 19,
                     "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
                     "level": 2,
                     "microservice": 5,
@@ -160,7 +226,7 @@
                     "notes": {}
                 },
                 {
-                    "id": 14,
+                    "id": 20,
                     "name": "CHANGE DATA OWNERSHIP",
                     "level": 2,
                     "microservice": 1,
@@ -168,7 +234,7 @@
                     "notes": {},
                     "refactorings": [
                         {
-                            "id": 15,
+                            "id": 21,
                             "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
                             "level": 3,
                             "microservice": 1,
@@ -188,45 +254,67 @@
                     ]
                 },
                 {
-                    "id": 16,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 22,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 1,
                     "dependent_microservice": "6",
                     "notes": {
-                        "DTOs": [
-                            "RoleDTO"
-                        ],
                         "interfaces": [
                             "RoleDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 23,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 1,
+                            "dependent_microservice": "6",
+                            "notes": {
+                                "created": [
+                                    "RoleDTO"
+                                ]
+                            }
+                        }
+                    ]
                 },
                 {
-                    "id": 17,
-                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
-                    "level": 2,
-                    "microservice": 1,
-                    "dependent_microservice": "6",
-                    "notes": {}
-                },
-                {
-                    "id": 18,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 24,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 1,
                     "dependent_microservice": "6",
                     "notes": {
-                        "DTOs": [
-                            "MailServiceDTO"
-                        ],
                         "interfaces": [
                             "MailServiceDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 25,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 1,
+                            "dependent_microservice": "6",
+                            "notes": {
+                                "created": [
+                                    "MailServiceDTO"
+                                ]
+                            }
+                        },
+                        {
+                            "id": 26,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": 1,
+                            "dependent_microservice": "6",
+                            "notes": {}
+                        }
+                    ]
                 },
                 {
-                    "id": 19,
+                    "id": 27,
                     "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
                     "level": 2,
                     "microservice": 6,
@@ -234,30 +322,41 @@
                     "notes": {}
                 },
                 {
-                    "id": 20,
-                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
-                    "level": 2,
-                    "microservice": 6,
-                    "dependent_microservice": "1",
-                    "notes": {}
-                },
-                {
-                    "id": 21,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 28,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 6,
                     "dependent_microservice": "1",
                     "notes": {
-                        "DTOs": [
-                            "UserRepositoryDTO"
-                        ],
                         "interfaces": [
                             "UserRepositoryDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 29,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 6,
+                            "dependent_microservice": "1",
+                            "notes": {
+                                "created": [
+                                    "UserRepositoryDTO"
+                                ]
+                            }
+                        },
+                        {
+                            "id": 30,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": 6,
+                            "dependent_microservice": "1",
+                            "notes": {}
+                        }
+                    ]
                 },
                 {
-                    "id": 22,
+                    "id": 31,
                     "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
                     "level": 2,
                     "microservice": 6,
@@ -267,7 +366,7 @@
             ]
         },
         {
-            "id": 23,
+            "id": 32,
             "name": "EXTRACT MICROSERVICE",
             "level": 1,
             "microservice": 2,
@@ -275,7 +374,7 @@
             "notes": {},
             "refactorings": [
                 {
-                    "id": 24,
+                    "id": 33,
                     "name": "CHANGE DATA OWNERSHIP",
                     "level": 2,
                     "microservice": 2,
@@ -283,7 +382,7 @@
                     "notes": {},
                     "refactorings": [
                         {
-                            "id": 25,
+                            "id": 34,
                             "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
                             "level": 3,
                             "microservice": 2,
@@ -303,22 +402,33 @@
                     ]
                 },
                 {
-                    "id": 26,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 35,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 2,
                     "dependent_microservice": "4",
                     "notes": {
-                        "DTOs": [
-                            "DishDTO"
-                        ],
                         "interfaces": [
                             "DishDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 36,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 2,
+                            "dependent_microservice": "4",
+                            "notes": {
+                                "created": [
+                                    "DishDTO"
+                                ]
+                            }
+                        }
+                    ]
                 },
                 {
-                    "id": 27,
+                    "id": 37,
                     "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
                     "level": 2,
                     "microservice": 2,
@@ -326,91 +436,135 @@
                     "notes": {}
                 },
                 {
-                    "id": 28,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 38,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 2,
                     "dependent_microservice": "4",
                     "notes": {
-                        "DTOs": [
-                            "DishServiceDTO"
-                        ],
                         "interfaces": [
                             "DishServiceDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 39,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 2,
+                            "dependent_microservice": "4",
+                            "notes": {
+                                "created": [
+                                    "DishServiceDTO"
+                                ]
+                            }
+                        }
+                    ]
                 },
                 {
-                    "id": 29,
-                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
-                    "level": 2,
-                    "microservice": 2,
-                    "dependent_microservice": "3",
-                    "notes": {}
-                },
-                {
-                    "id": 30,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 40,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 2,
                     "dependent_microservice": "3",
                     "notes": {
-                        "DTOs": [
-                            "RTableRepositoryDTO"
-                        ],
                         "interfaces": [
                             "RTableRepositoryDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 41,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 2,
+                            "dependent_microservice": "3",
+                            "notes": {
+                                "created": [
+                                    "RTableRepositoryDTO"
+                                ]
+                            }
+                        },
+                        {
+                            "id": 42,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": 2,
+                            "dependent_microservice": "3",
+                            "notes": {}
+                        }
+                    ]
                 },
                 {
-                    "id": 31,
-                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
-                    "level": 2,
-                    "microservice": 2,
-                    "dependent_microservice": "3",
-                    "notes": {}
-                },
-                {
-                    "id": 32,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 43,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 2,
                     "dependent_microservice": "3",
                     "notes": {
-                        "DTOs": [
-                            "RTableRepositoryDTO"
-                        ],
                         "interfaces": [
                             "RTableRepositoryDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 44,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 2,
+                            "dependent_microservice": "3",
+                            "notes": {
+                                "created": [
+                                    "RTableRepositoryDTO"
+                                ]
+                            }
+                        },
+                        {
+                            "id": 45,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": 2,
+                            "dependent_microservice": "3",
+                            "notes": {}
+                        }
+                    ]
                 },
                 {
-                    "id": 33,
-                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
-                    "level": 2,
-                    "microservice": 3,
-                    "dependent_microservice": "2",
-                    "notes": {}
-                },
-                {
-                    "id": 34,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 46,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 3,
                     "dependent_microservice": "2",
                     "notes": {
-                        "DTOs": [
-                            "BillDTO"
-                        ],
                         "interfaces": [
                             "BillDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 47,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 3,
+                            "dependent_microservice": "2",
+                            "notes": {
+                                "created": [
+                                    "BillDTO"
+                                ]
+                            }
+                        },
+                        {
+                            "id": 48,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": 3,
+                            "dependent_microservice": "2",
+                            "notes": {}
+                        }
+                    ]
                 },
                 {
-                    "id": 35,
+                    "id": 49,
                     "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
                     "level": 2,
                     "microservice": 3,
@@ -428,39 +582,61 @@
                     }
                 },
                 {
-                    "id": 36,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 50,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 3,
                     "dependent_microservice": "2",
                     "notes": {
-                        "DTOs": [
-                            "BillDTO"
-                        ],
                         "interfaces": [
                             "BillDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 51,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 3,
+                            "dependent_microservice": "2",
+                            "notes": {
+                                "created": [
+                                    "BillDTO"
+                                ]
+                            }
+                        }
+                    ]
                 },
                 {
-                    "id": 37,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 52,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 3,
                     "dependent_microservice": "2",
                     "notes": {
-                        "DTOs": [
-                            "BillDTO"
-                        ],
                         "interfaces": [
                             "BillDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 53,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 3,
+                            "dependent_microservice": "2",
+                            "notes": {
+                                "created": [
+                                    "BillDTO"
+                                ]
+                            }
+                        }
+                    ]
                 }
             ]
         },
         {
-            "id": 38,
+            "id": 54,
             "name": "EXTRACT MICROSERVICE",
             "level": 1,
             "microservice": 3,
@@ -468,22 +644,33 @@
             "notes": {},
             "refactorings": [
                 {
-                    "id": 39,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 55,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 3,
                     "dependent_microservice": "5",
                     "notes": {
-                        "DTOs": [
-                            "ReservationDTO"
-                        ],
                         "interfaces": [
                             "ReservationDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 56,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 3,
+                            "dependent_microservice": "5",
+                            "notes": {
+                                "created": [
+                                    "ReservationDTO"
+                                ]
+                            }
+                        }
+                    ]
                 },
                 {
-                    "id": 40,
+                    "id": 57,
                     "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
                     "level": 2,
                     "microservice": 3,
@@ -501,60 +688,93 @@
                     }
                 },
                 {
-                    "id": 41,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 58,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 3,
                     "dependent_microservice": "5",
                     "notes": {
-                        "DTOs": [
-                            "ReservationDTO"
-                        ],
                         "interfaces": [
                             "ReservationDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 59,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 3,
+                            "dependent_microservice": "5",
+                            "notes": {
+                                "created": [
+                                    "ReservationDTO"
+                                ]
+                            }
+                        }
+                    ]
                 },
                 {
-                    "id": 42,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 60,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 3,
                     "dependent_microservice": "5",
                     "notes": {
-                        "DTOs": [
-                            "ReservationDTO"
-                        ],
                         "interfaces": [
                             "ReservationDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 61,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 3,
+                            "dependent_microservice": "5",
+                            "notes": {
+                                "created": [
+                                    "ReservationDTO"
+                                ]
+                            }
+                        }
+                    ]
                 },
                 {
-                    "id": 43,
-                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
-                    "level": 2,
-                    "microservice": 5,
-                    "dependent_microservice": "3",
-                    "notes": {}
-                },
-                {
-                    "id": 44,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 62,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 5,
                     "dependent_microservice": "3",
                     "notes": {
-                        "DTOs": [
-                            "RTableServiceDTO"
-                        ],
                         "interfaces": [
                             "RTableServiceDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 63,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 5,
+                            "dependent_microservice": "3",
+                            "notes": {
+                                "created": [
+                                    "RTableServiceDTO"
+                                ]
+                            }
+                        },
+                        {
+                            "id": 64,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": 5,
+                            "dependent_microservice": "3",
+                            "notes": {}
+                        }
+                    ]
                 },
                 {
-                    "id": 45,
+                    "id": 65,
                     "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
                     "level": 2,
                     "microservice": 5,
@@ -564,7 +784,7 @@
             ]
         },
         {
-            "id": 46,
+            "id": 66,
             "name": "EXTRACT MICROSERVICE",
             "level": 1,
             "microservice": 4,
@@ -572,78 +792,111 @@
             "notes": {},
             "refactorings": [
                 {
-                    "id": 47,
-                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
-                    "level": 2,
-                    "microservice": 4,
-                    "dependent_microservice": "6",
-                    "notes": {}
-                },
-                {
-                    "id": 48,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 67,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 4,
                     "dependent_microservice": "6",
                     "notes": {
-                        "DTOs": [
-                            "RoleRepositoryDTO"
-                        ],
                         "interfaces": [
                             "RoleRepositoryDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 68,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 4,
+                            "dependent_microservice": "6",
+                            "notes": {
+                                "created": [
+                                    "RoleRepositoryDTO"
+                                ]
+                            }
+                        },
+                        {
+                            "id": 69,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": 4,
+                            "dependent_microservice": "6",
+                            "notes": {}
+                        }
+                    ]
                 },
                 {
-                    "id": 49,
-                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
-                    "level": 2,
-                    "microservice": 4,
-                    "dependent_microservice": "1",
-                    "notes": {}
-                },
-                {
-                    "id": 50,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 70,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 4,
                     "dependent_microservice": "1",
                     "notes": {
-                        "DTOs": [
-                            "UserRepositoryDTO"
-                        ],
                         "interfaces": [
                             "UserRepositoryDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 71,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 4,
+                            "dependent_microservice": "1",
+                            "notes": {
+                                "created": [
+                                    "UserRepositoryDTO"
+                                ]
+                            }
+                        },
+                        {
+                            "id": 72,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": 4,
+                            "dependent_microservice": "1",
+                            "notes": {}
+                        }
+                    ]
                 },
                 {
-                    "id": 51,
-                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
-                    "level": 2,
-                    "microservice": 4,
-                    "dependent_microservice": "3",
-                    "notes": {}
-                },
-                {
-                    "id": 52,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 73,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 4,
                     "dependent_microservice": "3",
                     "notes": {
-                        "DTOs": [
-                            "RTableRepositoryDTO"
-                        ],
                         "interfaces": [
                             "RTableRepositoryDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 74,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 4,
+                            "dependent_microservice": "3",
+                            "notes": {
+                                "created": [
+                                    "RTableRepositoryDTO"
+                                ]
+                            }
+                        },
+                        {
+                            "id": 75,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": 4,
+                            "dependent_microservice": "3",
+                            "notes": {}
+                        }
+                    ]
                 }
             ]
         },
         {
-            "id": 53,
+            "id": 76,
             "name": "EXTRACT MICROSERVICE",
             "level": 1,
             "microservice": 5,
@@ -651,47 +904,69 @@
             "notes": {},
             "refactorings": [
                 {
-                    "id": 54,
-                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
-                    "level": 2,
-                    "microservice": 5,
-                    "dependent_microservice": "6",
-                    "notes": {}
-                },
-                {
-                    "id": 55,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 77,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 5,
                     "dependent_microservice": "6",
                     "notes": {
-                        "DTOs": [
-                            "MailServiceDTO"
-                        ],
                         "interfaces": [
                             "MailServiceDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 78,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 5,
+                            "dependent_microservice": "6",
+                            "notes": {
+                                "created": [
+                                    "MailServiceDTO"
+                                ]
+                            }
+                        },
+                        {
+                            "id": 79,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": 5,
+                            "dependent_microservice": "6",
+                            "notes": {}
+                        }
+                    ]
                 },
                 {
-                    "id": 56,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 80,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 6,
                     "dependent_microservice": "5",
                     "notes": {
-                        "DTOs": [
-                            "ReservationDTO"
-                        ],
                         "interfaces": [
                             "ReservationDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 81,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 6,
+                            "dependent_microservice": "5",
+                            "notes": {
+                                "created": [
+                                    "ReservationDTO"
+                                ]
+                            }
+                        }
+                    ]
                 }
             ]
         },
         {
-            "id": 57,
+            "id": 82,
             "name": "EXTRACT MICROSERVICE",
             "level": 1,
             "microservice": 6,
@@ -699,27 +974,38 @@
             "notes": {},
             "refactorings": [
                 {
-                    "id": 58,
-                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
-                    "level": 2,
-                    "microservice": 6,
-                    "dependent_microservice": "0",
-                    "notes": {}
-                },
-                {
-                    "id": 59,
-                    "name": "DATA TYPE DEPENDENCY",
+                    "id": 83,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
                     "level": 2,
                     "microservice": 6,
                     "dependent_microservice": "0",
                     "notes": {
-                        "DTOs": [
-                            "JwtProviderDTO"
-                        ],
                         "interfaces": [
                             "JwtProviderDTOInterface"
                         ]
-                    }
+                    },
+                    "refactorings": [
+                        {
+                            "id": 84,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": 6,
+                            "dependent_microservice": "0",
+                            "notes": {
+                                "created": [
+                                    "JwtProviderDTO"
+                                ]
+                            }
+                        },
+                        {
+                            "id": 85,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": 6,
+                            "dependent_microservice": "0",
+                            "notes": {}
+                        }
+                    ]
                 }
             ]
         }

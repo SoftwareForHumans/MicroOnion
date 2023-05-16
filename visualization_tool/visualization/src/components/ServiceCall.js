@@ -8,6 +8,8 @@
 // change the other microservice to receive the requestz
 // create a class that defines the resource paths
 // create a class to process the requestz requests# add methods to entity to perform the actions
+
+//decide between syncrhonous or asynchrnous
 import Col from "react-bootstrap/Col";
 import SquaredButton from "../components/SquaredButton";
 function ServiceCall(props) {

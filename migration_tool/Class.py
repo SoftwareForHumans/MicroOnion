@@ -115,7 +115,7 @@ class Class:
             for variable in self.variables:
                 variable_annotations = variable["annotations"]
                 if any(re.match("^@OneToMany",line) for line in variable_annotations):
-                    param = self.get_primary_key()
+                    param = self.get_primary_key(classes)
                     self.database_dependencies["variables"].append(["OneToMany", variable["identifier"][1], param[1]])
 
                 elif any(re.match("^@ManyToMany",line) for line in variable_annotations):
@@ -164,18 +164,25 @@ class Class:
                 self.add_dependency("databaseDependency", class_name)
         
 
-    def get_primary_key(self):
+    def get_primary_key(self, classes):
         for variable in self.variables:
             if "@Id" in variable["annotations"]:
                 return variable["type"], variable["variable"]
             
-        if any(re.match("^@PrimaryKeyJoinColumn",line) for line in self.annotations):
+        if any(re.match("^@PrimaryKeyJoinColumn", line) for line in self.annotations):
             annotation = [x for x in self.annotations if re.match("^@PrimaryKeyJoinColumn", x)][0]
             annotation = annotation.replace(" ", )
             if re.match("^@PrimaryKeyJoinColumn\(name=\\\"", annotation):
                 name = re.sub("^@PrimaryKeyJoinColumn\(name=\\\"", "", annotation)
                 name = re.sub('\"\)', '', name)
-                return name #falta descobrir o tipo, ele faz graças ao extends - ver os casos todos do extends
+                if "." in  self.extends[0]:
+                    for i in classes:
+                        if i.get_filename() == self.extends[0]:
+                            return i.primaryKeyVariableType(classes)
+                else:
+                    for i in classes:
+                        if i.get_filename() == self.extends[1]:
+                            return i.primaryKeyVariableType(classes)
 
     def add_dependency(self, type, dependency):
         for i in self.dependencies:
