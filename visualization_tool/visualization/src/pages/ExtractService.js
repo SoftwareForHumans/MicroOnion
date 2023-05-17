@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from "react";
-// import Popup from "reactjs-popup";
-// import "reactjs-popup/dist/index.css";
 import { useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-import { Tooltip } from "react-tooltip";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import Refactoring from "../components/Refactoring";
 import SquaredButton from "../components/SquaredButton";
+import DependenciesTable from "../components/DependenciesTable";
 
 import initial from "../assets/service0_start.png";
 import final from "../assets/service0_end.png";
@@ -31,78 +27,23 @@ function ExtractService() {
   const [refactoring, setRefactoring] = useState();
   const [selected, setSelected] = useState(null);
   const [show, setShow] = useState(false);
+  const [showFinal, setShowFinal] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleCloseFinal = () => setShowFinal(false);
+  const handleShowFinal = () => setShowFinal(true);
+
   const handleOnClick = (index) => {
     setSelected(index);
     setRefactoring(index);
   };
-  console.log(selected);
-
-  function createArrayElement(arr) {
-    let res = [];
-    for (let [key, listOfDependencies] of arr) {
-      let el = [];
-      const size = listOfDependencies.length;
-      el.push(
-        <td className="px-3" rowSpan={size}>
-          {key}
-        </td>
-      );
-      Object.keys(listOfDependencies).map((k) => {
-        if (el.length > 1) {
-          el = [];
-          el.push(<td></td>);
-        }
-        let dep = listOfDependencies[k][0][0].split(".").pop();
-
-        el.push(
-          <td
-            className="px-3"
-            style={{
-              borderRight: "2px solid #092256",
-              borderLeft: "2px solid #092256",
-            }}
-          >
-            {k}
-          </td>
-        );
-        el.push(
-          <td
-            className="px-3"
-            data-tooltip-id="file-name"
-            data-tooltip-content={listOfDependencies[k][0][0]}
-            style={{ borderRight: "2px solid #092256" }}
-          >
-            {dep}
-          </td>
-        );
-
-        let deps = "";
-        listOfDependencies[k][0].map((v, index) => {
-          if (v !== listOfDependencies[k][0][0]) {
-            deps += v;
-            if (index !== listOfDependencies[k][0].length - 1) {
-              deps += ", ";
-            }
-          }
-          return deps;
-        });
-        el.push(<td className="px-3">{deps}</td>);
-        res.push(el);
-        return res;
-      });
-    }
-
-    return res;
-  }
 
   useEffect(() => {
     try {
       axios
         .get(
-          `http://localhost:8000/projects/${project}/serviceDependencies/${service.microservice}`
+          `${process.env.REACT_APP_BACKEND_URL}projects/${project}/serviceDependencies/${service.microservice}`
         )
         .then((res) => {
           setFrom(res.data.from);
@@ -111,7 +52,7 @@ function ExtractService() {
 
       axios
         .get(
-          `http://localhost:8000/projects/${project}/serviceExtraction/${service.microservice}`
+          `${process.env.REACT_APP_BACKEND_URL}projects/${project}/serviceExtraction/${service.microservice}`
         )
         .then((res) => {
           setFinalState(res.data.finalState);
@@ -130,18 +71,8 @@ function ExtractService() {
 
   return (
     <>
-      <Container
-        className="mb-5"
-        style={{ display: "flex", flexDirection: "row", color: "#092256" }}
-      >
-        <div
-          style={{
-            justifyContent: "start",
-            alignItems: "start",
-            display: "flex",
-            position: "fixed",
-          }}
-        >
+      <Container className="mb-5 d-flex flex-row blue-text">
+        <div className="justify-content-start align-items-start d-flex position-fixed">
           <Link
             to="/extractionSequence"
             state={{
@@ -157,27 +88,12 @@ function ExtractService() {
             ></BsFillArrowLeftCircleFill>
           </Link>
         </div>
-        <div
-          className="mt-3 mb-5 ms-2"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-          }}
-        >
-          <Row>
+        <div className="mt-3 mb-5 ms-2 center-all flex-column">
+          <Row className="center-all">
             <h4 className="mb-4">Extract service {service.microservice}</h4>
             <Button
-              className="mb-3"
+              className="my-3 modal-button"
               size="sm"
-              style={{
-                color: "#1E488F",
-                borderColor: "#1E488F",
-                backgroundColor: "#FFFFFF",
-                fontWeight: "bold",
-              }}
               onClick={handleShow}
             >
               {" "}
@@ -193,35 +109,20 @@ function ExtractService() {
               centered
             >
               <Modal.Header closeButton>
-                <Modal.Title> {project} - Service {service.microservice} initial state </Modal.Title>
+                <Modal.Title>
+                  {" "}
+                  Component {service.microservice} initial state{" "}
+                </Modal.Title>
               </Modal.Header>
               <Modal.Body>
-              <img className="mt-5" style={{ width: "100%" }} src={initial} alt="Initial state"></img>
+                <img
+                  className="mt-5"
+                  style={{ width: "100%" }}
+                  src={initial}
+                  alt="Initial state"
+                ></img>
               </Modal.Body>
-             
             </Modal>
-            {/* <Link
-              to="/showState"
-              state={{
-                projectName: project,
-                stateObject: finalState,
-                initial: true,
-                service: service.microservice,
-              }}
-            >
-              <Button
-                className="mb-3"
-                size="sm"
-                style={{
-                  color: "#1E488F",
-                  borderColor: "#1E488F",
-                  backgroundColor: "#FFFFFF",
-                  fontWeight: "bold",
-                }}
-              >
-                Check the initial state of the component
-              </Button>
-            </Link> */}
             <p style={{ fontSize: "0.95rem" }}>
               To extract the service, identify the dependencies of the service
               to the monolith and of the monolith to the service:
@@ -231,14 +132,7 @@ function ExtractService() {
             <></>
           ) : (
             <>
-              <Row
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
+              <Row className="center-all flex-column">
                 <Row className="mt-3 mb-2">
                   <h6>Service dependencies to the Monolith</h6>
                 </Row>
@@ -250,29 +144,7 @@ function ExtractService() {
                     </p>
                   </>
                 ) : (
-                  <table style={{ border: "2px solid #092256", width: "100%" }}>
-                    <thead>
-                      <tr
-                        style={{
-                          border: "2px solid #092256",
-                          backgroundColor: "#092256",
-                          color: "white",
-                        }}
-                      >
-                        <th className="px-3">Component</th>
-                        <th className="px-3">File</th>
-                        <th className="px-3">Dependency</th>
-                        <th className="px-3">Type</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <Tooltip id="file-name" />
-
-                      {createArrayElement(from).map((obj) => (
-                        <tr>{obj}</tr>
-                      ))}
-                    </tbody>
-                  </table>
+                  <DependenciesTable tableContent={from}></DependenciesTable>
                 )}
 
                 <Row className="mt-3 mb-2">
@@ -286,48 +158,7 @@ function ExtractService() {
                     </p>
                   </>
                 ) : (
-                  <table style={{ border: "2px solid #092256", width: "100%" }}>
-                    <thead>
-                      <tr
-                        style={{
-                          border: "2px solid #092256",
-                          backgroundColor: "#092256",
-                          color: "white",
-                        }}
-                      >
-                        <th
-                          className="px-3"
-                          style={{ borderRight: "2px solid #092256" }}
-                        >
-                          Component
-                        </th>
-                        <th
-                          className="px-3"
-                          style={{ borderRight: "2px solid #092256" }}
-                        >
-                          File
-                        </th>
-                        <th
-                          className="px-3"
-                          style={{ borderRight: "2px solid #092256" }}
-                        >
-                          Dependency
-                        </th>
-                        <th
-                          className="px-3"
-                          style={{ borderRight: "2px solid #092256" }}
-                        >
-                          Type
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <Tooltip id="file-name" />
-                      {createArrayElement(to).map((obj) => (
-                        <tr>{obj}</tr>
-                      ))}
-                    </tbody>
-                  </table>
+                  <DependenciesTable tableContent={to}></DependenciesTable>
                 )}
               </Row>
 
@@ -341,13 +172,7 @@ function ExtractService() {
                 </>
               ) : (
                 <>
-                  <Row
-                    style={{
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                    className="my-5"
-                  >
+                  <Row className="center-all my-5">
                     <p style={{ fontSize: "0.95rem" }}>
                       To extract this service, we suggest the following sequence
                       of refactorings (
@@ -395,28 +220,38 @@ function ExtractService() {
               )}
             </>
           )}
-          <Link
-            to="/showState"
-            state={{
-              projectName: project,
-              stateObject: finalState,
-              initial: false,
-              service: service.microservice,
-            }}
+          <Button
+            className="mb-3 mt-5 modal-button"
+            size="sm"
+            onClick={handleShowFinal}
           >
-            <Button
-              className="mt-5 mb-3"
-              size="sm"
-              style={{
-                color: "#1E488F",
-                borderColor: "#1E488F",
-                backgroundColor: "#FFFFFF",
-                fontWeight: "bold",
-              }}
-            >
-              Check the final state of the service extracted
-            </Button>
-          </Link>
+            {" "}
+            Check the final state of the component
+          </Button>
+
+          <Modal
+            size="xl"
+            show={showFinal}
+            onHide={handleCloseFinal}
+            backdrop="static"
+            keyboard={false}
+            centered
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>
+                {" "}
+                Service {service.microservice} final state{" "}
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <img
+                className="mt-5"
+                style={{ width: "100%" }}
+                src={final}
+                alt="Final state"
+              ></img>
+            </Modal.Body>
+          </Modal>
         </div>
       </Container>
     </>

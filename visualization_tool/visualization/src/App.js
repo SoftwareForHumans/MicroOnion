@@ -9,7 +9,6 @@ import Infrastructure from "./pages/Infrastructure";
 import Deployment from "./pages/Deployment";
 import Principles from "./pages/Principles";
 import ExtractService from "./pages/ExtractService";
-import ShowState from "./pages/ShowState";
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Categories />} />
         <Route path="/chooseProject" element={<ChooseProject />} />
-        <Route path="/showState" element={<ShowState />} />
         <Route path="/extractionSequence" element={<ExtractionSequence />} />
         <Route path="/extractService" element={<ExtractService />} />
         <Route path="/infrastructure" element={<Infrastructure />} />

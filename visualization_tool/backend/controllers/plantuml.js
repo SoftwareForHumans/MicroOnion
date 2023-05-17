@@ -1,4 +1,4 @@
-const plantuml = require("node-plantuml");
+// const plantuml = require("node-plantuml");
 const path = require("path");
 const fs = require("fs");
 
@@ -20,9 +20,9 @@ exports.getPlantUmlPng = async (req, res) => {
   //   }
   //   console.log(`stdout: ${stdout}`);
   // });
-  const data = fs.readFileSync(jsonPath, "utf8");
-  var gen = plantuml.generate(data);
-  gen.out.pipe(fs.createWriteStream("output-file.png"));
+  // const data = fs.readFileSync(jsonPath, "utf8");
+  // var gen = plantuml.generate(data);
+  // gen.out.pipe(fs.createWriteStream("output-file.png"));
   // // compress(data)
   // let decode = plantuml.decode(data);
   // let gen = plantuml.generate("input-file");
@@ -34,11 +34,11 @@ exports.getPlantUmlPng = async (req, res) => {
 };
 
 exports.getPlantUmlSvg = async (req, res) => {
-  res.set("Content-Type", "image/svg+xml");
+  // res.set("Content-Type", "image/svg+xml");
 
-  let decode = plantuml.decode(req.params.uml);
-  let gen = plantuml.generate({ format: "svg" });
+  // let decode = plantuml.decode(req.params.uml);
+  // let gen = plantuml.generate({ format: "svg" });
 
-  decode.out.pipe(gen.in);
-  gen.out.pipe(res);
+  // decode.out.pipe(gen.in);
+  // gen.out.pipe(res);
 };

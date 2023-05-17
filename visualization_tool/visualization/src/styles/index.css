@@ -71,3 +71,17 @@ footer {
   background-color: white;
   color:black;
 }
+.modal-button{
+  color: #1E488F;
+  border-color: #1E488F;
+  background-color: #FFFFFF;
+  font-weight: bold;
+  width: 20rem;
+}
+.modal-button:hover{
+  color: white;
+  border-color: #1E488F;
+  background-color: #1E488F;
+  font-weight: bold;
+  width: 20rem;
+}

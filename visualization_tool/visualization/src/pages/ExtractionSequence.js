@@ -16,8 +16,9 @@ function ExtractionSequence() {
 
   useEffect(() => {
     try {
+      console.log(process.env.REACT_APP_BACKEND_URL)
       axios
-        .get(`http://localhost:8000/projects/refactoringsSequence/${project}`)
+        .get(`${process.env.REACT_APP_BACKEND_URL}projects/refactoringsSequence/${project}`)
         .then((res) => {
           setExtractServices(res.data);
         });
