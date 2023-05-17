@@ -1,5 +1,4 @@
 from Refactoring import Refactoring
-from ServiceRepresentation import ServiceRepresentation
 from RefactoringRepresentation import RefactoringRepresentation
 class BreakDependencies:
     def __init__(self, project_name, services, dependencies, initial_refactoring, refactoring_representation):
@@ -39,6 +38,7 @@ class BreakDependencies:
                 
                 if microservice in dependencies[k].keys():
                     print(f"\nBreaking dependencies of microservice {k} with microservice {microservice}\n")
+                    #TODO: dar fix para guardar no do primeiro refactoring sequence
                     self.break_dependency_file_by_file(k, microservice, dependencies[k][microservice], current_refactoring)
                 
             refactoring_representation.set_services(self.get_service_by_id(microservice))
@@ -135,7 +135,7 @@ class BreakDependencies:
         notes["protocol"] = "HTTP"
 
         current_refactoring.add_refactoring(Refactoring("CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice))
-        #TODO: make changes
+        #TODO: make changes - pôr o method name nas notas
         types.remove('methodInvocation')
         return types, [dependent_microservice, file, dependent_file, "methodInvocation"]
         
@@ -166,9 +166,13 @@ class BreakDependencies:
             to_append.append("methodVariable")
 
         notes = {}
+        notes["file"] = file
+        notes["dependent_file"] = dependent_file
         notes["interfaces"] = []
         notes_dtos = {"created": []}
         createdDTO = False
+
+        #TODO: verificar que DTO ainda não foi criado neste microserviço
         if "variableType" in to_append or "methodVariable" in to_append: # we will only create a DTO for this dependency once
             object_name = dependent_file.split(".")[-1]
             dto_name = object_name + "DTO"

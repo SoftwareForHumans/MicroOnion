@@ -27,7 +27,7 @@ function ExtractionSequence() {
   }, [project]);
 
   return (
-    <Container className="my-5 pb-5 col-major">
+    <Container className="my-5 pb-5">
       <Row
         className="mt-5"
         style={{ justifyContent: "center", color: "#1E488F" }}
@@ -35,8 +35,8 @@ function ExtractionSequence() {
         <p>
           {" "}
           Here we present the order by which we propose the services to be
-          extracted. <br></br>
-          <b>Click on each of them to find out how to extract them.</b>
+          extracted, applying the Extract Service refactoring. <br></br>
+          <b>Click on each of the services to find out how to extract them.</b>
         </p>
       </Row>
 

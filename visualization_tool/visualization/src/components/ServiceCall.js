@@ -25,6 +25,9 @@ function ServiceCall(props) {
           refactoring.name[0] +
           refactoring.name.slice(1).toLowerCase()}
       </h6>
+      <p>By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
+
+each microservice has its own database - show this</p>
       {refactoring.refactorings &&
         refactoring.refactorings.map((item, index) => {
           return (

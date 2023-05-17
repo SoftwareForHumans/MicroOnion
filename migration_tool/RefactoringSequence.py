@@ -13,8 +13,8 @@ class RefactoringSequence:
         for r in self.initial_refactoring.get_refactorings():
             refactorings.append(r.to_json())
         res['refactorings'] = refactorings
+        
         utils.write_json_to_results(self.project_name, "refactorings_sequence", res)
-        # utils.write_json_to_results(self.project_name, "refactorings_sequence_snapshot" + str(self.snapshot_number) , res)
         
     
     def set_initial_refactoring(self, initial_refactoring):

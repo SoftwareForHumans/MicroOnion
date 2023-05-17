@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
+// import Popup from "reactjs-popup";
+// import "reactjs-popup/dist/index.css";
 import { useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -11,6 +15,9 @@ import { Tooltip } from "react-tooltip";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import Refactoring from "../components/Refactoring";
 import SquaredButton from "../components/SquaredButton";
+
+import initial from "../assets/service0_start.png";
+import final from "../assets/service0_end.png";
 
 function ExtractService() {
   let { state } = useLocation();
@@ -22,6 +29,16 @@ function ExtractService() {
   const [sequence, setSequence] = useState();
   const [finalState, setFinalState] = useState();
   const [refactoring, setRefactoring] = useState();
+  const [selected, setSelected] = useState(null);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const handleOnClick = (index) => {
+    setSelected(index);
+    setRefactoring(index);
+  };
+  console.log(selected);
 
   function createArrayElement(arr) {
     let res = [];
@@ -152,9 +169,45 @@ function ExtractService() {
         >
           <Row>
             <h4 className="mb-4">Extract service {service.microservice}</h4>
-            <Link
+            <Button
+              className="mb-3"
+              size="sm"
+              style={{
+                color: "#1E488F",
+                borderColor: "#1E488F",
+                backgroundColor: "#FFFFFF",
+                fontWeight: "bold",
+              }}
+              onClick={handleShow}
+            >
+              {" "}
+              Check the initial state of the component
+            </Button>
+
+            <Modal
+              size="xl"
+              show={show}
+              onHide={handleClose}
+              backdrop="static"
+              keyboard={false}
+              centered
+            >
+              <Modal.Header closeButton>
+                <Modal.Title> {project} - Service {service.microservice} initial state </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+              <img className="mt-5" style={{ width: "100%" }} src={initial} alt="Initial state"></img>
+              </Modal.Body>
+             
+            </Modal>
+            {/* <Link
               to="/showState"
-              state={{ projectName: project, stateObject: finalState }}
+              state={{
+                projectName: project,
+                stateObject: finalState,
+                initial: true,
+                service: service.microservice,
+              }}
             >
               <Button
                 className="mb-3"
@@ -168,7 +221,7 @@ function ExtractService() {
               >
                 Check the initial state of the component
               </Button>
-            </Link>
+            </Link> */}
             <p style={{ fontSize: "0.95rem" }}>
               To extract the service, identify the dependencies of the service
               to the monolith and of the monolith to the service:
@@ -304,39 +357,38 @@ function ExtractService() {
                       ):
                     </p>
                   </Row>
-                  <Row
-                    style={{
-                      display: "inline-block",
-                      justifyContent: "start",
-                    }}
-                  >
+                  <Row className="d-inline">
                     {sequence.map((item, index) => {
                       return (
                         <>
                           <Col className="d-inline">
                             <SquaredButton
                               item={item}
-                              handleClick={setRefactoring}
+                              handleClick={handleOnClick}
                               sequence={sequence}
                               index={index}
+                              active={selected === index}
                               color="#092256"
                             ></SquaredButton>
-                            
                           </Col>
                         </>
                       );
                     })}
                   </Row>
                   {refactoring !== undefined && (
-                    <Row id="implementation" className="mt-5" style={{border: "3px dashed", width: "90%"}}>
-                      {refactoring !== undefined && 
+                    <Row
+                      id="implementation"
+                      className="mt-5"
+                      style={{ border: "3px dashed", width: "90%" }}
+                    >
+                      {refactoring !== undefined && (
                         <Refactoring
                           project={project}
                           service={service}
                           sequence={sequence}
                           index={refactoring}
                         ></Refactoring>
-                      }
+                      )}
                     </Row>
                   )}
                 </>
@@ -345,7 +397,12 @@ function ExtractService() {
           )}
           <Link
             to="/showState"
-            state={{ projectName: project, stateObject: finalState }}
+            state={{
+              projectName: project,
+              stateObject: finalState,
+              initial: false,
+              service: service.microservice,
+            }}
           >
             <Button
               className="mt-5 mb-3"

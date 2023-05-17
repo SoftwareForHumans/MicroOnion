@@ -25,9 +25,9 @@ function Infrastructure() {
   ];
   return (
     <Container className="my-4">
-      <Row className="px-5 center-all " style={{ color: "#092256" }}>
+      <Row className="px-5 center-all blue-text">
         <h4>Infrastructure</h4>
-        <p className="mt-2 blue-text">
+        <p className="mt-2 ">
           The migration also requires an improvement to the infrastructure{" "}
           <b>to take full advantage of this new architecture</b>. Check some
           interesting refactorings/introductions you can add to your system for
@@ -35,15 +35,12 @@ function Infrastructure() {
         </p>
       </Row>
       <div
-        className="center-all"
-        style={{
-          flexDirection: "row",
-        }}
+        className="center-all flex-row"
       >
         <Row>
           {titles.map((title, index) => (
             <Card
-              className="mx-3 my-3"
+              className="m-3"
               style={{
                 width: "400px",
                 backgroundColor:
@@ -59,18 +56,28 @@ function Infrastructure() {
                 >
                   {title}
                 </Card.Title>
-                <Card.Text style={{ color: "white" }}>{texts[index]}</Card.Text>
+                <Card.Text className="text-white">{texts[index]}</Card.Text>
               </Card.Body>
             </Card>
           ))}
         </Row>
       </div>
-      <Row className="my-4 pb-5 center-all " style={{ color: "#092256" }}>
+      <Row className="my-4 pb-5 center-all blue-text">
         <p className="my-2">
-          {" "}
           You can find{" "}
-          <b>more information and examples on the catalog (link)</b> developed
-          for source of this tool.
+          <b>
+            more information and examples on the{" "}
+            <a
+              style={{ color: "#092256" }}
+              href="https://drive.google.com/file/d/1OHzI64pzNWmRZ2t61A30LHS_ItqX4all/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {" "}
+              catalog{" "}
+            </a>
+          </b>{" "}
+          developed for source of this tool.
         </p>
       </Row>
     </Container>

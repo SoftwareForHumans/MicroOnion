@@ -7,5 +7,5 @@ package "Monolith" {
 [Microservice 5]
 [Microservice 6]
 }
-[Microservice 7] ..> "Monolith" : getBar, getDrinks
+[Microservice 7]
 @enduml

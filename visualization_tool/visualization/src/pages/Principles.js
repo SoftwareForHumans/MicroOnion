@@ -28,20 +28,12 @@ function Principles() {
 
   return (
     <Container className="mb-5">
-      <Row
-        className="my-4 px-5"
-        style={{
-          display: "flex",
-          alignlis: "center",
-          justifyContent: "center",
-          color: "#092256",
-        }}
-      >
+      <Row className="my-4 px-5 center-all blue-text">
         <h4>
           Characteristics of a Microservices Architecture, by James Lewis and
           Martin Fowler
         </h4>
-        <p className="mt-3" style={{ width: "85%" }}>
+        <p className="mt-3" style={{ width: "85%", fontSize: "0.9rem" }}>
           <b>James Lewis</b> and <b>Martin Fowler</b> present a list of the
           common Characteristics of a Microservices Architecture, although they
           state that{" "}
@@ -56,7 +48,7 @@ function Principles() {
       <Row className="center-all">
         {titles.map((title, index) => (
           <Card
-            className="mx-3 mb-4 pt-2 pb-4"
+            className="mb-4 pt-2 pb-4"
             style={{
               width: "85%",
               backgroundColor:
@@ -67,19 +59,30 @@ function Principles() {
             }}
           >
             <Card.Body>
-              <Card.Title className="mb-2" style={{ color: "#c0c0c0" }}>
+              <Card.Title className="mb-2" style={{ color: "#e6e6e6", fontSize:"1.1rem" }}>
                 {title}
               </Card.Title>
-              <Card.Text style={{ color: "white" }}>{texts[index]}</Card.Text>
+              <Card.Text style={{ color: "white", fontSize:"0.9rem" }}>{texts[index]}</Card.Text>
             </Card.Body>
           </Card>
         ))}
       </Row>
-      <Row className="my-4 pb-5 center-all " style={{ color: "#092256" }}>
+      <Row className="my-4 pb-5 center-all blue-text">
         <p className="my-2">
           {" "}
-          You can find <b>more information on the catalog (link)</b> developed
-          for source of this tool.
+          You can find{" "}
+          <b>
+            more information on the{" "}
+            <a
+              style={{ color: "#092256" }}
+              href="https://drive.google.com/file/d/1OHzI64pzNWmRZ2t61A30LHS_ItqX4all/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+            >
+              catalog
+            </a>{" "}
+          </b>{" "}
+          developed for source of this tool.
         </p>
       </Row>
     </Container>

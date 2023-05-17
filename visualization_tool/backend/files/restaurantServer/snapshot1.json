@@ -1,1 +1,31 @@
-{"project_name": "restaurantServer", "snapshot_number": 1, "services": [{"id": 0, "files": ["pl.edu.wat.wcy.pz.restaurantServer.security.WebSecurityConfiguration", "pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtAuthEntryPoint", "pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtAuthTokenFilter", "pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtProvider"], "new_classes": [], "service_calls": [], "dtos": ["UserDetailsServiceImplDTO"], "interfaces": ["UserDetailsServiceImplDTOInterface"], "dependencies": {"1": {"WebSecurityConfiguration": [], "JwtAuthTokenFilter": [], "JwtProvider": []}}, "independent": false}]}
+{
+    "project_name": "restaurantServer",
+    "snapshot_number": 1,
+    "services": [
+        {
+            "id": 0,
+            "files": [
+                "pl.edu.wat.wcy.pz.restaurantServer.security.WebSecurityConfiguration",
+                "pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtAuthEntryPoint",
+                "pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtAuthTokenFilter",
+                "pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtProvider"
+            ],
+            "new_classes": [],
+            "service_calls": [],
+            "dtos": [
+                "UserDetailsServiceImplDTO"
+            ],
+            "interfaces": [
+                "UserDetailsServiceImplDTOInterface"
+            ],
+            "dependencies": {
+                "1": {
+                    "WebSecurityConfiguration": [],
+                    "JwtAuthTokenFilter": [],
+                    "JwtProvider": []
+                }
+            },
+            "independent": false
+        }
+    ]
+}

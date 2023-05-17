@@ -26,7 +26,7 @@
   color: #092256 !important;
 }
 
-.squared-button:active{
+.isActive{
   background-color: white !important;
   border-color: #092256 !important; 
   color: #092256 !important;

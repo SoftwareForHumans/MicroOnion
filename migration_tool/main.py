@@ -66,38 +66,23 @@ def main():
     utils.write_json_to_results(project_name, "dependencies", dependencies)
 
 
-    # refactorings = utils.read_json("./refactorings.json")
-    # sequence = Refactoring("STRANGLER FIG")
+
 
     print("\n\nWe gonna take incremental steps towards the new architecture and ensure that each step is easily reversible, reducing risks. We are going to focus the initial refactoring in a high level refactoring: Strangler Fig\n\n")
     print("\n\nSTRANGLER FIG")
     initial_refactoring = Refactoring("STRANGLER FIG", 0, -1, -1)
     refactoring_sequence.set_initial_refactoring(initial_refactoring)
 
-    #eventualmente perguntar a estrategia de começar a partir
+    #here we should ask the strategy to order the extraction
 
     print("\n\nNow that the order by which we will extract each microservice is defined, we are going to extract each microservice.")
 
     print("\n\nAs all dependencies were already identified, we are going to focus on breaking them.\n\n")
 
-    # começar por maior numero de dependencias, menor, alguma métrica - por default vamos começar com o menor
+    # start with higher number of dependencies, lower, some metric - by default we will start with lower
     break_dependencies = BreakDependencies(project_name, services, dependencies, initial_refactoring, refactoring_representation)
     break_dependencies.break_dependencies()
 
     refactoring_sequence.write_refactoring_sequence()
-    
-
-
-
-
-
-
-
-    # print("\n\n Do you want to save the output?(y/n)")
-    # i = input()
-    # if(i.lower() == "y"):
-        # now = datetime.now()
-    #     utils.write_json_to_results("result_" + now.strftime("%d%m%y_%H%M%S"), r)
-    #     print("The file was writen successfully to the results folder.")
     
 main()

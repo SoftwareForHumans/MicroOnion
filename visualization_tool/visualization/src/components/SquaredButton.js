@@ -8,6 +8,9 @@ function SquaredButton(props) {
   const sequence = props.sequence;
   const index = props.index;
   const color = props.color;
+  const active = props.active;
+
+
   return (
     <>
       <Button
@@ -15,7 +18,7 @@ function SquaredButton(props) {
         id={item.id}
         name={item.name}
         size="lg"
-        className="mb-3 p-2 squared-button"
+        className={ active? "isActive mb-3 p-2 squared-button":"mb-3 p-2 squared-button"}
         style={{
           backgroundColor: color,
           borderColor: color,

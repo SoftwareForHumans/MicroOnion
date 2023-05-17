@@ -24,6 +24,7 @@ class Refactoring:
             refactorings.append(r.to_json())
         if len(refactorings) > 0:
             res['refactorings'] = refactorings
+            
         return res
 
     def add_refactoring(self, refactoring):

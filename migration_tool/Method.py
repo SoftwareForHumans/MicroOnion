@@ -45,6 +45,7 @@ class Method:
 
     def to_json(self):
         res = dict()
+        
         res['name'] = self.name
         res['annotations'] = self.annotations
         res['route'] = self.route
@@ -54,4 +55,5 @@ class Method:
         res['parameters'] = self.parameters
         res['body'] = self.body
         res['exceptions'] = self.exceptions
+
         return res

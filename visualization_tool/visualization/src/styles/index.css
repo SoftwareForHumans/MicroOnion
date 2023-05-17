@@ -32,5 +32,42 @@ footer {
 }
 
 .blue-text{
-  color: #092256,
+  color: #092256;
+}
+
+
+.small-text{
+  font-size: 0.9rem;
+  color: #1E488F;
+}
+
+.category-button, .category-button:active{
+  width: 16rem;
+  height: 14rem;
+  border-radius: 30px;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+}
+
+.submit-button{
+  background-color: #092256;
+  border-color: #687f8c;
+}
+
+.submit-button:hover, .submit-button:active, .submit-button:focus{
+  background-color: white;
+  border-color: #092256;
+  color:#092256;
+  font-weight: bold;
+}
+
+.dropdown-button{
+  background-color: #687f8c;
+  border-color: #687f8c;
+  color:white;
+  border-radius: 30px;
+}
+
+.dropdown-item, .dropdown-item:active{
+  background-color: white;
+  color:black;
 }

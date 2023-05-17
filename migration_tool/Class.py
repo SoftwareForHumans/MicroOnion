@@ -34,8 +34,7 @@ class Class:
             m.extract_info(i)
             methods_instances.append(m)
         self.methods = methods_instances
-
-        #verificar depois extends, implements
+        
         self.implements = class_info['implements'] if "implements" in class_info.keys() else self.implements
 
         self.extends = class_info['extends'] if "extends" in class_info.keys() else self.extends

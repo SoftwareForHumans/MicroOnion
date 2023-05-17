@@ -11,7 +11,7 @@ import restaurantServer from "../assets/restaurantServer_microservices.png";
 import proyectUNAM from "../assets/proyectoUNAM_microservices.png";
 import hotelManagementSystem from "../assets/hotelManagementSystem_microservices.png";
 
-function ChooseProject(props) {
+function ChooseProject() {
   let descriptions = {
     "Restaurant Server":
       "An event based server for the operation of a restaurant regarding their table service, reservations, bills, among others.",
@@ -36,18 +36,8 @@ function ChooseProject(props) {
   }, [project, descriptions, gits]);
 
   return (
-    <div
-      className="my-5 p-0 mx-0"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      <h5
-        className="mt-2"
-        style={{ color: "#092256", justifyContent: "center" }}
-      >
+    <div className="my-5 p-0 mx-0 center-all flex-column">
+      <h5 className="mt-2 blue-text">
         From the 3 available projects, choose the one you want to see the
         proposed refactoring sequence
       </h5>
@@ -61,29 +51,23 @@ function ChooseProject(props) {
         README file, previously mentioned.<br></br> However, here we want you to
         focus on these 3 examples.
       </p>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        }}
-      >
-        <DropdownButton id="dropdown-button" title={project} className="my-3">
-          <Dropdown.Item
+      <div className="center-all flex-column">
+        <DropdownButton className="my-3 dropdown-button" id="dropdown-button" title={project}>
+          <Dropdown.Item className="dropdown-item"
             id="Restaurant Server"
             onClick={(e) => setProject(e.target.id)}
           >
             {" "}
             Restaurant Server
           </Dropdown.Item>
-          <Dropdown.Item
+          <Dropdown.Item className="dropdown-item"
             id="Proyecto UNAM"
             onClick={(e) => setProject(e.target.id)}
           >
             {" "}
             Proyecto UNAM
           </Dropdown.Item>
-          <Dropdown.Item
+          <Dropdown.Item className="dropdown-item"
             id="Hotel Management System"
             onClick={(e) => setProject(e.target.id)}
           >
@@ -97,9 +81,9 @@ function ChooseProject(props) {
             style={{
               width: "60rem",
             }}
-            className="p-4"
+            className="p-4 small-text"
           >
-            <p style={{ fontSize: "0.9rem" }}>
+            <p>
               {description}
               <br></br> You can find more on its{" "}
               <a style={{ fontWeight: "bold", color: "#092256" }} href={git}>
@@ -112,10 +96,7 @@ function ChooseProject(props) {
               state={{ projectName: project }}
               className="mt-4"
             >
-              <Button
-                style={{ backgroundColor: "#092256", borderColor: "#687f8c" }}
-                size="md"
-              >
+              <Button className="submit-button" size="md">
                 Show Proposed Migration
               </Button>{" "}
             </Link>
@@ -130,15 +111,18 @@ function ChooseProject(props) {
             }}
             className="m-5 p-4"
           >
-            <div
-              className="mb-3"
-              style={{
-                fontWeight: "bold",
-                color: "#e3e3e3",
-                fontSize: "18px",
-              }}
-            >
-              Microservices proposition
+            <div className="mb-3">
+              <h5
+                 style={{ color: "#e6e6e6", fontSize:"1.1rem" }}
+              >
+                {" "}
+                Microservices proposition
+              </h5>
+              <p style={{ color: "#ffffff", fontSize: "0.9rem" }}>
+                The following schema represents the decomposition of the current
+                monolith system into different microservices as proposed in the
+                input file.
+              </p>
             </div>
             {project === "Restaurant Server" && (
               <Link to="https://www.plantuml.com/plantuml/svg/VPFTRjim38Nl_HJU2nZxlsxMhi263GYI5hiSL8TnkD6YGT7DWg3lFYiE50LITMLPvuZd8sNVE3MYOq_L6zr13_L01crbY7Z_kyT_QBkAOAkrSYtOxRJUe42hoBQggYtJ1gH-UwpgkYNZNEsW7GNrqFo2f_LvVSjsYzqenfzAdN_ssdpVwsBKtLUhSbWoMYtQ7lWls7ia1NdLjnH-niraU0cOxpAO3kGPMsWUfyKTg45owtdhMpzGy0iCx51P3YVdAhnE3h0wLPeViroNSvQ2jiM18DXYTOw_Q2rR5IO2ESctuJNgxFqnuVY2HDdDfIT7jacu5mlXNex2azDHwNALO8khfNEEdV6yyywB8nhBXsE2kNemJmG1y7e-ivhbdfKoyUp9adnCB-WEtIvKMO5JCugnwj505iD0sCO_J9Gqdxta94rwkN07Niv-Hf-EsRR0rpsn5Bxxo9NmH5e1At9bwJvVwBOiVIFW1hOE_D--Eg-30tg3rFmqI8N4nQZH8DAMc20x48vl-Hhg1tTexwVLzVOQE_iudFPVgXkmcx6d_m00">

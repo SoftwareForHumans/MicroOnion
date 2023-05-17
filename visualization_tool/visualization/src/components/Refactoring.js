@@ -14,7 +14,7 @@ function Refactoring(props) {
   const refactoring = sequence[index];
   return (
     <>
-      {refactoring.name === "DATA TYPE DEPENDENCY" && (
+      {refactoring.name === "BREAK DATA TYPE DEPENDENCY" && (
         <DataTypeDependency
           project={project}
           service={service}
