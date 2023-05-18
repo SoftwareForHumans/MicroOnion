@@ -32,6 +32,7 @@ class Service:
 
     def get_dependencies(self):
         return self.dependencies
+    
     def set_service_independence(self):
         self.independent = True
 
@@ -42,6 +43,7 @@ class Service:
     def add_dto(self, dto):
         if dto not in self.dtos:
             self.dtos.append(dto)
+
     def add_new_class(self, new_class):
         if new_class not in self.new_classes:
             self.new_classes.append(new_class)
@@ -68,7 +70,7 @@ class Service:
             dependencies[i.get_name()] = dep1 #{className : dependencies}
             
         dep = {}
-        for class_name, d in dependencies.items():
+        for class_name, d in dependencies.items(): # construct the dependencies object
             for c in d:
                 for s in services:
                     if s.has_file(c[0]): 
@@ -95,11 +97,13 @@ class Service:
     def clean_dependencies(self):
         for i in self.dependencies.keys():
             self.dependencies[i] = dict(filter(lambda x: len(x[1]) > 0, self.dependencies[i].items()))
-        
+
         self.dependencies = dict(filter(lambda x: len(x[1]) > 0, self.dependencies.items()))
 
         if not self.dependencies:
             self.set_service_independence()
+
+        return self
    
     def get_class_database_dependecy(self, class_name, database_dependency):
         for i in self.classes:
@@ -114,6 +118,7 @@ class Service:
     def check_if_class_is_entity(self, class_name):
         if '.' in class_name:
             class_name = class_name.split('.')[-1]
+            
         for i in self.classes:
             if i.get_name() == class_name:
                 return i.is_entity()

@@ -1,10 +1,9 @@
 import utils
 class RefactoringSequence:
-    def __init__(self, name, has_monolith = True):
+    def __init__(self, name):
         self.project_name = name
         self.initial_refactoring = None
         self.snapshot_number = 0
-        self.has_monolith = has_monolith
     
     def write_refactoring_sequence(self):
         res = {}

@@ -19,15 +19,18 @@ class BreakDependencies:
             self.to_remove.extend(to_add)
         else:
             self.to_remove.append(to_add)
+
     def clean_to_remove(self):
         self.to_remove = []
+    
+    def update_service(self, service):
+        for idx, i in enumerate(self.services):
+            if i.get_id() == service.get_id():
+                self.services[idx] = service
+
 
     def break_dependencies(self, strategy = None):
         dependencies = dict(sorted(self.dependencies.items(), key=lambda x: len(x[1]), reverse=False))
-
-        refactoring_representation = RefactoringRepresentation(self.project_name)
-        refactoring_representation.set_services(self.services)
-        refactoring_representation.create_new_snapshot()
 
         for microservice, deps in dependencies.items():
             print(f"\nEXTRACT MICROSERVICE {microservice}")
@@ -38,17 +41,16 @@ class BreakDependencies:
                 
                 if microservice in dependencies[k].keys():
                     print(f"\nBreaking dependencies of microservice {k} with microservice {microservice}\n")
-                    #TODO: dar fix para guardar no do primeiro refactoring sequence
                     self.break_dependency_file_by_file(k, microservice, dependencies[k][microservice], current_refactoring)
-                
-            refactoring_representation.set_services(self.get_service_by_id(microservice))
-            refactoring_representation.create_new_snapshot()
+                #TODO: dar fix para guardar no do primeiro refactoring sequence
+            service = self.get_service_by_id(microservice)
+            service.clean_dependencies()    
+            self.update_service(service)
+            self.refactoring_representation.set_services(self.services)
+            self.refactoring_representation.create_new_snapshot()
+
             print("\n------------------------------------\n")
 
-        for i in self.services:
-            i.clean_dependencies()
-        refactoring_representation.set_services(self.services)
-        refactoring_representation.create_new_snapshot()
 
 
     def break_dependency_file_by_file(self, microservice, k, v, current_refactoring):

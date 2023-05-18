@@ -1,1 +1,42 @@
-{"project_name": "restaurantServer", "snapshot_number": 2, "services": [{"id": 1, "files": ["pl.edu.wat.wcy.pz.restaurantServer.security.service.UserDetailsServiceImpl", "pl.edu.wat.wcy.pz.restaurantServer.repository.UserRepository", "pl.edu.wat.wcy.pz.restaurantServer.entity.User", "pl.edu.wat.wcy.pz.restaurantServer.security.service.UserPrinciple", "pl.edu.wat.wcy.pz.restaurantServer.service.UserService", "pl.edu.wat.wcy.pz.restaurantServer.controller.UserController"], "new_classes": [], "service_calls": [], "dtos": ["ReservationDTO", "RoleDTO", "MailServiceDTO"], "interfaces": ["UserInterface", "ReservationDTOInterface", "RoleDTOInterface", "MailServiceDTOInterface"], "dependencies": {"5": {"User": [], "UserService": [], "UserController": []}, "6": {"User": [], "UserController": []}}, "independent": false}]}
+{
+    "project_name": "restaurantServer",
+    "snapshot_number": 2,
+    "services": [
+        {
+            "id": 1,
+            "files": [
+                "pl.edu.wat.wcy.pz.restaurantServer.security.service.UserDetailsServiceImpl",
+                "pl.edu.wat.wcy.pz.restaurantServer.repository.UserRepository",
+                "pl.edu.wat.wcy.pz.restaurantServer.entity.User",
+                "pl.edu.wat.wcy.pz.restaurantServer.security.service.UserPrinciple",
+                "pl.edu.wat.wcy.pz.restaurantServer.service.UserService",
+                "pl.edu.wat.wcy.pz.restaurantServer.controller.UserController"
+            ],
+            "new_classes": [],
+            "service_calls": [],
+            "dtos": [
+                "ReservationDTO",
+                "RoleDTO",
+                "MailServiceDTO"
+            ],
+            "interfaces": [
+                "UserInterface",
+                "ReservationDTOInterface",
+                "RoleDTOInterface",
+                "MailServiceDTOInterface"
+            ],
+            "dependencies": {
+                "5": {
+                    "User": [],
+                    "UserService": [],
+                    "UserController": []
+                },
+                "6": {
+                    "User": [],
+                    "UserController": []
+                }
+            },
+            "independent": false
+        }
+    ]
+}

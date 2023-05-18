@@ -28,3 +28,5 @@ class RefactoringRepresentation:
     
     def set_services(self, services):
         self.services = services
+    
+    

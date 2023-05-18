@@ -23,6 +23,7 @@ def read_json(path):
 def write_json_to_results(project_name, filename, content):
     folder_path = "./results/" + project_name
     exists = os.path.exists(folder_path)
+    
     if not exists:
         os.makedirs(folder_path)
     path = "./results/" + project_name + "/" + filename + ".json"

@@ -91,6 +91,7 @@ class Class:
             type_class = get_is_part_of_key(classes, type)
             if type_class != None and not check_if_primitive(type_class):
                 self.add_dependency("variableType", type_class)
+
         for i in self.methods:
             dep = i.check_dependencies()
             for j in dep:
@@ -185,10 +186,10 @@ class Class:
 
     def add_dependency(self, type, dependency):
         for i in self.dependencies:
-            if i[0] == dependency: #already is on the dependencies 
-                if type not in i: #that dependency does not have this type
+            if i[0] == dependency: # already is on the dependencies 
+                if type not in i: # that dependency does not have this type
                     i.append(type)
-                return #either the type was already there or we added it
+                return # either the type was already there or we added it
         
         if dependency != self.file_name:
             self.dependencies.append([dependency, type])
@@ -209,8 +210,10 @@ class Class:
         res['methodsInvocations'] = self.methodsInvocations
         res['isInterface'] = self.isInterface
         res['database_dependencies'] = self.database_dependencies
+        
         methods = []
         for i in self.methods:
             methods.append(i.to_json())
         res['methods'] = methods
+
         return res
