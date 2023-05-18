@@ -116,7 +116,7 @@ function ChooseProject() {
                  style={{ color: "#e6e6e6", fontSize:"1.1rem" }}
               >
                 {" "}
-                Microservices proposition
+                Proposed Microservices Decomposition
               </h5>
               <p style={{ color: "#ffffff", fontSize: "0.9rem" }}>
                 The following schema represents the decomposition of the current

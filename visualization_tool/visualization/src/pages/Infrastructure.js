@@ -14,14 +14,14 @@ function Infrastructure() {
     "Configure Health-check",
   ];
   const texts = [
-    "Introducing a circuit breaker will create a wrapper around the remote invocations and a barrier that will shut down further attempts to invoke a remote service according to a configured threshold so that the system can recover from faults and not perpetuate them across the entire system.",
-    "Each service can have one or more instances in production that can be changed dynamically. Introducing Service Registry allows services to locate each other dynamically.",
-    "Imagine you have already set up a service registry. This service registry has information about the multiple instances of each running microservice. With this information,it is possible to balance the load on a service between its instances. The focus of its being internal is to balance the load according to the client’s conditions without needing an external load balancer.",
-    "Imagine you have already set up a service registry. This service registry has information about the multiple instances of each running microservice. With this information,it is possible to balance the load on a service between its instances. The focus is to balance the load by performing the least changes possible in the service’s code and creating a centralised load balancing approach for all the services.",
-    "Each microservice can have multiple instances running in production. Although, with service registry, the list of availabe instances is accessible, there may be the need to change some configurations while they are running without redeploying them.",
-    "New services can be introduced or old ones can be rearchitected easily. The user, however, does not need to be aware of this and these action should be monitored, enabling dynamic rerouting of external requests to internal services. The API Gateway allows services to use different communication technologies and become a common API with calls to multiple services.",
-    "It is common to have the addresses where the instances are hosted to be dynamically allocated. As the instances running also changes dynamically, it is hard to control which address each service will have. In these circumstances, it is common to implement a service discovery with a service registry to keep track of the locations of the existing systems.",
-    "Microservices must be aware if some service is malfunctioning to avoid routing requests to that microservice. This is usually performed by sending a health check request to the microservice to understand if it is operational. It should either return a positive response or the specific error causing it to malfunction.",
+    "Adding a circuit breaker will provide a wrapper over remote invocations and a barrier that will shut off additional attempts to invoke a remote service based on a set threshold, allowing the system to recover from problems rather than propagate them throughout the system.",
+    "Each service can have one or more instances in production that can be modified dynamically. The introduction of Service Registry enables services to dynamically locate one another.",
+    "Assume you've already established a service registry. This service registry contains information about each operating microservice's many instances. It is feasible to balance the load on a service amongst its instances using this information. Its core focus is to balance the load based on the client's requirements without the need for an external load balancer.",
+    "Imagine you have already set up a service registry. This service registry has information about the multiple instances of each running microservice. With this information, it is possible to balance the load on a service between its instances. The goal is to balance the load with as few changes to the service code as possible and to create a centralized load balancing approach for all services.",
+    "In production, each microservice might have numerous instances. Although the list of available instances is accessible through the service registry, it may be necessary to update some configurations while they are operating without redeploying them. By using a configuration server, we can propagate the changes in the configuration to all running instances.",
+    "New services can be simply introduced, and existing ones can be rearchitected. The user, on the other hand, does not need to be aware of this, and these actions should be tracked, allowing for dynamic rerouting of external requests to internal services. The API Gateway enables services to leverage several communication methods and form a single API with calls to many services.",
+    "The addresses where the instances are hosted are frequently dynamically allocated. Because the number of instances running changes dynamically, it is difficult to predict which address each service will have. It is usual in these scenarios to set up a service discovery with a service registry to keep track of the locations of existing systems.",
+    "Microservices must be notified when a service fails in order to avoid routing requests to that microservice. This is often accomplished by sending a health check request to the microservice to determine whether or not it is operational. It should either respond positively or return the specific error that is causing it to malfunction.",
   ];
   return (
     <Container className="my-4">
@@ -40,7 +40,7 @@ function Infrastructure() {
         <Row>
           {titles.map((title, index) => (
             <Card
-              className="m-3"
+              className="m-3 pb-2"
               style={{
                 width: "400px",
                 backgroundColor:

@@ -33,7 +33,7 @@ function Principles() {
           Characteristics of a Microservices Architecture, by James Lewis and
           Martin Fowler
         </h4>
-        <p className="mt-3" style={{ width: "85%", fontSize: "0.9rem" }}>
+        <p className="mt-3 px-5">
           <b>James Lewis</b> and <b>Martin Fowler</b> present a list of the
           common Characteristics of a Microservices Architecture, although they
           state that{" "}

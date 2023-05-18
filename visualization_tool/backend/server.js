@@ -4,7 +4,7 @@ const app = express();
 const plantUMLRouter = require('./routes/plantuml');
 const projectsRouter = require('./routes/projects');
 const path = require('path');
-const port = 8000;
+const port = process.env.PORT ||  8000;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
