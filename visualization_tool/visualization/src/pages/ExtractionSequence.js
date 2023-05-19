@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-import "../styles/service.css";
+
 
 function ExtractionSequence() {
   let { state } = useLocation();

@@ -12,6 +12,7 @@ function Refactoring(props) {
   const index = props.index;
   const sequence = props.sequence;
   const refactoring = sequence[index];
+  
   return (
     <>
       {refactoring.name === "BREAK DATA TYPE DEPENDENCY" && (

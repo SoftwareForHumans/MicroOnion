@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import Refactoring from "../components/Refactoring";
-import SquaredButton from "../components/SquaredButton";
+import RefactoringButton from "../components/RefactoringButton";
 import DependenciesTable from "../components/DependenciesTable";
 
 import initial from "../assets/service0_start.png";
@@ -176,9 +176,7 @@ function ExtractService() {
                     <p style={{ fontSize: "0.95rem" }}>
                       To extract this service, we suggest the following sequence
                       of refactorings (
-                      <b>
-                        click on each of them to find out how to implement them
-                      </b>
+                      <b>click on each of them to find out how to apply them</b>
                       ):
                     </p>
                   </Row>
@@ -187,14 +185,14 @@ function ExtractService() {
                       return (
                         <>
                           <Col className="d-inline">
-                            <SquaredButton
+                            <RefactoringButton
                               item={item}
                               handleClick={handleOnClick}
                               sequence={sequence}
                               index={index}
                               active={selected === index}
                               color="#092256"
-                            ></SquaredButton>
+                            ></RefactoringButton>
                           </Col>
                         </>
                       );

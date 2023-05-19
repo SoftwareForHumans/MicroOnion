@@ -15,7 +15,7 @@
 
 //decide between syncrhonous or asynchrnous
 import Col from "react-bootstrap/Col";
-import SquaredButton from "../components/SquaredButton";
+import RefactoringButton from "../components/RefactoringButton";
 function ServiceCall(props) {
   const project = props.project;
   const service = props.service;
@@ -29,21 +29,23 @@ function ServiceCall(props) {
           refactoring.name[0] +
           refactoring.name.slice(1).toLowerCase()}
       </h6>
-      <p>By default this should be a synchronous call, however if you don't need an instant response or don't want a service to wait for the response it can be asynchronous
-
-each microservice has its own database - show this</p>
+      <p>
+        By default this should be a synchronous call, however if you don't need
+        an instant response or don't want a service to wait for the response it
+        can be asynchronous each microservice has its own database - show this
+      </p>
       {refactoring.refactorings &&
         refactoring.refactorings.map((item, index) => {
           return (
             <>
               <Col className="d-inline">
-                <SquaredButton
+                <RefactoringButton
                   item={item}
                   // handleClick={setRefactoring}
                   sequence={refactoring.refactorings}
                   index={index}
                   color="#1E488F"
-                ></SquaredButton>
+                ></RefactoringButton>
               </Col>
             </>
           );

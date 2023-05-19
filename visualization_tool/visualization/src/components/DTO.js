@@ -1,5 +1,5 @@
 import Col from "react-bootstrap/Col";
-import SquaredButton from "../components/SquaredButton";
+import RefactoringButton from "../components/RefactoringButton";
 
 function DTO(props) {
   const project = props.project;
@@ -19,13 +19,13 @@ function DTO(props) {
           return (
             <>
               <Col className="d-inline">
-                <SquaredButton
+                <RefactoringButton
                   item={item}
                   // handleClick={setRefactoring}
                   sequence={refactoring.refactorings}
                   index={index}
                   color="#1E488F"
-                ></SquaredButton>
+                ></RefactoringButton>
               </Col>
             </>
           );

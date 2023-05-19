@@ -41,6 +41,11 @@ footer {
   color: #1E488F;
 }
 
+.intermediate-text{
+  font-size: 0.93rem;
+  color: #092256;
+}
+
 .category-button, .category-button:active{
   width: 16rem;
   height: 14rem;
@@ -84,4 +89,110 @@ footer {
   background-color: #1E488F;
   font-weight: bold;
   width: 20rem;
+}
+
+.stepActive{
+  background-color: white !important;
+  border-color: #687f8c!important; 
+  color: #687f8c !important;
+}
+
+.step-button{
+  background-color: #687f8c;
+  border-color: #687f8c;
+  height: 12vh;
+  width: 12vh;
+  font-size: 0.8rem;
+  border-radius: 12%;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+}
+
+.step-button:hover{
+  background-color: white !important;
+  border-color: #687f8c!important; 
+  color: #687f8c !important;
+}
+
+.service{
+  background-color: rgb(0, 60, 172);
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 8rem;
+  border-color:rgb(0, 60, 172);
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+}
+.service:hover{
+  background-color: rgba(0,60,172, 0.85);
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 8rem;
+  border-color: rgb(0,60,172);
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+}
+
+#dropdown-button{
+background-color: #687f8c;
+border-color: #687f8c;
+}
+
+.squared-button{
+height: 12vh;
+width: 12vh;
+font-size: 0.8rem;
+border-radius: 12%;
+box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+}
+
+.squared-button:hover{
+background-color: white !important;
+border-color: #092256 !important; 
+color: #092256 !important;
+}
+
+.isActive{
+background-color: white !important;
+border-color: #092256 !important; 
+color: #092256 !important;
+}
+
+.service{
+  background-color: rgb(0, 60, 172);
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 8rem;
+  border-color:rgb(0, 60, 172);
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+}
+.service:hover{
+  background-color: rgba(0,60,172, 0.85);
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 8rem;
+  border-color: rgb(0,60,172);
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+}
+
+#dropdown-button{
+background-color: #687f8c;
+border-color: #687f8c;
+}
+
+.squared-button{
+height: 12vh;
+width: 12vh;
+font-size: 0.8rem;
+border-radius: 12%;
+box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+}
+
+.squared-button:hover{
+background-color: white !important;
+border-color: #092256 !important; 
+color: #092256 !important;
+}
+
+.isActive{
+background-color: white !important;
+border-color: #092256 !important; 
+color: #092256 !important;
 }

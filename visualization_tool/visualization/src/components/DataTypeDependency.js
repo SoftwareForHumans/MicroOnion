@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Col from "react-bootstrap/Col";
-import SquaredButton from "../components/SquaredButton";
+import RefactoringButton from "../components/RefactoringButton";
 import r2 from "../assets/refactoring_2.png";
 
 function DataTypeDependency(props) {
@@ -36,15 +36,14 @@ function DataTypeDependency(props) {
         {refactoring.notes.dependent_file.split(".").slice(-1)}
       </p>
       <div className="d-flex flex-column justify-content-center pb-4">
-        <p>
-          By default we assume the data type is owned and exist only on the
-          microservice where it was first defined. However, there are two other
-          options that can be used keeping it in both microservices: to use one
-          as a proxy or to do replication
-        </p>
-        <p>To implement this refactoring:</p>
+      <img className="pb-3" style={{width:"90%", alignSelf:"center"}} src={r2} alt="refactoring change schema"></img>
+        
+      <p>
+        To apply this refactoring, follow the below sequence of steps (<b>click on
+        each of them to find out how to implement them</b>):
+      </p>
 
-        <ol type="1">
+        {/* <ol type="1">
           {hasMethod && (
             <li>
               Change the method invocation from local calls to service calls to
@@ -67,29 +66,36 @@ function DataTypeDependency(props) {
         </ol>
 
         
-        <img className="pb-3" style={{width:"90%", alignSelf:"center"}} src={r2}></img>
+        
         <p>
           You have the following sequence of refactorings to implement in this
           case (<b>click on each of them to find out how to implement them</b>)
         </p>
+        */}
         <div className="d-inline">
         {refactoring.refactorings &&
           refactoring.refactorings.map((item, index) => {
             return (
               <>
                 <Col className="d-inline me-3">
-                  <SquaredButton
+                  <RefactoringButton
                     item={item}
                     // handleClick={setRefactoring}
                     sequence={refactoring.refactorings}
                     index={index}
                     color="#1E488F"
-                  ></SquaredButton>
+                  ></RefactoringButton>
                 </Col>
               </>
             );
           })}
-          </div>
+          </div> 
+          <p style={{fontSize:"0.8rem"}}>
+          Note: By default we assume the data type is owned and exist only on the
+          microservice where it was first defined. However, there are two other
+          options that can be used keeping it in both microservices: to use one
+          as a proxy or to do replication
+        </p>
       </div>
     </>
   );

@@ -5,7 +5,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Button from "react-bootstrap/Button";
 import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
-import "../styles/service.css";
+
 
 import restaurantServer from "../assets/restaurantServer_microservices.png";
 import proyectUNAM from "../assets/proyectoUNAM_microservices.png";

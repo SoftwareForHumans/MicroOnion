@@ -1,6 +1,6 @@
 //  print("We identified a dependency in the file " + file +  " with the file " + dependent_file + " in the imports. However, we aren't able to fix it")
 import Col from "react-bootstrap/Col";
-import SquaredButton from "../components/SquaredButton";
+import RefactoringButton from "../components/RefactoringButton";
 function ImportDependency(props) {
   const project = props.project;
   const service = props.service;
@@ -19,13 +19,13 @@ function ImportDependency(props) {
           return (
             <>
               <Col className="d-inline">
-                <SquaredButton
+                <RefactoringButton
                   item={item}
                   // handleClick={setRefactoring}
                   sequence={refactoring.refactorings}
                   index={index}
                   color="#1E488F"
-                ></SquaredButton>
+                ></RefactoringButton>
               </Col>
             </>
           );
