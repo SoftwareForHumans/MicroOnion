@@ -194,6 +194,11 @@ class Class:
         if dependency != self.file_name:
             self.dependencies.append([dependency, type])
 
+    def get_method_from_methodInvocation(self, className):
+        for i in self.methods_invocations:
+            if i["targetClassName"] == className:
+                return i["methodName"]
+
     def to_json(self):
         res = dict()
         res['file_name'] = self.file_name
@@ -210,7 +215,7 @@ class Class:
         res['methodsInvocations'] = self.methodsInvocations
         res['isInterface'] = self.isInterface
         res['database_dependencies'] = self.database_dependencies
-        
+
         methods = []
         for i in self.methods:
             methods.append(i.to_json())

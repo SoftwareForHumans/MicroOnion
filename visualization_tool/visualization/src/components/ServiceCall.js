@@ -9,6 +9,10 @@
 // create a class that defines the resource paths
 // create a class to process the requestz requests# add methods to entity to perform the actions
 
+// # microservice - criar uma interface e uma classe request que a implementa
+// # microservice - criar service call com o metodo, protocolo e tipo
+// # dependent microservice - criar uma classe para dat handle dos requests, recebendo, processando e retornando uma respsota
+
 //decide between syncrhonous or asynchrnous
 import Col from "react-bootstrap/Col";
 import SquaredButton from "../components/SquaredButton";

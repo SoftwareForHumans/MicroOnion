@@ -1,4 +1,5 @@
 import itertools
+from ServiceCall import ServiceCall
 class Service:
 
     newid = itertools.count()
@@ -8,19 +9,23 @@ class Service:
         self.file_names = list()
         self.classes = list()
         self.dependencies = {}
-        self.service_calls = [] # to which microservice 
-        self.interfaces = []
+        self.service_calls = []
+        self.interfaces = [] # ??? novas interfaces
         self.dtos = []
-        self.new_classes = []
+        self.new_classes = [] #??? nao seria melhor so adicionar - novas interfaces são adicionadas às novas classes 
+        self.entities = [] # ??? tnha que ver isto ao inicio
         self.independent = False
 
     def to_json(self):
         res = {}
         res["id"] = self.id
         res["files"] = self.file_names
-        # res["classes"] = self.classes
         res["new_classes"] = self.new_classes
-        res["service_calls"] = self.service_calls
+        service_calls = []
+        for i in self.service_calls:
+            service_calls.append(i.to_json())
+        res['service_calls'] = service_calls
+        res["entities"] = self.entities
         res["dtos"] = self.dtos
         res["interfaces"] = self.interfaces
         res["dependencies"] = self.dependencies
@@ -28,7 +33,7 @@ class Service:
         return res
     
     def get_id(self):
-        return self.id
+        return str(self.id)
 
     def get_dependencies(self):
         return self.dependencies
@@ -43,6 +48,8 @@ class Service:
     def add_dto(self, dto):
         if dto not in self.dtos:
             self.dtos.append(dto)
+            return 0
+        else: return -1 #dto already exists
 
     def add_new_class(self, new_class):
         if new_class not in self.new_classes:
@@ -62,6 +69,10 @@ class Service:
 
     def has_file(self, name):
         return name in self.file_names
+    
+    def add_service_call(self, type, protocol, target, target_service):
+        service_call = ServiceCall(type, protocol, target, target_service)
+        self.service_calls.append(service_call)
     
     def analyze_dependencies(self, services, classes):
         dependencies = {}
@@ -118,7 +129,15 @@ class Service:
     def check_if_class_is_entity(self, class_name):
         if '.' in class_name:
             class_name = class_name.split('.')[-1]
-            
+
         for i in self.classes:
             if i.get_name() == class_name:
                 return i.is_entity()
+            
+    def get_method_from_methodInvocation(self, file, class_name):
+        if '.' in file:
+            file = file.split('.')[-1]
+
+        for i in self.classes:
+            if i.get_name() == file:
+                return i.get_method_from_methodInvocation(class_name)
