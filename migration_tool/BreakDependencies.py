@@ -10,7 +10,7 @@ class BreakDependencies:
 
     def get_service_by_id(self, id):
         for i in self.services:
-            if str(i.get_id()) == id:
+            if i.get_id() == id:
                 return i
     
     def add_to_remove(self, to_add):
@@ -30,8 +30,9 @@ class BreakDependencies:
 
     def break_dependencies(self, strategy = None):
         dependencies = dict(sorted(self.dependencies.items(), key=lambda x: len(x[1]), reverse=False))
-
+        
         for microservice, deps in dependencies.items():
+            service_ids = []
             print(f"\nEXTRACT MICROSERVICE {microservice}")
             service = self.get_service_by_id(microservice)
             current_refactoring = self.initial_refactoring.add_refactoring(Refactoring("EXTRACT MICROSERVICE", self.initial_refactoring.get_level() + 1, int(microservice), -1))
@@ -39,15 +40,25 @@ class BreakDependencies:
                 print(f"---\nBreaking dependencies with microservice {k} \n")
                 dependent_service = self.get_service_by_id(k)
                 self.break_dependency_file_by_file(service, dependent_service, v, current_refactoring)
-                
-                if microservice in dependencies[k].keys():
-                    print(f"\nBreaking dependencies of microservice {k} with microservice {microservice}\n")
-                    self.break_dependency_file_by_file(dependent_service, service, dependencies[k][microservice], current_refactoring)
-                #TODO: dar fix para guardar no do primeiro refactoring sequence
+                service_ids.append(k)
+   
+            for m, d in dependencies.items():
+                if microservice in d.keys():
+                    d_service = self.get_service_by_id(m)
+                    print(f"\nBreaking dependencies of microservice {m} with microservice {microservice}\n")
+                    self.break_dependency_file_by_file(d_service, service, dependencies[m][microservice], current_refactoring)
+                    service_ids.append(m)
+
+            service_ids.append(microservice)
+            service_ids = set(service_ids)
             
+            services = []
+            for i in service_ids:
+                services.append(self.get_service_by_id(i))
+
             service.clean_dependencies()    
             self.update_service(service)
-            self.refactoring_representation.set_services(self.services)
+            self.refactoring_representation.set_services(services)
             self.refactoring_representation.create_new_snapshot()
 
             print("\n------------------------------------\n")
@@ -86,7 +97,7 @@ class BreakDependencies:
         for i, j, m , l in self.to_remove:
             microservice.remove_dependency(i, j, m, l)
 
-        
+        return current_refactoring
     
     def handle_database_dependency(self, microservice, dependent_microservice, file, dependent_file, types, current_refactoring):
         dependency = microservice.get_class_database_dependecy(file, dependent_file)

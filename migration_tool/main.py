@@ -60,7 +60,7 @@ def main():
     dependencies = {}
     for s in services:
         dep = s.analyze_dependencies(services, classes)
-        dependencies[str(s.get_id())] = dep
+        dependencies[s.get_id()] = dep
 
     utils.write_json_to_results(project_name, "dependencies", dependencies)
 

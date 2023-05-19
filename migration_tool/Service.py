@@ -5,7 +5,7 @@ class Service:
     newid = itertools.count()
 
     def __init__(self):
-        self.id = next(self.newid)
+        self.id = str(next(self.newid))
         self.file_names = list()
         self.classes = list()
         self.dependencies = {}
@@ -33,7 +33,7 @@ class Service:
         return res
     
     def get_id(self):
-        return str(self.id)
+        return self.id
 
     def get_dependencies(self):
         return self.dependencies
@@ -85,12 +85,12 @@ class Service:
             for c in d:
                 for s in services:
                     if s.has_file(c[0]): 
-                        service = str(s.get_id())
+                        service = s.get_id()
                         if service in dep.keys() and class_name in dep[service].keys():
                             dep[service][class_name].append(c) 
                         elif service in dep.keys() and class_name not in dep[service].keys():
                             dep[service][class_name] = [c]
-                        elif service != str(self.id) and service not in dep.keys():
+                        elif service != self.id and service not in dep.keys():
                             dep[service] = {}
                             dep[service][class_name] = [c]
 
