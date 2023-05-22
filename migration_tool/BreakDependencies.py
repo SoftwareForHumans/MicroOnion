@@ -122,7 +122,7 @@ class BreakDependencies:
             notes["interfaces"].append(file + "Interface")
         if dependent_microservice.check_if_class_is_entity(entity_name):
             notes["entities"].append(entity_name)
-            dependent_microservice.add_interface(entity_name+ "Interface")
+            dependent_microservice.add_interface(entity_name + "Interface")
             notes["interfaces"].append(entity_name + "Interface")
         
 
@@ -192,25 +192,18 @@ class BreakDependencies:
         notes = {}
         notes["file"] = file
         notes["dependent_file"] = dependent_file
-        notes["interfaces"] = []
+        
         notes_dtos = {"created": []}
-        createdDTO = False
-
 
         if "variableType" in to_append or "methodVariable" in to_append: # we will  need only create one DTO for this dependency 
             object_name = dependent_file.split(".").pop()
             dto_name = object_name + "DTO"
-
             ret = microservice.add_dto(dto_name)
-            if ret != -1:
-                interface_name  = object_name + "DTOInterface"
-                microservice.add_interface(interface_name)
 
+            if ret != -1:
                 if dto_name not in notes_dtos["created"]:
                     notes_dtos["created"].append(dto_name)
-                if interface_name not in notes["interfaces"]:
-                    notes["interfaces"].append(interface_name)
-                createdDTO = True
+
             if "variableType" in to_append:
                 types.remove("variableType")
                 res.append([dependent_microservice.get_id(), file, dependent_file, "variableType"])
@@ -218,10 +211,17 @@ class BreakDependencies:
                 types.remove("methodVariable")
                 res.append([dependent_microservice.get_id(), file, dependent_file, "methodVariable"])
                 
+        if "methodInvocation" in to_append:
+            notes["interfaces"] = []
+            interface_name  = object_name + "DTOInterface"
+            ret = microservice.add_interface(interface_name)
+            if ret != -1:
+                if interface_name not in notes["interfaces"]:
+                    notes["interfaces"].append(interface_name)
 
         current_refactoring = current_refactoring.add_refactoring(Refactoring("BREAK DATA TYPE DEPENDENCY", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice.get_id(), notes))
         
-        if createdDTO:
+        if len(notes_dtos["created"]) > 0 :
             current_refactoring.add_refactoring(Refactoring("CREATE DATA TRANSFER OBJECT", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice.get_id(), notes_dtos))
             
         if "methodInvocation" in to_append:

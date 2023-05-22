@@ -13,10 +13,14 @@ function DataTypeDependency(props) {
   const refactoring = props.refactoring;
   const [selected, setSelected] = useState();
   const [step, setStep] = useState();
-  
+  const [color, setColor] = useState();
+  const indexLast = 1 + (refactoring.refactorings? refactoring.refactorings.length + 1: 0)
+  console.log(refactoring);
+
   const handleOnClick = (index, text) => {
     setSelected(index);
     setStep(text);
+    setColor("#687f8c");
   };
 
   const handleRefactorigClick = (index) => {
@@ -29,6 +33,7 @@ function DataTypeDependency(props) {
         index={index}
       ></Refactoring>
     );
+    setColor("#1E488F");
   };
 
   return (
@@ -69,25 +74,31 @@ function DataTypeDependency(props) {
               text="For example, the method invocations from the data type class, variable, parameters or return types of the data type."
             ></StepButton>
           </Col>
-          <Col className="d-inline me-3">
-            <StepButton
-              name="Create an interface"
-              index={1}
-              active={selected}
-              hasNext={refactoring.refactorings}
-              handleClick={handleOnClick}
-              text="Create an interface with the same name as the data type that defines the methods invocations identified to be used through the data transfer object to make service calls to the data owner."
-            ></StepButton>
-          </Col>
-          {refactoring.refactorings && 
-            refactoring.refactorings.map(( item, index) => {
+          {refactoring.notes.interfaces ? (
+            <Col className="d-inline me-3">
+              <StepButton
+                name="Create an interface"
+                index={1}
+                active={selected}
+                hasNext={refactoring.refactorings}
+                handleClick={handleOnClick}
+                text="Create an interface with the same name as the data type that defines the methods invocations identified to be used through the data transfer object to make service calls to the data owner."
+              ></StepButton>
+            </Col>
+          ) : (
+            <></>
+          )}
+
+          {refactoring.refactorings &&
+            refactoring.refactorings.map((item, index) => {
+              const seq = refactoring.refactorings + {};
               return (
-                <> 
+                <>
                   <RefactoringButton
                     item={item}
                     active={selected === index + 2}
                     handleClick={handleRefactorigClick}
-                    sequence={refactoring.refactorings}
+                    sequence={seq}
                     index={index}
                     color="#1E488F"
                     showNumber={false}
@@ -95,16 +106,28 @@ function DataTypeDependency(props) {
                 </>
               );
             })}
+          <Col className="d-inline me-3">
+            <StepButton
+              name="Make the necessary changes"
+              index={indexLast}
+              active={selected}
+              hasNext={false}
+              handleClick={handleOnClick}
+              text="Make the necessary changes in the code to use the new data type and the right interface for the method calls."
+            ></StepButton>
+          </Col>
+          {refactoring.refactorings? <></>:
+          <p>The data transfer object was already created in a previous refactoring. You should use the already created DTO.</p>}
         </div>
         {step !== undefined && (
           <Row
             id="implementation"
             className="d-flex justify-content-center py-3 my-3 mx-5 px-2"
-            style={{ border: "3px dashed #687f8c" }}
+            style={{ border: "3px dashed " + color }}
           >
             {step}
           </Row>
-        )} 
+        )}
 
         <p style={{ fontSize: "0.8rem" }}>
           Note: By default we assume the data type is owned and exist only on
@@ -118,7 +141,3 @@ function DataTypeDependency(props) {
 }
 
 export default DataTypeDependency;
-// # idenitfy where it is used
-// # change local method call to service call
-// #data transfer object
-// # create an interface with the same as the data type that defines the methods invocations identified

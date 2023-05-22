@@ -35,7 +35,7 @@ function RefactoringButton(props) {
       </Col>
 
       {index < sequence.length - 1 ? (
-        <Col className="d-inline">
+        <Col className="d-inline mx-3">
           <MdKeyboardDoubleArrowRight
             size={"20px"}
             className="d-inline"

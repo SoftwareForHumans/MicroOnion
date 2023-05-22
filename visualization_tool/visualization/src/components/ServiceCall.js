@@ -13,24 +13,30 @@ function ServiceCall(props) {
   const refactoring = props.refactoring;
   const [selected, setSelected] = useState();
   const [step, setStep] = useState();
+  const [color, setColor] = useState();
 
   const handleOnClick = (index, text) => {
     setSelected(index);
     setStep(text);
+    setColor("#687f8c");
   };
 
   const handleRefactorigClick = (index) => {
     setSelected(index);
-    setStep(<Refactoring project={project}
-      service={service}
-      sequence={refactoring.refactorings}
-      index={index-2}></Refactoring>)
-
-  }
+    setStep(
+      <Refactoring
+        project={project}
+        service={service}
+        sequence={refactoring.refactorings}
+        index={index - 2}
+      ></Refactoring>
+    );
+    setColor("#1E488F");
+  };
 
   return (
     <>
-    <p className="mt-2" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
+      <p className="mt-2" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
         {(index + 1).toString() +
           ". " +
           refactoring.name[0] +
@@ -69,7 +75,13 @@ function ServiceCall(props) {
               active={selected}
               hasNext={true}
               handleClick={handleOnClick}
-              text={["Change the method calls to and from local components to be remote calls using this protocol to reach a different service:", "\n", "1. Create an interface with the declaration of the identified methods","\n", "2. Create a class that implements that interface and makes the service calls, a Request Class"]}
+              text={[
+                "Change the method calls to and from local components to be remote calls using this protocol to reach a different service:",
+                "\n",
+                "1. Create an interface with the declaration of the identified methods",
+                "\n",
+                "2. Create a class that implements that interface and makes the service calls, a Request Class",
+              ]}
             ></StepButton>
           </Col>
           <Col className="d-inline me-3">
@@ -79,12 +91,18 @@ function ServiceCall(props) {
               active={selected}
               hasNext={refactoring.refactorings}
               handleClick={handleOnClick}
-              text={["Arrange the microservice owning the method to respond to this communication protocol, creating an API to respond to the service calls.", "\n", "1. Create a class that defines the resource paths for the requests and processes them producing a response", "\n", "2. Add methods to the class to perform the actions required by the service calls"]}
+              text={[
+                "Arrange the microservice owning the method to respond to this communication protocol, creating an API to respond to the service calls.",
+                "\n",
+                "1. Create a class that defines the resource paths for the requests and processes them producing a response",
+                "\n",
+                "2. Add methods to the class to perform the actions required by the service calls",
+              ]}
             ></StepButton>
           </Col>
           {refactoring.refactorings &&
             refactoring.refactorings.map((item, index) => {
-              index = index + 2
+              index = index + 2;
               return (
                 <>
                   <Col className="d-inline">
@@ -106,38 +124,22 @@ function ServiceCall(props) {
           <Row
             id="implementation"
             className="d-flex justify-content-center py-3 my-3 mx-5 px-2"
-            style={{ border: "3px dashed #687f8c", "white-space": "pre-line" }}
+            style={{ border: "3px dashed " + color, "white-space": "pre-line" }}
           >
             {step}
           </Row>
         )}
 
         <p style={{ fontSize: "0.8rem" }}>
-          Note: By default, we apply this refactoring implementing a synchronous call, however if you don't need
-        an instant response or don't want a service to wait for the response, it can be asynchronous. Check the catalog to find out how to implement an asynchronous call. 
-        each microservice has its own database - show this
+          Note: By default, we apply this refactoring implementing a synchronous
+          call, however if you don't need an instant response or don't want a
+          service to wait for the response, it can be asynchronous. Check the
+          catalog to find out how to implement an asynchronous call. each
+          microservice has its own database - show this
         </p>
       </div>
-      
     </>
   );
 }
 
 export default ServiceCall;
-
-//pode escolher entre sincrono ou assincrono
-// decide the protocol
-// change the calls
-// create an interface
-// create a class that implements that interface
-// create a variabke of the interface type
-// store necessary microservice information
-// change the other microservice to receive the requestz
-// create a class that defines the resource paths
-// create a class to process the requestz requests# add methods to entity to perform the actions
-
-// # microservice - criar uma interface e uma classe request que a implementa
-// # microservice - criar service call com o metodo, protocolo e tipo
-// # dependent microservice - criar uma classe para dat handle dos requests, recebendo, processando e retornando uma respsota
-
-//decide between syncrhonous or asynchrnous

@@ -13,10 +13,12 @@ function MoveForeignKey(props) {
   const refactoring = props.refactoring;
   const [selected, setSelected] = useState();
   const [step, setStep] = useState();
+  const [color, setColor] = useState();
 
   const handleOnClick = (index, text) => {
     setSelected(index);
     setStep(text);
+    setColor("#687f8c");
   };
 
   const handleRefactorigClick = (index) => {
@@ -25,10 +27,8 @@ function MoveForeignKey(props) {
       service={service}
       sequence={refactoring.refactorings}
       index={index-2}></Refactoring>)
-
+    setColor("#1E488F");
   }
-
-  console.log(refactoring);
   return (
     <>
       <p className="py-2" style={{fontSize: "1.15rem", fontWeight: "bold"}}>
@@ -124,7 +124,7 @@ function MoveForeignKey(props) {
           <Row
             id="implementation"
             className="d-flex justify-content-center pt-3 pb-1 my-3 mx-5"
-            style={{ border: "3px dashed #687f8c" }}
+            style={{ border: "3px dashed " + color }}
           >
             <p>{step}</p>
           </Row>

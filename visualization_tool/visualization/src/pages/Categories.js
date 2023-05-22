@@ -10,7 +10,7 @@ function Categories() {
   const [hoverInfrastructure, setHoverInfrastructure] = useState(false);
   const [hoverDeployment, setHoverDeployment] = useState(false);
   const [hoverCharacteristics, setHoverCharacteristics] = useState(false);
-  
+
   const handleMouseEnterExtract = () => {
     setHoverExtract(true);
   };
@@ -51,7 +51,7 @@ function Categories() {
         </b>
       </p>
 
-      <Row className="mx-0 px-0 mt-3 mb-2 text-white" >
+      <Row className="mx-0 px-0 mt-3 mb-2 text-white">
         <Col lg={3}>
           <Link to="/chooseProject">
             <Button

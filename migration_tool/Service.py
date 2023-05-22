@@ -44,6 +44,8 @@ class Service:
     def add_interface(self, interface):
         if interface not in self.interfaces:
             self.interfaces.append(interface)
+            return 0
+        else: return -1 # interface already exists
 
     def add_dto(self, dto):
         if dto not in self.dtos:

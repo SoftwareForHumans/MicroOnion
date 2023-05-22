@@ -2,6 +2,7 @@ import { useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import StepButton from "./StepButton";
+import r2 from "../assets/refactoring_2.png";
 
 function FileDependency(props) {
   const index = props.index;
@@ -23,6 +24,15 @@ function FileDependency(props) {
           refactoring.name.slice(1).toLowerCase()}
       </p>
       <div className="intermediate-text">
+      <p className="d-flex align-self-start ms-5">
+          Refactoring schematical representation:
+        </p>
+        <img
+          className="pb-3"
+          style={{ width: "90%", alignSelf: "center" }}
+          src={r2}
+          alt="refactoring change schema"
+        ></img>
         <p>
           To apply this refactoring, follow the below sequence of steps (
           <b>click on each of them to find out how to implement them</b>):
