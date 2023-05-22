@@ -93,15 +93,15 @@ footer {
 
 .stepActive{
   background-color: white !important;
-  border-color: #687f8c!important; 
+  border-color: #687f8c !important; 
   color: #687f8c !important;
 }
 
 .step-button{
   background-color: #687f8c;
   border-color: #687f8c;
-  height: 12vh;
-  width: 12vh;
+  height: 16vh;
+  width: 16vh;
   font-size: 0.8rem;
   border-radius: 12%;
   box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
@@ -109,7 +109,7 @@ footer {
 
 .step-button:hover{
   background-color: white !important;
-  border-color: #687f8c!important; 
+  border-color: #687f8c !important; 
   color: #687f8c !important;
 }
 
@@ -135,26 +135,6 @@ background-color: #687f8c;
 border-color: #687f8c;
 }
 
-.squared-button{
-height: 12vh;
-width: 12vh;
-font-size: 0.8rem;
-border-radius: 12%;
-box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
-}
-
-.squared-button:hover{
-background-color: white !important;
-border-color: #092256 !important; 
-color: #092256 !important;
-}
-
-.isActive{
-background-color: white !important;
-border-color: #092256 !important; 
-color: #092256 !important;
-}
-
 .service{
   background-color: rgb(0, 60, 172);
   width: 6.5rem;
@@ -178,8 +158,8 @@ border-color: #687f8c;
 }
 
 .squared-button{
-height: 12vh;
-width: 12vh;
+height: 16vh;
+width: 16vh;
 font-size: 0.8rem;
 border-radius: 12%;
 box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);

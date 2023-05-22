@@ -184,16 +184,14 @@ function ExtractService() {
                     {sequence.map((item, index) => {
                       return (
                         <>
-                          <Col className="d-inline">
-                            <RefactoringButton
-                              item={item}
-                              handleClick={handleOnClick}
-                              sequence={sequence}
-                              index={index}
-                              active={selected === index}
-                              color="#092256"
-                            ></RefactoringButton>
-                          </Col>
+                          <RefactoringButton
+                            item={item}
+                            handleClick={handleOnClick}
+                            sequence={sequence}
+                            index={index}
+                            active={selected === index}
+                            color="#092256"
+                          ></RefactoringButton>
                         </>
                       );
                     })}

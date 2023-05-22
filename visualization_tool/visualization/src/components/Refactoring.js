@@ -3,7 +3,6 @@ import ChangeDataOwnership from "../components/ChangeDataOwnership";
 import ServiceCall from "../components/ServiceCall";
 import MoveForeignKey from "../components/MoveForeignKey";
 import DTO from "../components/DTO";
-import ImportDependency from "../components/ImportDependency";
 import FileDependency from "../components/FileDependency";
 
 function Refactoring(props) {
@@ -12,7 +11,7 @@ function Refactoring(props) {
   const index = props.index;
   const sequence = props.sequence;
   const refactoring = sequence[index];
-  
+
   return (
     <>
       {refactoring.name === "BREAK DATA TYPE DEPENDENCY" && (
@@ -48,7 +47,7 @@ function Refactoring(props) {
           refactoring={refactoring}
         ></MoveForeignKey>
       )}
-      {refactoring.name === "DTO" && (
+      {refactoring.name === "CREATE DATA TRANSFER OBJECT" && (
         <DTO
           project={project}
           service={service}
@@ -56,21 +55,14 @@ function Refactoring(props) {
           refactoring={refactoring}
         ></DTO>
       )}
-      {refactoring.name === "FILE DEPENDENCY" && (
+      {(refactoring.name === "FILE DEPENDENCY" ||
+        refactoring.name === "IMPORT DEPENDENCY") && (
         <FileDependency
           project={project}
           service={service}
           index={index}
           refactoring={refactoring}
         ></FileDependency>
-      )}
-      {refactoring.name === "IMPORT DEPENDENCY" && (
-        <ImportDependency
-          project={project}
-          service={service}
-          index={index}
-          refactoring={refactoring}
-        ></ImportDependency>
       )}
     </>
   );

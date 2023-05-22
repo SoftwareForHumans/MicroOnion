@@ -1,38 +1,55 @@
+import { useState } from "react";
 import Col from "react-bootstrap/Col";
-import RefactoringButton from "../components/RefactoringButton";
+import Row from "react-bootstrap/Row";
+import StepButton from "./StepButton";
 
 function DTO(props) {
-  const project = props.project;
-  const service = props.service;
   const index = props.index;
   const refactoring = props.refactoring;
+  const [selected, setSelected] = useState();
+  const [step, setStep] = useState();
+  const handleOnClick = (index, text) => {
+    setSelected(index);
+    setStep(text);
+  };
+
   return (
     <>
-      <h6 className="py-2">
+      <p className="mt-2" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
         {(index + 1).toString() +
           ". " +
           refactoring.name[0] +
           refactoring.name.slice(1).toLowerCase()}
-      </h6>
-      {refactoring.refactorings &&
-        refactoring.refactorings.map((item, index) => {
-          return (
-            <>
-              <Col className="d-inline">
-                <RefactoringButton
-                  item={item}
-                  // handleClick={setRefactoring}
-                  sequence={refactoring.refactorings}
-                  index={index}
-                  color="#1E488F"
-                ></RefactoringButton>
-              </Col>
-            </>
-          );
-        })}
+      </p>
+      <div className="intermediate-text">
+        <p>
+          To apply this refactoring, follow the below sequence of steps (
+          <b>click on each of them to find out how to implement them</b>):
+        </p>
+        <div className="d-inline my-4">
+          <Col className="d-inline me-3">
+            <StepButton
+              name="Create an entity (Data Transfer Object)"
+              index={0}
+              active={selected}
+              hasNext={false}
+              handleClick={handleOnClick}
+              text="Create an entity (Data Transfer Object) to hold the data necessary in a call between those services. It must be serializable to be sent through the connection."
+            ></StepButton>
+          </Col>
+        </div>
+        {step !== undefined && (
+          <Row
+            id="implementation"
+            className="d-flex justify-content-center py-3 my-3 mx-5"
+            style={{ border: "3px dashed #3C76E1" }}
+          >
+            {step}
+          </Row>
+        )}
+      </div>
     </>
   );
 }
 
 export default DTO;
-// # create an entity with the necessary data

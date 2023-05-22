@@ -2,10 +2,13 @@ import { useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
+import Refactoring from "../components/Refactoring";
 import StepButton from "./StepButton";
 import r2 from "../assets/refactoring_2.png";
 
 function MoveForeignKey(props) {
+  const project = props.project;
+  const service = props.service;
   const index = props.index;
   const refactoring = props.refactoring;
   const [selected, setSelected] = useState();
@@ -15,6 +18,15 @@ function MoveForeignKey(props) {
     setSelected(index);
     setStep(text);
   };
+
+  const handleRefactorigClick = (index) => {
+    setSelected(index);
+    setStep(<Refactoring project={project}
+      service={service}
+      sequence={refactoring.refactorings}
+      index={index-2}></Refactoring>)
+
+  }
 
   console.log(refactoring);
   return (
@@ -88,17 +100,19 @@ function MoveForeignKey(props) {
               text="Identify the methods that use/manipulate data from different databases and change them to use the newly created interfaces."
             ></StepButton>
           </Col>
-          {/**- change local methods call to service calls using the primary key as a parameter */}
           {refactoring.refactorings &&
             refactoring.refactorings.map((item, index) => {
+              index = index + 5
               return (
                 <>
                   <Col className="d-inline">
                     <RefactoringButton
                       item={item}
-                      // handleClick={setRefactoring}
+                      active={selected === index}
+                      handleClick={handleRefactorigClick}
                       sequence={refactoring.refactorings}
-                      index={5}
+                      index={index}
+                      showNumber={false}
                       color="#1E488F"
                     ></RefactoringButton>
                   </Col>
