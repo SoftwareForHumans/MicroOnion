@@ -208,6 +208,7 @@ function ExtractService() {
                           service={service}
                           sequence={sequence}
                           index={refactoring}
+                          showNumber={true}
                         ></Refactoring>
                       )}
                     </Row>

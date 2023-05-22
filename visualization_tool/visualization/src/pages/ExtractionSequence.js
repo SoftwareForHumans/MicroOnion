@@ -16,7 +16,6 @@ function ExtractionSequence() {
 
   useEffect(() => {
     try {
-      console.log(process.env.REACT_APP_BACKEND_URL)
       axios
         .get(`${process.env.REACT_APP_BACKEND_URL}projects/refactoringsSequence/${project}`)
         .then((res) => {

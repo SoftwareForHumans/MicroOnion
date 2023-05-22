@@ -11,10 +11,12 @@ function MoveForeignKey(props) {
   const service = props.service;
   const index = props.index;
   const refactoring = props.refactoring;
+  const showNumber = props.showNumber;
   const [selected, setSelected] = useState();
   const [step, setStep] = useState();
   const [color, setColor] = useState();
 
+  console.log(refactoring);
   const handleOnClick = (index, text) => {
     setSelected(index);
     setStep(text);
@@ -23,22 +25,27 @@ function MoveForeignKey(props) {
 
   const handleRefactorigClick = (index) => {
     setSelected(index);
-    setStep(<Refactoring project={project}
-      service={service}
-      sequence={refactoring.refactorings}
-      index={index-2}></Refactoring>)
+    setStep(
+      <Refactoring
+        project={project}
+        service={service}
+        sequence={refactoring.refactorings}
+        index={index - 2}
+      ></Refactoring>
+    );
     setColor("#1E488F");
-  }
+  };
   return (
     <>
-      <p className="py-2" style={{fontSize: "1.15rem", fontWeight: "bold"}}>
-        {(index + 1).toString() +
-          ". " +
-          refactoring.name[0] +
-          refactoring.name.slice(1).toLowerCase()}
+      <p className="py-2" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
+        {showNumber ? (index + 1).toString() + ". " : ""}
+        {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>
+      <p>Of {refactoring.notes.relationship} between {refactoring.notes.entities[0]} and {refactoring.notes.entities[1]} </p>
       <div className="intermediate-text">
-        <p className="d-flex align-self-start ms-5" >Refactoring schematical representation:</p>
+        <p className="d-flex align-self-start ms-5">
+          Refactoring schematical representation:
+        </p>
         <img
           className="pb-3"
           style={{ width: "90%", alignSelf: "center" }}
@@ -102,7 +109,7 @@ function MoveForeignKey(props) {
           </Col>
           {refactoring.refactorings &&
             refactoring.refactorings.map((item, index) => {
-              index = index + 5
+              index = index + 5;
               return (
                 <>
                   <Col className="d-inline">

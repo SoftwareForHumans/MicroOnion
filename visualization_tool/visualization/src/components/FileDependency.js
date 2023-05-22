@@ -7,9 +7,10 @@ import r2 from "../assets/refactoring_2.png";
 function FileDependency(props) {
   const index = props.index;
   const refactoring = props.refactoring;
+  const showNumber = props.showNumber;
   const [selected, setSelected] = useState();
   const [step, setStep] = useState();
-
+  console.log(refactoring);
   const handleOnClick = (index, text) => {
     setSelected(index);
     setStep(text);
@@ -18,13 +19,11 @@ function FileDependency(props) {
   return (
     <>
       <p className="mt-2" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
-        {(index + 1).toString() +
-          ". " +
-          refactoring.name[0] +
-          refactoring.name.slice(1).toLowerCase()}
+        {showNumber ? (index + 1).toString() + ". " : ""}
+        {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>
       <div className="intermediate-text">
-      <p className="d-flex align-self-start ms-5">
+        <p className="d-flex align-self-start ms-5">
           Refactoring schematical representation:
         </p>
         <img

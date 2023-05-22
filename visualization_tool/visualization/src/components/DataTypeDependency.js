@@ -11,10 +11,12 @@ function DataTypeDependency(props) {
   const service = props.service;
   const index = props.index;
   const refactoring = props.refactoring;
+  const showNumber = props.showNumber;
   const [selected, setSelected] = useState();
   const [step, setStep] = useState();
   const [color, setColor] = useState();
-  const indexLast = 1 + (refactoring.refactorings? refactoring.refactorings.length + 1: 0)
+  const indexLast =
+    1 + (refactoring.refactorings ? refactoring.refactorings.length + 1 : 0);
   console.log(refactoring);
 
   const handleOnClick = (index, text) => {
@@ -39,10 +41,8 @@ function DataTypeDependency(props) {
   return (
     <>
       <p className="mt-2" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
-        {(index + 1).toString() +
-          ". " +
-          refactoring.name[0] +
-          refactoring.name.slice(1).toLowerCase()}
+        {showNumber ? (index + 1).toString() + ". " : ""}
+        {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>
       <p style={{ fontWeight: "bold", fontSize: "0.75rem" }}>
         Of {refactoring.notes.file} with{" "}
@@ -116,8 +116,14 @@ function DataTypeDependency(props) {
               text="Make the necessary changes in the code to use the new data type and the right interface for the method calls."
             ></StepButton>
           </Col>
-          {refactoring.refactorings? <></>:
-          <p>The data transfer object was already created in a previous refactoring. You should use the already created DTO.</p>}
+          {refactoring.refactorings ? (
+            <></>
+          ) : (
+            <p>
+              The data transfer object was already created in a previous
+              refactoring. You should use the already created DTO.
+            </p>
+          )}
         </div>
         {step !== undefined && (
           <Row

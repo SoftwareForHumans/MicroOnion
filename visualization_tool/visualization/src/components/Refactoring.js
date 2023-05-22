@@ -11,7 +11,7 @@ function Refactoring(props) {
   const index = props.index;
   const sequence = props.sequence;
   const refactoring = sequence[index];
-
+  const showNumber = props.showNumber !== undefined? props.showNumber: false;
   return (
     <>
       {refactoring.name === "BREAK DATA TYPE DEPENDENCY" && (
@@ -20,6 +20,7 @@ function Refactoring(props) {
           service={service}
           index={index}
           refactoring={refactoring}
+          showNumber={showNumber}
         ></DataTypeDependency>
       )}
       {refactoring.name ===
@@ -29,6 +30,7 @@ function Refactoring(props) {
           service={service}
           index={index}
           refactoring={refactoring}
+          showNumber={showNumber}
         ></ServiceCall>
       )}
       {refactoring.name === "CHANGE DATA OWNERSHIP" && (
@@ -37,6 +39,7 @@ function Refactoring(props) {
           service={service}
           index={index}
           refactoring={refactoring}
+          showNumber={showNumber}
         ></ChangeDataOwnership>
       )}
       {refactoring.name === "MOVE FOREIGN-KEY RELATIONSHIP TO CODE" && (
@@ -45,6 +48,7 @@ function Refactoring(props) {
           service={service}
           index={index}
           refactoring={refactoring}
+          showNumber={showNumber}
         ></MoveForeignKey>
       )}
       {refactoring.name === "CREATE DATA TRANSFER OBJECT" && (
@@ -53,6 +57,7 @@ function Refactoring(props) {
           service={service}
           index={index}
           refactoring={refactoring}
+          showNumber={showNumber}
         ></DTO>
       )}
       {(refactoring.name === "FILE DEPENDENCY" ||
@@ -62,6 +67,7 @@ function Refactoring(props) {
           service={service}
           index={index}
           refactoring={refactoring}
+          showNumber={showNumber}
         ></FileDependency>
       )}
     </>
