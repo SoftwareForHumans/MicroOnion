@@ -106,7 +106,9 @@ class BreakDependencies:
         # if a join table was defined then the microservice is the owner of the data
         if ((dependency[0] == "ManyToMany" or dependency[0] == "OneToOne") and len(dependency) > 2) or dependency[0] == "ManyToOne": 
             print("CHANGE DATA OWNERSHIP")
-            current_refactoring = current_refactoring.add_refactoring(Refactoring("CHANGE DATA OWNERSHIP", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice.get_id()))
+            notes = {}
+            notes["entity"]= file
+            current_refactoring = current_refactoring.add_refactoring(Refactoring("CHANGE DATA OWNERSHIP", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice.get_id(), notes))
             
 
         print(f"MOVE FOREIGN-KEY RELATIONSHIP TO CODE - {file}/{dependent_file}")
@@ -153,6 +155,8 @@ class BreakDependencies:
         notes["protocol"] = "HTTP"
         notes["type"] = "synchronous"
         notes["target"] = class_name
+        notes["new_classes"] = [class_name + "RequestInterfaceImpl", class_name + "HandleRequest"]
+        notes["interfaces"] = [class_name + "RequestInterface"]
         microservice.add_interface(class_name + "RequestInterface")
         microservice.add_new_class(class_name + "RequestInterfaceImpl")
         dependent_microservice.add_new_class(class_name + "HandleRequest")
@@ -192,6 +196,7 @@ class BreakDependencies:
         notes = {}
         notes["file"] = file
         notes["dependent_file"] = dependent_file
+        notes["dependencies"] = to_append
         
         notes_dtos = {"created": []}
 

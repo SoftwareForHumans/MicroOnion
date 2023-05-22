@@ -16,7 +16,6 @@ function MoveForeignKey(props) {
   const [step, setStep] = useState();
   const [color, setColor] = useState();
 
-  console.log(refactoring);
   const handleOnClick = (index, text) => {
     setSelected(index);
     setStep(text);
@@ -41,7 +40,10 @@ function MoveForeignKey(props) {
         {showNumber ? (index + 1).toString() + ". " : ""}
         {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>
-      <p>Of {refactoring.notes.relationship} between {refactoring.notes.entities[0]} and {refactoring.notes.entities[1]} </p>
+      <p style={{ fontWeight: "bold", fontSize: "0.9rem" }}>
+        Of {refactoring.notes.relationship} between{" "}
+        {refactoring.notes.entities[0]} and {refactoring.notes.entities[1]}{" "}
+      </p>
       <div className="intermediate-text">
         <p className="d-flex align-self-start ms-5">
           Refactoring schematical representation:
@@ -74,7 +76,11 @@ function MoveForeignKey(props) {
               active={selected}
               hasNext={true}
               handleClick={handleOnClick}
-              text="In the class of entity (database table) that used to have the foreign-key constraint, create an instance variable that represents the other entity involved in the said relationship and create a column for that variable in this entity table. This variable will no longer be a foreign key but a filter of the select query to retrieve data."
+              text={
+                "In the class of entity (database table) that used to have the foreign-key constraint, create an instance variable that represents the other entity involved in the said relationship, " +
+                refactoring.notes.entities[1] +
+                ". Create a column for that variable in this entity table. This variable will no longer be a foreign key but a filter of the select query to retrieve data."
+              }
             ></StepButton>
           </Col>
           <Col className="d-inline me-3">
@@ -94,12 +100,17 @@ function MoveForeignKey(props) {
               active={selected}
               hasNext={true}
               handleClick={handleOnClick}
-              text="Create an interface for each of these databases that implements the methods of data manipulation"
+              text={
+                "Create an interface for each of these databases that implements the methods of data manipulation: " +
+                refactoring.notes.interfaces[0] +
+                ", " +
+                refactoring.notes.interfaces[1]
+              }
             ></StepButton>
           </Col>
           <Col className="d-inline me-3">
             <StepButton
-              name="Create an Interface for each database"
+              name="Make necessary changes"
               index={4}
               active={selected}
               hasNext={refactoring.refactorings}

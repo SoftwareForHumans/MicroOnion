@@ -15,7 +15,7 @@ function ChangeDataOwnership(props) {
   const [selected, setSelected] = useState();
   const [step, setStep] = useState();
   const [color, setColor] = useState();
-  console.log(refactoring);
+
   const handleOnClick = (index, text) => {
     setSelected(index);
     setStep(text);
@@ -41,7 +41,9 @@ function ChangeDataOwnership(props) {
         {showNumber ? (index + 1).toString() + ". " : ""}
         {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>
-
+      <p style={{ fontWeight: "bold", fontSize: "0.9rem" }}>
+        Of {refactoring.notes.entity} to Service {service.microservice}
+      </p>
       <div className="intermediate-text">
         <p className="d-flex align-self-start ms-5">
           Refactoring schematical representation:

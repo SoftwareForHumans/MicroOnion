@@ -10,7 +10,7 @@ function FileDependency(props) {
   const showNumber = props.showNumber;
   const [selected, setSelected] = useState();
   const [step, setStep] = useState();
-  console.log(refactoring);
+
   const handleOnClick = (index, text) => {
     setSelected(index);
     setStep(text);
@@ -21,6 +21,12 @@ function FileDependency(props) {
       <p className="mt-2" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
         {showNumber ? (index + 1).toString() + ". " : ""}
         {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
+      </p>
+      <p style={{ fontWeight: "bold", fontSize: "0.9rem" }}>
+        Of{" "}
+        {refactoring.notes.new_classes
+          ? refactoring.notes.new_classes
+          : refactoring.notes.interfaces}
       </p>
       <div className="intermediate-text">
         <p className="d-flex align-self-start ms-5">
@@ -44,7 +50,13 @@ function FileDependency(props) {
               active={selected}
               hasNext={false}
               handleClick={handleOnClick}
-              text="In this case, as this classes do not handle business logic, it is ok to simply duplicate the file for each microservice."
+              text={
+                "In this case, as this classes do not handle business logic, it is ok to simply duplicate the " +
+                refactoring.notes.new_classes
+                  ? refactoring.notes.new_classes
+                  : refactoring.notes.interfaces +
+                    " file for each microservice."
+              }
             ></StepButton>
           </Col>
         </div>

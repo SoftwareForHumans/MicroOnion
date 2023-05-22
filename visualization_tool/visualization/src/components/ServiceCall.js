@@ -15,7 +15,7 @@ function ServiceCall(props) {
   const [selected, setSelected] = useState();
   const [step, setStep] = useState();
   const [color, setColor] = useState();
-  console.log(refactoring);
+
   const handleOnClick = (index, text) => {
     setSelected(index);
     setStep(text);
@@ -41,7 +41,9 @@ function ServiceCall(props) {
         {showNumber ? (index + 1).toString() + ". " : ""}
         {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>
-
+      <p style={{ fontWeight: "bold", fontSize: "0.9rem" }}>
+        Of method {refactoring.notes.method} from {refactoring.notes.target}
+      </p>
       <div className="intermediate-text">
         <p className="d-flex align-self-start ms-5">
           Refactoring schematical representation:
@@ -64,7 +66,10 @@ function ServiceCall(props) {
               active={selected}
               hasNext={true}
               handleClick={handleOnClick}
-              text="Decide the communication strategy (like HTTP or RPC, for example) and make the initial configurations to use it. Store the necessary information (e.g. URL) to make the remote calls to the microservice."
+              text={
+                "Decide the communication strategy (like HTTP or RPC, for example) and make the initial configurations to use it. Store the necessary information (e.g. URL) to make the remote calls to the microservice. - " +
+                refactoring.notes.protocol
+              }
             ></StepButton>
           </Col>
           <Col className="d-inline me-3">
@@ -77,9 +82,13 @@ function ServiceCall(props) {
               text={[
                 "Change the method calls to and from local components to be remote calls using this protocol to reach a different service:",
                 "\n",
-                "1. Create an interface with the declaration of the identified methods",
+                "1. Create an interface with the declaration of the identified methods - " +
+                  refactoring.notes.interfaces +
+                  ".",
                 "\n",
-                "2. Create a class that implements that interface and makes the service calls, a Request Class",
+                "2. Create a class that implements that interface and makes the service calls, a Request Class - " +
+                  refactoring.notes.new_classes[0] +
+                  ".",
               ]}
             ></StepButton>
           </Col>
@@ -93,9 +102,11 @@ function ServiceCall(props) {
               text={[
                 "Arrange the microservice owning the method to respond to this communication protocol, creating an API to respond to the service calls.",
                 "\n",
-                "1. Create a class that defines the resource paths for the requests and processes them producing a response",
+                "1. Create a class that defines the resource paths for the requests and processes them producing a response - " +
+                  refactoring.notes.new_classes[1] +
+                  ".",
                 "\n",
-                "2. Add methods to the class to perform the actions required by the service calls",
+                "2. Add methods to the class to perform the actions required by the service calls.",
               ]}
             ></StepButton>
           </Col>

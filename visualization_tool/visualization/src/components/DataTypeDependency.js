@@ -17,7 +17,6 @@ function DataTypeDependency(props) {
   const [color, setColor] = useState();
   const indexLast =
     1 + (refactoring.refactorings ? refactoring.refactorings.length + 1 : 0);
-  console.log(refactoring);
 
   const handleOnClick = (index, text) => {
     setSelected(index);
@@ -44,7 +43,7 @@ function DataTypeDependency(props) {
         {showNumber ? (index + 1).toString() + ". " : ""}
         {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>
-      <p style={{ fontWeight: "bold", fontSize: "0.75rem" }}>
+      <p style={{ fontWeight: "bold", fontSize: "0.9rem" }}>
         Of {refactoring.notes.file} with{" "}
         {refactoring.notes.dependent_file.split(".").slice(-1)}
       </p>
@@ -71,7 +70,10 @@ function DataTypeDependency(props) {
               active={selected}
               hasNext={true}
               handleClick={handleOnClick}
-              text="For example, the method invocations from the data type class, variable, parameters or return types of the data type."
+              text={
+                "For example, the method invocations from the data type class, variable, parameters or return types of the data type. In this case, the dependencies are: " +
+                refactoring.notes.dependencies
+              }
             ></StepButton>
           </Col>
           {refactoring.notes.interfaces ? (
@@ -82,7 +84,11 @@ function DataTypeDependency(props) {
                 active={selected}
                 hasNext={refactoring.refactorings}
                 handleClick={handleOnClick}
-                text="Create an interface with the same name as the data type that defines the methods invocations identified to be used through the data transfer object to make service calls to the data owner."
+                text={
+                  "Create an interface with the same name as the data type, " +
+                  refactoring.notes.interfaces +
+                  ", that defines the methods invocations identified to be used through the data transfer object to make service calls to the data owner."
+                }
               ></StepButton>
             </Col>
           ) : (

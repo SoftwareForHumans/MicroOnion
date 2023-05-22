@@ -14,7 +14,7 @@ function DTO(props) {
     "Create an entity (Data Transfer Object), " +
     refactoring.notes.created +
     ", to hold the data necessary in a call between those services. It must be serializable to be sent through the connection.";
-  console.log(refactoring);
+
   const handleOnClick = (index, text) => {
     setSelected(index);
     setStep(text);
@@ -25,6 +25,9 @@ function DTO(props) {
       <p className="mt-2" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
         {showNumber ? (index + 1).toString() + ". " : ""}
         {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
+      </p>
+      <p style={{ fontWeight: "bold", fontSize: "0.9rem" }}>
+        {refactoring.notes.created}
       </p>
       <div className="intermediate-text">
         <p className="d-flex align-self-start ms-5">
