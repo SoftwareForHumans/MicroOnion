@@ -180,7 +180,7 @@ function ExtractService() {
                       ):
                     </p>
                   </Row>
-                  <Row className="d-inline">
+                  <Row className="d-inline mx-5">
                     {sequence.map((item, index) => {
                       return (
                         <>
@@ -199,7 +199,7 @@ function ExtractService() {
                   {refactoring !== undefined && (
                     <Row
                       id="implementation"
-                      className="mt-5"
+                      className="mt-5 mx-3"
                       style={{ border: "3px dashed", width: "90%" }}
                     >
                       {refactoring !== undefined && (
