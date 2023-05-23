@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
@@ -6,15 +5,19 @@ import Refactoring from "../components/Refactoring";
 import StepButton from "./StepButton";
 import r2 from "../assets/refactoring_2.png";
 
-function DataTypeDependency(props) {
-  const project = props.project;
-  const service = props.service;
-  const index = props.index;
-  const refactoring = props.refactoring;
-  const showNumber = props.showNumber;
-  const [selected, setSelected] = useState();
-  const [step, setStep] = useState();
-  const [color, setColor] = useState();
+function DataTypeDependency({
+  project,
+  service,
+  index,
+  refactoring,
+  showNumber,
+  selected,
+  color,
+  step,
+  setSelected,
+  setColor,
+  setStep,
+}) {
   const indexLast =
     1 + (refactoring.refactorings ? refactoring.refactorings.length + 1 : 0);
 

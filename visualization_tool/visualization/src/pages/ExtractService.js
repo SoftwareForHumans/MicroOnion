@@ -29,6 +29,10 @@ function ExtractService() {
   const [show, setShow] = useState(false);
   const [showFinal, setShowFinal] = useState(false);
 
+  const [selected2, setSelected2] = useState(undefined);
+  const [step, setStep] = useState(undefined);
+  const [color, setColor] = useState(undefined);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleCloseFinal = () => setShowFinal(false);
@@ -37,6 +41,9 @@ function ExtractService() {
   const handleOnClick = (index) => {
     setSelected(index);
     setRefactoring(index);
+    setColor(undefined);
+    setStep(undefined);
+    setSelected2(undefined);
   };
 
   useEffect(() => {
@@ -209,6 +216,12 @@ function ExtractService() {
                           sequence={sequence}
                           index={refactoring}
                           showNumber={true}
+                          selected={selected2}
+                          color={color}
+                          step={step}
+                          setSelected={setSelected2}
+                          setColor={setColor}
+                          setStep={setStep}
                         ></Refactoring>
                       )}
                     </Row>

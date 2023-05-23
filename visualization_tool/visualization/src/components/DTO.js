@@ -1,15 +1,19 @@
-import { useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import StepButton from "./StepButton";
 import r2 from "../assets/refactoring_2.png";
 
-function DTO(props) {
-  const index = props.index;
-  const refactoring = props.refactoring;
-  const showNumber = props.showNumber;
-  const [selected, setSelected] = useState();
-  const [step, setStep] = useState();
+function DTO({
+  project,
+  service,
+  index,
+  refactoring,
+  showNumber,
+  selected,
+  step,
+  setSelected,
+  setStep,
+}) {
   const text =
     "Create an entity (Data Transfer Object), " +
     refactoring.notes.created +

@@ -5,13 +5,9 @@ import MoveForeignKey from "../components/MoveForeignKey";
 import DTO from "../components/DTO";
 import FileDependency from "../components/FileDependency";
 
-function Refactoring(props) {
-  const project = props.project;
-  const service = props.service;
-  const index = props.index;
-  const sequence = props.sequence;
+function Refactoring({project, service, index, sequence, showNumber, selected, color, step, setSelected, setColor, setStep}) {
   const refactoring = sequence[index];
-  const showNumber = props.showNumber !== undefined? props.showNumber: false;
+  showNumber = showNumber !== undefined? showNumber: false;
   return (
     <>
       {refactoring.name === "BREAK DATA TYPE DEPENDENCY" && (
@@ -21,6 +17,12 @@ function Refactoring(props) {
           index={index}
           refactoring={refactoring}
           showNumber={showNumber}
+          selected={selected}
+          color={color}
+          step={step}
+          setSelected={setSelected}
+          setColor={setColor}
+          setStep={setStep}
         ></DataTypeDependency>
       )}
       {refactoring.name ===
@@ -31,6 +33,12 @@ function Refactoring(props) {
           index={index}
           refactoring={refactoring}
           showNumber={showNumber}
+          selected={selected}
+          color={color}
+          step={step}
+          setSelected={setSelected}
+          setColor={setColor}
+          setStep={setStep}
         ></ServiceCall>
       )}
       {refactoring.name === "CHANGE DATA OWNERSHIP" && (
@@ -40,6 +48,12 @@ function Refactoring(props) {
           index={index}
           refactoring={refactoring}
           showNumber={showNumber}
+          selected={selected}
+          color={color}
+          step={step}
+          setSelected={setSelected}
+          setColor={setColor}
+          setStep={setStep}
         ></ChangeDataOwnership>
       )}
       {refactoring.name === "MOVE FOREIGN-KEY RELATIONSHIP TO CODE" && (
@@ -49,6 +63,12 @@ function Refactoring(props) {
           index={index}
           refactoring={refactoring}
           showNumber={showNumber}
+          selected={selected}
+          color={color}
+          step={step}
+          setSelected={setSelected}
+          setColor={setColor}
+          setStep={setStep}
         ></MoveForeignKey>
       )}
       {refactoring.name === "CREATE DATA TRANSFER OBJECT" && (
@@ -58,6 +78,12 @@ function Refactoring(props) {
           index={index}
           refactoring={refactoring}
           showNumber={showNumber}
+          selected={selected}
+          color={color}
+          step={step}
+          setSelected={setSelected}
+          setColor={setColor}
+          setStep={setStep}
         ></DTO>
       )}
       {(refactoring.name === "FILE DEPENDENCY" ||
@@ -68,6 +94,12 @@ function Refactoring(props) {
           index={index}
           refactoring={refactoring}
           showNumber={showNumber}
+          selected={selected}
+          color={color}
+          step={step}
+          setSelected={setSelected}
+          setColor={setColor}
+          setStep={setStep}
         ></FileDependency>
       )}
     </>
