@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
-
 function ExtractionSequence() {
   let { state } = useLocation();
   const project = state.projectName.replaceAll(" ", "");
@@ -17,7 +16,9 @@ function ExtractionSequence() {
   useEffect(() => {
     try {
       axios
-        .get(`${process.env.REACT_APP_BACKEND_URL}projects/refactoringsSequence/${project}`)
+        .get(
+          `${process.env.REACT_APP_BACKEND_URL}projects/refactoringsSequence/${project}`
+        )
         .then((res) => {
           setExtractServices(res.data);
         });
@@ -34,8 +35,8 @@ function ExtractionSequence() {
       >
         <p>
           {" "}
-          Here we present the order by which we propose the services to be
-          extracted, applying the Extract Service refactoring. <br></br>
+          Apply the Extract Service Refactoring in the following order, to
+          extract each of the services from least to most coupled. <br></br>
           <b>Click on each of the services to find out how to extract them.</b>
         </p>
       </Row>

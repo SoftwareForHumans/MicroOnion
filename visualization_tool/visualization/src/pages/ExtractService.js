@@ -62,7 +62,7 @@ function ExtractService() {
           `${process.env.REACT_APP_BACKEND_URL}projects/${project}/serviceExtraction/${service.microservice}`
         )
         .then((res) => {
-          setFinalState(res.data.finalState);
+          setFinalState("res.data.finalState");//TODO: change this
           setSequence(res.data.sequence);
         });
     } catch (err) {

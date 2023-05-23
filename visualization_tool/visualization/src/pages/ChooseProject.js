@@ -6,7 +6,6 @@ import Button from "react-bootstrap/Button";
 import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 
-
 import restaurantServer from "../assets/restaurantServer_microservices.png";
 import proyectUNAM from "../assets/proyectoUNAM_microservices.png";
 import hotelManagementSystem from "../assets/hotelManagementSystem_microservices.png";
@@ -42,32 +41,38 @@ function ChooseProject() {
         proposed refactoring sequence
       </h5>
       <p style={{ fontSize: "0.7rem", width: "40%" }}>
-        This tool receives two files as input: one with the proposal of
-        separating the files into different microservices and another with the
-        source code representation. The format of these files can be found in
-        Github's README file and the information for these can be gathered by
-        other existing tools.
-        <br></br>It allows any project with files in the format specified in the
-        README file, previously mentioned.<br></br> However, here we want you to
-        focus on these 3 examples.
+        This tool receives two files as input: one with information about the
+        monolith source code, and another with information about which services
+        we intend to have after the system is refactored.
+        <br></br>
+        In the future, this tool will receive any two files, however, at this
+        time we want you to focus on the 3 example projects that you can select
+        below.
       </p>
       <div className="center-all flex-column">
-        <DropdownButton className="my-3 dropdown-button" id="dropdown-button" title={project}>
-          <Dropdown.Item className="dropdown-item"
+        <DropdownButton
+          className="my-3 dropdown-button"
+          id="dropdown-button"
+          title={project}
+        >
+          <Dropdown.Item
+            className="dropdown-item"
             id="Restaurant Server"
             onClick={(e) => setProject(e.target.id)}
           >
             {" "}
             Restaurant Server
           </Dropdown.Item>
-          <Dropdown.Item className="dropdown-item"
+          <Dropdown.Item
+            className="dropdown-item"
             id="Proyecto UNAM"
             onClick={(e) => setProject(e.target.id)}
           >
             {" "}
             Proyecto UNAM
           </Dropdown.Item>
-          <Dropdown.Item className="dropdown-item"
+          <Dropdown.Item
+            className="dropdown-item"
             id="Hotel Management System"
             onClick={(e) => setProject(e.target.id)}
           >
@@ -112,9 +117,7 @@ function ChooseProject() {
             className="m-5 p-4"
           >
             <div className="mb-3">
-              <h5
-                 style={{ color: "#e6e6e6", fontSize:"1.1rem" }}
-              >
+              <h5 style={{ color: "#e6e6e6", fontSize: "1.1rem" }}>
                 {" "}
                 Proposed Microservices Decomposition
               </h5>

@@ -39,15 +39,15 @@ function Categories() {
   return (
     <Container className="text-center pt-2 center-all flex-column">
       <p className="my-4 small-text" style={{ width: "80%" }}>
-        This tool graphically displays the sequence of refactorings suggested
-        for three Java Spring projects.
+        This tool assists the migration of systems to microservices, guiding
+        this process based on a set of refactorings.
         <br></br>
-        The goal is to improve the developer experience and provide additional
-        information on how to conduct the migration.
+        For "Extracting Services" (see below), the tool graphically displays the
+        sequence of refactorings suggested for three Java Spring projects.
         <br></br>
         <b>
-          Please choose below the concern that you would like to address in the
-          migration.
+          Please choose below the category of refactorings that you would like
+          to apply.
         </b>
       </p>
 
@@ -125,15 +125,16 @@ function Categories() {
           </Link>
         </Col>
       </Row>
-      <Row className="mt-5 mb-4">
+      <Row className="mt-3 mb-5">
         <p className="small-text">
-          These categories <b>are not</b> in any particular order and can be
-          swapped out anytime you see fit.<br></br> We suggest a{" "}
-          <b>Strangler Fig</b> approach to the migration, taking incremental
-          steps that are reversible, reducing the risks.
+          These categories <b>are not</b> in any particular order and the
+          refactorings can be applied in whichever order makes sense in the
+          project at hand.<br></br> We suggest a <b>Strangler Fig</b> approach
+          to the migration, taking incremental steps that are reversible,
+          reducing the risks.
         </p>
       </Row>
-      <Row className="mb-5">
+      {/* <Row className="mb-5">
         <p className="small-text">
           Check the source code and documentation on{" "}
           <a href="https://github.com/RitaPeixoto/FEUP-Microservices_assisted_refactoring">
@@ -144,7 +145,7 @@ function Categories() {
           Further documentation:{" "}
           <a href="https://www.google.com">here (dissertation)</a>
         </p>
-      </Row>
+      </Row> */}
     </Container>
   );
 }
