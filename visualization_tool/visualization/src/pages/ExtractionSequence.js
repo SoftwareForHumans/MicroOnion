@@ -54,7 +54,7 @@ function ExtractionSequence() {
           <Col className="d-inline" key={index}>
             <Link
               to="/extractService"
-              state={{ projectName: project, service: service }}
+              state={{ projectName: project, service: service, index: index }}
             >
               <Button size="lg" className="service my-2">
                 {service.microservice}

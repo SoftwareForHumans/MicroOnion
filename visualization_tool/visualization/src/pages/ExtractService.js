@@ -19,6 +19,7 @@ function ExtractService() {
   let { state } = useLocation();
   const project = state.projectName;
   const service = state.service;
+  const index = state.index;
   const [from, setFrom] = useState();
   const [to, setTo] = useState();
   const [loading, setLoading] = useState(true);

@@ -1,6 +1,6 @@
 import Background from "../assets/background.jpeg";
 import { Link } from "react-router-dom";
-import logo from "../assets/microonion.png";
+import logo from "../assets/logo.png";
 
 function Header() {
   return (
@@ -18,7 +18,7 @@ function Header() {
         <h3 style={{ color: "#d3d3d3" }}>
           Assisted Refactoring Towards a Microservice Architecture
         </h3>
-      <img src={logo} alt="logo"></img>
+      <img src={logo}  alt="logo"></img>
 
         {/* <h1 style={{ color: "white" }}>MicroOnion</h1> */}
       </Link>

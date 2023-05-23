@@ -1,20 +1,24 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Button from "react-bootstrap/Button";
 import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
-
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 import restaurantServer from "../assets/restaurantServer_microservices.png";
 import proyectUNAM from "../assets/proyectoUNAM_microservices.png";
 import hotelManagementSystem from "../assets/hotelManagementSystem_microservices.png";
+import monolith from "../assets/monolith.png";
+import microservices from "../assets/microservices.png";
+import arrow from "../assets/arrow.png";
 
-function ChooseProject() {
+function NewChoose() {
   let descriptions = {
     "Restaurant Server":
       "An event based server for the operation of a restaurant regarding their table service, reservations, bills, among others.",
-    "Proyecto UNAM": "A system to manage UNAM (Universidad Nacional Autónoma de México). It supports courses, inscriptions, professors, students, certifications and much more.",
+    "Proyecto UNAM":
+      "A system to manage UNAM (Universidad Nacional Autónoma de México). It supports courses, inscriptions, professors, students, certifications and much more.",
     "Hotel Management System":
       "A hotel information management system. It supports the management of employees, guests, rooms, logistics, lost items and finances.",
   };
@@ -28,19 +32,26 @@ function ChooseProject() {
   const [description, setDescription] = useState("");
   const [git, setGit] = useState("");
   const [project, setProject] = useState("Choose the project");
+  const [showProjectDetails, setShowProjectDetails] = useState(false);
+  const [showIntendedDecomposition, setShowIntendedDecomposition] =
+    useState(false);
 
   useEffect(() => {
     setDescription(descriptions[project]);
     setGit(gits[project]);
-  }, [project, descriptions, gits]);
+  }, [project, descriptions, gits, showProjectDetails]);
 
+  useEffect(() => {
+    setShowIntendedDecomposition(false);
+    setShowProjectDetails(false);
+  }, [project]);
   return (
-    <div className="my-5 p-0 mx-0 center-all flex-column">
-      <h5 className="mt-2 blue-text">
+    <div className="my-4 p-0 mx-0 center-all flex-column">
+      <h5 className=" blue-text">
         From the 3 available projects, choose the one you want to see the
         proposed refactoring sequence
       </h5>
-      <p style={{ fontSize: "0.7rem", width: "40%" }}>
+      <p style={{ fontSize: "0.7rem" }}>
         This tool receives two files as input: one with information about the
         monolith source code, and another with information about which services
         we intend to have after the system is refactored.
@@ -82,51 +93,83 @@ function ChooseProject() {
       </div>
       {description && (
         <>
-          <Row
-            style={{
-              width: "60rem",
-            }}
-            className="p-4 small-text"
-          >
-            <p>
-              {description}
-              <br></br> You can find more on its{" "}
-              <a style={{ fontWeight: "bold", color: "#092256" }} href={git}>
-                Github repository
-              </a>
-              .
-            </p>
-            <Link
-              to="/extractionSequence"
-              state={{ projectName: project }}
-              className="mt-4"
-            >
-              <Button className="submit-button" size="md">
-                Show Proposed Migration
-              </Button>{" "}
-            </Link>
+          <Row className="mt-2 ms-5">
+            <Col className="mt-4 ms-4 center-all">
+              <Row className="center-all" style={{ width: "250px" }}>
+                <img src={monolith} alt="monolith"></img>
+                <Button
+                  className="mt-4 choose-project-buttons"
+                  size="sm"
+                  style={{ width: "150px" }}
+                  onClick={() => {
+                    setShowProjectDetails(true);
+                    setShowIntendedDecomposition(false);
+                  }}
+                >
+                  Show Project Details
+                </Button>
+              </Row>
+            </Col>
+            <Col className="mt-5 mx-5">
+              <Row className="mt-3 center-all" style={{ width: "280px" }}>
+                <img src={arrow} style={{ width: "200px", height:"60px" }} alt="arrow"></img>
+                <Link
+                  to="/extractionSequence"
+                  state={{ projectName: project }}
+                  className="mt-4"
+                >
+                  <Button size="sm" className="choose-project-buttons">Show Proposed Migration</Button>{" "}
+                </Link>
+              </Row>
+            </Col>
+            <Col className="center-all">
+              <Row className="center-all" style={{ width: "300px" }}>
+                <img src={microservices} alt="microservices"></img>
+                <Button
+                  className="mt-4 choose-project-buttons"
+                  size="sm"
+                  style={{ width: "220px" }}
+                  onClick={() => {
+                    setShowProjectDetails(false);
+                    setShowIntendedDecomposition(true);
+                  }}
+                >
+                  Show Intended Decomposition
+                </Button>
+              </Row>
+            </Col>
           </Row>
+        </>
+      )}
+      {showProjectDetails && (
+        <Row
+          className="m-5 p-4 text-white information-box"
+        >
+          <p>
+            {description}
+            <br></br> You can find more on its{" "}
+            <a style={{ fontWeight: "bold", color: "#092256" }} href={git}>
+              Github repository
+            </a>
+            .
+          </p>
+        </Row>
+      )}
+      {showIntendedDecomposition && (
+        <>
           <Row
-            style={{
-              background: "#687f8c",
-              color: "#ededed",
-              borderRadius: "10px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            className="m-5 p-4"
+            className="m-5 p-4 text-white information-box"
           >
-            <div className="mb-3">
-              <h5 style={{ color: "#e6e6e6", fontSize: "1.1rem" }}>
-                {" "}
-                Proposed Microservices Decomposition
-              </h5>
-              <p style={{ color: "#ffffff", fontSize: "0.9rem" }}>
-                The following schema represents the decomposition of the current
-                monolith system into different microservices as proposed in the
-                input file.
-              </p>
-            </div>
+            <h5 style={{ color: "#e6e6e6", fontSize: "1.3rem" }}>
+              {" "}
+              Proposed Microservices Decomposition
+            </h5>
+            <p className="mb-3">
+              The following schema represents the decomposition of the current
+              monolith system into different microservices as proposed in the
+              input file (click on the image to zoom in).
+            </p>
+
             {project === "Restaurant Server" && (
               <Link to="https://www.plantuml.com/plantuml/svg/VPFTRjim38Nl_HJU2nZxlsxMhi263GYI5hiSL8TnkD6YGT7DWg3lFYiE50LITMLPvuZd8sNVE3MYOq_L6zr13_L01crbY7Z_kyT_QBkAOAkrSYtOxRJUe42hoBQggYtJ1gH-UwpgkYNZNEsW7GNrqFo2f_LvVSjsYzqenfzAdN_ssdpVwsBKtLUhSbWoMYtQ7lWls7ia1NdLjnH-niraU0cOxpAO3kGPMsWUfyKTg45owtdhMpzGy0iCx51P3YVdAhnE3h0wLPeViroNSvQ2jiM18DXYTOw_Q2rR5IO2ESctuJNgxFqnuVY2HDdDfIT7jacu5mlXNex2azDHwNALO8khfNEEdV6yyywB8nhBXsE2kNemJmG1y7e-ivhbdfKoyUp9adnCB-WEtIvKMO5JCugnwj505iD0sCO_J9Gqdxta94rwkN07Niv-Hf-EsRR0rpsn5Bxxo9NmH5e1At9bwJvVwBOiVIFW1hOE_D--Eg-30tg3rFmqI8N4nQZH8DAMc20x48vl-Hhg1tTexwVLzVOQE_iudFPVgXkmcx6d_m00">
                 <img
@@ -154,11 +197,11 @@ function ChooseProject() {
                 />
               </Link>
             )}
-          </Row>{" "}
+          </Row>
         </>
       )}
     </div>
   );
 }
 
-export default ChooseProject;
+export default NewChoose;

@@ -1,11 +1,23 @@
 @startuml
-package "Monolith" {
-  [Microservice 1]
-[Microservice 2]
-[Microservice 3]
-[Microservice 4]
-[Microservice 5]
-[Microservice 6]
+folder "Monolith" {
+  folder "Microservice 1"{
+
+  }
+folder "Microservice 2"{
+    
+  }
+  folder "Microservice 3"{
+    
+  }
+  folder "Microservice 4"{
+    
+  }
+  folder "Microservice 5"{
+    
+  }
+  folder "Microservice 6"{
+    
+  }
 }
-[Microservice 7]
+[Microservice 0] ..> "Microservice 1":getUnsern
 @enduml

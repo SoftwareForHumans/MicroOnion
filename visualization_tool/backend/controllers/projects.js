@@ -129,22 +129,25 @@ exports.getServiceExtractionSequence = async (req, res) => {
 exports.getInitialState = async (req, res) => {
   const { project } = req.params;
   let { service } = req.params;
+  let {index} = req.params.project;
 
   try {
     service = service.toString();
+    index = parseInt(index)
+
     const folder = getProjectFolder(project);
     const jsonPath2 = path.join(
       __dirname,
       "..",
       "files",
       folder,
-      "/snapshot" + service + ".json"
-    ); //counter -1
+      "/snapshot" + index + ".json"
+    ); 
 
     const data2 = fs.readFileSync(jsonPath2, "utf8");
     let jsonData2 = JSON.parse(data2);
     initialState = jsonData2["services"];
-    // response["initialState"] = initialState;
+
     filename = createStateUML(project, service, true, initialState);
     res.sendFile(filename, function (err) {
       if (err) {
@@ -162,22 +165,25 @@ exports.getInitialState = async (req, res) => {
 exports.getFinalState = async (req, res) => {
   const { project } = req.params;
   let { service } = req.params;
-
+  let {index} = req.params;
+  
   try {
     service = service.toString();
+    index = parseInt(index)
+
     const folder = getProjectFolder(project);
     const jsonPath3 = path.join(
       __dirname,
       "..",
       "files",
       folder,
-      "/snapshot" + service + ".json"
-    );//counter
+      "/snapshot" + (index + 1)  + ".json"
+    );
+    console.log(jsonPath3);
 
     const data3 = fs.readFileSync(jsonPath3, "utf8");
     let jsonData3 = JSON.parse(data3);
     finalState = jsonData3["services"];
-    // response["finalState"] = finalState;
     filename = createStateUML(project, service, false, finalState);
 
     res.sendFile(filename, function (err) {
@@ -219,15 +225,12 @@ function createStateUML(project, service, initial, state) {
       (initial ? "_initial" : "_final") +
       "_state.puml"
   );
-  fs.writeFileSync(filename, res, { flag: "a" }, (err) => {
+  fs.writeFileSync(filename, res, { flag: "w" }, (err) => {
     if (err) {
       console.error(err);
     }
   });
-  let f = path.join(
-    __dirname,
-    "trial.png"
-  );
+  let f = path.join(__dirname, "trial.png");
 
   return f;
 }
