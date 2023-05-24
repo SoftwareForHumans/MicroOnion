@@ -197,8 +197,8 @@ class BreakDependencies:
         notes["file"] = file
         notes["dependent_file"] = dependent_file
         notes["dependencies"] = to_append
-        
-        notes_dtos = {"created": []}
+        notes["interfaces"] = []
+        notes_dtos = {"created": ""}
 
         if "variableType" in to_append or "methodVariable" in to_append: # we will  need only create one DTO for this dependency 
             object_name = dependent_file.split(".").pop()
@@ -207,7 +207,7 @@ class BreakDependencies:
 
             if ret != -1:
                 if dto_name not in notes_dtos["created"]:
-                    notes_dtos["created"].append(dto_name)
+                    notes_dtos["created"] = dto_name
 
             if "variableType" in to_append:
                 types.remove("variableType")
@@ -217,12 +217,13 @@ class BreakDependencies:
                 res.append([dependent_microservice.get_id(), file, dependent_file, "methodVariable"])
                 
         if "methodInvocation" in to_append:
-            notes["interfaces"] = []
             interface_name  = object_name + "DTOInterface"
             ret = microservice.add_interface(interface_name)
             if ret != -1:
                 if interface_name not in notes["interfaces"]:
                     notes["interfaces"].append(interface_name)
+        if len(notes["interfaces"]) == 0:
+            del notes["interfaces"]
 
         current_refactoring = current_refactoring.add_refactoring(Refactoring("BREAK DATA TYPE DEPENDENCY", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice.get_id(), notes))
         

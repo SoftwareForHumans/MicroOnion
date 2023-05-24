@@ -85,11 +85,15 @@ function ServiceCall({
                 "Change the method calls to and from local components to be remote calls using this protocol to reach a different service:",
                 "\n",
                 "1. Create an interface with the declaration of the identified methods - " +
-                  refactoring.notes.interfaces +
+                  (refactoring.notes.interfaces !== undefined
+                    ? refactoring.notes.interfaces
+                    : "the interface was already created in a previous refactoring") +
                   ".",
                 "\n",
                 "2. Create a class that implements that interface and makes the service calls, a Request Class - " +
-                  refactoring.notes.new_classes[0] +
+                  (refactoring.notes.new_classes[0] !== undefined
+                    ? refactoring.notes.new_classes[0]
+                    : "the request class was already created in a previous refactoring") +
                   ".",
               ]}
             ></StepButton>
@@ -105,7 +109,9 @@ function ServiceCall({
                 "Arrange the microservice owning the method to respond to this communication protocol, creating an API to respond to the service calls.",
                 "\n",
                 "1. Create a class that defines the resource paths for the requests and processes them producing a response - " +
-                  refactoring.notes.new_classes[1] +
+                  (refactoring.notes.new_classes[1] !== undefined
+                    ? refactoring.notes.new_classes[1]
+                    : "the request handler class was already created in a previous refactoring") +
                   ".",
                 "\n",
                 "2. Add methods to the class to perform the actions required by the service calls.",
@@ -126,6 +132,11 @@ function ServiceCall({
                       index={index}
                       color="#1E488F"
                       showNumber={false}
+                      selected={selected}
+                      step={step}
+                      setSelected={setSelected}
+                      setColor={setColor}
+                      setStep={setStep}
                     ></RefactoringButton>
                   </Col>
                 </>
@@ -142,7 +153,7 @@ function ServiceCall({
           </Row>
         )}
 
-        <p style={{ fontSize: "0.8rem" }}>
+        <p className="mt-5" style={{ fontSize: "0.8rem" }}>
           Note: By default, we apply this refactoring implementing a synchronous
           call, however if you don't need an instant response or don't want a
           service to wait for the response, it can be asynchronous. Check the

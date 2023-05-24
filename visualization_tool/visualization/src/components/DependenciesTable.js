@@ -2,7 +2,7 @@ import { Tooltip } from "react-tooltip";
 
 function DependenciesTable(props) {
   const tableContent = props.tableContent;
-
+  
   function createArrayElement(arr) {
     let res = [];
 
@@ -15,49 +15,94 @@ function DependenciesTable(props) {
         </td>
       );
       Object.keys(listOfDependencies).map((k) => {
-        if (el.length > 1) {
-          el = [];
-          el.push(<td></td>);
-        }
-        let dep = listOfDependencies[k][0][0].split(".").pop();
-
-        el.push(
-          <td
-            className="px-3"
-            style={{
-              borderRight: "2px solid #092256",
-              borderLeft: "2px solid #092256",
-            }}
-          >
-            {k}
-          </td>
-        );
-        el.push(
-          <td
-            className="px-3"
-            data-tooltip-id="file-name"
-            data-tooltip-content={listOfDependencies[k][0][0]}
-            style={{ borderRight: "2px solid #092256" }}
-          >
-            {dep}
-          </td>
-        );
-
-        let deps = "";
-        listOfDependencies[k][0].map((v, index) => {
-          if (v !== listOfDependencies[k][0][0]) {
-            deps += v;
-            if (index !== listOfDependencies[k][0].length - 1) {
-              deps += ", ";
-            }
+        
+       
+        for (let m of listOfDependencies[k]){
+          if (el.length > 1) {
+            el = [];
+            el.push(<td></td>);
           }
-          return deps;
-        });
-        el.push(<td className="px-3">{deps}</td>);
-        res.push(el);
+          let dep = m[0].split(".").pop();
+          // console.log(listOfDependencies[k][0])
+          el.push(
+            <td
+              className="px-3"
+              style={{
+                borderRight: "2px solid #092256",
+                borderLeft: "2px solid #092256",
+              }}
+            >
+              {k}
+            </td>
+          );
+          el.push(
+            <td
+              className="px-3"
+              data-tooltip-id="file-name"
+              data-tooltip-content={m[0]}
+              style={{ borderRight: "2px solid #092256" }}
+            >
+              {dep}
+            </td>
+          );
+  
+          let deps = "";
+          m.map((v, index) => {
+            if (v !== m[0]) {
+              deps += v;
+              if (index !== m.length - 1) {
+                deps += ", ";
+              }
+            }
+            return deps;
+          });
+          el.push(<td className="px-3">{deps}</td>);
+          res.push(el);
+          
+        }
         return res;
       });
-    }
+         
+        }
+      //   let dep = listOfDependencies[k][0][0].split(".").pop();
+      //   // console.log(listOfDependencies[k][0])
+      //   el.push(
+      //     <td
+      //       className="px-3"
+      //       style={{
+      //         borderRight: "2px solid #092256",
+      //         borderLeft: "2px solid #092256",
+      //       }}
+      //     >
+      //       {k}
+      //     </td>
+      //   );
+      //   el.push(
+      //     <td
+      //       className="px-3"
+      //       data-tooltip-id="file-name"
+      //       data-tooltip-content={listOfDependencies[k][0][0]}
+      //       style={{ borderRight: "2px solid #092256" }}
+      //     >
+      //       {dep}
+      //     </td>
+      //   );
+
+      //   let deps = "";
+      //   listOfDependencies[k][0].map((v, index) => {
+      //     if (v !== listOfDependencies[k][0][0]) {
+      //       deps += v;
+      //       if (index !== listOfDependencies[k][0].length - 1) {
+      //         deps += ", ";
+      //       }
+      //     }
+      //     return deps;
+      //   });
+      //   el.push(<td className="px-3">{deps}</td>);
+      //   res.push(el);
+      //   return res;
+      // });
+    
 
     return res;
   }

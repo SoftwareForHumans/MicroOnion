@@ -14,7 +14,6 @@ function FileDependency({
   setSelected,
   setStep,
 }) {
-
   const handleOnClick = (index, text) => {
     setSelected(index);
     setStep(text);
@@ -46,24 +45,33 @@ function FileDependency({
           To apply this refactoring, follow the below sequence of steps (
           <b>click on each of them to find out how to implement them</b>):
         </p>
-        <div className="d-inline my-4">
-          <Col className="d-inline me-3">
-            <StepButton
-              name="Duplicate the file"
-              index={0}
-              active={selected}
-              hasNext={false}
-              handleClick={handleOnClick}
-              text={
-                "In this case, as this classes do not handle business logic, it is ok to simply duplicate the " +
-                refactoring.notes.new_classes
-                  ? refactoring.notes.new_classes
-                  : refactoring.notes.interfaces +
-                    " file for each microservice."
-              }
-            ></StepButton>
-          </Col>
-        </div>
+        {refactoring.notes.new_classes !== undefined ||
+        refactoring.notes.interfaces !== undefined ? (
+          <div className="d-inline my-4">
+            <Col className="d-inline me-3">
+              <StepButton
+                name="Duplicate the file"
+                index={0}
+                active={selected}
+                hasNext={false}
+                handleClick={handleOnClick}
+                text={
+                  "In this case, as this classes do not handle business logic, it is ok to simply duplicate the " +
+                  refactoring.notes.new_classes
+                    ? refactoring.notes.new_classes
+                    : refactoring.notes.interfaces +
+                      " file for each microservice."
+                }
+              ></StepButton>
+            </Col>
+          </div>
+        ) : (
+          <p>
+            The file was already added to this microservice in a previous
+            refactoring.
+          </p>
+        )}
+
         {step !== undefined && (
           <Row
             id="implementation"

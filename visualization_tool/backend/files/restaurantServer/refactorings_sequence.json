@@ -30,9 +30,7 @@
                             "microservice": "0",
                             "dependent_microservice": "1",
                             "notes": {
-                                "created": [
-                                    "UserDetailsServiceImplDTO"
-                                ]
+                                "created": "UserDetailsServiceImplDTO"
                             }
                         }
                     ]
@@ -122,9 +120,7 @@
                             "microservice": "6",
                             "dependent_microservice": "0",
                             "notes": {
-                                "created": [
-                                    "JwtProviderDTO"
-                                ]
+                                "created": "JwtProviderDTO"
                             }
                         },
                         {
@@ -198,9 +194,7 @@
                             "microservice": "1",
                             "dependent_microservice": "5",
                             "notes": {
-                                "created": [
-                                    "ReservationDTO"
-                                ]
+                                "created": "ReservationDTO"
                             }
                         }
                     ]
@@ -284,9 +278,7 @@
                             "microservice": "1",
                             "dependent_microservice": "6",
                             "notes": {
-                                "created": [
-                                    "RoleDTO"
-                                ]
+                                "created": "RoleDTO"
                             }
                         }
                     ]
@@ -316,9 +308,7 @@
                             "microservice": "1",
                             "dependent_microservice": "6",
                             "notes": {
-                                "created": [
-                                    "MailServiceDTO"
-                                ]
+                                "created": "MailServiceDTO"
                             }
                         },
                         {
@@ -368,9 +358,7 @@
                             "microservice": "4",
                             "dependent_microservice": "1",
                             "notes": {
-                                "created": [
-                                    "UserRepositoryDTO"
-                                ]
+                                "created": "UserRepositoryDTO"
                             }
                         },
                         {
@@ -420,9 +408,7 @@
                             "microservice": "5",
                             "dependent_microservice": "1",
                             "notes": {
-                                "created": [
-                                    "UserServiceDTO"
-                                ]
+                                "created": "UserServiceDTO"
                             }
                         },
                         {
@@ -512,9 +498,7 @@
                             "microservice": "6",
                             "dependent_microservice": "1",
                             "notes": {
-                                "created": [
-                                    "UserRepositoryDTO"
-                                ]
+                                "created": "UserRepositoryDTO"
                             }
                         },
                         {
@@ -621,9 +605,7 @@
                             "microservice": "2",
                             "dependent_microservice": "4",
                             "notes": {
-                                "created": [
-                                    "DishDTO"
-                                ]
+                                "created": "DishDTO"
                             }
                         }
                     ]
@@ -669,9 +651,7 @@
                             "microservice": "2",
                             "dependent_microservice": "4",
                             "notes": {
-                                "created": [
-                                    "DishServiceDTO"
-                                ]
+                                "created": "DishServiceDTO"
                             }
                         }
                     ]
@@ -701,9 +681,7 @@
                             "microservice": "2",
                             "dependent_microservice": "3",
                             "notes": {
-                                "created": [
-                                    "RTableRepositoryDTO"
-                                ]
+                                "created": "RTableRepositoryDTO"
                             }
                         },
                         {
@@ -740,8 +718,7 @@
                         "dependencies": [
                             "methodInvocation",
                             "variableType"
-                        ],
-                        "interfaces": []
+                        ]
                     },
                     "refactorings": [
                         {
@@ -791,9 +768,7 @@
                             "microservice": "3",
                             "dependent_microservice": "2",
                             "notes": {
-                                "created": [
-                                    "BillDTO"
-                                ]
+                                "created": "BillDTO"
                             }
                         },
                         {
@@ -895,9 +870,7 @@
                             "microservice": "3",
                             "dependent_microservice": "5",
                             "notes": {
-                                "created": [
-                                    "ReservationDTO"
-                                ]
+                                "created": "ReservationDTO"
                             }
                         }
                     ]
@@ -973,9 +946,7 @@
                             "microservice": "4",
                             "dependent_microservice": "3",
                             "notes": {
-                                "created": [
-                                    "RTableRepositoryDTO"
-                                ]
+                                "created": "RTableRepositoryDTO"
                             }
                         },
                         {
@@ -1025,9 +996,7 @@
                             "microservice": "5",
                             "dependent_microservice": "3",
                             "notes": {
-                                "created": [
-                                    "RTableServiceDTO"
-                                ]
+                                "created": "RTableServiceDTO"
                             }
                         },
                         {
@@ -1107,9 +1076,7 @@
                             "microservice": "4",
                             "dependent_microservice": "6",
                             "notes": {
-                                "created": [
-                                    "RoleRepositoryDTO"
-                                ]
+                                "created": "RoleRepositoryDTO"
                             }
                         },
                         {
@@ -1169,9 +1136,7 @@
                             "microservice": "5",
                             "dependent_microservice": "6",
                             "notes": {
-                                "created": [
-                                    "MailServiceDTO"
-                                ]
+                                "created": "MailServiceDTO"
                             }
                         },
                         {
@@ -1217,9 +1182,7 @@
                             "microservice": "6",
                             "dependent_microservice": "5",
                             "notes": {
-                                "created": [
-                                    "ReservationDTO"
-                                ]
+                                "created": "ReservationDTO"
                             }
                         }
                     ]

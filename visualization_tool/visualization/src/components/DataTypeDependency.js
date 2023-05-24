@@ -20,7 +20,7 @@ function DataTypeDependency({
 }) {
   const indexLast =
     1 + (refactoring.refactorings ? refactoring.refactorings.length + 1 : 0);
-
+  
   const handleOnClick = (index, text) => {
     setSelected(index);
     setStep(text);
@@ -39,6 +39,15 @@ function DataTypeDependency({
     );
     setColor("#1E488F");
   };
+
+  function hasDTO(arr){
+    for(let i in arr){
+      if(arr[i].name === "CREATE DATA TRANSFER OBJECT"){
+        return true;
+      }
+    }
+    return false;
+  }
 
   return (
     <>
@@ -111,6 +120,11 @@ function DataTypeDependency({
                     index={index}
                     color="#1E488F"
                     showNumber={false}
+                    selected={selected}
+                    step={step}
+                    setSelected={setSelected}
+                    setColor={setColor}
+                    setStep={setStep}
                   ></RefactoringButton>
                 </>
               );
@@ -125,13 +139,23 @@ function DataTypeDependency({
               text="Make the necessary changes in the code to use the new data type and the right interface for the method calls."
             ></StepButton>
           </Col>
-          {refactoring.refactorings ? (
+          {hasDTO(refactoring.refactorings) ? (
             <></>
           ) : (
             <p>
-              The data transfer object was already created in a previous
-              refactoring. You should use the already created DTO.
+              An earlier refactoring created the data transfer object. Use the
+              DTO that has already been created.
             </p>
+          )}
+          {refactoring.notes.dependencies.includes("methodInvocation") &&
+          refactoring.notes.interfaces === undefined ? (
+            <p>
+              In a prior refactoring, the interface for the definition of the
+              DTO's method invocations was already created. Use the interface
+              that has already been created.
+            </p>
+          ) : (
+            <></>
           )}
         </div>
         {step !== undefined && (
@@ -144,7 +168,7 @@ function DataTypeDependency({
           </Row>
         )}
 
-        <p style={{ fontSize: "0.8rem" }}>
+        <p className="mt-5" style={{ fontSize: "0.8rem" }}>
           Note: By default we assume the data type is owned and exist only on
           the microservice where it was first defined. However, there are two
           other options that can be used keeping it in both microservices: to

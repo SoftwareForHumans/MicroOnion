@@ -86,6 +86,11 @@ function ChangeDataOwnership({
                     index={index}
                     color="#1E488F"
                     showNumber={false}
+                    selected={selected}
+                    step={step}
+                    setSelected={setSelected}
+                    setColor={setColor}
+                    setStep={setStep}
                   ></RefactoringButton>
                 </>
               );
@@ -101,7 +106,7 @@ function ChangeDataOwnership({
           </Row>
         )}
 
-        <p style={{ fontSize: "0.8rem" }}>
+        <p className="mt-5" style={{ fontSize: "0.8rem" }}>
           Note: In this case we only portray the case of not needing to break a
           database table. You can find the other cases in the catalog, like
           splitting a table, replication, etc. .

@@ -95,21 +95,44 @@ function MoveForeignKey({
               text="Separate the tables into the databases of the different owners (at this moment, this might be more conceptual, but in the future, this will represent the databases of the different microservices)."
             ></StepButton>
           </Col>
-          <Col className="d-inline me-3">
-            <StepButton
-              name="Create an Interface for each database"
-              index={3}
-              active={selected}
-              hasNext={true}
-              handleClick={handleOnClick}
-              text={
-                "Create an interface for each of these databases that implements the methods of data manipulation: " +
-                refactoring.notes.interfaces[0] +
-                ", " +
-                refactoring.notes.interfaces[1]
-              }
-            ></StepButton>
-          </Col>
+          {refactoring.notes.interfaces.length === 2 ? (
+            <Col className="d-inline me-3">
+              <StepButton
+                name="Create an Interface for each database"
+                index={3}
+                active={selected}
+                hasNext={true}
+                handleClick={handleOnClick}
+                text={
+                  "Create an interface for each of these databases that implements the methods of data manipulation: " +
+                  refactoring.notes.interfaces[0] +
+                  ", " +
+                  refactoring.notes.interfaces[1]
+                }
+              ></StepButton>
+            </Col>
+          ) : (
+            <></>
+          )}
+          {refactoring.notes.interfaces.length === 1 ? (
+            <Col className="d-inline me-3">
+              <StepButton
+                name="Create an Interface for each database"
+                index={3}
+                active={selected}
+                hasNext={true}
+                handleClick={handleOnClick}
+                text={
+                  "Create an interface for each of these databases that implements the methods of data manipulation: " +
+                  refactoring.notes.interfaces[0] +
+                  ". You don't need to create the other interface again because it had been created at a previous refactoring."
+                }
+              ></StepButton>
+            </Col>
+          ) : (
+            <></>
+          )}
+
           <Col className="d-inline me-3">
             <StepButton
               name="Make necessary changes"
@@ -134,12 +157,26 @@ function MoveForeignKey({
                       index={index}
                       showNumber={false}
                       color="#1E488F"
+                      selected={selected}
+                      step={step}
+                      setSelected={setSelected}
+                      setColor={setColor}
+                      setStep={setStep}
                     ></RefactoringButton>
                   </Col>
                 </>
               );
             })}
         </div>
+        {refactoring.notes.interfaces.length === 0 ? (
+          <p>
+            You don't need to create either interface that implements the
+            methods of data manipulation again because it was already built
+            during a previous refactoring.
+          </p>
+        ) : (
+          <></>
+        )}
         {step !== undefined && (
           <Row
             id="implementation"
@@ -150,7 +187,7 @@ function MoveForeignKey({
           </Row>
         )}
 
-        <p style={{ fontSize: "0.8rem" }}>
+        <p className="mt-5" style={{ fontSize: "0.8rem" }}>
           Note: Although not mentioned here, data replication is always an
           option to solve a database dependency. If you think it is more
           suitable for your system, check the catalog to find out how to

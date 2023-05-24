@@ -1,1 +1,1201 @@
-{"project_name": "restaurantServer", "refactorings": [{"id": 1, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 0, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 2, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "0", "dependent_microservice": "1", "notes": {"file": "WebSecurityConfiguration", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.security.service.UserDetailsServiceImpl", "dependencies": ["variableType"]}, "refactorings": [{"id": 3, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "0", "dependent_microservice": "1", "notes": {"created": ["UserDetailsServiceImplDTO"]}}]}, {"id": 4, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "0", "dependent_microservice": "1", "notes": {"file": "JwtAuthTokenFilter", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.security.service.UserDetailsServiceImpl", "dependencies": ["methodInvocation", "variableType"], "interfaces": ["UserDetailsServiceImplDTOInterface"]}, "refactorings": [{"id": 5, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 3, "microservice": "0", "dependent_microservice": "1", "notes": {"method": "loadUserByUsername", "protocol": "HTTP", "type": "synchronous", "target": "UserDetailsServiceImpl", "new_classes": ["UserDetailsServiceImplRequestInterfaceImpl", "UserDetailsServiceImplHandleRequest"], "interfaces": ["UserDetailsServiceImplRequestInterface"]}}]}, {"id": 6, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": "0", "dependent_microservice": "1", "notes": {"method": "getUsername", "protocol": "HTTP", "type": "synchronous", "target": "UserPrinciple", "new_classes": ["UserPrincipleRequestInterfaceImpl", "UserPrincipleHandleRequest"], "interfaces": ["UserPrincipleRequestInterface"]}}, {"id": 7, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "6", "dependent_microservice": "0", "notes": {"file": "AuthController", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtProvider", "dependencies": ["methodInvocation", "variableType"], "interfaces": ["JwtProviderDTOInterface"]}, "refactorings": [{"id": 8, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "6", "dependent_microservice": "0", "notes": {"created": ["JwtProviderDTO"]}}, {"id": 9, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 3, "microservice": "6", "dependent_microservice": "0", "notes": {"method": "generateJwtToken", "protocol": "HTTP", "type": "synchronous", "target": "JwtProvider", "new_classes": ["JwtProviderRequestInterfaceImpl", "JwtProviderHandleRequest"], "interfaces": ["JwtProviderRequestInterface"]}}]}]}, {"id": 10, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 1, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 11, "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE", "level": 2, "microservice": "1", "dependent_microservice": "5", "notes": {"relationship": "OneToMany", "entities": ["User", "Reservation"], "interfaces": ["UserInterface", "ReservationInterface"]}}, {"id": 12, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "1", "dependent_microservice": "5", "notes": {"file": "User", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation", "dependencies": ["methodVariable"]}, "refactorings": [{"id": 13, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "1", "dependent_microservice": "5", "notes": {"created": ["ReservationDTO"]}}]}, {"id": 14, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "1", "dependent_microservice": "5", "notes": {"file": "UserService", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation", "dependencies": ["methodVariable"]}}, {"id": 15, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "1", "dependent_microservice": "5", "notes": {"file": "UserController", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation", "dependencies": ["methodVariable"]}}, {"id": 16, "name": "CHANGE DATA OWNERSHIP", "level": 2, "microservice": "1", "dependent_microservice": "6", "notes": {"entity": "User"}, "refactorings": [{"id": 17, "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE", "level": 3, "microservice": "1", "dependent_microservice": "6", "notes": {"relationship": "ManyToMany", "entities": ["User", "Role"], "interfaces": ["UserInterface", "RoleInterface"]}}]}, {"id": 18, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "1", "dependent_microservice": "6", "notes": {"file": "User", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Role", "dependencies": ["methodVariable"]}, "refactorings": [{"id": 19, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "1", "dependent_microservice": "6", "notes": {"created": ["RoleDTO"]}}]}, {"id": 20, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "1", "dependent_microservice": "6", "notes": {"file": "UserController", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.email.MailService", "dependencies": ["methodInvocation", "variableType"], "interfaces": ["MailServiceDTOInterface"]}, "refactorings": [{"id": 21, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "1", "dependent_microservice": "6", "notes": {"created": ["MailServiceDTO"]}}, {"id": 22, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 3, "microservice": "1", "dependent_microservice": "6", "notes": {"method": "sendEmail", "protocol": "HTTP", "type": "synchronous", "target": "MailService", "new_classes": ["MailServiceRequestInterfaceImpl", "MailServiceHandleRequest"], "interfaces": ["MailServiceRequestInterface"]}}]}, {"id": 23, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "4", "dependent_microservice": "1", "notes": {"file": "RestaurantServerApplication", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.repository.UserRepository", "dependencies": ["methodInvocation", "methodVariable"], "interfaces": ["UserRepositoryDTOInterface"]}, "refactorings": [{"id": 24, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "4", "dependent_microservice": "1", "notes": {"created": ["UserRepositoryDTO"]}}, {"id": 25, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 3, "microservice": "4", "dependent_microservice": "1", "notes": {"method": "save", "protocol": "HTTP", "type": "synchronous", "target": "UserRepository", "new_classes": ["UserRepositoryRequestInterfaceImpl", "UserRepositoryHandleRequest"], "interfaces": ["UserRepositoryRequestInterface"]}}]}, {"id": 26, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "5", "dependent_microservice": "1", "notes": {"file": "ReservationService", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.service.UserService", "dependencies": ["methodInvocation", "variableType"], "interfaces": ["UserServiceDTOInterface"]}, "refactorings": [{"id": 27, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "5", "dependent_microservice": "1", "notes": {"created": ["UserServiceDTO"]}}, {"id": 28, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 3, "microservice": "5", "dependent_microservice": "1", "notes": {"method": "getUserById", "protocol": "HTTP", "type": "synchronous", "target": "UserService", "new_classes": ["UserServiceRequestInterfaceImpl", "UserServiceHandleRequest"], "interfaces": ["UserServiceRequestInterface"]}}]}, {"id": 29, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": "5", "dependent_microservice": "1", "notes": {"method": "getMail", "protocol": "HTTP", "type": "synchronous", "target": "User", "new_classes": ["UserRequestInterfaceImpl", "UserHandleRequest"], "interfaces": ["UserRequestInterface"]}}, {"id": 30, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": "6", "dependent_microservice": "1", "notes": {"method": "getUserId", "protocol": "HTTP", "type": "synchronous", "target": "User", "new_classes": ["UserRequestInterfaceImpl", "UserHandleRequest"], "interfaces": ["UserRequestInterface"]}}, {"id": 31, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "6", "dependent_microservice": "1", "notes": {"file": "AuthController", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.repository.UserRepository", "dependencies": ["methodInvocation", "variableType"], "interfaces": ["UserRepositoryDTOInterface"]}, "refactorings": [{"id": 32, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "6", "dependent_microservice": "1", "notes": {"created": ["UserRepositoryDTO"]}}, {"id": 33, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 3, "microservice": "6", "dependent_microservice": "1", "notes": {"method": "findByMail", "protocol": "HTTP", "type": "synchronous", "target": "UserRepository", "new_classes": ["UserRepositoryRequestInterfaceImpl", "UserRepositoryHandleRequest"], "interfaces": ["UserRepositoryRequestInterface"]}}]}, {"id": 34, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": "6", "dependent_microservice": "1", "notes": {"method": "getMail", "protocol": "HTTP", "type": "synchronous", "target": "User", "new_classes": ["UserRequestInterfaceImpl", "UserHandleRequest"], "interfaces": ["UserRequestInterface"]}}]}, {"id": 35, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 2, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 36, "name": "CHANGE DATA OWNERSHIP", "level": 2, "microservice": "2", "dependent_microservice": "4", "notes": {"entity": "BillPosition"}, "refactorings": [{"id": 37, "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE", "level": 3, "microservice": "2", "dependent_microservice": "4", "notes": {"relationship": "ManyToOne", "entities": ["BillPosition", "Dish"], "interfaces": ["BillPositionInterface", "DishInterface"]}}]}, {"id": 38, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "2", "dependent_microservice": "4", "notes": {"file": "BillPosition", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Dish", "dependencies": ["variableType", "methodVariable"]}, "refactorings": [{"id": 39, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "2", "dependent_microservice": "4", "notes": {"created": ["DishDTO"]}}]}, {"id": 40, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": "2", "dependent_microservice": "4", "notes": {"method": "getPrice", "protocol": "HTTP", "type": "synchronous", "target": "Dish", "new_classes": ["DishRequestInterfaceImpl", "DishHandleRequest"], "interfaces": ["DishRequestInterface"]}}, {"id": 41, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "2", "dependent_microservice": "4", "notes": {"file": "BillPositionService", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.service.DishService", "dependencies": ["variableType"]}, "refactorings": [{"id": 42, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "2", "dependent_microservice": "4", "notes": {"created": ["DishServiceDTO"]}}]}, {"id": 43, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "2", "dependent_microservice": "3", "notes": {"file": "BillService", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.repository.RTableRepository", "dependencies": ["methodInvocation", "variableType"], "interfaces": ["RTableRepositoryDTOInterface"]}, "refactorings": [{"id": 44, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "2", "dependent_microservice": "3", "notes": {"created": ["RTableRepositoryDTO"]}}, {"id": 45, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 3, "microservice": "2", "dependent_microservice": "3", "notes": {"method": "findById", "protocol": "HTTP", "type": "synchronous", "target": "RTableRepository", "new_classes": ["RTableRepositoryRequestInterfaceImpl", "RTableRepositoryHandleRequest"], "interfaces": ["RTableRepositoryRequestInterface"]}}]}, {"id": 46, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "2", "dependent_microservice": "3", "notes": {"file": "BillController", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.repository.RTableRepository", "dependencies": ["methodInvocation", "variableType"], "interfaces": []}, "refactorings": [{"id": 47, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 3, "microservice": "2", "dependent_microservice": "3", "notes": {"method": "findById", "protocol": "HTTP", "type": "synchronous", "target": "RTableRepository", "new_classes": ["RTableRepositoryRequestInterfaceImpl", "RTableRepositoryHandleRequest"], "interfaces": ["RTableRepositoryRequestInterface"]}}]}, {"id": 48, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "3", "dependent_microservice": "2", "notes": {"file": "RTableService", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Bill", "dependencies": ["methodInvocation", "methodVariable"], "interfaces": ["BillDTOInterface"]}, "refactorings": [{"id": 49, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "3", "dependent_microservice": "2", "notes": {"created": ["BillDTO"]}}, {"id": 50, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 3, "microservice": "3", "dependent_microservice": "2", "notes": {"method": "getStatus", "protocol": "HTTP", "type": "synchronous", "target": "Bill", "new_classes": ["BillRequestInterfaceImpl", "BillHandleRequest"], "interfaces": ["BillRequestInterface"]}}]}, {"id": 51, "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE", "level": 2, "microservice": "3", "dependent_microservice": "2", "notes": {"relationship": "OneToMany", "entities": ["RTable", "Bill"], "interfaces": ["RTableInterface", "BillInterface"]}}, {"id": 52, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "3", "dependent_microservice": "2", "notes": {"file": "RTable", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Bill", "dependencies": ["methodVariable"]}}, {"id": 53, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "3", "dependent_microservice": "2", "notes": {"file": "RTableController", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Bill", "dependencies": ["methodVariable"]}}]}, {"id": 54, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 3, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 55, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "3", "dependent_microservice": "5", "notes": {"file": "RTableService", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation", "dependencies": ["methodVariable"]}, "refactorings": [{"id": 56, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "3", "dependent_microservice": "5", "notes": {"created": ["ReservationDTO"]}}]}, {"id": 57, "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE", "level": 2, "microservice": "3", "dependent_microservice": "5", "notes": {"relationship": "OneToMany", "entities": ["RTable", "Reservation"], "interfaces": ["RTableInterface", "ReservationInterface"]}}, {"id": 58, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "3", "dependent_microservice": "5", "notes": {"file": "RTable", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation", "dependencies": ["methodVariable"]}}, {"id": 59, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "3", "dependent_microservice": "5", "notes": {"file": "RTableController", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation", "dependencies": ["methodVariable"]}}, {"id": 60, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "4", "dependent_microservice": "3", "notes": {"file": "RestaurantServerApplication", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.repository.RTableRepository", "dependencies": ["methodInvocation", "methodVariable"], "interfaces": ["RTableRepositoryDTOInterface"]}, "refactorings": [{"id": 61, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "4", "dependent_microservice": "3", "notes": {"created": ["RTableRepositoryDTO"]}}, {"id": 62, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 3, "microservice": "4", "dependent_microservice": "3", "notes": {"method": "save", "protocol": "HTTP", "type": "synchronous", "target": "RTableRepository", "new_classes": ["RTableRepositoryRequestInterfaceImpl", "RTableRepositoryHandleRequest"], "interfaces": ["RTableRepositoryRequestInterface"]}}]}, {"id": 63, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "5", "dependent_microservice": "3", "notes": {"file": "ReservationService", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.service.RTableService", "dependencies": ["methodInvocation", "variableType"], "interfaces": ["RTableServiceDTOInterface"]}, "refactorings": [{"id": 64, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "5", "dependent_microservice": "3", "notes": {"created": ["RTableServiceDTO"]}}, {"id": 65, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 3, "microservice": "5", "dependent_microservice": "3", "notes": {"method": "getRTableById", "protocol": "HTTP", "type": "synchronous", "target": "RTableService", "new_classes": ["RTableServiceRequestInterfaceImpl", "RTableServiceHandleRequest"], "interfaces": ["RTableServiceRequestInterface"]}}]}, {"id": 66, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 2, "microservice": "5", "dependent_microservice": "3", "notes": {"method": "getReservations", "protocol": "HTTP", "type": "synchronous", "target": "RTable", "new_classes": ["RTableRequestInterfaceImpl", "RTableHandleRequest"], "interfaces": ["RTableRequestInterface"]}}]}, {"id": 67, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 4, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 68, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "4", "dependent_microservice": "6", "notes": {"file": "RestaurantServerApplication", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.repository.RoleRepository", "dependencies": ["methodInvocation", "methodVariable"], "interfaces": ["RoleRepositoryDTOInterface"]}, "refactorings": [{"id": 69, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "4", "dependent_microservice": "6", "notes": {"created": ["RoleRepositoryDTO"]}}, {"id": 70, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 3, "microservice": "4", "dependent_microservice": "6", "notes": {"method": "save", "protocol": "HTTP", "type": "synchronous", "target": "RoleRepository", "new_classes": ["RoleRepositoryRequestInterfaceImpl", "RoleRepositoryHandleRequest"], "interfaces": ["RoleRepositoryRequestInterface"]}}]}]}, {"id": 71, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 5, "dependent_microservice": -1, "notes": {}, "refactorings": [{"id": 72, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "5", "dependent_microservice": "6", "notes": {"file": "ReservationService", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.email.MailService", "dependencies": ["methodInvocation", "variableType"], "interfaces": ["MailServiceDTOInterface"]}, "refactorings": [{"id": 73, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "5", "dependent_microservice": "6", "notes": {"created": ["MailServiceDTO"]}}, {"id": 74, "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", "level": 3, "microservice": "5", "dependent_microservice": "6", "notes": {"method": "sendEmail", "protocol": "HTTP", "type": "synchronous", "target": "MailService", "new_classes": ["MailServiceRequestInterfaceImpl", "MailServiceHandleRequest"], "interfaces": ["MailServiceRequestInterface"]}}]}, {"id": 75, "name": "BREAK DATA TYPE DEPENDENCY", "level": 2, "microservice": "6", "dependent_microservice": "5", "notes": {"file": "JwtResponse", "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation", "dependencies": ["methodVariable"]}, "refactorings": [{"id": 76, "name": "CREATE DATA TRANSFER OBJECT", "level": 3, "microservice": "6", "dependent_microservice": "5", "notes": {"created": ["ReservationDTO"]}}]}]}, {"id": 77, "name": "EXTRACT MICROSERVICE", "level": 1, "microservice": 6, "dependent_microservice": -1, "notes": {}}]}
+{
+    "project_name": "restaurantServer",
+    "refactorings": [
+        {
+            "id": 1,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 0,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 2,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "0",
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "file": "WebSecurityConfiguration",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.security.service.UserDetailsServiceImpl",
+                        "dependencies": [
+                            "variableType"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 3,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "0",
+                            "dependent_microservice": "1",
+                            "notes": {
+                                "created": "UserDetailsServiceImplDTO"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "0",
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "file": "JwtAuthTokenFilter",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.security.service.UserDetailsServiceImpl",
+                        "dependencies": [
+                            "methodInvocation",
+                            "variableType"
+                        ],
+                        "interfaces": [
+                            "UserDetailsServiceImplDTOInterface"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 5,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": "0",
+                            "dependent_microservice": "1",
+                            "notes": {
+                                "method": "loadUserByUsername",
+                                "protocol": "HTTP",
+                                "type": "synchronous",
+                                "target": "UserDetailsServiceImpl",
+                                "new_classes": [
+                                    "UserDetailsServiceImplRequestInterfaceImpl",
+                                    "UserDetailsServiceImplHandleRequest"
+                                ],
+                                "interfaces": [
+                                    "UserDetailsServiceImplRequestInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": "0",
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "method": "getUsername",
+                        "protocol": "HTTP",
+                        "type": "synchronous",
+                        "target": "UserPrinciple",
+                        "new_classes": [
+                            "UserPrincipleRequestInterfaceImpl",
+                            "UserPrincipleHandleRequest"
+                        ],
+                        "interfaces": [
+                            "UserPrincipleRequestInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "6",
+                    "dependent_microservice": "0",
+                    "notes": {
+                        "file": "AuthController",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.security.jwt.JwtProvider",
+                        "dependencies": [
+                            "methodInvocation",
+                            "variableType"
+                        ],
+                        "interfaces": [
+                            "JwtProviderDTOInterface"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 8,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "6",
+                            "dependent_microservice": "0",
+                            "notes": {
+                                "created": "JwtProviderDTO"
+                            }
+                        },
+                        {
+                            "id": 9,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": "6",
+                            "dependent_microservice": "0",
+                            "notes": {
+                                "method": "generateJwtToken",
+                                "protocol": "HTTP",
+                                "type": "synchronous",
+                                "target": "JwtProvider",
+                                "new_classes": [
+                                    "JwtProviderRequestInterfaceImpl",
+                                    "JwtProviderHandleRequest"
+                                ],
+                                "interfaces": [
+                                    "JwtProviderRequestInterface"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 1,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 11,
+                    "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
+                    "level": 2,
+                    "microservice": "1",
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "relationship": "OneToMany",
+                        "entities": [
+                            "User",
+                            "Reservation"
+                        ],
+                        "interfaces": [
+                            "UserInterface",
+                            "ReservationInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 12,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "1",
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "file": "User",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation",
+                        "dependencies": [
+                            "methodVariable"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 13,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "1",
+                            "dependent_microservice": "5",
+                            "notes": {
+                                "created": "ReservationDTO"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 14,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "1",
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "file": "UserService",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation",
+                        "dependencies": [
+                            "methodVariable"
+                        ]
+                    }
+                },
+                {
+                    "id": 15,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "1",
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "file": "UserController",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation",
+                        "dependencies": [
+                            "methodVariable"
+                        ]
+                    }
+                },
+                {
+                    "id": 16,
+                    "name": "CHANGE DATA OWNERSHIP",
+                    "level": 2,
+                    "microservice": "1",
+                    "dependent_microservice": "6",
+                    "notes": {
+                        "entity": "User"
+                    },
+                    "refactorings": [
+                        {
+                            "id": 17,
+                            "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
+                            "level": 3,
+                            "microservice": "1",
+                            "dependent_microservice": "6",
+                            "notes": {
+                                "relationship": "ManyToMany",
+                                "entities": [
+                                    "User",
+                                    "Role"
+                                ],
+                                "interfaces": [
+                                    "UserInterface",
+                                    "RoleInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 18,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "1",
+                    "dependent_microservice": "6",
+                    "notes": {
+                        "file": "User",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Role",
+                        "dependencies": [
+                            "methodVariable"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 19,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "1",
+                            "dependent_microservice": "6",
+                            "notes": {
+                                "created": "RoleDTO"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 20,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "1",
+                    "dependent_microservice": "6",
+                    "notes": {
+                        "file": "UserController",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.email.MailService",
+                        "dependencies": [
+                            "methodInvocation",
+                            "variableType"
+                        ],
+                        "interfaces": [
+                            "MailServiceDTOInterface"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 21,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "1",
+                            "dependent_microservice": "6",
+                            "notes": {
+                                "created": "MailServiceDTO"
+                            }
+                        },
+                        {
+                            "id": 22,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": "1",
+                            "dependent_microservice": "6",
+                            "notes": {
+                                "method": "sendEmail",
+                                "protocol": "HTTP",
+                                "type": "synchronous",
+                                "target": "MailService",
+                                "new_classes": [
+                                    "MailServiceRequestInterfaceImpl",
+                                    "MailServiceHandleRequest"
+                                ],
+                                "interfaces": [
+                                    "MailServiceRequestInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 23,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "4",
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "file": "RestaurantServerApplication",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.repository.UserRepository",
+                        "dependencies": [
+                            "methodInvocation",
+                            "methodVariable"
+                        ],
+                        "interfaces": [
+                            "UserRepositoryDTOInterface"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 24,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "4",
+                            "dependent_microservice": "1",
+                            "notes": {
+                                "created": "UserRepositoryDTO"
+                            }
+                        },
+                        {
+                            "id": 25,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": "4",
+                            "dependent_microservice": "1",
+                            "notes": {
+                                "method": "save",
+                                "protocol": "HTTP",
+                                "type": "synchronous",
+                                "target": "UserRepository",
+                                "new_classes": [
+                                    "UserRepositoryRequestInterfaceImpl",
+                                    "UserRepositoryHandleRequest"
+                                ],
+                                "interfaces": [
+                                    "UserRepositoryRequestInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 26,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "5",
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "file": "ReservationService",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.service.UserService",
+                        "dependencies": [
+                            "methodInvocation",
+                            "variableType"
+                        ],
+                        "interfaces": [
+                            "UserServiceDTOInterface"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 27,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "5",
+                            "dependent_microservice": "1",
+                            "notes": {
+                                "created": "UserServiceDTO"
+                            }
+                        },
+                        {
+                            "id": 28,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": "5",
+                            "dependent_microservice": "1",
+                            "notes": {
+                                "method": "getUserById",
+                                "protocol": "HTTP",
+                                "type": "synchronous",
+                                "target": "UserService",
+                                "new_classes": [
+                                    "UserServiceRequestInterfaceImpl",
+                                    "UserServiceHandleRequest"
+                                ],
+                                "interfaces": [
+                                    "UserServiceRequestInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 29,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": "5",
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "method": "getMail",
+                        "protocol": "HTTP",
+                        "type": "synchronous",
+                        "target": "User",
+                        "new_classes": [
+                            "UserRequestInterfaceImpl",
+                            "UserHandleRequest"
+                        ],
+                        "interfaces": [
+                            "UserRequestInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 30,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": "6",
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "method": "getUserId",
+                        "protocol": "HTTP",
+                        "type": "synchronous",
+                        "target": "User",
+                        "new_classes": [
+                            "UserRequestInterfaceImpl",
+                            "UserHandleRequest"
+                        ],
+                        "interfaces": [
+                            "UserRequestInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 31,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "6",
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "file": "AuthController",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.repository.UserRepository",
+                        "dependencies": [
+                            "methodInvocation",
+                            "variableType"
+                        ],
+                        "interfaces": [
+                            "UserRepositoryDTOInterface"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 32,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "6",
+                            "dependent_microservice": "1",
+                            "notes": {
+                                "created": "UserRepositoryDTO"
+                            }
+                        },
+                        {
+                            "id": 33,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": "6",
+                            "dependent_microservice": "1",
+                            "notes": {
+                                "method": "findByMail",
+                                "protocol": "HTTP",
+                                "type": "synchronous",
+                                "target": "UserRepository",
+                                "new_classes": [
+                                    "UserRepositoryRequestInterfaceImpl",
+                                    "UserRepositoryHandleRequest"
+                                ],
+                                "interfaces": [
+                                    "UserRepositoryRequestInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 34,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": "6",
+                    "dependent_microservice": "1",
+                    "notes": {
+                        "method": "getMail",
+                        "protocol": "HTTP",
+                        "type": "synchronous",
+                        "target": "User",
+                        "new_classes": [
+                            "UserRequestInterfaceImpl",
+                            "UserHandleRequest"
+                        ],
+                        "interfaces": [
+                            "UserRequestInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 35,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 2,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 36,
+                    "name": "CHANGE DATA OWNERSHIP",
+                    "level": 2,
+                    "microservice": "2",
+                    "dependent_microservice": "4",
+                    "notes": {
+                        "entity": "BillPosition"
+                    },
+                    "refactorings": [
+                        {
+                            "id": 37,
+                            "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
+                            "level": 3,
+                            "microservice": "2",
+                            "dependent_microservice": "4",
+                            "notes": {
+                                "relationship": "ManyToOne",
+                                "entities": [
+                                    "BillPosition",
+                                    "Dish"
+                                ],
+                                "interfaces": [
+                                    "BillPositionInterface",
+                                    "DishInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 38,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "2",
+                    "dependent_microservice": "4",
+                    "notes": {
+                        "file": "BillPosition",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Dish",
+                        "dependencies": [
+                            "variableType",
+                            "methodVariable"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 39,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "2",
+                            "dependent_microservice": "4",
+                            "notes": {
+                                "created": "DishDTO"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 40,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": "2",
+                    "dependent_microservice": "4",
+                    "notes": {
+                        "method": "getPrice",
+                        "protocol": "HTTP",
+                        "type": "synchronous",
+                        "target": "Dish",
+                        "new_classes": [
+                            "DishRequestInterfaceImpl",
+                            "DishHandleRequest"
+                        ],
+                        "interfaces": [
+                            "DishRequestInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 41,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "2",
+                    "dependent_microservice": "4",
+                    "notes": {
+                        "file": "BillPositionService",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.service.DishService",
+                        "dependencies": [
+                            "variableType"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 42,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "2",
+                            "dependent_microservice": "4",
+                            "notes": {
+                                "created": "DishServiceDTO"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 43,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "2",
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "file": "BillService",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.repository.RTableRepository",
+                        "dependencies": [
+                            "methodInvocation",
+                            "variableType"
+                        ],
+                        "interfaces": [
+                            "RTableRepositoryDTOInterface"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 44,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "2",
+                            "dependent_microservice": "3",
+                            "notes": {
+                                "created": "RTableRepositoryDTO"
+                            }
+                        },
+                        {
+                            "id": 45,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": "2",
+                            "dependent_microservice": "3",
+                            "notes": {
+                                "method": "findById",
+                                "protocol": "HTTP",
+                                "type": "synchronous",
+                                "target": "RTableRepository",
+                                "new_classes": [
+                                    "RTableRepositoryRequestInterfaceImpl",
+                                    "RTableRepositoryHandleRequest"
+                                ],
+                                "interfaces": [
+                                    "RTableRepositoryRequestInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 46,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "2",
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "file": "BillController",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.repository.RTableRepository",
+                        "dependencies": [
+                            "methodInvocation",
+                            "variableType"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 47,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": "2",
+                            "dependent_microservice": "3",
+                            "notes": {
+                                "method": "findById",
+                                "protocol": "HTTP",
+                                "type": "synchronous",
+                                "target": "RTableRepository",
+                                "new_classes": [
+                                    "RTableRepositoryRequestInterfaceImpl",
+                                    "RTableRepositoryHandleRequest"
+                                ],
+                                "interfaces": [
+                                    "RTableRepositoryRequestInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 48,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "3",
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "file": "RTableService",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Bill",
+                        "dependencies": [
+                            "methodInvocation",
+                            "methodVariable"
+                        ],
+                        "interfaces": [
+                            "BillDTOInterface"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 49,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "3",
+                            "dependent_microservice": "2",
+                            "notes": {
+                                "created": "BillDTO"
+                            }
+                        },
+                        {
+                            "id": 50,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": "3",
+                            "dependent_microservice": "2",
+                            "notes": {
+                                "method": "getStatus",
+                                "protocol": "HTTP",
+                                "type": "synchronous",
+                                "target": "Bill",
+                                "new_classes": [
+                                    "BillRequestInterfaceImpl",
+                                    "BillHandleRequest"
+                                ],
+                                "interfaces": [
+                                    "BillRequestInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 51,
+                    "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
+                    "level": 2,
+                    "microservice": "3",
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "relationship": "OneToMany",
+                        "entities": [
+                            "RTable",
+                            "Bill"
+                        ],
+                        "interfaces": [
+                            "RTableInterface",
+                            "BillInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 52,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "3",
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "file": "RTable",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Bill",
+                        "dependencies": [
+                            "methodVariable"
+                        ]
+                    }
+                },
+                {
+                    "id": 53,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "3",
+                    "dependent_microservice": "2",
+                    "notes": {
+                        "file": "RTableController",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Bill",
+                        "dependencies": [
+                            "methodVariable"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 54,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 3,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 55,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "3",
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "file": "RTableService",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation",
+                        "dependencies": [
+                            "methodVariable"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 56,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "3",
+                            "dependent_microservice": "5",
+                            "notes": {
+                                "created": "ReservationDTO"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 57,
+                    "name": "MOVE FOREIGN-KEY RELATIONSHIP TO CODE",
+                    "level": 2,
+                    "microservice": "3",
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "relationship": "OneToMany",
+                        "entities": [
+                            "RTable",
+                            "Reservation"
+                        ],
+                        "interfaces": [
+                            "RTableInterface",
+                            "ReservationInterface"
+                        ]
+                    }
+                },
+                {
+                    "id": 58,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "3",
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "file": "RTable",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation",
+                        "dependencies": [
+                            "methodVariable"
+                        ]
+                    }
+                },
+                {
+                    "id": 59,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "3",
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "file": "RTableController",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation",
+                        "dependencies": [
+                            "methodVariable"
+                        ]
+                    }
+                },
+                {
+                    "id": 60,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "4",
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "file": "RestaurantServerApplication",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.repository.RTableRepository",
+                        "dependencies": [
+                            "methodInvocation",
+                            "methodVariable"
+                        ],
+                        "interfaces": [
+                            "RTableRepositoryDTOInterface"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 61,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "4",
+                            "dependent_microservice": "3",
+                            "notes": {
+                                "created": "RTableRepositoryDTO"
+                            }
+                        },
+                        {
+                            "id": 62,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": "4",
+                            "dependent_microservice": "3",
+                            "notes": {
+                                "method": "save",
+                                "protocol": "HTTP",
+                                "type": "synchronous",
+                                "target": "RTableRepository",
+                                "new_classes": [
+                                    "RTableRepositoryRequestInterfaceImpl",
+                                    "RTableRepositoryHandleRequest"
+                                ],
+                                "interfaces": [
+                                    "RTableRepositoryRequestInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 63,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "5",
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "file": "ReservationService",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.service.RTableService",
+                        "dependencies": [
+                            "methodInvocation",
+                            "variableType"
+                        ],
+                        "interfaces": [
+                            "RTableServiceDTOInterface"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 64,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "5",
+                            "dependent_microservice": "3",
+                            "notes": {
+                                "created": "RTableServiceDTO"
+                            }
+                        },
+                        {
+                            "id": 65,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": "5",
+                            "dependent_microservice": "3",
+                            "notes": {
+                                "method": "getRTableById",
+                                "protocol": "HTTP",
+                                "type": "synchronous",
+                                "target": "RTableService",
+                                "new_classes": [
+                                    "RTableServiceRequestInterfaceImpl",
+                                    "RTableServiceHandleRequest"
+                                ],
+                                "interfaces": [
+                                    "RTableServiceRequestInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 66,
+                    "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                    "level": 2,
+                    "microservice": "5",
+                    "dependent_microservice": "3",
+                    "notes": {
+                        "method": "getReservations",
+                        "protocol": "HTTP",
+                        "type": "synchronous",
+                        "target": "RTable",
+                        "new_classes": [
+                            "RTableRequestInterfaceImpl",
+                            "RTableHandleRequest"
+                        ],
+                        "interfaces": [
+                            "RTableRequestInterface"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 67,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 4,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 68,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "4",
+                    "dependent_microservice": "6",
+                    "notes": {
+                        "file": "RestaurantServerApplication",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.repository.RoleRepository",
+                        "dependencies": [
+                            "methodInvocation",
+                            "methodVariable"
+                        ],
+                        "interfaces": [
+                            "RoleRepositoryDTOInterface"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 69,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "4",
+                            "dependent_microservice": "6",
+                            "notes": {
+                                "created": "RoleRepositoryDTO"
+                            }
+                        },
+                        {
+                            "id": 70,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": "4",
+                            "dependent_microservice": "6",
+                            "notes": {
+                                "method": "save",
+                                "protocol": "HTTP",
+                                "type": "synchronous",
+                                "target": "RoleRepository",
+                                "new_classes": [
+                                    "RoleRepositoryRequestInterfaceImpl",
+                                    "RoleRepositoryHandleRequest"
+                                ],
+                                "interfaces": [
+                                    "RoleRepositoryRequestInterface"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 71,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 5,
+            "dependent_microservice": -1,
+            "notes": {},
+            "refactorings": [
+                {
+                    "id": 72,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "5",
+                    "dependent_microservice": "6",
+                    "notes": {
+                        "file": "ReservationService",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.email.MailService",
+                        "dependencies": [
+                            "methodInvocation",
+                            "variableType"
+                        ],
+                        "interfaces": [
+                            "MailServiceDTOInterface"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 73,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "5",
+                            "dependent_microservice": "6",
+                            "notes": {
+                                "created": "MailServiceDTO"
+                            }
+                        },
+                        {
+                            "id": 74,
+                            "name": "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL",
+                            "level": 3,
+                            "microservice": "5",
+                            "dependent_microservice": "6",
+                            "notes": {
+                                "method": "sendEmail",
+                                "protocol": "HTTP",
+                                "type": "synchronous",
+                                "target": "MailService",
+                                "new_classes": [
+                                    "MailServiceRequestInterfaceImpl",
+                                    "MailServiceHandleRequest"
+                                ],
+                                "interfaces": [
+                                    "MailServiceRequestInterface"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 75,
+                    "name": "BREAK DATA TYPE DEPENDENCY",
+                    "level": 2,
+                    "microservice": "6",
+                    "dependent_microservice": "5",
+                    "notes": {
+                        "file": "JwtResponse",
+                        "dependent_file": "pl.edu.wat.wcy.pz.restaurantServer.entity.Reservation",
+                        "dependencies": [
+                            "methodVariable"
+                        ]
+                    },
+                    "refactorings": [
+                        {
+                            "id": 76,
+                            "name": "CREATE DATA TRANSFER OBJECT",
+                            "level": 3,
+                            "microservice": "6",
+                            "dependent_microservice": "5",
+                            "notes": {
+                                "created": "ReservationDTO"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 77,
+            "name": "EXTRACT MICROSERVICE",
+            "level": 1,
+            "microservice": 6,
+            "dependent_microservice": -1,
+            "notes": {}
+        }
+    ]
+}

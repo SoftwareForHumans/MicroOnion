@@ -51,7 +51,7 @@ function NewChoose() {
         From the 3 available projects, choose the one you want to see the
         proposed refactoring sequence
       </h5>
-      <p style={{ fontSize: "0.7rem" }}>
+      <p style={{ fontSize: "0.7rem", width:"48%"}}>
         This tool receives two files as input: one with information about the
         monolith source code, and another with information about which services
         we intend to have after the system is refactored.
