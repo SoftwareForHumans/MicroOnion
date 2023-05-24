@@ -1,0 +1,31 @@
+@startuml
+package "Monolith" {
+package "3"{
+class RTableService
+class RTable
+class RTableController
+class RTableRepository
+}
+package "4"{
+}
+package "5"{
+class Reservation
+class Reservation
+class Reservation
+}
+package "6"{
+}
+}
+package "0"{
+}
+package "1"{
+}
+package "2"{
+}
+"3"-->"5":Reservation:methodVariable
+"3"-->"5":Reservation:methodVariable, databaseDependency
+"3"-->"5":Reservation:methodVariable
+"4"-->"3":RTableRepository:methodInvocation, methodVariable
+"5"-->"3":RTableService:methodInvocation, variableType
+"5"-->"3":RTable:methodInvocation
+@enduml

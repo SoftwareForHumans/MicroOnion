@@ -1,0 +1,25 @@
+@startuml
+package "Monolith" {
+package "6"{
+class JwtResponse
+class MailService
+class AuthController
+class Role
+class RoleRepository
+class LoginForm
+class SignUpForm
+}
+}
+package "0"{
+}
+package "1"{
+}
+package "2"{
+}
+package "3"{
+}
+package "4"{
+}
+package "5"{
+}
+@enduml

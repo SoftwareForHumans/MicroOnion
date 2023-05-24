@@ -1,0 +1,51 @@
+@startuml
+package "6"{
+class JwtResponse
+class MailService
+class AuthController
+class Role
+class RoleRepository
+class LoginForm
+class SignUpForm
+class JwtProviderRequestInterfaceImpl
+class MailServiceHandleRequest
+class UserRequestInterfaceImpl
+class UserRepositoryRequestInterfaceImpl
+class RoleRepositoryHandleRequest
+interface JwtProviderDTOInterface
+interface JwtProviderRequestInterface
+interface RoleInterface
+interface UserRequestInterface
+interface UserRepositoryDTOInterface
+interface UserRepositoryRequestInterface
+class JwtProviderDTO
+class UserRepositoryDTO
+class ReservationDTO
+}
+package "0"{
+class JwtProvider
+}
+package "1"{
+class User
+class UserRepository
+class User
+class UserController
+}
+package "2"{
+}
+package "3"{
+}
+package "4"{
+class RestaurantServerApplication
+}
+package "5"{
+class ReservationService
+}
+"6"..>"0":JwtProvider:generateJwtToken(HTTP)
+"6"..>"1":User:getUserId(HTTP)
+"6"..>"1":UserRepository:findByMail(HTTP)
+"6"..>"1":User:getMail(HTTP)
+"1"..>"6":MailService:sendEmail (HTTP)
+"4"..>"6":RoleRepository:save (HTTP)
+"5"..>"6":MailService:sendEmail (HTTP)
+@enduml

@@ -10,10 +10,9 @@ class Service:
         self.classes = list()
         self.dependencies = {}
         self.service_calls = []
-        self.interfaces = [] # ??? novas interfaces
+        self.interfaces = [] # new interfaces
         self.dtos = []
-        self.new_classes = [] #??? nao seria melhor so adicionar - novas interfaces são adicionadas às novas classes 
-        self.entities = [] # ??? tnha que ver isto ao inicio
+        self.new_classes = [] 
         self.independent = False
 
     def to_json(self):
@@ -25,7 +24,6 @@ class Service:
         for i in self.service_calls:
             service_calls.append(i.to_json())
         res['service_calls'] = service_calls
-        res["entities"] = self.entities
         res["dtos"] = self.dtos
         res["interfaces"] = self.interfaces
         res["dependencies"] = self.dependencies
@@ -72,8 +70,8 @@ class Service:
     def has_file(self, name):
         return name in self.file_names
     
-    def add_service_call(self, type, protocol, target, target_service):
-        service_call = ServiceCall(type, protocol, target, target_service)
+    def add_service_call(self, type, protocol, target, target_service, requester, owner):
+        service_call = ServiceCall(type, protocol, target, target_service, requester, owner)
         self.service_calls.append(service_call)
     
     def analyze_dependencies(self, services, classes):

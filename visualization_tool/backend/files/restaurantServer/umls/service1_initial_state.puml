@@ -1,0 +1,40 @@
+@startuml
+package "Monolith" {
+package "1"{
+class UserDetailsServiceImpl
+class UserRepository
+class User
+class UserPrinciple
+class UserService
+class UserController
+}
+package "2"{
+}
+package "3"{
+}
+package "4"{
+}
+package "5"{
+class Reservation
+class Reservation
+class Reservation
+}
+package "6"{
+class Role
+class MailService
+}
+}
+package "0"{
+}
+"1"-->"5":Reservation:methodVariable, databaseDependency
+"1"-->"5":Reservation:methodVariable
+"1"-->"5":Reservation:methodVariable
+"1"-->"6":Role:methodVariable, databaseDependency
+"1"-->"6":MailService:methodInvocation, variableType
+"4"-->"1":UserRepository:methodInvocation, methodVariable
+"5"-->"1":UserService:methodInvocation, variableType
+"5"-->"1":User:methodInvocation
+"6"-->"1":User:methodInvocation
+"6"-->"1":UserRepository:methodInvocation, variableType
+"6"-->"1":User:methodInvocation
+@enduml

@@ -1,0 +1,43 @@
+@startuml
+package "3"{
+class RTableService
+class RTable
+class RTableController
+class RTableRepository
+class RTableRepositoryHandleRequest
+class BillRequestInterfaceImpl
+class RTableServiceHandleRequest
+class RTableHandleRequest
+interface BillDTOInterface
+interface BillRequestInterface
+interface RTableInterface
+class BillDTO
+class ReservationDTO
+}
+package "0"{
+}
+package "1"{
+}
+package "2"{
+class Bill
+class BillService
+class BillController
+}
+package "Monolith" {
+package "4"{
+class RestaurantServerApplication
+}
+package "5"{
+class ReservationService
+class ReservationService
+}
+package "6"{
+}
+}
+"3"..>"2":Bill:getStatus(HTTP)
+"2"..>"3":RTableRepository:findById (HTTP)
+"2"..>"3":RTableRepository:findById (HTTP)
+"4"..>"3":RTableRepository:save (HTTP)
+"5"..>"3":RTableService:getRTableById (HTTP)
+"5"..>"3":RTable:getReservations (HTTP)
+@enduml

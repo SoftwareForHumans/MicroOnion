@@ -126,7 +126,7 @@ function NewChoose() {
               <Row className="center-all" style={{ width: "300px" }}>
                 <img src={microservices} alt="microservices"></img>
                 <Button
-                  className="mt-4 choose-project-buttons"
+                  className="mt-4 ms-4 choose-project-buttons"
                   size="sm"
                   style={{ width: "220px" }}
                   onClick={() => {

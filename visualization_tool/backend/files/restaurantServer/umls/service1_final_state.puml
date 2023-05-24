@@ -1,0 +1,54 @@
+@startuml
+package "1"{
+class UserDetailsServiceImpl
+class UserRepository
+class User
+class UserPrinciple
+class UserService
+class UserController
+class UserDetailsServiceImplHandleRequest
+class UserPrincipleHandleRequest
+class MailServiceRequestInterfaceImpl
+class UserRepositoryHandleRequest
+class UserServiceHandleRequest
+class UserHandleRequest
+interface UserInterface
+interface MailServiceDTOInterface
+interface MailServiceRequestInterface
+class ReservationDTO
+class RoleDTO
+class MailServiceDTO
+}
+package "0"{
+class JwtAuthTokenFilter
+class JwtProvider
+}
+package "Monolith" {
+package "2"{
+}
+package "3"{
+}
+package "4"{
+class RestaurantServerApplication
+}
+package "5"{
+class ReservationService
+class ReservationService
+}
+package "6"{
+class MailService
+class JwtResponse
+class AuthController
+class AuthController
+}
+}
+"1"..>"6":MailService:sendEmail(HTTP)
+"0"..>"1":UserDetailsServiceImpl:loadUserByUsername (HTTP)
+"0"..>"1":UserPrinciple:getUsername (HTTP)
+"4"..>"1":UserRepository:save (HTTP)
+"5"..>"1":UserService:getUserById (HTTP)
+"5"..>"1":User:getMail (HTTP)
+"6"..>"1":User:getUserId (HTTP)
+"6"..>"1":UserRepository:findByMail (HTTP)
+"6"..>"1":User:getMail (HTTP)
+@enduml

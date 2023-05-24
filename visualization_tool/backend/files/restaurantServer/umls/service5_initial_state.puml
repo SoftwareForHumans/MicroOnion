@@ -1,0 +1,25 @@
+@startuml
+package "Monolith" {
+package "5"{
+class ReservationRepository
+class Reservation
+class ReservationService
+class ReservationController
+}
+package "6"{
+class MailService
+}
+}
+package "0"{
+}
+package "1"{
+}
+package "2"{
+}
+package "3"{
+}
+package "4"{
+}
+"5"-->"6":MailService:methodInvocation, variableType
+"6"-->"5":Reservation:methodVariable
+@enduml

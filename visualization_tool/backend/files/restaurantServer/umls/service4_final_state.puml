@@ -1,0 +1,45 @@
+@startuml
+package "4"{
+class Dish
+class RestaurantServerApplication
+class DishRepository
+class DishService
+class DishController
+class UserRepositoryRequestInterfaceImpl
+class DishHandleRequest
+class RTableRepositoryRequestInterfaceImpl
+class RoleRepositoryRequestInterfaceImpl
+interface UserRepositoryDTOInterface
+interface UserRepositoryRequestInterface
+interface DishInterface
+interface RTableRepositoryDTOInterface
+interface RTableRepositoryRequestInterface
+interface RoleRepositoryDTOInterface
+interface RoleRepositoryRequestInterface
+class UserRepositoryDTO
+class RTableRepositoryDTO
+class RoleRepositoryDTO
+}
+package "0"{
+}
+package "1"{
+class UserRepository
+}
+package "2"{
+class BillPositionService
+}
+package "3"{
+class RTableRepository
+}
+package "Monolith" {
+package "5"{
+}
+package "6"{
+class RoleRepository
+}
+}
+"4"..>"1":UserRepository:save(HTTP)
+"4"..>"3":RTableRepository:save(HTTP)
+"4"..>"6":RoleRepository:save(HTTP)
+"2"..>"4":Dish:getPrice (HTTP)
+@enduml

@@ -23,6 +23,7 @@ function ExtractService() {
   const [to, setTo] = useState();
   const [loading, setLoading] = useState(true);
   const [sequence, setSequence] = useState();
+  const [initialState, setInitialState] = useState();
   const [finalState, setFinalState] = useState();
   const [refactoring, setRefactoring] = useState();
   const [selected, setSelected] = useState(null);
@@ -62,19 +63,45 @@ function ExtractService() {
           `${process.env.REACT_APP_BACKEND_URL}projects/${project}/serviceExtraction/${service.microservice}`
         )
         .then((res) => {
-          setFinalState("res.data.finalState");//TODO: change this
           setSequence(res.data.sequence);
+        });
+        axios
+        .get(
+          `${process.env.REACT_APP_BACKEND_URL}projects/${project}/getInitialState/${service.microservice}/${index}`,
+          {
+            headers: {
+              "Content-Type": "image/png",
+            },
+          }
+        )
+        .then((res) => {
+          setInitialState(res.data)
+
+        });
+
+      axios
+        .get(
+          `${process.env.REACT_APP_BACKEND_URL}projects/${project}/getFinalState/${service.microservice}/${index}`,
+          {
+            headers: {
+              "Content-Type": "image/png",
+            },
+          }
+        )
+        .then((res) => {
+          setFinalState(res.data)
+
         });
     } catch (err) {
       console.log(err);
     }
-  }, [project, service]);
+  }, [project, service, index]);
 
   useEffect(() => {
-    if (finalState !== undefined) {
+    if (finalState !== undefined && initialState !== undefined) {
       setLoading(false);
     }
-  }, [from, to, sequence, finalState]);
+  }, [from, to, sequence, finalState, initialState]);
 
   return (
     <>
@@ -125,7 +152,7 @@ function ExtractService() {
                 <img
                   className="mt-5"
                   style={{ width: "100%" }}
-                  src={initial}
+                  src={`data:image/png;base64,${initialState}`}
                   alt="Initial state"
                 ></img>
               </Modal.Body>
@@ -257,7 +284,7 @@ function ExtractService() {
               <img
                 className="mt-5"
                 style={{ width: "100%" }}
-                src={final}
+                src={`data:image/png;base64,${finalState}`}
                 alt="Final state"
               ></img>
             </Modal.Body>

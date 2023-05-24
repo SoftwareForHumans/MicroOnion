@@ -1,0 +1,45 @@
+@startuml
+package "2"{
+class Bill
+class BillPosition
+class BillService
+class BillController
+class BillPositionService
+class BillPositionController
+class BillPositionRepository
+class BillRepository
+class DishRequestInterfaceImpl
+class RTableRepositoryRequestInterfaceImpl
+class BillHandleRequest
+interface BillPositionInterface
+interface DishRequestInterface
+interface RTableRepositoryDTOInterface
+interface RTableRepositoryRequestInterface
+interface BillInterface
+class DishDTO
+class DishServiceDTO
+class RTableRepositoryDTO
+}
+package "0"{
+}
+package "1"{
+}
+package "Monolith" {
+package "3"{
+class RTableRepository
+class RTableRepository
+class RTableService
+}
+package "4"{
+class Dish
+}
+package "5"{
+}
+package "6"{
+}
+}
+"2"..>"4":Dish:getPrice(HTTP)
+"2"..>"3":RTableRepository:findById(HTTP)
+"2"..>"3":RTableRepository:findById(HTTP)
+"3"..>"2":Bill:getStatus (HTTP)
+@enduml

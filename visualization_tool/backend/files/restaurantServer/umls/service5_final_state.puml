@@ -1,0 +1,49 @@
+@startuml
+package "5"{
+class ReservationRepository
+class Reservation
+class ReservationService
+class ReservationController
+class UserServiceRequestInterfaceImpl
+class UserRequestInterfaceImpl
+class RTableServiceRequestInterfaceImpl
+class RTableRequestInterfaceImpl
+class MailServiceRequestInterfaceImpl
+interface ReservationInterface
+interface UserServiceDTOInterface
+interface UserServiceRequestInterface
+interface UserRequestInterface
+interface RTableServiceDTOInterface
+interface RTableServiceRequestInterface
+interface RTableRequestInterface
+interface MailServiceDTOInterface
+interface MailServiceRequestInterface
+class UserServiceDTO
+class RTableServiceDTO
+class MailServiceDTO
+}
+package "0"{
+}
+package "1"{
+class UserService
+class User
+}
+package "2"{
+}
+package "3"{
+class RTableService
+class RTable
+}
+package "4"{
+}
+package "Monolith" {
+package "6"{
+class MailService
+}
+}
+"5"..>"1":UserService:getUserById(HTTP)
+"5"..>"1":User:getMail(HTTP)
+"5"..>"3":RTableService:getRTableById(HTTP)
+"5"..>"3":RTable:getReservations(HTTP)
+"5"..>"6":MailService:sendEmail(HTTP)
+@enduml

@@ -32,7 +32,7 @@ class BreakDependencies:
         dependencies = dict(sorted(self.dependencies.items(), key=lambda x: len(x[1]), reverse=False))
         
         for microservice, deps in dependencies.items():
-            service_ids = []
+            # service_ids = []
             print(f"\nEXTRACT MICROSERVICE {microservice}")
             service = self.get_service_by_id(microservice)
             current_refactoring = self.initial_refactoring.add_refactoring(Refactoring("EXTRACT MICROSERVICE", self.initial_refactoring.get_level() + 1, int(microservice), -1))
@@ -40,21 +40,23 @@ class BreakDependencies:
                 print(f"---\nBreaking dependencies with microservice {k} \n")
                 dependent_service = self.get_service_by_id(k)
                 self.break_dependency_file_by_file(service, dependent_service, v, current_refactoring)
-                service_ids.append(k)
+                # service_ids.append(k)
    
             for m, d in dependencies.items():
                 if microservice in d.keys():
                     d_service = self.get_service_by_id(m)
                     print(f"\nBreaking dependencies of microservice {m} with microservice {microservice}\n")
                     self.break_dependency_file_by_file(d_service, service, dependencies[m][microservice], current_refactoring)
-                    service_ids.append(m)
+                    # service_ids.append(m)
 
-            service_ids.append(microservice)
-            service_ids = set(service_ids)
+            # service_ids.append(microservice)
+            # service_ids = set(service_ids)
             
             services = []
-            for i in service_ids:
-                services.append(self.get_service_by_id(i))
+            # for i in service_ids:
+            #     services.append(self.get_service_by_id(i))
+            for i in self.services:
+                services.append(i)
 
             service.clean_dependencies()    
             self.update_service(service)
@@ -160,7 +162,7 @@ class BreakDependencies:
         microservice.add_interface(class_name + "RequestInterface")
         microservice.add_new_class(class_name + "RequestInterfaceImpl")
         dependent_microservice.add_new_class(class_name + "HandleRequest")
-        microservice.add_service_call("synchronous", "HTTP", method, dependent_microservice.get_id())
+        microservice.add_service_call("synchronous", "HTTP", method, dependent_microservice.get_id(), file, dependent_file)
 
         current_refactoring.add_refactoring(Refactoring("CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice.get_id(), notes))
         

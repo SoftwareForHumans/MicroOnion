@@ -1,0 +1,39 @@
+@startuml
+package "Monolith" {
+package "2"{
+class Bill
+class BillPosition
+class BillService
+class BillController
+class BillPositionService
+class BillPositionController
+class BillPositionRepository
+class BillRepository
+}
+package "3"{
+class RTableRepository
+class RTableRepository
+}
+package "4"{
+class Dish
+class Dish
+class DishService
+}
+package "5"{
+}
+package "6"{
+}
+}
+package "0"{
+}
+package "1"{
+}
+"2"-->"3":RTableRepository:methodInvocation, variableType
+"2"-->"3":RTableRepository:methodInvocation, variableType
+"2"-->"4":Dish:variableType, methodVariable, databaseDependency
+"2"-->"4":Dish:methodInvocation
+"2"-->"4":DishService:variableType
+"3"-->"2":Bill:methodInvocation, methodVariable
+"3"-->"2":Bill:methodVariable, databaseDependency
+"3"-->"2":Bill:methodVariable
+@enduml

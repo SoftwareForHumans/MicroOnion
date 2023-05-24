@@ -1,0 +1,25 @@
+@startuml
+package "Monolith" {
+package "4"{
+class Dish
+class RestaurantServerApplication
+class DishRepository
+class DishService
+class DishController
+}
+package "5"{
+}
+package "6"{
+class RoleRepository
+}
+}
+package "0"{
+}
+package "1"{
+}
+package "2"{
+}
+package "3"{
+}
+"4"-->"6":RoleRepository:methodInvocation, methodVariable
+@enduml
