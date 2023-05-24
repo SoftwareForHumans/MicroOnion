@@ -100,25 +100,25 @@ function NewChoose() {
                 <Button
                   className="mt-4 choose-project-buttons"
                   size="sm"
-                  style={{ width: "150px" }}
+                  style={{ width: "200px" }}
                   onClick={() => {
                     setShowProjectDetails(true);
                     setShowIntendedDecomposition(false);
                   }}
                 >
-                  Show Project Details
+                  Show Project Description
                 </Button>
               </Row>
             </Col>
             <Col className="mt-5 mx-5">
-              <Row className="mt-3 center-all" style={{ width: "280px" }}>
+              <Row className="mt-3 center-all" style={{ width: "300px" }}>
                 <img src={arrow} style={{ width: "200px", height:"60px" }} alt="arrow"></img>
                 <Link
                   to="/extractionSequence"
                   state={{ projectName: project }}
                   className="mt-4"
                 >
-                  <Button size="sm" className="choose-project-buttons">Show Proposed Migration</Button>{" "}
+                  <Button size="sm" className="px-3 choose-project-buttons">Show Proposed Refactoring Sequence</Button>{" "}
                 </Link>
               </Row>
             </Col>
@@ -145,6 +145,10 @@ function NewChoose() {
         <Row
           className="m-5 p-4 text-white information-box"
         >
+          <h5 style={{ color: "#e6e6e6", fontSize: "1.3rem" }}>
+              {" "}
+              Project Description
+            </h5>
           <p>
             {description}
             <br></br> You can find more on its{" "}
@@ -162,7 +166,7 @@ function NewChoose() {
           >
             <h5 style={{ color: "#e6e6e6", fontSize: "1.3rem" }}>
               {" "}
-              Proposed Microservices Decomposition
+              Intended Microservices Decomposition
             </h5>
             <p className="mb-3">
               The following schema represents the decomposition of the current

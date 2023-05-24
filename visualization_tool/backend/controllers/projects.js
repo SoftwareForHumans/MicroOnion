@@ -129,11 +129,11 @@ exports.getServiceExtractionSequence = async (req, res) => {
 exports.getInitialState = async (req, res) => {
   const { project } = req.params;
   let { service } = req.params;
-  let {index} = req.params.project;
+  let { index } = req.params.project;
 
   try {
     service = service.toString();
-    index = parseInt(index)
+    index = parseInt(index);
 
     const folder = getProjectFolder(project);
     const jsonPath2 = path.join(
@@ -142,7 +142,7 @@ exports.getInitialState = async (req, res) => {
       "files",
       folder,
       "/snapshot" + index + ".json"
-    ); 
+    );
 
     const data2 = fs.readFileSync(jsonPath2, "utf8");
     let jsonData2 = JSON.parse(data2);
@@ -165,11 +165,11 @@ exports.getInitialState = async (req, res) => {
 exports.getFinalState = async (req, res) => {
   const { project } = req.params;
   let { service } = req.params;
-  let {index} = req.params;
-  
+  let { index } = req.params;
+
   try {
     service = service.toString();
-    index = parseInt(index)
+    index = parseInt(index);
 
     const folder = getProjectFolder(project);
     const jsonPath3 = path.join(
@@ -177,7 +177,7 @@ exports.getFinalState = async (req, res) => {
       "..",
       "files",
       folder,
-      "/snapshot" + (index + 1)  + ".json"
+      "/snapshot" + (index + 1) + ".json"
     );
     console.log(jsonPath3);
 
@@ -207,12 +207,53 @@ function getProjectFolder(name) {
 }
 
 function createStateUML(project, service, initial, state) {
-  res = "@startuml\n";
-  for (let i in state) {
-    if (state[i]["independent"]) {
-      // console.log("hello")
-    }
+  console.log(state);
+  let hasDependent = false;
+  let res = "@startuml\n";
+
+  state.forEach((svc) => {
+    if (svc["independent"]) {
+      res += 'package "' + svc["id"] + '"{\n';
+
+      svc["files"].forEach((el) => {
+        el = el.replace("'", "");
+        idx = el.lastIndexOf(".") + 1;
+        res += "class " + el.substring(idx) + "\n";
+      });
+
+      svc["new_classes"].forEach((el) => {
+        res += "class " + el + "\n";
+      });
+
+      svc["entities"].forEach((el) => {
+        res += "entity " + el + "\n";
+      });
+
+      svc["interfaces"].forEach((el) => {
+        res += "interface " + el + "\n";
+      });
+      svc["dtos"].forEach((el) => {
+        res += "entity " + el + "\n";
+      });
+
+      svc["service_calls"].forEach((el) => {});
+
+      res += "}\n";
+    } else hasDependent = true;
+  });
+
+  if (hasDependent) {
+    res += 'package "Monolith" {\n';
+    state.forEach((svc) => {
+      if (!svc["independent"]) {
+        res += 'package "' + svc["id"] + '"{\n';
+        res += "}\n";
+      }
+    });
+
+    res += "}\n";
   }
+
   res += "@enduml";
 
   const filename = path.join(
