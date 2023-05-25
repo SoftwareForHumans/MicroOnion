@@ -3,7 +3,6 @@ import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
 import Refactoring from "../components/Refactoring";
 import StepButton from "./StepButton";
-import r2 from "../assets/refactoring_2.png";
 
 function ServiceCall({
   project,
@@ -17,6 +16,7 @@ function ServiceCall({
   setSelected,
   setColor,
   setStep,
+  image
 }) {
   const handleOnClick = (index, text) => {
     setSelected(index);
@@ -53,7 +53,7 @@ function ServiceCall({
         <img
           className="pb-3"
           style={{ width: "90%", alignSelf: "center" }}
-          src={r2}
+          src={`data:image/png;base64,${image}`}
           alt="refactoring change schema"
         ></img>
         <p>

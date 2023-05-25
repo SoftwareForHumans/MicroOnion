@@ -5,7 +5,7 @@ import MoveForeignKey from "../components/MoveForeignKey";
 import DTO from "../components/DTO";
 import FileDependency from "../components/FileDependency";
 
-function Refactoring({project, service, index, sequence, showNumber, selected, color, step, setSelected, setColor, setStep}) {
+function Refactoring({project, service, index, sequence, showNumber, selected, color, step, setSelected, setColor, setStep, image}) {
   const refactoring = sequence[index];
   showNumber = showNumber !== undefined? showNumber: false;
   return (
@@ -23,6 +23,7 @@ function Refactoring({project, service, index, sequence, showNumber, selected, c
           setSelected={setSelected}
           setColor={setColor}
           setStep={setStep}
+          image={image}
         ></DataTypeDependency>
       )}
       {refactoring.name ===
@@ -39,6 +40,7 @@ function Refactoring({project, service, index, sequence, showNumber, selected, c
           setSelected={setSelected}
           setColor={setColor}
           setStep={setStep}
+          image={image}
         ></ServiceCall>
       )}
       {refactoring.name === "CHANGE DATA OWNERSHIP" && (
@@ -54,6 +56,7 @@ function Refactoring({project, service, index, sequence, showNumber, selected, c
           setSelected={setSelected}
           setColor={setColor}
           setStep={setStep}
+          image={image}
         ></ChangeDataOwnership>
       )}
       {refactoring.name === "MOVE FOREIGN-KEY RELATIONSHIP TO CODE" && (
@@ -69,6 +72,7 @@ function Refactoring({project, service, index, sequence, showNumber, selected, c
           setSelected={setSelected}
           setColor={setColor}
           setStep={setStep}
+          image={image}
         ></MoveForeignKey>
       )}
       {refactoring.name === "CREATE DATA TRANSFER OBJECT" && (
@@ -84,6 +88,7 @@ function Refactoring({project, service, index, sequence, showNumber, selected, c
           setSelected={setSelected}
           setColor={setColor}
           setStep={setStep}
+          image={image}
         ></DTO>
       )}
       {(refactoring.name === "FILE DEPENDENCY" ||
@@ -100,6 +105,7 @@ function Refactoring({project, service, index, sequence, showNumber, selected, c
           setSelected={setSelected}
           setColor={setColor}
           setStep={setStep}
+          image={image}
         ></FileDependency>
       )}
     </>

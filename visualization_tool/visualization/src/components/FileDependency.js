@@ -1,7 +1,6 @@
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import StepButton from "./StepButton";
-import r2 from "../assets/refactoring_2.png";
 
 function FileDependency({
   project,
@@ -13,6 +12,7 @@ function FileDependency({
   step,
   setSelected,
   setStep,
+  image
 }) {
   const handleOnClick = (index, text) => {
     setSelected(index);
@@ -38,7 +38,7 @@ function FileDependency({
         <img
           className="pb-3"
           style={{ width: "90%", alignSelf: "center" }}
-          src={r2}
+          src={`data:image/png;base64,${image}`}
           alt="refactoring change schema"
         ></img>
         <p>

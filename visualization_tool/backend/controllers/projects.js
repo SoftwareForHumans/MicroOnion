@@ -1,5 +1,7 @@
 const fs = require("fs");
 const path = require("path");
+const utils = require("../utils/utils.js");
+const umls = require("../utils/umls.js");
 
 exports.getProjects = async (req, res) => {
   res.status(200).send("hello");
@@ -8,7 +10,7 @@ exports.getProjects = async (req, res) => {
 exports.getRefactoringsSequence = async (req, res) => {
   const { name } = req.params;
 
-  const folder = getProjectFolder(name);
+  const folder = utils.getProjectFolder(name);
 
   try {
     const jsonPath = path.join(
@@ -47,12 +49,12 @@ exports.getRefactoringsSequence = async (req, res) => {
 exports.getServiceDependencies = async (req, res) => {
   const { project } = req.params;
   let { service } = req.params;
-  let {index} = req.params;
+  let { index } = req.params;
 
   try {
     service = service.toString();
     index = parseInt(index);
-    const folder = getProjectFolder(project);
+    const folder = utils.getProjectFolder(project);
     let response = {};
     const jsonPath = path.join(
       __dirname,
@@ -61,39 +63,25 @@ exports.getServiceDependencies = async (req, res) => {
       folder,
       "/snapshot" + index + ".json"
     );
-    
+
     const data = fs.readFileSync(jsonPath, "utf8");
     let jsonData = JSON.parse(data);
 
     response["from"] = [];
     response["to"] = [];
     jsonData["services"].forEach((el) => {
-      if(el["id"] === service) {
-        for(let j in el["dependencies"])
-        response["from"].push([j, el["dependencies"][j]]);
-      }
-      else{
-        for(let j in el["dependencies"]){
-          if(j === service){
+      if (el["id"] === service) {
+        for (let j in el["dependencies"])
+          response["from"].push([j, el["dependencies"][j]]);
+      } else {
+        for (let j in el["dependencies"]) {
+          if (j === service) {
             response["to"].push([el["id"], el["dependencies"][j]]);
           }
         }
-   
       }
-    })
-    
-    // for (j in jsonData[service]) {
-    //   response["from"].push([j, jsonData[service][j]]);
-    // }
+    });
 
-    
-    // for (i in jsonData) {
-    //   for (j in jsonData[i]) {
-    //     if (j === service) {
-    //       response["to"].push([i, jsonData[i][j]]);
-    //     }
-    //   }
-    // }
     res.status(200).json(response);
   } catch (err) {
     console.log(err);
@@ -108,7 +96,7 @@ exports.getServiceExtractionSequence = async (req, res) => {
 
   try {
     service = service.toString();
-    const folder = getProjectFolder(project);
+    const folder = utils.getProjectFolder(project);
     const jsonPath = path.join(
       __dirname,
       "..",
@@ -136,8 +124,6 @@ exports.getServiceExtractionSequence = async (req, res) => {
 
     response["sequence"] = refactorings;
 
-    console.log(response);
-
     res.status(200).json(response);
   } catch (err) {
     console.log(err);
@@ -154,7 +140,7 @@ exports.getInitialState = async (req, res) => {
     service = service.toString();
     index = parseInt(index);
 
-    const folder = getProjectFolder(project);
+    const folder = utils.getProjectFolder(project);
     const jsonPath = path.join(
       __dirname,
       "..",
@@ -165,14 +151,14 @@ exports.getInitialState = async (req, res) => {
     const data = fs.readFileSync(jsonPath, "utf8");
     let jsonData = JSON.parse(data);
     initialState = jsonData["services"];
-    createInitialStateUML(folder, service, initialState);
+    umls.createInitialStateUML(folder, service, initialState);
 
     const filename = path.join(
       __dirname,
       "..",
       "files",
       folder,
-      "/umls/service" + service + "_initial" + "_state.png" 
+      "/umls/service" + service + "_initial" + "_state.png"
     );
 
     res.writeHead(200, {
@@ -195,7 +181,7 @@ exports.getFinalState = async (req, res) => {
     service = service.toString();
     index = parseInt(index);
 
-    const folder = getProjectFolder(project);
+    const folder = utils.getProjectFolder(project);
     const jsonPath = path.join(
       __dirname,
       "..",
@@ -206,7 +192,7 @@ exports.getFinalState = async (req, res) => {
     const data = fs.readFileSync(jsonPath, "utf8");
     let jsonData = JSON.parse(data);
     finalState = jsonData["services"];
-    createFinalStateUML(folder, service, finalState);
+    umls.createFinalStateUML(folder, service, finalState);
 
     const filename = path.join(
       __dirname,
@@ -227,290 +213,82 @@ exports.getFinalState = async (req, res) => {
   }
 };
 
-function getProjectFolder(name) {
-  if (name.toLowerCase().includes("restaurant")) return "restaurantServer";
-  else if (name.toLowerCase().includes("proyecto")) return "proyectoUNAM";
-  else if (name.toLowerCase().includes("hotel")) return "hotelManagementSystem";
-  else return "";
-}
+exports.getRefactoringImage = async (req, res) => {
+  const { project } = req.params;
+  let { service } = req.params;
+  let { id } = req.params;
 
-function createFinalStateUML(project, service, state) {
-  let res = "@startuml\n";
-  let service_calls = "";
-  let needed_classes = new Map();
-  let dependents = [];
-  let independents = [];
-
-  // writing service - that was now extracted
-  state.forEach((svc) => {
-    if (svc["id"] === service) {
-      res += 'package "' + svc["id"] + '"{\n';
-
-      svc["files"].forEach((el) => {
-        el = el.replace("'", "");
-        idx = el.lastIndexOf(".") + 1;
-        res += "class " + el.substring(idx) + "\n";
-      });
-
-      svc["new_classes"].forEach((el) => {
-        res += "class " + el + "\n";
-      });
-
-      svc["interfaces"].forEach((el) => {
-        res += "interface " + el + "\n";
-      });
-      svc["dtos"].forEach((el) => {
-        res += "class " + el + "\n";
-      });
-
-      svc["service_calls"].forEach((el) => {
-        cl = el["owner"].replace("'", "");
-        idx = cl.lastIndexOf(".") + 1;
-        service_calls +=
-          '"' +
-          service +
-          '"..>' +
-          '"' +
-          el["target_service"] +
-          '":' +
-          cl.substring(idx) +
-          ":" +
-          el["target"] +
-          "(" +
-          el["protocol"] +
-          ")\n";
-        if (needed_classes.has(el["target_service"]))
-          needed_classes.get(el["target_service"]).push(el["owner"]);
-        else needed_classes.set(el["target_service"], [el["owner"]]);
-      });
-
-      res += "}\n";
-    } else {
-      if (svc["independent"]) independents.push(svc);
-      else dependents.push(svc);
-    }
-  });
-
-  let r; 
-  // write independents
-  independents.forEach((svc) => {
-    [r, service_calls] = writeNotMainService(
-      svc,
-      needed_classes,
-      service,
-      service_calls
+  try {
+    const folder = utils.getProjectFolder(project);
+    const jsonPath = path.join(
+      __dirname,
+      "..",
+      "files",
+      folder,
+      "/refactorings_sequence.json"
     );
-    res += r;
-  });
+    const data = fs.readFileSync(jsonPath, "utf8");
+    let jsonData = JSON.parse(data);
 
-  // write dependents
-  if (dependents.length > 0) res += 'package "Monolith" {\n';
-  dependents.forEach((svc) => {
-    [r, service_calls] = writeNotMainService(
-      svc,
-      needed_classes,
-      service,
-      service_calls
-    );
-    res += r;
-  });
+    let arr = Array.from(jsonData["refactorings"]);
 
-  if (dependents.length > 0) res += "}\n";
+    let refactoring = utils.getRefactoring(id, service, arr, true);
+    let ret = "";
 
-  res += service_calls;
-
-  res += "@enduml";
-
-  const filename = path.join(
-    __dirname,
-    "..",
-    "files",
-    project,
-    "/umls/service" + service + "_final" + "_state.puml"
-  );
-  fs.writeFileSync(filename, res, { flag: "w" }, (err) => {
-    if (err) {
-      console.error(err);
+    switch (refactoring["name"]) {
+      case "BREAK DATA TYPE DEPENDENCY":
+        ret = umls.createDataTypeDependencyUML(refactoring);
+        break;
+      case "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL":
+        ret = umls.createChangeLocalMethodUML(refactoring);
+        break;
+      case "CHANGE DATA OWNERSHIP":
+        ret = umls.createChangeDataOwnershipUML(refactoring);
+        break;
+      case "MOVE FOREIGN-KEY RELATIONSHIP TO CODE":
+        ret = umls.createMoveForeignKeyUML(refactoring);
+        break;
+      case "CREATE DATA TRANSFER OBJECT":
+        ret = umls.createDataTransferObjectUML(refactoring);
+        break;
+      case "FILE DEPENDENCY":
+        ret = umls.createFileDependencyUML(refactoring);
+      case "IMPORT DEPENDENCY":
+        ret = umls.createImportDependencyUML(refactoring);
+        break;
     }
-  });
-}
+    ret = ""; //TODO: apagar isto
 
-function createInitialStateUML(project, service, state) {
-  let res = "@startuml\n";
-  let dependencies = "";
-  let needed_classes = new Map();
-  let dependents = [];
-  let independents = [];
+    const f = path.join(
+      __dirname,
+      "..",
+      "files",
+      project,
+      "/umls/",
+      "refactoring" + id + ".puml"
+    );
 
-  res += 'package "Monolith" {\n';
-
-  state.forEach((svc) => {
-    if (svc["id"] === service) {
-      res += 'package "' + svc["id"] + '"{\n';
-
-      svc["files"].forEach((el) => {
-        el = el.replace("'", "");
-        idx = el.lastIndexOf(".") + 1;
-        res += "class " + el.substring(idx) + "\n";
-      });
-
-      const deps = new Map(Object.entries(svc["dependencies"]));
-      for (let [key, value] of deps.entries()) {
-        value = new Map(Object.entries(value));
-
-        for (let [k, v] of value.entries()) {
-          v.forEach((el) => {
-            cl = el[0].replace("'", "");
-            idx = cl.lastIndexOf(".") + 1;
-            d = "";
-            for (let i = 1; i < el.length; i++) {
-              d += el[i];
-              if (i !== el.length - 1) d += ", ";
-            }
-            dependencies +=
-              '"' +
-              service +
-              '"-->' +
-              '"' +
-              key +
-              '":' +
-              cl.substring(idx) +
-              ":" +
-              d +
-              "\n";
-
-            if (needed_classes.has(key)) needed_classes.get(key).push(el[0]);
-            else needed_classes.set(key, [el[0]]);
-          });
-        }
+    fs.writeFileSync(f, ret, { flag: "w" }, (err) => {
+      if (err) {
+        console.error(err);
       }
-      res += "}\n";
-    } else {
-      if (svc["independent"]) independents.push(svc);
-      else dependents.push(svc);
-    }
-  });
-
-  let r; 
-  //write dependents
-  dependents.forEach((svc) => {
-    [r, dependencies] = writeNotMainInitial(
-      svc,
-      needed_classes,
-      service,
-      dependencies
-    );
-    res += r;
-  });
-  res += "}\n";
-
-  //write independents
-  independents.forEach((svc) => {
-    [r, dependencies] = writeNotMainInitial(
-      svc,
-      needed_classes,
-      service,
-      dependencies
-    );
-    res += r;
-  });
-
-  res += dependencies;
-  res += "@enduml";
-
-  const filename = path.join(
-    __dirname,
-    "..",
-    "files",
-    project,
-    "/umls/service" + service + "_initial" + "_state.puml"
-  );
-  fs.writeFileSync(filename, res, { flag: "w" }, (err) => {
-    if (err) {
-      console.error(err);
-    }
-  });
-}
-
-function writeNotMainService(svc, needed_classes, service, service_calls) {
-  res = 'package "' + svc["id"] + '"{\n';
-  if (needed_classes.has(svc["id"])) {
-    needed_classes.get(svc["id"]).forEach((el) => {
-      el = el.replace("'", "");
-      idx = el.lastIndexOf(".") + 1;
-      res += "class " + el.substring(idx) + "\n";
     });
-  }
 
-  svc["service_calls"].forEach((el) => {
-    if (el["target_service"] === service) {
-      cl = el["requester"].replace("'", "");
-      idx = cl.lastIndexOf(".") + 1;
-      res += "class " + cl.substring(idx) + "\n";
+    const filename = path.join(
+      __dirname,
+      "..",
+      "files",
+      folder,
+      "/umls/service" + service + "_final" + "_state.png" //TODO: mudar isto para "/umls/service" + service + "refactoring" + id + ".png"
+    );
 
-      cl = el["owner"].replace("'", "");
-      idx = cl.lastIndexOf(".") + 1;
-
-      service_calls +=
-        '"' +
-        svc["id"] +
-        '"..>' +
-        '"' +
-        el["target_service"] +
-        '":' +
-        cl.substring(idx) +
-        ":" +
-        el["target"] +
-        " (" +
-        el["protocol"] +
-        ")\n";
-    }
-  });
-  res += "}\n";
-
-  return [res, service_calls];
-}
-
-function writeNotMainInitial(svc, needed_classes, service, dependencies) {
-  res = 'package "' + svc["id"] + '"{\n';
-  if (needed_classes.has(svc["id"])) {
-    needed_classes.get(svc["id"]).forEach((el) => {
-      el = el.replace("'", "");
-      idx = el.lastIndexOf(".") + 1;
-      res += "class " + el.substring(idx) + "\n";
+    res.writeHead(200, {
+      "Content-Type": "image/png",
     });
+    const content = fs.readFileSync(filename, { encoding: "base64" });
+    res.end(content);
+  } catch (err) {
+    console.log(err);
+    res.status(400).send();
   }
-
-  const deps = new Map(Object.entries(svc["dependencies"]));
-  for (let [key, value] of deps.entries()) {
-    if (key === service) {
-      value = new Map(Object.entries(value));
-
-      for (let [k, v] of value.entries()) {
-        v.forEach((el) => {
-          cl = el[0].replace("'", "");
-          idx = cl.lastIndexOf(".") + 1;
-          d = "";
-          for (let i = 1; i < el.length; i++) {
-            d += el[i];
-            if (i !== el.length - 1) d += ", ";
-          }
-          dependencies +=
-            '"' +
-            svc["id"] +
-            '"-->' +
-            '"' +
-            key +
-            '":' +
-            cl.substring(idx) +
-            ":" +
-            d +
-            "\n";
-        });
-      }
-    }
-  }
-  res += "}\n";
-
-  return [res, dependencies];
-}
+};

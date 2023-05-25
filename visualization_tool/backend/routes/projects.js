@@ -9,4 +9,5 @@ router.get('/:project/serviceDependencies/:service/:index', controller.getServic
 router.get('/:project/serviceExtraction/:service', controller.getServiceExtractionSequence);
 router.get('/:project/getInitialState/:service/:index', controller.getInitialState);
 router.get('/:project/getFinalState/:service/:index', controller.getFinalState);
+router.get('/:project/getRefactoringImage/:service/:id', controller.getRefactoringImage);
 module.exports = router;

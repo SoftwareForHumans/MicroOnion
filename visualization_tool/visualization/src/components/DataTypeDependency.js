@@ -3,7 +3,6 @@ import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
 import Refactoring from "../components/Refactoring";
 import StepButton from "./StepButton";
-import r2 from "../assets/refactoring_2.png";
 
 function DataTypeDependency({
   project,
@@ -17,10 +16,11 @@ function DataTypeDependency({
   setSelected,
   setColor,
   setStep,
+  image,
 }) {
   const indexLast =
     1 + (refactoring.refactorings ? refactoring.refactorings.length + 1 : 0);
-  
+
   const handleOnClick = (index, text) => {
     setSelected(index);
     setStep(text);
@@ -40,9 +40,9 @@ function DataTypeDependency({
     setColor("#1E488F");
   };
 
-  function hasDTO(arr){
-    for(let i in arr){
-      if(arr[i].name === "CREATE DATA TRANSFER OBJECT"){
+  function hasDTO(arr) {
+    for (let i in arr) {
+      if (arr[i].name === "CREATE DATA TRANSFER OBJECT") {
         return true;
       }
     }
@@ -67,9 +67,10 @@ function DataTypeDependency({
         <img
           className="pb-3"
           style={{ width: "90%", alignSelf: "center" }}
-          src={r2}
+          src={`data:image/png;base64,${image}`}
           alt="refactoring change schema"
         ></img>
+
         <p>
           To apply this refactoring, follow the below sequence of steps (
           <b>click on each of them to find out how to implement them</b>):
