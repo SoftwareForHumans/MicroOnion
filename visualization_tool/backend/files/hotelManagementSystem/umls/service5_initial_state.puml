@@ -1,0 +1,58 @@
+@startuml
+package "Monolith" {
+package "5"{
+class GroupRoleImpl
+class GroupRole
+class GroupController
+class GroupRoleService
+class GroupRoleDTO
+class GroupRoleDao
+class GroupRoleQueryDTO
+}
+package "0"{
+}
+package "2"{
+class IWorkflowService
+class Employee
+class ExtAjaxResponse
+}
+package "6"{
+}
+package "7"{
+}
+package "8"{
+}
+package "10"{
+class ExtjsPageRequest
+}
+package "12"{
+}
+package "14"{
+}
+package "15"{
+}
+}
+package "1"{
+}
+package "3"{
+}
+package "4"{
+}
+package "9"{
+}
+package "11"{
+}
+package "13"{
+}
+package "16"{
+}
+"5"-->"2":IWorkflowService:methodInvocation
+"5"-->"2":Employee:methodVariable
+"5"-->"2":ExtAjaxResponse:methodVariable
+"5"-->"10":ExtjsPageRequest:methodInvocation, methodVariable
+"2"-->"5":GroupRole:methodVariable
+"2"-->"5":GroupRoleService:methodInvocation, variableType
+"2"-->"5":GroupRole:methodInvocation
+"2"-->"5":GroupRoleService:methodInvocation, variableType
+"2"-->"5":GroupRole:methodInvocation
+@enduml

@@ -1,0 +1,80 @@
+@startuml
+package "Monolith" {
+package "1"{
+class BcardServiceImpl
+class BcardService
+class BcardDao
+class Bcard
+class BcardDTO
+class BcardEmpDTO
+class AfterAttenceModifyApplyContentProcessor
+class BcardController
+class AttenceDeptApproveListener
+class ReportBackAttenceEndProcessor
+class BcardQueryDTO
+class WorkflowVariable
+}
+package "0"{
+}
+package "2"{
+class IWorkflowService
+class WorkflowDTO
+class Employee
+class Employee
+class SessionUtil
+class EmployeeService
+class Employee
+class ExtAjaxResponse
+}
+package "3"{
+class Department
+class BeanUtils
+class Department
+class Department
+}
+package "4"{
+}
+package "5"{
+}
+package "6"{
+}
+package "7"{
+}
+package "8"{
+}
+package "10"{
+class ExtjsPageRequest
+}
+package "12"{
+}
+package "14"{
+}
+package "15"{
+}
+}
+package "9"{
+}
+package "11"{
+}
+package "13"{
+}
+package "16"{
+}
+"1"-->"2":IWorkflowService:methodInvocation, variableType
+"1"-->"2":WorkflowDTO:methodInvocation
+"1"-->"2":Employee:methodInvocation
+"1"-->"2":Employee:variableType, methodVariable
+"1"-->"2":SessionUtil:methodInvocation
+"1"-->"2":EmployeeService:methodInvocation, variableType
+"1"-->"2":Employee:methodInvocation
+"1"-->"2":ExtAjaxResponse:methodVariable
+"1"-->"3":Department:methodInvocation
+"1"-->"3":BeanUtils:methodInvocation
+"1"-->"3":Department:methodInvocation
+"1"-->"3":Department:variableType, methodVariable
+"1"-->"10":ExtjsPageRequest:methodInvocation, methodVariable
+"2"-->"1":Bcard:methodVariable
+"4"-->"1":WorkflowVariable:methodInvocation, methodVariable
+"6"-->"1":WorkflowVariable:methodInvocation, methodVariable
+"8"-->"1":WorkflowVariable:methodInvocation, methodVariable
+@enduml

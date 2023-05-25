@@ -23,7 +23,6 @@ function DependenciesTable(props) {
             el.push(<td></td>);
           }
           let dep = m[0].split(".").pop();
-          // console.log(listOfDependencies[k][0])
           el.push(
             <td
               className="px-3"
@@ -64,45 +63,6 @@ function DependenciesTable(props) {
       });
          
         }
-      //   let dep = listOfDependencies[k][0][0].split(".").pop();
-      //   // console.log(listOfDependencies[k][0])
-      //   el.push(
-      //     <td
-      //       className="px-3"
-      //       style={{
-      //         borderRight: "2px solid #092256",
-      //         borderLeft: "2px solid #092256",
-      //       }}
-      //     >
-      //       {k}
-      //     </td>
-      //   );
-      //   el.push(
-      //     <td
-      //       className="px-3"
-      //       data-tooltip-id="file-name"
-      //       data-tooltip-content={listOfDependencies[k][0][0]}
-      //       style={{ borderRight: "2px solid #092256" }}
-      //     >
-      //       {dep}
-      //     </td>
-      //   );
-
-      //   let deps = "";
-      //   listOfDependencies[k][0].map((v, index) => {
-      //     if (v !== listOfDependencies[k][0][0]) {
-      //       deps += v;
-      //       if (index !== listOfDependencies[k][0].length - 1) {
-      //         deps += ", ";
-      //       }
-      //     }
-      //     return deps;
-      //   });
-      //   el.push(<td className="px-3">{deps}</td>);
-      //   res.push(el);
-      //   return res;
-      // });
-    
 
     return res;
   }

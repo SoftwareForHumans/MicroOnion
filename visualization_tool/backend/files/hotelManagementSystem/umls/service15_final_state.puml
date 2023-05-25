@@ -1,0 +1,74 @@
+@startuml
+package "15"{
+class FinanceReportDailyController
+class FinanceReportDailyService
+class CreateDailyReport
+class IFinanceReportDailyService
+class FinanceReportDaily
+class FinanceReportDailyQueryDTO
+class ExportExcel
+class FinanceReportDailyRepository
+class FinanceReportService
+class IFinanceReportService
+class FinanceReport
+class FinanceReportController
+class RoomOrderRepositoryRequestInterfaceImpl
+class InStorageRepositoryRequestInterfaceImpl
+class ExtjsPageRequestRequestInterfaceImpl
+class SalaryOrderRepositoryRequestInterfaceImpl
+interface RoomOrderRepositoryDTOInterface
+interface RoomOrderRepositoryRequestInterface
+interface InStorageRepositoryDTOInterface
+interface InStorageRepositoryRequestInterface
+interface ExtjsPageRequestDTOInterface
+interface ExtjsPageRequestRequestInterface
+interface SalaryOrderRepositoryDTOInterface
+interface SalaryOrderRepositoryRequestInterface
+class RoomOrderRepositoryDTO
+class InStorageRepositoryDTO
+class ExtjsPageRequestDTO
+class SalaryOrderRepositoryDTO
+}
+package "0"{
+}
+package "1"{
+}
+package "3"{
+}
+package "4"{
+class InStorageRepository
+}
+package "5"{
+}
+package "6"{
+}
+package "8"{
+}
+package "9"{
+}
+package "10"{
+class ExtjsPageRequest
+}
+package "11"{
+class RoomOrderRepository
+}
+package "12"{
+class SalaryOrderRepository
+}
+package "13"{
+}
+package "14"{
+}
+package "16"{
+}
+package "Monolith" {
+package "2"{
+}
+package "7"{
+}
+}
+"15"..>"11":RoomOrderRepository:findRoomOrderByDay(HTTP)
+"15"..>"4":InStorageRepository:findInStorageOrderByDay(HTTP)
+"15"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"15"..>"12":SalaryOrderRepository:findSalaryByDay(HTTP)
+@enduml

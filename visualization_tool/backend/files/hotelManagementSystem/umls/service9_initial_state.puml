@@ -1,0 +1,88 @@
+@startuml
+package "Monolith" {
+package "9"{
+class SchedulEvent
+class SchedulEventDao
+class CalendarEventController
+class SchedulEventService
+class SchedulEventServiceImpl
+class SchedulQueryDTO
+class CalendarContreller
+class Calendar
+class SchedulEventDto
+class SchedulEventEmpDTO
+class EventCalendarDTO
+class CalendarDTO
+class CalendarService
+class CalendarServiceImpl
+class ExtResultJson
+class CalendarDao
+}
+package "0"{
+}
+package "1"{
+}
+package "2"{
+class Employee
+class Employee
+class EmployeeService
+class SessionUtil
+class Employee
+class ExtAjaxResponse
+class Employee
+class Employee
+class ExtAjaxResponse
+}
+package "3"{
+class BeanUtils
+class DeptService
+class Department
+class Department
+class BeanUtils
+}
+package "4"{
+}
+package "5"{
+}
+package "6"{
+}
+package "7"{
+}
+package "8"{
+}
+package "10"{
+}
+package "11"{
+}
+package "12"{
+}
+package "13"{
+}
+package "14"{
+}
+package "15"{
+}
+}
+package "16"{
+}
+"9"-->"2":Employee:variableType, methodVariable
+"9"-->"2":Employee:methodVariable
+"9"-->"2":EmployeeService:methodInvocation, variableType
+"9"-->"2":SessionUtil:methodInvocation
+"9"-->"2":Employee:methodInvocation
+"9"-->"2":ExtAjaxResponse:methodVariable
+"9"-->"2":Employee:methodVariable
+"9"-->"2":Employee:methodInvocation, methodVariable
+"9"-->"2":ExtAjaxResponse:methodVariable
+"9"-->"3":BeanUtils:methodInvocation
+"9"-->"3":DeptService:methodInvocation, variableType
+"9"-->"3":Department:methodInvocation
+"9"-->"3":Department:variableType, methodVariable
+"9"-->"3":BeanUtils:methodInvocation
+"2"-->"9":SchedulEvent:methodVariable
+"7"-->"9":SchedulQueryDTO:methodInvocation
+"7"-->"9":SchedulEventService:methodInvocation, variableType
+"7"-->"9":SchedulEvent:methodInvocation
+"7"-->"9":Calendar:methodInvocation
+"7"-->"9":SchedulEventService:methodInvocation, variableType
+@enduml

@@ -1,0 +1,90 @@
+@startuml
+package "Monolith" {
+package "3"{
+class Department
+class IDeptService
+class DeptController
+class DeptService
+class DeptDao
+class DeptDTO
+class DeptQueryDTO
+class DeptDTOCombox
+class BeanUtils
+}
+package "0"{
+}
+package "2"{
+class Employee
+class EmployeeService
+class Employee
+class EmployeeService
+class Employee
+class ExtAjaxResponse
+}
+package "4"{
+}
+package "5"{
+class GroupRole
+}
+package "6"{
+}
+package "7"{
+}
+package "8"{
+}
+package "10"{
+class ExtjsPageRequest
+}
+package "12"{
+}
+package "14"{
+}
+package "15"{
+}
+}
+package "1"{
+}
+package "9"{
+}
+package "11"{
+}
+package "13"{
+}
+package "16"{
+}
+"3"-->"2":Employee:methodVariable
+"3"-->"2":EmployeeService:methodInvocation, variableType
+"3"-->"2":Employee:methodInvocation
+"3"-->"2":EmployeeService:methodInvocation, variableType
+"3"-->"2":Employee:methodInvocation
+"3"-->"2":ExtAjaxResponse:methodVariable
+"3"-->"5":GroupRole:methodVariable
+"3"-->"10":ExtjsPageRequest:methodInvocation, methodVariable
+"0"-->"3":BeanUtils:methodInvocation
+"2"-->"3":Department:variableType, methodVariable
+"2"-->"3":DeptService:methodInvocation, variableType
+"2"-->"3":Department:methodInvocation
+"2"-->"3":DeptService:methodInvocation, variableType
+"2"-->"3":BeanUtils:methodInvocation
+"2"-->"3":Department:methodInvocation
+"2"-->"3":Department:methodInvocation
+"5"-->"3":DeptService:methodInvocation, variableType
+"5"-->"3":Department:methodInvocation
+"5"-->"3":Department:variableType, methodVariable
+"5"-->"3":BeanUtils:methodInvocation
+"6"-->"3":Department:methodInvocation
+"6"-->"3":BeanUtils:methodInvocation
+"6"-->"3":Department:variableType, methodVariable
+"7"-->"3":Department:methodInvocation
+"7"-->"3":IDeptService:methodInvocation, variableType
+"7"-->"3":Department:variableType, methodVariable
+"7"-->"3":BeanUtils:methodInvocation
+"7"-->"3":IDeptService:methodInvocation, variableType
+"8"-->"3":Department:methodInvocation
+"8"-->"3":Department:methodInvocation
+"8"-->"3":Department:methodInvocation
+"8"-->"3":BeanUtils:methodInvocation
+"8"-->"3":Department:methodInvocation
+"8"-->"3":Department:variableType, methodVariable
+"12"-->"3":Department:methodInvocation
+@enduml

@@ -1,0 +1,81 @@
+@startuml
+package "Monolith" {
+package "4"{
+class InStorageService
+class InStorageRepository
+class InStorage
+class InStorageController
+class ConfirmReceipt
+class InStorageDTO
+class Pay
+class IInStorageService
+class InDetailedRepository
+class InStorageDetailedDTO
+class MailUtil
+}
+package "0"{
+}
+package "2"{
+class Employee
+class IWorkflowService
+class EmployeeDao
+class WorkflowDTO
+class Employee
+class Employee
+class SessionUtil
+class EmployeeService
+class ExtAjaxResponse
+}
+package "5"{
+}
+package "6"{
+}
+package "7"{
+}
+package "8"{
+}
+package "10"{
+class InDetailed
+class InDetailed
+class ExtjsPageRequest
+}
+package "12"{
+}
+package "14"{
+}
+package "15"{
+}
+}
+package "1"{
+}
+package "3"{
+}
+package "9"{
+}
+package "11"{
+}
+package "13"{
+}
+package "16"{
+}
+"4"-->"2":Employee:methodInvocation
+"4"-->"2":IWorkflowService:methodInvocation, variableType
+"4"-->"2":EmployeeDao:methodInvocation, variableType
+"4"-->"2":WorkflowDTO:methodInvocation, methodVariable
+"4"-->"2":Employee:methodVariable
+"4"-->"2":Employee:variableType, methodVariable
+"4"-->"2":SessionUtil:methodInvocation
+"4"-->"2":EmployeeService:variableType
+"4"-->"2":ExtAjaxResponse:methodVariable
+"4"-->"10":InDetailed:methodInvocation
+"4"-->"10":InDetailed:methodVariable
+"4"-->"10":ExtjsPageRequest:methodInvocation, methodVariable
+"10"-->"4":InStorage:methodInvocation
+"10"-->"4":InStorage:variableType, methodVariable
+"10"-->"4":InStorage:methodInvocation
+"10"-->"4":InStorage:methodInvocation
+"10"-->"4":IInStorageService:methodInvocation, variableType
+"10"-->"4":InStorage:variableType, methodVariable
+"10"-->"4":InDetailedRepository:methodInvocation, variableType
+"15"-->"4":InStorageRepository:methodInvocation, variableType
+@enduml

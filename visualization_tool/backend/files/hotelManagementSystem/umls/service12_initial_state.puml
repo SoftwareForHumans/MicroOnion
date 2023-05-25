@@ -1,0 +1,50 @@
+@startuml
+package "Monolith" {
+package "12"{
+class SalaryService
+class SalaryOrder
+class SalaryController
+class ISalaryService
+class SalaryOrderDTO
+class SalaryOrderQueryDTO
+class SalaryOrderRepository
+}
+package "0"{
+}
+package "2"{
+class Employee
+class Employee
+}
+package "6"{
+}
+package "7"{
+}
+package "8"{
+}
+package "14"{
+}
+package "15"{
+}
+}
+package "1"{
+}
+package "3"{
+}
+package "4"{
+}
+package "5"{
+}
+package "9"{
+}
+package "10"{
+}
+package "11"{
+}
+package "13"{
+}
+package "16"{
+}
+"12"-->"2":Employee:methodInvocation
+"12"-->"2":Employee:variableType, methodVariable
+"15"-->"12":SalaryOrderRepository:methodInvocation, variableType
+@enduml

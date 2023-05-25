@@ -1,0 +1,50 @@
+@startuml
+package "7"{
+class Usuario_sysRep
+class AltaUsuarios
+class RecuperaContrasena
+class EditarPerfil
+class Usuario_sys
+class Estatus_usuario_sys
+class Perfil_sys
+class MyAppUserDetailsService
+class SendMailService
+class ExampleContoller
+class Estatus_usuario_sysRep
+class Perfil_sysRep
+class SecurityConfig
+class LoggingRequestInterfaceImpl
+class Usuario_sysRepHandleRequest
+interface LoggingDTOInterface
+interface LoggingRequestInterface
+interface Usuario_sysInterface
+class LoggingDTO
+class Log_sysDTO
+}
+package "Monolith" {
+package "0"{
+}
+package "1"{
+}
+package "2"{
+class Logging
+class Logging
+class Logging
+class Logging
+}
+package "3"{
+}
+package "4"{
+}
+package "5"{
+}
+package "6"{
+}
+package "8"{
+}
+}
+"7"..>"2":Logging:setTrace(HTTP)
+"7"..>"2":Logging:setTrace(HTTP)
+"7"..>"2":Logging:setTrace(HTTP)
+"2"..>"7":Usuario_sysRep:findById (HTTP)
+@enduml

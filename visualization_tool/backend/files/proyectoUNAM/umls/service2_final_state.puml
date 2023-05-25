@@ -1,0 +1,135 @@
+@startuml
+package "2"{
+class Certificado
+class DescargasController
+class ClienteCertificadoController
+class CertificadoMasivoController
+class Logging
+class Log_sysRep
+class Log_evento_sysRep
+class Log_sys
+class Url_wsRep
+class Url_ws
+class Log_evento_sys
+class AuditoriasController
+class CertificadoRep
+class SeguridadPDF
+class LoggingHandleRequest
+class Usuario_sysRepRequestInterfaceImpl
+class CertificadoRepHandleRequest
+class CertificadoHandleRequest
+class ProfesorRequestInterfaceImpl
+class ProfesorRepRequestInterfaceImpl
+class InscripcionRequestInterfaceImpl
+class CursoRequestInterfaceImpl
+class CursoRepRequestInterfaceImpl
+class GrupoRequestInterfaceImpl
+class GrupoRepRequestInterfaceImpl
+interface Log_sysInterface
+interface Usuario_sysRepDTOInterface
+interface Usuario_sysRepRequestInterface
+interface CertificadoInterface
+interface ProfesorRequestInterface
+interface ProfesorDTOInterface
+interface ProfesorRepDTOInterface
+interface ProfesorRepRequestInterface
+interface InscripcionRequestInterface
+interface CursoDTOInterface
+interface CursoRequestInterface
+interface CursoRepDTOInterface
+interface CursoRepRequestInterface
+interface GrupoDTOInterface
+interface GrupoRequestInterface
+interface GrupoRepDTOInterface
+interface GrupoRepRequestInterface
+class Usuario_sysRepDTO
+class Usuario_sysDTO
+class ProfesorDTO
+class ProfesorRepDTO
+class InscripcionRepDTO
+class CursoDTO
+class CursoRepDTO
+class GrupoDTO
+class GrupoRepDTO
+}
+package "0"{
+class Profesor
+class Profesor
+class ProfesorRep
+class ProfesorRep
+class Profesor
+class ConsultaProfesorController
+class ConsultaProfesorController
+class ProfesoresController
+class ModificarProfesor
+class ModificarAsesores
+}
+package "1"{
+class Inscripcion
+class ConsultaInscripcionController
+class ConsultaInscripcionController
+class InscripcionesController
+class ModificarInscripcion
+}
+package "5"{
+}
+package "6"{
+class Curso
+class CursoRep
+class CursoRep
+class Curso
+class ModificarCursos
+class CursosController
+}
+package "7"{
+class Usuario_sysRep
+class AltaUsuarios
+class RecuperaContrasena
+class EditarPerfil
+}
+package "Monolith" {
+package "3"{
+class Grupo
+class GrupoRep
+class Grupo
+class GrupoController
+class ModificarGrupos
+}
+package "4"{
+class WebService
+}
+package "8"{
+}
+}
+"2"..>"7":Usuario_sysRep:findById(HTTP)
+"2"..>"0":Profesor:getPk_id_profesor(HTTP)
+"2"..>"0":Profesor:getCorreo(HTTP)
+"2"..>"0":ProfesorRep:findByCorreo(HTTP)
+"2"..>"0":ProfesorRep:findByCorreo(HTTP)
+"2"..>"0":Profesor:getPk_id_profesor(HTTP)
+"2"..>"1":Inscripcion:getFk_id_grupo(HTTP)
+"2"..>"6":Curso:getClave(HTTP)
+"2"..>"6":CursoRep:findAll(HTTP)
+"2"..>"6":CursoRep:findByUniqueClave(HTTP)
+"2"..>"6":Curso:getGrupos(HTTP)
+"2"..>"3":Grupo:getClave(HTTP)
+"2"..>"3":GrupoRep:findAll(HTTP)
+"2"..>"3":Grupo:getClave(HTTP)
+"0"..>"2":CertificadoRep:findCertificado (HTTP)
+"0"..>"2":Certificado:getPk_id_certificado (HTTP)
+"0"..>"2":Logging:setTrace (HTTP)
+"0"..>"2":Logging:setTrace (HTTP)
+"0"..>"2":Logging:setTrace (HTTP)
+"1"..>"2":CertificadoRep:findCertificado (HTTP)
+"1"..>"2":Certificado:getPk_id_certificado (HTTP)
+"1"..>"2":Logging:setTrace (HTTP)
+"1"..>"2":Logging:setTrace (HTTP)
+"6"..>"2":Logging:setTrace (HTTP)
+"6"..>"2":Logging:setTrace (HTTP)
+"7"..>"2":Logging:setTrace (HTTP)
+"7"..>"2":Logging:setTrace (HTTP)
+"7"..>"2":Logging:setTrace (HTTP)
+"3"..>"2":Logging:setTrace (HTTP)
+"3"..>"2":Logging:setTrace (HTTP)
+"4"..>"2":Logging:logtrace (HTTP)
+@enduml

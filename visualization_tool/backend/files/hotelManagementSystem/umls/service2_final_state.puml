@@ -1,0 +1,208 @@
+@startuml
+package "2"{
+class IWorkflowService
+class WorkflowDTO
+class Employee
+class EmployeeServiceImpl
+class WorkflowService
+class EmployeeController
+class EmployeeService
+class EmployeeDao
+class EmployeeDTO
+class LoginController
+class EmployeeQueryDTO
+class MenuController
+class ExtAjaxResponse
+class SessionUtil
+class ProcessDefinitionController
+class ExcelUtils
+class ExportExcel
+class ExtForm
+class ProcessDefinitionDTO
+class EmployeeServiceHandleRequest
+class SessionUtilHandleRequest
+class EmployeeHandleRequest
+class EmployeeDaoHandleRequest
+class IWorkflowServiceHandleRequest
+class WorkflowDTOHandleRequest
+class DeptServiceRequestInterfaceImpl
+class DepartmentRequestInterfaceImpl
+class BeanUtilsRequestInterfaceImpl
+class GroupRoleServiceRequestInterfaceImpl
+class GroupRoleRequestInterfaceImpl
+class ExtjsPageRequestRequestInterfaceImpl
+interface DeptServiceDTOInterface
+interface DeptServiceRequestInterface
+interface DepartmentRequestInterface
+interface BeanUtilsRequestInterface
+interface GroupRoleServiceDTOInterface
+interface GroupRoleServiceRequestInterface
+interface GroupRoleRequestInterface
+interface ExtjsPageRequestDTOInterface
+interface ExtjsPageRequestRequestInterface
+class SchedulEventDTO
+class BcardDTO
+class DepartmentDTO
+class DeptServiceDTO
+class GroupRoleDTO
+class GroupRoleServiceDTO
+class ExtjsPageRequestDTO
+class TravelDTO
+class LeaveDTO
+class WorkDTO
+}
+package "0"{
+class RoomCleanController
+class RoomCleanController
+}
+package "1"{
+class BcardServiceImpl
+class BcardServiceImpl
+class BcardServiceImpl
+class BcardController
+class BcardController
+class BcardController
+}
+package "3"{
+class DeptService
+class Department
+class DeptService
+class BeanUtils
+class Department
+class Department
+class IDeptService
+class IDeptService
+class DeptController
+class DeptController
+}
+package "4"{
+class InStorageService
+class InStorageService
+class InStorageService
+class InStorageService
+class InStorageController
+}
+package "5"{
+class GroupRoleService
+class GroupRole
+class GroupRoleService
+class GroupRole
+class GroupRoleImpl
+}
+package "6"{
+class TravelServiceImpl
+class TravelServiceImpl
+class TravelServiceImpl
+class TravelServiceImpl
+class TravelController
+class TravelController
+class TravelController
+}
+package "7"{
+class workServiceImpl
+class workServiceImpl
+class workController
+}
+package "8"{
+class LeaveService
+class LeaveService
+class LeaveService
+class ReportBackEndProcessor
+class ReportBackEndProcessor
+class AfterModifyApplyContentProcessor
+class AfterModifyApplyContentProcessor
+class LeaveController
+class LeaveController
+class LeaveController
+}
+package "9"{
+class CalendarEventController
+class CalendarEventController
+class CalendarEventController
+class SchedulEventServiceImpl
+}
+package "10"{
+class ExtjsPageRequest
+class ExtjsPageRequest
+class OutController
+class InController
+class InSendController
+class InSendController
+}
+package "11"{
+class RoomOrderService
+class RoomOrderController
+}
+package "12"{
+class SalaryService
+}
+package "13"{
+}
+package "14"{
+}
+package "15"{
+}
+package "16"{
+}
+"2"..>"3":DeptService:findByDeptName(HTTP)
+"2"..>"3":Department:getDeptName(HTTP)
+"2"..>"3":DeptService:findByDeptName(HTTP)
+"2"..>"3":BeanUtils:copyProperties(HTTP)
+"2"..>"3":Department:getDeptName(HTTP)
+"2"..>"3":Department:getDeptName(HTTP)
+"2"..>"5":GroupRoleService:findByGroupName(HTTP)
+"2"..>"5":GroupRole:getGroupId(HTTP)
+"2"..>"5":GroupRoleService:findByGroupName(HTTP)
+"2"..>"5":GroupRole:getGroupId(HTTP)
+"2"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"2"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"0"..>"2":SessionUtil:getUserName (HTTP)
+"0"..>"2":EmployeeService:findByUserName (HTTP)
+"1"..>"2":IWorkflowService:startWorkflow (HTTP)
+"1"..>"2":WorkflowDTO:getBusinessKey (HTTP)
+"1"..>"2":Employee:getEmpName (HTTP)
+"1"..>"2":SessionUtil:getUserName (HTTP)
+"1"..>"2":EmployeeService:findByUserName (HTTP)
+"1"..>"2":Employee:getDepartmentes (HTTP)
+"3"..>"2":EmployeeService:findByEmpNameAndEmpNo (HTTP)
+"3"..>"2":Employee:getEmp_id (HTTP)
+"3"..>"2":EmployeeService:findByEmpNo (HTTP)
+"3"..>"2":Employee:getEmp_id (HTTP)
+"4"..>"2":Employee:getUserName (HTTP)
+"4"..>"2":IWorkflowService:startWorkflow (HTTP)
+"4"..>"2":EmployeeDao:findByUserName (HTTP)
+"4"..>"2":WorkflowDTO:getBusinessKey (HTTP)
+"4"..>"2":SessionUtil:getUserName (HTTP)
+"5"..>"2":IWorkflowService:addGroup (HTTP)
+"6"..>"2":IWorkflowService:startWorkflow (HTTP)
+"6"..>"2":WorkflowDTO:getBusinessKey (HTTP)
+"6"..>"2":Employee:getEmpName (HTTP)
+"6"..>"2":EmployeeService:findByUserName (HTTP)
+"6"..>"2":SessionUtil:getUserName (HTTP)
+"6"..>"2":EmployeeService:findByEmpNameAndEmpNo (HTTP)
+"6"..>"2":Employee:getUserName (HTTP)
+"7"..>"2":EmployeeService:findByUserName (HTTP)
+"7"..>"2":Employee:getEmpNo (HTTP)
+"7"..>"2":SessionUtil:getUserName (HTTP)
+"8"..>"2":IWorkflowService:startWorkflow (HTTP)
+"8"..>"2":WorkflowDTO:getBusinessKey (HTTP)
+"8"..>"2":Employee:getEmpName (HTTP)
+"8"..>"2":Employee:getDepartmentes (HTTP)
+"8"..>"2":EmployeeService:findByEmpNo (HTTP)
+"8"..>"2":Employee:getDepartmentes (HTTP)
+"8"..>"2":EmployeeService:findByEmpNo (HTTP)
+"8"..>"2":SessionUtil:getUserName (HTTP)
+"8"..>"2":EmployeeService:findByUserName (HTTP)
+"8"..>"2":Employee:getDepartmentes (HTTP)
+"9"..>"2":EmployeeService:findByEmpNameAndEmpNo (HTTP)
+"9"..>"2":SessionUtil:getUserName (HTTP)
+"9"..>"2":Employee:getDepartmentes (HTTP)
+"9"..>"2":Employee:getEmpName (HTTP)
+"10"..>"2":Employee:getUserName (HTTP)
+"10"..>"2":Employee:getUserName (HTTP)
+"10"..>"2":SessionUtil:getUserName (HTTP)
+"10"..>"2":EmployeeService:findByUserName (HTTP)
+"11"..>"2":EmployeeDao:findByUserName (HTTP)
+"11"..>"2":SessionUtil:getUser (HTTP)
+"12"..>"2":Employee:getEmpNo (HTTP)
+@enduml

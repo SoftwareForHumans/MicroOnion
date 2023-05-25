@@ -1,0 +1,57 @@
+@startuml
+package "Monolith" {
+package "2"{
+class IWorkflowService
+class WorkflowDTO
+class Employee
+class EmployeeServiceImpl
+class WorkflowService
+class EmployeeController
+class EmployeeService
+class EmployeeDao
+class EmployeeDTO
+class LoginController
+class EmployeeQueryDTO
+class MenuController
+class ExtAjaxResponse
+class SessionUtil
+class ProcessDefinitionController
+class ExcelUtils
+class ExportExcel
+class ExtForm
+class ProcessDefinitionDTO
+}
+}
+package "0"{
+}
+package "1"{
+}
+package "3"{
+}
+package "4"{
+}
+package "5"{
+}
+package "6"{
+}
+package "7"{
+}
+package "8"{
+}
+package "9"{
+}
+package "10"{
+}
+package "11"{
+}
+package "12"{
+}
+package "13"{
+}
+package "14"{
+}
+package "15"{
+}
+package "16"{
+}
+@enduml

@@ -1,0 +1,124 @@
+@startuml
+package "7"{
+class workServiceImpl
+class Work
+class WorkDao
+class workService
+class WorkQueryDTO
+class workController
+class ExtTotalworkForm
+class WorkTatalRecord
+class WorkEmpDTO
+class ExtworkForm
+class WorkRecord
+class WorkEmpChart
+class Workchart
+class SchedulQueryDTORequestInterfaceImpl
+class SchedulEventServiceRequestInterfaceImpl
+class SchedulEventRequestInterfaceImpl
+class CalendarRequestInterfaceImpl
+class DepartmentRequestInterfaceImpl
+class IDeptServiceRequestInterfaceImpl
+class BeanUtilsRequestInterfaceImpl
+class ExtjsPageRequestRequestInterfaceImpl
+class TravelServiceRequestInterfaceImpl
+class ILeaveServiceRequestInterfaceImpl
+class EmployeeServiceRequestInterfaceImpl
+class EmployeeRequestInterfaceImpl
+class SessionUtilRequestInterfaceImpl
+interface SchedulQueryDTORequestInterface
+interface SchedulEventServiceDTOInterface
+interface SchedulEventServiceRequestInterface
+interface SchedulEventRequestInterface
+interface CalendarRequestInterface
+interface DepartmentRequestInterface
+interface IDeptServiceDTOInterface
+interface IDeptServiceRequestInterface
+interface BeanUtilsRequestInterface
+interface ExtjsPageRequestDTOInterface
+interface ExtjsPageRequestRequestInterface
+interface TravelServiceDTOInterface
+interface TravelServiceRequestInterface
+interface ILeaveServiceDTOInterface
+interface ILeaveServiceRequestInterface
+interface EmployeeServiceDTOInterface
+interface EmployeeServiceRequestInterface
+interface EmployeeDTOInterface
+interface EmployeeRequestInterface
+interface SessionUtilRequestInterface
+class SchedulEventServiceDTO
+class IDeptServiceDTO
+class DepartmentDTO
+class ExtjsPageRequestDTO
+class TravelServiceDTO
+class ILeaveServiceDTO
+class EmployeeServiceDTO
+class EmployeeDTO
+class IWorkflowServiceDTO
+class ExtAjaxResponseDTO
+}
+package "0"{
+}
+package "1"{
+}
+package "3"{
+class Department
+class IDeptService
+class BeanUtils
+class IDeptService
+}
+package "4"{
+}
+package "5"{
+}
+package "6"{
+class TravelService
+}
+package "8"{
+class ILeaveService
+}
+package "9"{
+class SchedulQueryDTO
+class SchedulEventService
+class SchedulEvent
+class Calendar
+class SchedulEventService
+}
+package "10"{
+class ExtjsPageRequest
+}
+package "11"{
+}
+package "12"{
+}
+package "13"{
+}
+package "14"{
+}
+package "15"{
+}
+package "16"{
+}
+package "Monolith" {
+package "2"{
+class EmployeeService
+class Employee
+class SessionUtil
+}
+}
+"7"..>"9":SchedulQueryDTO:setUserName(HTTP)
+"7"..>"9":SchedulEventService:findByDTO(HTTP)
+"7"..>"9":SchedulEvent:getCalendar(HTTP)
+"7"..>"9":Calendar:getTitle(HTTP)
+"7"..>"9":SchedulEventService:findattenceTotalTime(HTTP)
+"7"..>"3":Department:getDeptName(HTTP)
+"7"..>"3":IDeptService:findByDeptName(HTTP)
+"7"..>"3":BeanUtils:copyProperties(HTTP)
+"7"..>"3":IDeptService:findByDeptName(HTTP)
+"7"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"7"..>"6":TravelService:findTotalTravelAllowance(HTTP)
+"7"..>"8":ILeaveService:findTotalLeaveTimes(HTTP)
+"7"..>"2":EmployeeService:findByUserName(HTTP)
+"7"..>"2":Employee:getEmpNo(HTTP)
+"7"..>"2":SessionUtil:getUserName(HTTP)
+@enduml

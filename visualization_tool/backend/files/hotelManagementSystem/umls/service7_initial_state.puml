@@ -1,0 +1,74 @@
+@startuml
+package "Monolith" {
+package "7"{
+class workServiceImpl
+class Work
+class WorkDao
+class workService
+class WorkQueryDTO
+class workController
+class ExtTotalworkForm
+class WorkTatalRecord
+class WorkEmpDTO
+class ExtworkForm
+class WorkRecord
+class WorkEmpChart
+class Workchart
+}
+package "2"{
+class EmployeeService
+class Employee
+class IWorkflowService
+class ExtAjaxResponse
+class Employee
+class Employee
+class Employee
+class ExtAjaxResponse
+class SessionUtil
+class EmployeeService
+class ExtAjaxResponse
+}
+}
+package "0"{
+}
+package "1"{
+}
+package "3"{
+}
+package "4"{
+}
+package "5"{
+}
+package "6"{
+}
+package "8"{
+}
+package "9"{
+}
+package "10"{
+}
+package "11"{
+}
+package "12"{
+}
+package "13"{
+}
+package "14"{
+}
+package "15"{
+}
+package "16"{
+}
+"7"-->"2":EmployeeService:methodInvocation, variableType
+"7"-->"2":Employee:methodInvocation, methodVariable
+"7"-->"2":IWorkflowService:variableType
+"7"-->"2":ExtAjaxResponse:methodVariable
+"7"-->"2":Employee:variableType, methodVariable
+"7"-->"2":Employee:methodVariable
+"7"-->"2":Employee:methodVariable
+"7"-->"2":ExtAjaxResponse:methodVariable
+"7"-->"2":SessionUtil:methodInvocation
+"7"-->"2":EmployeeService:variableType
+"7"-->"2":ExtAjaxResponse:methodVariable
+"2"-->"7":Work:methodVariable
+@enduml

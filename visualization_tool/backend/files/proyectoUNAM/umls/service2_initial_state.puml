@@ -1,0 +1,50 @@
+@startuml
+package "Monolith" {
+package "2"{
+class Certificado
+class DescargasController
+class ClienteCertificadoController
+class CertificadoMasivoController
+class Logging
+class Log_sysRep
+class Log_evento_sysRep
+class Log_sys
+class Url_wsRep
+class Url_ws
+class Log_evento_sys
+class AuditoriasController
+class CertificadoRep
+class SeguridadPDF
+}
+package "3"{
+class Grupo
+class Grupo
+class GrupoRep
+class Grupo
+class GrupoRep
+}
+package "4"{
+}
+package "8"{
+}
+}
+package "0"{
+}
+package "1"{
+}
+package "5"{
+}
+package "6"{
+}
+package "7"{
+}
+"2"-->"3":Grupo:variableType, methodVariable, databaseDependency
+"2"-->"3":Grupo:methodInvocation, methodVariable
+"2"-->"3":GrupoRep:methodInvocation, variableType
+"2"-->"3":Grupo:methodInvocation
+"2"-->"3":GrupoRep:variableType
+"3"-->"2":Certificado:methodVariable, databaseDependency
+"3"-->"2":Logging:methodInvocation, variableType
+"3"-->"2":Logging:methodInvocation, variableType
+"4"-->"2":Logging:methodInvocation, variableType
+@enduml

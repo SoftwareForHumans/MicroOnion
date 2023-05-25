@@ -1,0 +1,104 @@
+@startuml
+package "9"{
+class SchedulEvent
+class SchedulEventDao
+class CalendarEventController
+class SchedulEventService
+class SchedulEventServiceImpl
+class SchedulQueryDTO
+class CalendarContreller
+class Calendar
+class SchedulEventDto
+class SchedulEventEmpDTO
+class EventCalendarDTO
+class CalendarDTO
+class CalendarService
+class CalendarServiceImpl
+class ExtResultJson
+class CalendarDao
+class EmployeeServiceRequestInterfaceImpl
+class SessionUtilRequestInterfaceImpl
+class EmployeeRequestInterfaceImpl
+class BeanUtilsRequestInterfaceImpl
+class DeptServiceRequestInterfaceImpl
+class DepartmentRequestInterfaceImpl
+class SchedulQueryDTOHandleRequest
+class SchedulEventServiceHandleRequest
+class SchedulEventHandleRequest
+class CalendarHandleRequest
+interface EmployeeServiceDTOInterface
+interface EmployeeServiceRequestInterface
+interface SessionUtilRequestInterface
+interface EmployeeRequestInterface
+interface EmployeeDTOInterface
+interface BeanUtilsRequestInterface
+interface DeptServiceDTOInterface
+interface DeptServiceRequestInterface
+interface DepartmentRequestInterface
+class EmployeeDTO
+class EmployeeServiceDTO
+class ExtAjaxResponseDTO
+class DeptServiceDTO
+class DepartmentDTO
+}
+package "16"{
+}
+package "Monolith" {
+package "0"{
+}
+package "1"{
+}
+package "2"{
+class EmployeeService
+class SessionUtil
+class Employee
+class Employee
+}
+package "3"{
+class BeanUtils
+class DeptService
+class Department
+class BeanUtils
+}
+package "4"{
+}
+package "5"{
+}
+package "6"{
+}
+package "7"{
+class workServiceImpl
+class workServiceImpl
+class workServiceImpl
+class workServiceImpl
+class workController
+}
+package "8"{
+}
+package "10"{
+}
+package "11"{
+}
+package "12"{
+}
+package "13"{
+}
+package "14"{
+}
+package "15"{
+}
+}
+"9"..>"2":EmployeeService:findByEmpNameAndEmpNo(HTTP)
+"9"..>"2":SessionUtil:getUserName(HTTP)
+"9"..>"2":Employee:getDepartmentes(HTTP)
+"9"..>"2":Employee:getEmpName(HTTP)
+"9"..>"3":BeanUtils:copyProperties(HTTP)
+"9"..>"3":DeptService:findByDeptName(HTTP)
+"9"..>"3":Department:getDeptName(HTTP)
+"9"..>"3":BeanUtils:copyProperties(HTTP)
+"7"..>"9":SchedulQueryDTO:setUserName (HTTP)
+"7"..>"9":SchedulEventService:findByDTO (HTTP)
+"7"..>"9":SchedulEvent:getCalendar (HTTP)
+"7"..>"9":Calendar:getTitle (HTTP)
+"7"..>"9":SchedulEventService:findattenceTotalTime (HTTP)
+@enduml

@@ -1,0 +1,37 @@
+@startuml
+package "8"{
+class CargaBatchService
+class ResponseGeneric
+class CargaBatchServiceImpl
+class ejemploServiceImpl
+class ejemploService
+class CorreoServiceImpl
+class CorreoService
+class AvisosCorreoDAO
+class CargaBatchServiceDAO
+class ErroresDTO
+class FiltroCorreoDTO
+class ResponseGenericPagination
+class SendMailServiceDTO
+class ProfesorDtoDTO
+class InscripcionDtoDTO
+class CursoDtoDTO
+class GrupoDtoDTO
+}
+package "0"{
+}
+package "1"{
+}
+package "2"{
+}
+package "3"{
+}
+package "4"{
+}
+package "5"{
+}
+package "6"{
+}
+package "7"{
+}
+@enduml

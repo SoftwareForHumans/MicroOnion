@@ -1,0 +1,112 @@
+@startuml
+package "Monolith" {
+package "10"{
+class OutController
+class OutStorage
+class InController
+class DoSend
+class ExtjsPageRequest
+class StockController
+class InSendController
+class IInDetailedService
+class IOutDetailedService
+class IOutStorageService
+class IStockService
+class OutDTO
+class InDetailed
+class InDetailedService
+class OutDetailed
+class OutDetailedService
+class OutStorageService
+class Stock
+class DailyNecessaryDto
+class StockService
+class ShowInDetailedWinGrilDTO
+class IDoSendService
+class InDTO
+class DoSendService
+class StockRepository
+class StockDTO
+class DoSendRepository
+class InSendDTO
+}
+package "0"{
+class RoomCleanRecord
+class OutDetailedRepository
+class OutStorageRepository
+}
+package "2"{
+class Employee
+class Employee
+class Employee
+class ExtAjaxResponse
+class Employee
+class ExtAjaxResponse
+class SessionUtil
+class EmployeeService
+class ExtAjaxResponse
+}
+package "6"{
+}
+package "7"{
+}
+package "8"{
+}
+package "12"{
+}
+package "14"{
+}
+package "15"{
+}
+}
+package "1"{
+}
+package "3"{
+}
+package "4"{
+}
+package "5"{
+}
+package "9"{
+}
+package "11"{
+}
+package "13"{
+}
+package "16"{
+}
+"10"-->"0":RoomCleanRecord:variableType, methodVariable
+"10"-->"0":OutDetailedRepository:methodInvocation, variableType
+"10"-->"0":OutStorageRepository:methodInvocation, variableType
+"10"-->"2":Employee:methodInvocation
+"10"-->"2":Employee:variableType, methodVariable
+"10"-->"2":Employee:methodInvocation
+"10"-->"2":ExtAjaxResponse:methodVariable
+"10"-->"2":Employee:variableType, methodVariable
+"10"-->"2":ExtAjaxResponse:methodVariable
+"10"-->"2":SessionUtil:methodInvocation
+"10"-->"2":EmployeeService:methodInvocation, variableType
+"10"-->"2":ExtAjaxResponse:methodVariable
+"0"-->"10":OutStorage:variableType, methodVariable
+"0"-->"10":OutStorage:methodInvocation
+"0"-->"10":OutDetailed:methodInvocation
+"0"-->"10":IStockService:methodInvocation, variableType
+"0"-->"10":Stock:methodInvocation
+"0"-->"10":ExtjsPageRequest:methodVariable
+"0"-->"10":IStockService:methodInvocation, variableType
+"0"-->"10":DailyNecessaryDto:methodVariable
+"0"-->"10":ExtjsPageRequest:methodInvocation, methodVariable
+"0"-->"10":StockRepository:methodInvocation, variableType
+"0"-->"10":OutStorage:methodInvocation
+"0"-->"10":OutDetailed:methodInvocation
+"0"-->"10":Stock:methodInvocation
+"0"-->"10":ExtjsPageRequest:methodVariable
+"2"-->"10":ExtjsPageRequest:methodInvocation, methodVariable
+"2"-->"10":ExtjsPageRequest:methodInvocation, methodVariable
+"6"-->"10":ExtjsPageRequest:methodInvocation, methodVariable
+"7"-->"10":ExtjsPageRequest:methodInvocation, methodVariable
+"8"-->"10":ExtjsPageRequest:methodInvocation, methodVariable
+"12"-->"10":ExtjsPageRequest:methodInvocation, methodVariable
+"14"-->"10":ExtjsPageRequest:methodInvocation, methodVariable
+"15"-->"10":ExtjsPageRequest:methodInvocation, methodVariable
+@enduml

@@ -1,0 +1,114 @@
+@startuml
+package "8"{
+class LeaveService
+class Leave
+class ReportBackEndProcessor
+class AfterModifyApplyContentProcessor
+class LeaveController
+class LeaveQueryDTO
+class ILeaveService
+class LeaveDTO
+class LeaveEmpDTO
+class LeaveRepository
+class WorkflowVariableRequestInterfaceImpl
+class DepartmentRequestInterfaceImpl
+class BeanUtilsRequestInterfaceImpl
+class ExtjsPageRequestRequestInterfaceImpl
+class IWorkflowServiceRequestInterfaceImpl
+class WorkflowDTORequestInterfaceImpl
+class EmployeeRequestInterfaceImpl
+class EmployeeServiceRequestInterfaceImpl
+class SessionUtilRequestInterfaceImpl
+class ILeaveServiceHandleRequest
+interface WorkflowVariableDTOInterface
+interface WorkflowVariableRequestInterface
+interface DepartmentRequestInterface
+interface BeanUtilsRequestInterface
+interface ExtjsPageRequestDTOInterface
+interface ExtjsPageRequestRequestInterface
+interface IWorkflowServiceDTOInterface
+interface IWorkflowServiceRequestInterface
+interface WorkflowDTORequestInterface
+interface EmployeeRequestInterface
+interface EmployeeServiceDTOInterface
+interface EmployeeServiceRequestInterface
+interface SessionUtilRequestInterface
+class WorkflowVariableDTO
+class DepartmentDTO
+class ExtjsPageRequestDTO
+class IWorkflowServiceDTO
+class EmployeeDTO
+class EmployeeServiceDTO
+class ExtAjaxResponseDTO
+}
+package "0"{
+}
+package "1"{
+class WorkflowVariable
+}
+package "3"{
+class Department
+class Department
+class Department
+class BeanUtils
+class Department
+}
+package "4"{
+}
+package "5"{
+}
+package "6"{
+}
+package "9"{
+}
+package "10"{
+class ExtjsPageRequest
+}
+package "11"{
+}
+package "12"{
+}
+package "13"{
+}
+package "14"{
+}
+package "16"{
+}
+package "Monolith" {
+package "2"{
+class IWorkflowService
+class WorkflowDTO
+class Employee
+class Employee
+class EmployeeService
+class Employee
+class EmployeeService
+class SessionUtil
+class EmployeeService
+class Employee
+}
+package "7"{
+class workController
+}
+package "15"{
+}
+}
+"8"..>"1":WorkflowVariable:getVariableMap(HTTP)
+"8"..>"3":Department:getDeptName(HTTP)
+"8"..>"3":Department:getManagerNo(HTTP)
+"8"..>"3":Department:getManagerNo(HTTP)
+"8"..>"3":BeanUtils:copyProperties(HTTP)
+"8"..>"3":Department:getManagerNo(HTTP)
+"8"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"8"..>"2":IWorkflowService:startWorkflow(HTTP)
+"8"..>"2":WorkflowDTO:getBusinessKey(HTTP)
+"8"..>"2":Employee:getEmpName(HTTP)
+"8"..>"2":Employee:getDepartmentes(HTTP)
+"8"..>"2":EmployeeService:findByEmpNo(HTTP)
+"8"..>"2":Employee:getDepartmentes(HTTP)
+"8"..>"2":EmployeeService:findByEmpNo(HTTP)
+"8"..>"2":SessionUtil:getUserName(HTTP)
+"8"..>"2":EmployeeService:findByUserName(HTTP)
+"8"..>"2":Employee:getDepartmentes(HTTP)
+"7"..>"8":ILeaveService:findTotalLeaveTimes (HTTP)
+@enduml

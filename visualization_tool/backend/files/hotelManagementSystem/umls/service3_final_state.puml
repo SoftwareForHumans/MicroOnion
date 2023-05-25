@@ -1,0 +1,132 @@
+@startuml
+package "3"{
+class Department
+class IDeptService
+class DeptController
+class DeptService
+class DeptDao
+class DeptDTO
+class DeptQueryDTO
+class DeptDTOCombox
+class BeanUtils
+class BeanUtilsHandleRequest
+class DeptServiceHandleRequest
+class DepartmentHandleRequest
+class EmployeeServiceRequestInterfaceImpl
+class EmployeeRequestInterfaceImpl
+class ExtjsPageRequestRequestInterfaceImpl
+class IDeptServiceHandleRequest
+interface EmployeeServiceDTOInterface
+interface EmployeeServiceRequestInterface
+interface EmployeeRequestInterface
+interface ExtjsPageRequestDTOInterface
+interface ExtjsPageRequestRequestInterface
+class EmployeeDTO
+class EmployeeServiceDTO
+class ExtAjaxResponseDTO
+class GroupRoleDTO
+class ExtjsPageRequestDTO
+}
+package "1"{
+class BcardServiceImpl
+class BcardController
+class BcardController
+}
+package "9"{
+class CalendarEventController
+class CalendarEventController
+class SchedulEventServiceImpl
+class CalendarContreller
+}
+package "11"{
+}
+package "13"{
+}
+package "16"{
+}
+package "Monolith" {
+package "0"{
+class RoomCleanController
+}
+package "2"{
+class EmployeeService
+class Employee
+class EmployeeService
+class Employee
+class EmployeeServiceImpl
+class EmployeeServiceImpl
+class EmployeeController
+class EmployeeController
+class EmployeeController
+class MenuController
+}
+package "4"{
+}
+package "5"{
+class GroupRoleImpl
+class GroupRoleImpl
+class GroupController
+}
+package "6"{
+class TravelServiceImpl
+class TravelController
+}
+package "7"{
+class workServiceImpl
+class workServiceImpl
+class workController
+class workController
+}
+package "8"{
+class LeaveService
+class ReportBackEndProcessor
+class AfterModifyApplyContentProcessor
+class LeaveController
+class LeaveController
+}
+package "10"{
+class ExtjsPageRequest
+}
+package "12"{
+class SalaryService
+}
+package "14"{
+}
+package "15"{
+}
+}
+"3"..>"2":EmployeeService:findByEmpNameAndEmpNo(HTTP)
+"3"..>"2":Employee:getEmp_id(HTTP)
+"3"..>"2":EmployeeService:findByEmpNo(HTTP)
+"3"..>"2":Employee:getEmp_id(HTTP)
+"3"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"1"..>"3":Department:getDeptName (HTTP)
+"1"..>"3":BeanUtils:copyProperties (HTTP)
+"1"..>"3":Department:getManagerNo (HTTP)
+"9"..>"3":BeanUtils:copyProperties (HTTP)
+"9"..>"3":DeptService:findByDeptName (HTTP)
+"9"..>"3":Department:getDeptName (HTTP)
+"9"..>"3":BeanUtils:copyProperties (HTTP)
+"0"..>"3":BeanUtils:copyProperties (HTTP)
+"2"..>"3":DeptService:findByDeptName (HTTP)
+"2"..>"3":Department:getDeptName (HTTP)
+"2"..>"3":DeptService:findByDeptName (HTTP)
+"2"..>"3":BeanUtils:copyProperties (HTTP)
+"2"..>"3":Department:getDeptName (HTTP)
+"2"..>"3":Department:getDeptName (HTTP)
+"5"..>"3":DeptService:findByDeptName (HTTP)
+"5"..>"3":Department:getDeptName (HTTP)
+"5"..>"3":BeanUtils:copyProperties (HTTP)
+"6"..>"3":Department:getDeptName (HTTP)
+"6"..>"3":BeanUtils:copyProperties (HTTP)
+"7"..>"3":Department:getDeptName (HTTP)
+"7"..>"3":IDeptService:findByDeptName (HTTP)
+"7"..>"3":BeanUtils:copyProperties (HTTP)
+"7"..>"3":IDeptService:findByDeptName (HTTP)
+"8"..>"3":Department:getDeptName (HTTP)
+"8"..>"3":Department:getManagerNo (HTTP)
+"8"..>"3":Department:getManagerNo (HTTP)
+"8"..>"3":BeanUtils:copyProperties (HTTP)
+"8"..>"3":Department:getManagerNo (HTTP)
+"12"..>"3":Department:getDeptName (HTTP)
+@enduml

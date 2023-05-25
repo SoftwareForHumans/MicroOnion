@@ -1,0 +1,93 @@
+@startuml
+package "6"{
+class ModificarCursos
+class CursoRep
+class Tipo_cursoRep
+class Curso
+class Tipo_curso
+class ConsultaController
+class ProcessorCurso
+class ConsultaCursoController
+class CursosController
+class ReaderCurso
+class CursoDto
+class ExcelConfig
+class CursoExcelRowMapper
+class LoggingCursoProcessor
+class ProfesorRepRequestInterfaceImpl
+class CursoRepHandleRequest
+class CursoHandleRequest
+class LoggingRequestInterfaceImpl
+interface ProfesorRepDTOInterface
+interface ProfesorRepRequestInterface
+interface LoggingDTOInterface
+interface LoggingRequestInterface
+interface CursoInterface
+class ProfesorRepDTO
+class GeneroRepDTO
+class EstadoRepDTO
+class Grado_profesorRepDTO
+class TurnoRepDTO
+class InscripcionRepDTO
+class LoggingDTO
+class CertificadoDTO
+class GrupoRepDTO
+class GrupoDTO
+}
+package "0"{
+class ProfesorRep
+}
+package "1"{
+class ConsultaInscripcionController
+class ConsultaInscripcionController
+class ProcessorInscripcion
+}
+package "5"{
+}
+package "7"{
+}
+package "Monolith" {
+package "2"{
+class Logging
+class Logging
+class ClienteCertificadoController
+class ClienteCertificadoController
+class CertificadoMasivoController
+class CertificadoMasivoController
+}
+package "3"{
+class BatchController
+class ProcessorGrupo
+class GrupoController
+class GrupoController
+class ModificarGrupos
+class ModificarGrupos
+class ConsultaGrupoController
+}
+package "4"{
+class WebService
+class WebService
+}
+package "8"{
+}
+}
+"6"..>"0":ProfesorRep:findByCompleteNameList(HTTP)
+"6"..>"2":Logging:setTrace(HTTP)
+"6"..>"2":Logging:setTrace(HTTP)
+"1"..>"6":CursoRep:findByParams (HTTP)
+"1"..>"6":Curso:getPk_id_curso (HTTP)
+"1"..>"6":CursoRep:findByNombre (HTTP)
+"2"..>"6":Curso:getClave (HTTP)
+"2"..>"6":CursoRep:findAll (HTTP)
+"2"..>"6":CursoRep:findByUniqueClave (HTTP)
+"2"..>"6":Curso:getGrupos (HTTP)
+"3"..>"6":CursoRep:loadAllCursos (HTTP)
+"3"..>"6":CursoRep:findByNombre (HTTP)
+"3"..>"6":CursoRep:findAll (HTTP)
+"3"..>"6":Curso:getClave (HTTP)
+"3"..>"6":Curso:getClave (HTTP)
+"3"..>"6":CursoRep:findAll (HTTP)
+"3"..>"6":Curso:getClave (HTTP)
+"4"..>"6":CursoRep:findByUniqueClaveCurso (HTTP)
+"4"..>"6":Curso:getPk_id_curso (HTTP)
+@enduml

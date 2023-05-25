@@ -1,0 +1,82 @@
+@startuml
+package "5"{
+class GroupRoleImpl
+class GroupRole
+class GroupController
+class GroupRoleService
+class GroupRoleDTO
+class GroupRoleDao
+class GroupRoleQueryDTO
+class DeptServiceRequestInterfaceImpl
+class DepartmentRequestInterfaceImpl
+class BeanUtilsRequestInterfaceImpl
+class IWorkflowServiceRequestInterfaceImpl
+class ExtjsPageRequestRequestInterfaceImpl
+class GroupRoleServiceHandleRequest
+class GroupRoleHandleRequest
+interface DeptServiceDTOInterface
+interface DeptServiceRequestInterface
+interface DepartmentRequestInterface
+interface BeanUtilsRequestInterface
+interface IWorkflowServiceRequestInterface
+interface ExtjsPageRequestDTOInterface
+interface ExtjsPageRequestRequestInterface
+class DeptServiceDTO
+class DepartmentDTO
+class EmployeeDTO
+class ExtAjaxResponseDTO
+class ExtjsPageRequestDTO
+}
+package "1"{
+}
+package "3"{
+class DeptService
+class Department
+class BeanUtils
+}
+package "4"{
+}
+package "9"{
+}
+package "11"{
+}
+package "13"{
+}
+package "16"{
+}
+package "Monolith" {
+package "0"{
+}
+package "2"{
+class IWorkflowService
+class EmployeeServiceImpl
+class EmployeeServiceImpl
+class EmployeeController
+class EmployeeController
+}
+package "6"{
+}
+package "7"{
+}
+package "8"{
+}
+package "10"{
+class ExtjsPageRequest
+}
+package "12"{
+}
+package "14"{
+}
+package "15"{
+}
+}
+"5"..>"3":DeptService:findByDeptName(HTTP)
+"5"..>"3":Department:getDeptName(HTTP)
+"5"..>"3":BeanUtils:copyProperties(HTTP)
+"5"..>"2":IWorkflowService:addGroup(HTTP)
+"5"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"2"..>"5":GroupRoleService:findByGroupName (HTTP)
+"2"..>"5":GroupRole:getGroupId (HTTP)
+"2"..>"5":GroupRoleService:findByGroupName (HTTP)
+"2"..>"5":GroupRole:getGroupId (HTTP)
+@enduml

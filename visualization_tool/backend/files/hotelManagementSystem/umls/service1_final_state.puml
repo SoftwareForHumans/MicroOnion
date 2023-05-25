@@ -1,0 +1,102 @@
+@startuml
+package "1"{
+class BcardServiceImpl
+class BcardService
+class BcardDao
+class Bcard
+class BcardDTO
+class BcardEmpDTO
+class AfterAttenceModifyApplyContentProcessor
+class BcardController
+class AttenceDeptApproveListener
+class ReportBackAttenceEndProcessor
+class BcardQueryDTO
+class WorkflowVariable
+class IWorkflowServiceRequestInterfaceImpl
+class WorkflowDTORequestInterfaceImpl
+class EmployeeRequestInterfaceImpl
+class SessionUtilRequestInterfaceImpl
+class EmployeeServiceRequestInterfaceImpl
+class DepartmentRequestInterfaceImpl
+class BeanUtilsRequestInterfaceImpl
+class ExtjsPageRequestRequestInterfaceImpl
+class WorkflowVariableHandleRequest
+interface IWorkflowServiceDTOInterface
+interface IWorkflowServiceRequestInterface
+interface WorkflowDTORequestInterface
+interface EmployeeRequestInterface
+interface SessionUtilRequestInterface
+interface EmployeeServiceDTOInterface
+interface EmployeeServiceRequestInterface
+interface DepartmentRequestInterface
+interface BeanUtilsRequestInterface
+interface ExtjsPageRequestDTOInterface
+interface ExtjsPageRequestRequestInterface
+class IWorkflowServiceDTO
+class EmployeeDTO
+class EmployeeServiceDTO
+class ExtAjaxResponseDTO
+class DepartmentDTO
+class ExtjsPageRequestDTO
+}
+package "9"{
+}
+package "11"{
+}
+package "13"{
+}
+package "16"{
+}
+package "Monolith" {
+package "0"{
+}
+package "2"{
+class IWorkflowService
+class WorkflowDTO
+class Employee
+class SessionUtil
+class EmployeeService
+class Employee
+}
+package "3"{
+class Department
+class BeanUtils
+class Department
+}
+package "4"{
+class InStorageController
+}
+package "5"{
+}
+package "6"{
+class TravelController
+}
+package "7"{
+}
+package "8"{
+class LeaveController
+}
+package "10"{
+class ExtjsPageRequest
+}
+package "12"{
+}
+package "14"{
+}
+package "15"{
+}
+}
+"1"..>"2":IWorkflowService:startWorkflow(HTTP)
+"1"..>"2":WorkflowDTO:getBusinessKey(HTTP)
+"1"..>"2":Employee:getEmpName(HTTP)
+"1"..>"2":SessionUtil:getUserName(HTTP)
+"1"..>"2":EmployeeService:findByUserName(HTTP)
+"1"..>"2":Employee:getDepartmentes(HTTP)
+"1"..>"3":Department:getDeptName(HTTP)
+"1"..>"3":BeanUtils:copyProperties(HTTP)
+"1"..>"3":Department:getManagerNo(HTTP)
+"1"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"4"..>"1":WorkflowVariable:getVariableMap (HTTP)
+"6"..>"1":WorkflowVariable:getVariableMap (HTTP)
+"8"..>"1":WorkflowVariable:getVariableMap (HTTP)
+@enduml

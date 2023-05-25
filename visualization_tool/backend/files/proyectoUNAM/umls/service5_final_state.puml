@@ -1,0 +1,39 @@
+@startuml
+package "5"{
+class BatchConfig
+class WriterCurso
+class CursoBatchRep
+class WriterGrupo
+class GrupoBatchRep
+class WriterInscripcion
+class InscripcionBatchRep
+class ProfesorBatchRep
+class WriterProfesor
+class ProcessorProfesorDTO
+class ProfesorDTO
+class ProcessorInscripcionDTO
+class InscripcionDTO
+class ProcessorGrupoDTO
+class GrupoDTO
+class ProcessorCursoDTO
+class CursoDTO
+}
+package "0"{
+}
+package "1"{
+}
+package "7"{
+}
+package "Monolith" {
+package "2"{
+}
+package "3"{
+}
+package "4"{
+}
+package "6"{
+}
+package "8"{
+}
+}
+@enduml

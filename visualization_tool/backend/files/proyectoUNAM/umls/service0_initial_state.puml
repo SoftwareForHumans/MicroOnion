@@ -1,0 +1,120 @@
+@startuml
+package "Monolith" {
+package "0"{
+class Estado
+class Profesor
+class EstadoRep
+class ConsultaProfesorController
+class ProfesoresController
+class ModificarProfesor
+class ModificarAsesores
+class ProcessorProfesor
+class Turno
+class Genero
+class Grado_profesor
+class ProfesorRep
+class ReaderProfesor
+class GeneroRep
+class Grado_profesorRep
+class TurnoRep
+class ProfesorDto
+}
+package "1"{
+class Inscripcion
+class InscripcionRep
+class InscripcionRep
+}
+package "2"{
+class Certificado
+class CertificadoRep
+class Certificado
+class Logging
+class Logging
+class Logging
+}
+package "3"{
+class GrupoRep
+class GrupoRep
+class GrupoRep
+}
+package "4"{
+}
+package "5"{
+}
+package "6"{
+class CursoRep
+class Tipo_cursoRep
+class CursoRep
+class Tipo_cursoRep
+}
+package "8"{
+}
+}
+package "7"{
+}
+"0"-->"1":Inscripcion:methodVariable, databaseDependency
+"0"-->"1":InscripcionRep:variableType
+"0"-->"1":InscripcionRep:variableType
+"0"-->"2":Certificado:methodVariable, databaseDependency
+"0"-->"2":CertificadoRep:methodInvocation, variableType
+"0"-->"2":Certificado:methodInvocation
+"0"-->"2":Logging:methodInvocation, variableType
+"0"-->"2":Logging:methodInvocation, variableType
+"0"-->"2":Logging:methodInvocation, variableType
+"0"-->"3":GrupoRep:methodInvocation, variableType
+"0"-->"3":GrupoRep:variableType
+"0"-->"3":GrupoRep:variableType
+"0"-->"6":CursoRep:variableType
+"0"-->"6":Tipo_cursoRep:variableType
+"0"-->"6":CursoRep:variableType
+"0"-->"6":Tipo_cursoRep:variableType
+"1"-->"0":Profesor:variableType, methodVariable, databaseDependency
+"1"-->"0":ProfesorRep:methodInvocation, variableType
+"1"-->"0":Profesor:methodInvocation
+"1"-->"0":Grado_profesor:methodInvocation
+"1"-->"0":Genero:methodInvocation
+"1"-->"0":Turno:methodInvocation
+"1"-->"0":ProfesorRep:methodInvocation, variableType
+"1"-->"0":ProfesorRep:methodInvocation, variableType
+"1"-->"0":Profesor:methodInvocation
+"1"-->"0":ProfesorRep:methodInvocation, variableType
+"1"-->"0":Profesor:methodInvocation
+"1"-->"0":GeneroRep:variableType
+"1"-->"0":EstadoRep:variableType
+"1"-->"0":Grado_profesorRep:variableType
+"1"-->"0":TurnoRep:variableType
+"2"-->"0":Profesor:variableType, methodVariable, databaseDependency
+"2"-->"0":Profesor:methodInvocation
+"2"-->"0":ProfesorRep:variableType
+"2"-->"0":Profesor:methodInvocation, methodVariable
+"2"-->"0":ProfesorRep:methodInvocation, variableType
+"2"-->"0":ProfesorRep:methodInvocation, variableType
+"2"-->"0":Profesor:methodInvocation
+"3"-->"0":Profesor:variableType, methodVariable, databaseDependency
+"3"-->"0":ProfesorRep:methodInvocation, variableType
+"3"-->"0":Profesor:methodInvocation
+"3"-->"0":ProfesorRep:methodInvocation, variableType
+"3"-->"0":ProfesorRep:methodInvocation, variableType
+"3"-->"0":Profesor:methodInvocation
+"3"-->"0":Profesor:methodInvocation
+"3"-->"0":ProfesorRep:methodInvocation, variableType
+"3"-->"0":GeneroRep:variableType
+"3"-->"0":EstadoRep:variableType
+"3"-->"0":Grado_profesorRep:variableType
+"3"-->"0":TurnoRep:variableType
+"4"-->"0":ProfesorRep:methodInvocation, variableType
+"4"-->"0":Profesor:methodInvocation
+"5"-->"0":ProcessorProfesor:variableType
+"5"-->"0":Profesor:methodVariable
+"6"-->"0":ProfesorRep:variableType
+"6"-->"0":GeneroRep:variableType
+"6"-->"0":EstadoRep:variableType
+"6"-->"0":Grado_profesorRep:variableType
+"6"-->"0":TurnoRep:variableType
+"6"-->"0":ProfesorRep:methodInvocation, variableType
+"8"-->"0":ProfesorDto:methodVariable
+"8"-->"0":ProfesorDto:methodVariable
+"8"-->"0":ProfesorDto:methodVariable
+"8"-->"0":ProfesorDto:methodVariable
+"8"-->"0":ProfesorDto:variableType, methodVariable
+@enduml

@@ -136,24 +136,23 @@ exports.getInitialState = async (req, res) => {
     index = parseInt(index);
 
     const folder = getProjectFolder(project);
-    const jsonPath2 = path.join(
+    const jsonPath = path.join(
       __dirname,
       "..",
       "files",
       folder,
       "/snapshot" + index + ".json"
     );
-
-    const data2 = fs.readFileSync(jsonPath2, "utf8");
-    let jsonData2 = JSON.parse(data2);
-    initialState = jsonData2["services"];
-    createInitialStateUML(project, service, initialState);
+    const data = fs.readFileSync(jsonPath, "utf8");
+    let jsonData = JSON.parse(data);
+    initialState = jsonData["services"];
+    createInitialStateUML(folder, service, initialState);
 
     const filename = path.join(
       __dirname,
       "..",
       "files",
-      project,
+      folder,
       "/umls/service" + service + "_initial" + "_state.png" 
     );
 
@@ -178,24 +177,23 @@ exports.getFinalState = async (req, res) => {
     index = parseInt(index);
 
     const folder = getProjectFolder(project);
-    const jsonPath3 = path.join(
+    const jsonPath = path.join(
       __dirname,
       "..",
       "files",
       folder,
       "/snapshot" + (index + 1) + ".json"
     );
-
-    const data3 = fs.readFileSync(jsonPath3, "utf8");
-    let jsonData3 = JSON.parse(data3);
-    finalState = jsonData3["services"];
-    createFinalStateUML(project, service, finalState);
+    const data = fs.readFileSync(jsonPath, "utf8");
+    let jsonData = JSON.parse(data);
+    finalState = jsonData["services"];
+    createFinalStateUML(folder, service, finalState);
 
     const filename = path.join(
       __dirname,
       "..",
       "files",
-      project,
+      folder,
       "/umls/service" + service + "_final" + "_state.png"
     );
 
@@ -324,7 +322,6 @@ function createInitialStateUML(project, service, state) {
   let needed_classes = new Map();
   let dependents = [];
   let independents = [];
-  // interessa mostrar as dependencias do microserviço que vem - dele e dos outros a ele
 
   res += 'package "Monolith" {\n';
 

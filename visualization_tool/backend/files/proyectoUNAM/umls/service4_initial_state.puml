@@ -1,0 +1,32 @@
+@startuml
+package "Monolith" {
+package "4"{
+class WebService
+class Url_ws_profesorRep
+class Url_ws_cursoRep
+class Url_ws_inscripcionRep
+class ReturnTypeOne
+class ReturnTypeTwo
+class ReturnTypeThree
+class Url_ws_profesor
+class Url_ws_curso
+class Url_ws_inscripcion
+}
+package "8"{
+}
+}
+package "0"{
+}
+package "1"{
+}
+package "2"{
+}
+package "3"{
+}
+package "5"{
+}
+package "6"{
+}
+package "7"{
+}
+@enduml

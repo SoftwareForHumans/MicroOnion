@@ -1,0 +1,74 @@
+@startuml
+package "4"{
+class WebService
+class Url_ws_profesorRep
+class Url_ws_cursoRep
+class Url_ws_inscripcionRep
+class ReturnTypeOne
+class ReturnTypeTwo
+class ReturnTypeThree
+class Url_ws_profesor
+class Url_ws_curso
+class Url_ws_inscripcion
+class ProfesorRepRequestInterfaceImpl
+class ProfesorRequestInterfaceImpl
+class InscripcionRepRequestInterfaceImpl
+class CursoRepRequestInterfaceImpl
+class CursoRequestInterfaceImpl
+class LoggingRequestInterfaceImpl
+class GrupoRepRequestInterfaceImpl
+class GrupoRequestInterfaceImpl
+interface ProfesorRepDTOInterface
+interface ProfesorRepRequestInterface
+interface ProfesorRequestInterface
+interface InscripcionRepDTOInterface
+interface InscripcionRepRequestInterface
+interface CursoRepDTOInterface
+interface CursoRepRequestInterface
+interface CursoRequestInterface
+interface LoggingDTOInterface
+interface LoggingRequestInterface
+interface GrupoRepDTOInterface
+interface GrupoRepRequestInterface
+interface GrupoRequestInterface
+class ProfesorRepDTO
+class InscripcionRepDTO
+class CursoRepDTO
+class LoggingDTO
+class GrupoRepDTO
+}
+package "0"{
+class ProfesorRep
+class Profesor
+}
+package "1"{
+class InscripcionRep
+}
+package "2"{
+class Logging
+}
+package "3"{
+class GrupoRep
+class Grupo
+}
+package "5"{
+}
+package "6"{
+class CursoRep
+class Curso
+}
+package "7"{
+}
+package "Monolith" {
+package "8"{
+}
+}
+"4"..>"0":ProfesorRep:findByCurp(HTTP)
+"4"..>"0":Profesor:getPk_id_profesor(HTTP)
+"4"..>"1":InscripcionRep:saveI(HTTP)
+"4"..>"6":CursoRep:findByUniqueClaveCurso(HTTP)
+"4"..>"6":Curso:getPk_id_curso(HTTP)
+"4"..>"2":Logging:logtrace(HTTP)
+"4"..>"3":GrupoRep:findByClaveGrupoIdCurso(HTTP)
+"4"..>"3":Grupo:getPk_id_grupo(HTTP)
+@enduml

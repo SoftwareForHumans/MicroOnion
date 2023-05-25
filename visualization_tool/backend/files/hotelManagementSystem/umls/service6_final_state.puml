@@ -1,0 +1,102 @@
+@startuml
+package "6"{
+class TravelServiceImpl
+class Travel
+class TravelController
+class TravelQueryDTO
+class TravelService
+class TravelEmpDTO
+class TravelDTO
+class afterEmployModifyApplyContentProcessor
+class travelPocessReportBack
+class TravelDao
+class WorkflowVariableRequestInterfaceImpl
+class DepartmentRequestInterfaceImpl
+class BeanUtilsRequestInterfaceImpl
+class ExtjsPageRequestRequestInterfaceImpl
+class IWorkflowServiceRequestInterfaceImpl
+class WorkflowDTORequestInterfaceImpl
+class EmployeeRequestInterfaceImpl
+class EmployeeServiceRequestInterfaceImpl
+class SessionUtilRequestInterfaceImpl
+class TravelServiceHandleRequest
+interface WorkflowVariableDTOInterface
+interface WorkflowVariableRequestInterface
+interface DepartmentRequestInterface
+interface BeanUtilsRequestInterface
+interface ExtjsPageRequestDTOInterface
+interface ExtjsPageRequestRequestInterface
+interface IWorkflowServiceDTOInterface
+interface IWorkflowServiceRequestInterface
+interface WorkflowDTORequestInterface
+interface EmployeeRequestInterface
+interface EmployeeServiceDTOInterface
+interface EmployeeServiceRequestInterface
+interface SessionUtilRequestInterface
+class WorkflowVariableDTO
+class DepartmentDTO
+class ExtjsPageRequestDTO
+class IWorkflowServiceDTO
+class EmployeeServiceDTO
+class EmployeeDTO
+class ExtAjaxResponseDTO
+}
+package "0"{
+}
+package "1"{
+class WorkflowVariable
+}
+package "3"{
+class Department
+class BeanUtils
+}
+package "4"{
+}
+package "5"{
+}
+package "9"{
+}
+package "10"{
+class ExtjsPageRequest
+}
+package "11"{
+}
+package "12"{
+}
+package "13"{
+}
+package "14"{
+}
+package "16"{
+}
+package "Monolith" {
+package "2"{
+class IWorkflowService
+class WorkflowDTO
+class Employee
+class EmployeeService
+class SessionUtil
+class EmployeeService
+class Employee
+}
+package "7"{
+class workController
+}
+package "8"{
+}
+package "15"{
+}
+}
+"6"..>"1":WorkflowVariable:getVariableMap(HTTP)
+"6"..>"3":Department:getDeptName(HTTP)
+"6"..>"3":BeanUtils:copyProperties(HTTP)
+"6"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"6"..>"2":IWorkflowService:startWorkflow(HTTP)
+"6"..>"2":WorkflowDTO:getBusinessKey(HTTP)
+"6"..>"2":Employee:getEmpName(HTTP)
+"6"..>"2":EmployeeService:findByUserName(HTTP)
+"6"..>"2":SessionUtil:getUserName(HTTP)
+"6"..>"2":EmployeeService:findByEmpNameAndEmpNo(HTTP)
+"6"..>"2":Employee:getUserName(HTTP)
+"7"..>"6":TravelService:findTotalTravelAllowance (HTTP)
+@enduml

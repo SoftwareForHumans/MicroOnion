@@ -1,0 +1,111 @@
+@startuml
+package "4"{
+class InStorageService
+class InStorageRepository
+class InStorage
+class InStorageController
+class ConfirmReceipt
+class InStorageDTO
+class Pay
+class IInStorageService
+class InDetailedRepository
+class InStorageDetailedDTO
+class MailUtil
+class WorkflowVariableRequestInterfaceImpl
+class EmployeeRequestInterfaceImpl
+class IWorkflowServiceRequestInterfaceImpl
+class EmployeeDaoRequestInterfaceImpl
+class WorkflowDTORequestInterfaceImpl
+class SessionUtilRequestInterfaceImpl
+class InDetailedRequestInterfaceImpl
+class ExtjsPageRequestRequestInterfaceImpl
+class InStorageHandleRequest
+class IInStorageServiceHandleRequest
+class InDetailedRepositoryHandleRequest
+class InStorageRepositoryHandleRequest
+interface WorkflowVariableDTOInterface
+interface WorkflowVariableRequestInterface
+interface EmployeeRequestInterface
+interface IWorkflowServiceDTOInterface
+interface IWorkflowServiceRequestInterface
+interface EmployeeDaoDTOInterface
+interface EmployeeDaoRequestInterface
+interface WorkflowDTODTOInterface
+interface WorkflowDTORequestInterface
+interface SessionUtilRequestInterface
+interface InDetailedRequestInterface
+interface ExtjsPageRequestDTOInterface
+interface ExtjsPageRequestRequestInterface
+class WorkflowVariableDTO
+class IWorkflowServiceDTO
+class EmployeeDaoDTO
+class WorkflowDTODTO
+class EmployeeDTO
+class EmployeeServiceDTO
+class ExtAjaxResponseDTO
+class InDetailedDTO
+class ExtjsPageRequestDTO
+}
+package "1"{
+class WorkflowVariable
+}
+package "3"{
+}
+package "9"{
+}
+package "11"{
+}
+package "13"{
+}
+package "16"{
+}
+package "Monolith" {
+package "0"{
+}
+package "2"{
+class Employee
+class IWorkflowService
+class EmployeeDao
+class WorkflowDTO
+class SessionUtil
+}
+package "5"{
+}
+package "6"{
+}
+package "7"{
+}
+package "8"{
+}
+package "10"{
+class InDetailed
+class ExtjsPageRequest
+class InController
+class StockController
+class InSendController
+class InSendController
+class InDetailedService
+}
+package "12"{
+}
+package "14"{
+}
+package "15"{
+class FinanceReportDailyService
+}
+}
+"4"..>"1":WorkflowVariable:getVariableMap(HTTP)
+"4"..>"2":Employee:getUserName(HTTP)
+"4"..>"2":IWorkflowService:startWorkflow(HTTP)
+"4"..>"2":EmployeeDao:findByUserName(HTTP)
+"4"..>"2":WorkflowDTO:getBusinessKey(HTTP)
+"4"..>"2":SessionUtil:getUserName(HTTP)
+"4"..>"10":InDetailed:setPrice(HTTP)
+"4"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"10"..>"4":InStorage:getInStorageDate (HTTP)
+"10"..>"4":InStorage:getInStorageId (HTTP)
+"10"..>"4":InStorage:setInStorageId (HTTP)
+"10"..>"4":IInStorageService:save (HTTP)
+"10"..>"4":InDetailedRepository:save (HTTP)
+"15"..>"4":InStorageRepository:findInStorageOrderByDay (HTTP)
+@enduml

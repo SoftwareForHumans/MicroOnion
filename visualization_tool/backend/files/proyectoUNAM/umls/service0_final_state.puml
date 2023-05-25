@@ -1,0 +1,126 @@
+@startuml
+package "0"{
+class Estado
+class Profesor
+class EstadoRep
+class ConsultaProfesorController
+class ProfesoresController
+class ModificarProfesor
+class ModificarAsesores
+class ProcessorProfesor
+class Turno
+class Genero
+class Grado_profesor
+class ProfesorRep
+class ReaderProfesor
+class GeneroRep
+class Grado_profesorRep
+class TurnoRep
+class ProfesorDto
+class CertificadoRepRequestInterfaceImpl
+class CertificadoRequestInterfaceImpl
+class LoggingRequestInterfaceImpl
+class GrupoRepRequestInterfaceImpl
+class ProfesorRepHandleRequest
+class ProfesorHandleRequest
+class Grado_profesorHandleRequest
+class GeneroHandleRequest
+class TurnoHandleRequest
+interface ProfesorInterface
+interface CertificadoRepDTOInterface
+interface CertificadoRepRequestInterface
+interface CertificadoRequestInterface
+interface LoggingDTOInterface
+interface LoggingRequestInterface
+interface GrupoRepDTOInterface
+interface GrupoRepRequestInterface
+class CertificadoDTO
+class CertificadoRepDTO
+class LoggingDTO
+class InscripcionDTO
+class InscripcionRepDTO
+class GrupoRepDTO
+class CursoRepDTO
+class Tipo_cursoRepDTO
+}
+package "7"{
+}
+package "Monolith" {
+package "1"{
+class ConsultaInscripcionController
+class ConsultaInscripcionController
+class ConsultaInscripcionController
+class ConsultaInscripcionController
+class ConsultaInscripcionController
+class ProcessorInscripcion
+class InscripcionesController
+class InscripcionesController
+class ModificarInscripcion
+class ModificarInscripcion
+}
+package "2"{
+class CertificadoRep
+class Certificado
+class Logging
+class Logging
+class Logging
+class DescargasController
+class ClienteCertificadoController
+class ClienteCertificadoController
+class CertificadoMasivoController
+class CertificadoMasivoController
+}
+package "3"{
+class GrupoRep
+class BatchController
+class BatchController
+class ProcessorGrupo
+class GrupoController
+class GrupoController
+class ModificarGrupos
+class ModificarGrupos
+}
+package "4"{
+class WebService
+class WebService
+}
+package "5"{
+}
+package "6"{
+class ConsultaController
+}
+package "8"{
+}
+}
+"0"..>"2":CertificadoRep:findCertificado(HTTP)
+"0"..>"2":Certificado:getPk_id_certificado(HTTP)
+"0"..>"2":Logging:setTrace(HTTP)
+"0"..>"2":Logging:setTrace(HTTP)
+"0"..>"2":Logging:setTrace(HTTP)
+"0"..>"3":GrupoRep:findByIdAsesor(HTTP)
+"1"..>"0":ProfesorRep:findByName (HTTP)
+"1"..>"0":Profesor:getFk_id_grado_profesor (HTTP)
+"1"..>"0":Grado_profesor:getPk_id_grado_profesor (HTTP)
+"1"..>"0":Genero:getPk_id_genero (HTTP)
+"1"..>"0":Turno:getPk_id_turno (HTTP)
+"1"..>"0":ProfesorRep:findByRfc (HTTP)
+"1"..>"0":ProfesorRep:findAll (HTTP)
+"1"..>"0":Profesor:getRfc (HTTP)
+"1"..>"0":ProfesorRep:findAll (HTTP)
+"1"..>"0":Profesor:getRfc (HTTP)
+"2"..>"0":Profesor:getPk_id_profesor (HTTP)
+"2"..>"0":Profesor:getCorreo (HTTP)
+"2"..>"0":ProfesorRep:findByCorreo (HTTP)
+"2"..>"0":ProfesorRep:findByCorreo (HTTP)
+"2"..>"0":Profesor:getPk_id_profesor (HTTP)
+"3"..>"0":ProfesorRep:loadAllProfesor (HTTP)
+"3"..>"0":Profesor:getNombre (HTTP)
+"3"..>"0":ProfesorRep:findByRfc (HTTP)
+"3"..>"0":ProfesorRep:findAll (HTTP)
+"3"..>"0":Profesor:getRfc (HTTP)
+"3"..>"0":Profesor:getRfc (HTTP)
+"3"..>"0":ProfesorRep:findAll (HTTP)
+"4"..>"0":ProfesorRep:findByCurp (HTTP)
+"4"..>"0":Profesor:getPk_id_profesor (HTTP)
+"6"..>"0":ProfesorRep:findByCompleteNameList (HTTP)
+@enduml

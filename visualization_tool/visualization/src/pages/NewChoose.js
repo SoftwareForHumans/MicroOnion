@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
 import restaurantServer from "../assets/restaurantServer_microservices.png";
 import proyectUNAM from "../assets/proyectoUNAM_microservices.png";
 import hotelManagementSystem from "../assets/hotelManagementSystem_microservices.png";
@@ -51,7 +50,7 @@ function NewChoose() {
         From the 3 available projects, choose the one you want to see the
         proposed refactoring sequence
       </h5>
-      <p style={{ fontSize: "0.7rem", width:"48%"}}>
+      <p style={{ fontSize: "0.7rem", width: "48%" }}>
         This tool receives two files as input: one with information about the
         monolith source code, and another with information about which services
         we intend to have after the system is refactored.
@@ -112,13 +111,19 @@ function NewChoose() {
             </Col>
             <Col className="mt-5 mx-5">
               <Row className="mt-3 center-all" style={{ width: "300px" }}>
-                <img src={arrow} style={{ width: "200px", height:"60px" }} alt="arrow"></img>
+                <img
+                  src={arrow}
+                  style={{ width: "200px", height: "60px" }}
+                  alt="arrow"
+                ></img>
                 <Link
                   to="/extractionSequence"
                   state={{ projectName: project }}
                   className="mt-4"
                 >
-                  <Button size="sm" className="px-3 choose-project-buttons">Show Proposed Refactoring Sequence</Button>{" "}
+                  <Button size="sm" className="px-3 choose-project-buttons">
+                    Show Proposed Refactoring Sequence
+                  </Button>{" "}
                 </Link>
               </Row>
             </Col>
@@ -126,7 +131,7 @@ function NewChoose() {
               <Row className="center-all" style={{ width: "300px" }}>
                 <img src={microservices} alt="microservices"></img>
                 <Button
-                  className="mt-4 ms-4 choose-project-buttons"
+                  className="mt-2 ms-5 choose-project-buttons"
                   size="sm"
                   style={{ width: "220px" }}
                   onClick={() => {
@@ -142,13 +147,11 @@ function NewChoose() {
         </>
       )}
       {showProjectDetails && (
-        <Row
-          className="m-5 p-4 text-white information-box"
-        >
+        <Row className="mx-5 mt-4 mb-4 p-4 text-white information-box">
           <h5 style={{ color: "#e6e6e6", fontSize: "1.3rem" }}>
-              {" "}
-              Project Description
-            </h5>
+            {" "}
+            Project Description
+          </h5>
           <p>
             {description}
             <br></br> You can find more on its{" "}
@@ -161,9 +164,7 @@ function NewChoose() {
       )}
       {showIntendedDecomposition && (
         <>
-          <Row
-            className="m-5 p-4 text-white information-box"
-          >
+          <Row className="mx-5 mt-4 mb-4 p-4 text-white information-box">
             <h5 style={{ color: "#e6e6e6", fontSize: "1.3rem" }}>
               {" "}
               Intended Microservices Decomposition

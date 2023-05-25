@@ -1,0 +1,140 @@
+@startuml
+package "0"{
+class IFloorService
+class TreeNode
+class FloorController
+class FloorService
+class RoomCleanRecord
+class RoomCleanController
+class RoomCleanRecordController
+class RoomController
+class RoomCleanService
+class IRoomCleanService
+class Room
+class Floor
+class FloorRepository
+class RoomRepository
+class RoomClean
+class RoomService
+class IRoomService
+class RoomCleanRecordRepository
+class RoomCleanRecordService
+class IRoomCleanRecordService
+class OutStorageRepository
+class RoomCleanRepository
+class FloorVoRoomVoRoomCleanRepository
+class OutDetailedRepository
+class FloorVoRoomVoRoomClean
+class FloorVoRoomVoRoomCleanDTO
+class RoomDto
+class BeanUtilsRequestInterfaceImpl
+class OutDetailedRepositoryHandleRequest
+class OutStorageRepositoryHandleRequest
+class OutStorageRequestInterfaceImpl
+class OutDetailedRequestInterfaceImpl
+class IStockServiceRequestInterfaceImpl
+class StockRequestInterfaceImpl
+class ExtjsPageRequestRequestInterfaceImpl
+class StockRepositoryRequestInterfaceImpl
+class RoomHandleRequest
+class IGuestServiceRequestInterfaceImpl
+class GuestRequestInterfaceImpl
+class SessionUtilRequestInterfaceImpl
+class EmployeeServiceRequestInterfaceImpl
+interface BeanUtilsRequestInterface
+interface OutStorageRequestInterface
+interface OutDetailedRequestInterface
+interface IStockServiceDTOInterface
+interface IStockServiceRequestInterface
+interface StockRequestInterface
+interface ExtjsPageRequestDTOInterface
+interface ExtjsPageRequestRequestInterface
+interface StockRepositoryDTOInterface
+interface StockRepositoryRequestInterface
+interface IGuestServiceDTOInterface
+interface IGuestServiceRequestInterface
+interface GuestRequestInterface
+interface SessionUtilRequestInterface
+interface EmployeeServiceDTOInterface
+interface EmployeeServiceRequestInterface
+class OutStorageDTO
+class IStockServiceDTO
+class ExtjsPageRequestDTO
+class DailyNecessaryDtoDTO
+class StockRepositoryDTO
+class IGuestServiceDTO
+class EmployeeDTO
+class EmployeeServiceDTO
+class ExtAjaxResponseDTO
+}
+package "1"{
+}
+package "3"{
+class BeanUtils
+}
+package "4"{
+}
+package "5"{
+}
+package "9"{
+}
+package "10"{
+class OutStorage
+class OutDetailed
+class IStockService
+class Stock
+class IStockService
+class ExtjsPageRequest
+class StockRepository
+class OutStorage
+class OutDetailed
+class Stock
+class OutDetailedService
+class OutStorageService
+}
+package "11"{
+}
+package "12"{
+}
+package "13"{
+}
+package "14"{
+class IGuestService
+class Guest
+class GuestController
+}
+package "16"{
+}
+package "Monolith" {
+package "2"{
+class SessionUtil
+class EmployeeService
+}
+package "6"{
+}
+package "7"{
+}
+package "8"{
+}
+package "15"{
+}
+}
+"0"..>"3":BeanUtils:copyProperties(HTTP)
+"0"..>"10":OutStorage:getOutDetailed(HTTP)
+"0"..>"10":OutDetailed:getGoodsNo(HTTP)
+"0"..>"10":IStockService:findByGoodsNo(HTTP)
+"0"..>"10":Stock:getAmount(HTTP)
+"0"..>"10":IStockService:findByStockType(HTTP)
+"0"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"0"..>"10":StockRepository:findByStockType(HTTP)
+"0"..>"10":OutStorage:setRoomNo(HTTP)
+"0"..>"10":OutDetailed:setAmount(HTTP)
+"0"..>"10":Stock:getGoodsName(HTTP)
+"0"..>"14":IGuestService:findGuestByIdCard(HTTP)
+"0"..>"14":Guest:getRoom(HTTP)
+"0"..>"2":SessionUtil:getUserName(HTTP)
+"0"..>"2":EmployeeService:findByUserName(HTTP)
+"10"..>"0":OutDetailedRepository:save (HTTP)
+"10"..>"0":OutStorageRepository:save (HTTP)
+"14"..>"0":Room:getState (HTTP)
+@enduml

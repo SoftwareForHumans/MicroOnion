@@ -1,0 +1,67 @@
+@startuml
+package "Monolith" {
+package "6"{
+class ModificarCursos
+class CursoRep
+class Tipo_cursoRep
+class Curso
+class Tipo_curso
+class ConsultaController
+class ProcessorCurso
+class ConsultaCursoController
+class CursosController
+class ReaderCurso
+class CursoDto
+class ExcelConfig
+class CursoExcelRowMapper
+class LoggingCursoProcessor
+}
+package "2"{
+class Logging
+class Certificado
+class Logging
+}
+package "3"{
+class GrupoRep
+class Grupo
+class GrupoRep
+}
+package "4"{
+}
+package "8"{
+}
+}
+package "0"{
+}
+package "1"{
+}
+package "5"{
+}
+package "7"{
+}
+"6"-->"2":Logging:methodInvocation, variableType
+"6"-->"2":Certificado:methodVariable, databaseDependency
+"6"-->"2":Logging:methodInvocation, variableType
+"6"-->"3":GrupoRep:variableType
+"6"-->"3":Grupo:variableType, methodVariable, databaseDependency
+"6"-->"3":GrupoRep:variableType
+"2"-->"6":Curso:variableType, methodVariable, databaseDependency
+"2"-->"6":Curso:methodInvocation, methodVariable
+"2"-->"6":CursoRep:methodInvocation, variableType
+"2"-->"6":CursoRep:methodInvocation, variableType
+"2"-->"6":Curso:methodInvocation
+"3"-->"6":Curso:variableType, methodVariable, databaseDependency
+"3"-->"6":CursoRep:methodInvocation, variableType
+"3"-->"6":CursoRep:methodInvocation, variableType
+"3"-->"6":CursoRep:methodInvocation, variableType
+"3"-->"6":Curso:methodInvocation
+"3"-->"6":Curso:methodInvocation
+"3"-->"6":CursoRep:methodInvocation, variableType
+"3"-->"6":Tipo_cursoRep:variableType
+"3"-->"6":Curso:methodVariable
+"3"-->"6":Curso:methodInvocation
+"4"-->"6":CursoRep:methodInvocation, variableType
+"4"-->"6":Curso:methodInvocation
+"8"-->"6":CursoDto:methodVariable
+"8"-->"6":CursoDto:variableType, methodVariable
+@enduml

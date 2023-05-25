@@ -1,0 +1,39 @@
+@startuml
+package "Monolith" {
+package "5"{
+class BatchConfig
+class WriterCurso
+class CursoBatchRep
+class WriterGrupo
+class GrupoBatchRep
+class WriterInscripcion
+class InscripcionBatchRep
+class ProfesorBatchRep
+class WriterProfesor
+}
+package "2"{
+}
+package "3"{
+class ProcessorGrupo
+class Grupo
+}
+package "4"{
+}
+package "6"{
+class ProcessorCurso
+class Curso
+}
+package "8"{
+}
+}
+package "0"{
+}
+package "1"{
+}
+package "7"{
+}
+"5"-->"3":ProcessorGrupo:variableType
+"5"-->"3":Grupo:methodVariable
+"5"-->"6":ProcessorCurso:variableType
+"5"-->"6":Curso:methodVariable
+@enduml

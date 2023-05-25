@@ -1,0 +1,47 @@
+@startuml
+package "Monolith" {
+package "7"{
+class Usuario_sysRep
+class AltaUsuarios
+class RecuperaContrasena
+class EditarPerfil
+class Usuario_sys
+class Estatus_usuario_sys
+class Perfil_sys
+class MyAppUserDetailsService
+class SendMailService
+class ExampleContoller
+class Estatus_usuario_sysRep
+class Perfil_sysRep
+class SecurityConfig
+}
+package "0"{
+}
+package "1"{
+}
+package "2"{
+class Logging
+class Logging
+class Logging
+class Log_sys
+}
+package "3"{
+}
+package "4"{
+}
+package "5"{
+}
+package "6"{
+}
+package "8"{
+}
+}
+"7"-->"2":Logging:methodInvocation, variableType
+"7"-->"2":Logging:methodInvocation, variableType
+"7"-->"2":Logging:methodInvocation, variableType
+"7"-->"2":Log_sys:methodVariable, databaseDependency
+"2"-->"7":Usuario_sysRep:methodInvocation, variableType
+"2"-->"7":Usuario_sys:variableType, databaseDependency
+"3"-->"7":SendMailService:variableType
+"8"-->"7":SendMailService:variableType
+@enduml

@@ -1,0 +1,34 @@
+@startuml
+package "Monolith" {
+package "3"{
+class Grupo
+class BatchController
+class ProcessorGrupo
+class GrupoController
+class ModificarGrupos
+class GrupoRep
+class ConsultaGrupoController
+class ReaderGrupo
+class GrupoDto
+}
+package "4"{
+}
+package "8"{
+}
+}
+package "0"{
+}
+package "1"{
+}
+package "2"{
+}
+package "5"{
+}
+package "6"{
+}
+package "7"{
+}
+"4"-->"3":GrupoRep:methodInvocation, variableType
+"4"-->"3":Grupo:methodInvocation
+"8"-->"3":GrupoDto:methodVariable
+@enduml
