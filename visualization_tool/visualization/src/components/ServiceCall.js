@@ -39,7 +39,7 @@ function ServiceCall({
 
   return (
     <>
-      <p className="mt-2" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
+      <p className="mt-2 blue-text" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
         {showNumber ? (index + 1).toString() + ". " : ""}
         {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>
@@ -157,8 +157,7 @@ function ServiceCall({
           Note: By default, we apply this refactoring implementing a synchronous
           call, however if you don't need an instant response or don't want a
           service to wait for the response, it can be asynchronous. Check the
-          catalog to find out how to implement an asynchronous call. each
-          microservice has its own database - show this
+          catalog to find out how to implement an asynchronous call.
         </p>
       </div>
     </>

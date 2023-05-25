@@ -39,7 +39,7 @@ function RefactoringButton(props) {
           <MdKeyboardDoubleArrowRight
             size={"20px"}
             className="d-inline"
-            style={{ color: "#687f8c" }}
+            style={{ color: showNumber? "white": "#687f8c" }}
           ></MdKeyboardDoubleArrowRight>
         </Col>
       ) : (

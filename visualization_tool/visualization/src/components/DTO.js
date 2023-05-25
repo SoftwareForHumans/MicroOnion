@@ -26,7 +26,7 @@ function DTO({
 
   return (
     <>
-      <p className="mt-2" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
+      <p className="mt-2 blue-text" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
         {showNumber ? (index + 1).toString() + ". " : ""}
         {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>

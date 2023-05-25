@@ -68,7 +68,7 @@ function DependenciesTable(props) {
   }
   return (
     <>
-      <table style={{ border: "2px solid #092256", width: "100%" }}>
+      <table className="blue-text" style={{ border: "2px solid #092256", width: "100%", backgroundColor:"white"}}>
         <thead>
           <tr
             style={{

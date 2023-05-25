@@ -13,6 +13,10 @@ import RefactoringButton from "../components/RefactoringButton";
 import DependenciesTable from "../components/DependenciesTable";
 import { Oval } from "react-loading-icons";
 
+import monolith from "../assets/monolith.png";
+import microservices from "../assets/monolithAndExtractedService.png";
+import arrow from "../assets/arrow.png";
+
 function ExtractService() {
   let { state } = useLocation();
   const project = state.projectName;
@@ -34,6 +38,10 @@ function ExtractService() {
   const [step, setStep] = useState(undefined);
   const [color, setColor] = useState(undefined);
   const [refactoringImage, setRefactoringImage] = useState(undefined);
+
+  const [showInitialState, setShowInitialState] = useState(false);
+  const [showFinalState, setShowFinalState] = useState(false);
+  const [showSequence, setShowSequence] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -144,8 +152,11 @@ function ExtractService() {
         </Col>
 
         {loading ? (
-          <Col lg={12} className="mt-5 mb-5 ms-2">
+          <Col lg={12} className="mt-4 mb-5 ms-2">
             <Row className="center-all">
+              <h4 className="mb-4 center-all">
+                Extract service {service.microservice}
+              </h4>
               <Oval
                 className="center-all"
                 stroke="#092256"
@@ -155,182 +166,218 @@ function ExtractService() {
             </Row>
           </Col>
         ) : (
-          <div className="mt-3 mb-5 ms-2 center-all flex-column">
-            <Row className="center-all">
-              <h4 className="mb-4 center-all">
-                Extract service {service.microservice}
-              </h4>
-              <Button
-                className="my-3 modal-button"
-                size="sm"
-                onClick={handleShow}
-              >
-                {" "}
-                Check the initial state of the component
-              </Button>
+          <>
+            <Col lg={12} className="mt-4 mb-5">
+              <Row className="center-all">
+                <h4 className="mb-4 center-all">
+                  Extract service {service.microservice}
+                </h4>
+                <p style={{ fontSize: "0.95rem" }}>
+                  To extract the service, you need to identify the dependencies
+                  of the service to the monolith and of the monolith to the
+                  service.
+                </p>
+              </Row>
+              <Row className="mt-2">
+                <Col className="mt-4 center-all">
+                  <Row className="center-all" style={{ width: "250px" }}>
+                    <img src={monolith} alt="monolith"></img>
+                    <Button
+                      className="mt-4 choose-project-buttons"
+                      size="sm"
+                      style={{ width: "200px" }}
+                      onClick={() => {
+                        setShowInitialState(true);
+                        setShowFinalState(false);
+                        setShowSequence(false);
+                      }}
+                    >
+                      Check component's initial state
+                    </Button>
+                  </Row>
+                </Col>
+                <Col className="mt-3 center-all">
+                  <Row className="center-all" style={{ width: "300px" }}>
+                    <img
+                      src={arrow}
+                      style={{ width: "200px", height: "60px" }}
+                      alt="arrow"
+                    ></img>
+                    <Button
+                      className="mt-4 choose-project-buttons"
+                      size="sm"
+                      style={{ width: "270px" }}
+                      onClick={() => {
+                        setShowInitialState(false);
+                        setShowFinalState(false);
+                        setShowSequence(true);
+                      }}
+                    >
+                      Show Proposed Refactoring Sequence
+                    </Button>{" "}
+                  </Row>
+                </Col>
+                <Col className="center-all">
+                  <Row className="center-all mt-4" style={{ width: "300px" }}>
+                    <img src={microservices} alt="microservices"></img>
+                    <Button
+                      className="mt-5  choose-project-buttons"
+                      size="sm"
+                      style={{ width: "220px" }}
+                      onClick={() => {
+                        setShowInitialState(false);
+                        setShowFinalState(true);
+                        setShowSequence(false);
+                      }}
+                    >
+                      Check the final state of the component
+                    </Button>
+                  </Row>
+                </Col>
+              </Row>
 
-              <Modal
-                size="xl"
-                show={show}
-                onHide={handleClose}
-                backdrop="static"
-                keyboard={false}
-                centered
-              >
-                <Modal.Header closeButton>
-                  <Modal.Title>
+              {showInitialState && (
+                <Row className="mx-2 mt-5 mb-4 px-4 py-5 text-white information-box">
+                  <h5
+                    style={{ color: "#e6e6e6", fontSize: "1.3rem" }}
+                    className="mb-4"
+                  >
                     {" "}
-                    Component {service.microservice} initial state{" "}
-                  </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
+                    Component's initial state
+                  </h5>
                   <img
-                    className="mt-5"
                     style={{ width: "100%" }}
                     src={`data:image/png;base64,${initialState}`}
                     alt="Initial state"
                   ></img>
-                </Modal.Body>
-              </Modal>
-              <p style={{ fontSize: "0.95rem" }}>
-                To extract the service, identify the dependencies of the service
-                to the monolith and of the monolith to the service:
-              </p>
-            </Row>
-
-            <Row className="center-all flex-column">
-              <Row className="mt-3 mb-2">
-                <h6>Service dependencies to the Monolith</h6>
-              </Row>
-              {from === undefined || from.length === 0 ? (
-                <>
-                  <p>
-                    There are no dependencies of this component to the Monolith
-                  </p>
-                </>
-              ) : (
-                <DependenciesTable tableContent={from}></DependenciesTable>
-              )}
-
-              <Row className="mt-3 mb-2">
-                <h6>Service dependents from the Monolith</h6>
-              </Row>
-              {to === undefined || to.length === 0 ? (
-                <>
-                  <p>
-                    There are no dependencies of this component to the Monolith
-                  </p>
-                </>
-              ) : (
-                <DependenciesTable tableContent={to}></DependenciesTable>
-              )}
-            </Row>
-
-            {sequence === undefined || sequence.length === 0 ? (
-              <>
-                <br></br>
-                <p>
-                  As there are no dependencies, there are no refactorings to
-                  apply. We simply extract the service.
-                </p>
-              </>
-            ) : (
-              <>
-                <Row className="center-all my-5">
-                  <p style={{ fontSize: "0.95rem" }}>
-                    To extract this service, we suggest the following sequence
-                    of refactorings (
-                    <b>click on each of them to find out how to apply them</b>
-                    ):
-                  </p>
-                </Row>
-                <Row className="d-inline mx-5">
-                  {sequence.map((item, index) => {
-                    return (
-                      <>
-                        <RefactoringButton
-                          item={item}
-                          handleClick={handleOnClick}
-                          sequence={sequence}
-                          index={index}
-                          active={selected === index}
-                          color="#092256"
-                        ></RefactoringButton>
-                      </>
-                    );
-                  })}
-                </Row>
-                {refactoring !== undefined && (
-                  <Row
-                    id="implementation"
-                    className="mt-5 mx-3"
-                    style={{ border: "3px dashed", width: "90%" }}
-                  >
-                    {refactoring !== undefined && (
-                      <>
-                        {loadingRefactoring ? (
-                          <Oval
-                            className="center-all"
-                            stroke="#092256"
-                            strokeOpacity={1}
-                            strokeWidth={10}
-                          />
-                        ) : (
-                          <Refactoring
-                            project={project}
-                            service={service}
-                            sequence={sequence}
-                            index={refactoring}
-                            image={refactoringImage}
-                            showNumber={true}
-                            selected={selected2}
-                            color={color}
-                            step={step}
-                            setSelected={setSelected2}
-                            setColor={setColor}
-                            setStep={setStep}
-                          ></Refactoring>
-                        )}
-                      </>
-                    )}
+                  <Row className="mt-3 mb-2">
+                    <h6>Service dependencies to the Monolith</h6>
                   </Row>
-                )}
-              </>
-            )}
-
-            <Button
-              className="mb-3 mt-5 modal-button"
-              size="sm"
-              onClick={handleShowFinal}
-            >
-              {" "}
-              Check the final state of the component
-            </Button>
-
-            <Modal
-              size="xl"
-              show={showFinal}
-              onHide={handleCloseFinal}
-              backdrop="static"
-              keyboard={false}
-              centered
-            >
-              <Modal.Header closeButton>
-                <Modal.Title>
+                  {from === undefined || from.length === 0 ? (
+                    <>
+                      <p className="blue-text">
+                        There are no dependencies of this component to the
+                        Monolith
+                      </p>
+                    </>
+                  ) : (
+                    <DependenciesTable tableContent={from}></DependenciesTable>
+                  )}
+                  <Row className="mt-3 mb-2">
+                    <h6>Service dependents from the Monolith</h6>
+                  </Row>
+                  {to === undefined || to.length === 0 ? (
+                    <>
+                      <p className="blue-text">
+                        There are no dependencies of this component to the
+                        Monolith
+                      </p>
+                    </>
+                  ) : (
+                    <DependenciesTable tableContent={to}></DependenciesTable>
+                  )}
+                </Row>
+              )}
+              {showFinalState && (
+                <Row className="mx-2 mt-5 mb-4 px-4 py-5 text-white information-box ">
+                  <h5
+                    style={{ color: "#e6e6e6", fontSize: "1.3rem" }}
+                    className="mb-4"
+                  >
+                    {" "}
+                    Extracted Component's Final state
+                  </h5>
+                  <img
+                    style={{ width: "100%" }}
+                    src={`data:image/png;base64,${finalState}`}
+                    alt="Final state"
+                  ></img>
+                </Row>
+              )}
+              {showSequence && (
+                <Row className="mx-4 mt-5 mb-4 px-3 py-5 text-white information-box ">
                   {" "}
-                  Service {service.microservice} final state{" "}
-                </Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <img
-                  className="mt-5"
-                  style={{ width: "100%" }}
-                  src={`data:image/png;base64,${finalState}`}
-                  alt="Final state"
-                ></img>
-              </Modal.Body>
-            </Modal>
-          </div>
+                  {sequence === undefined || sequence.length === 0 ? (
+                    <>
+                      <br></br>
+                      <p>
+                        As there are no dependencies, there are no refactorings
+                        to apply. We simply extract the service.
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <Row className="center-all mb-5">
+                        <p style={{ fontSize: "0.95rem" }}>
+                          To extract this service, we suggest the following
+                          sequence of refactorings (
+                          <b>
+                            click on each of them to find out how to apply them
+                          </b>
+                          ):
+                        </p>
+                      </Row>
+                      <Row className="d-inline mx-5">
+                        {sequence.map((item, index) => {
+                          return (
+                            <>
+                              <RefactoringButton
+                                item={item}
+                                handleClick={handleOnClick}
+                                sequence={sequence}
+                                index={index}
+                                active={selected === index}
+                                color="#092256"
+                              ></RefactoringButton>
+                            </>
+                          );
+                        })}
+                      </Row>
+                      {refactoring !== undefined && (
+                        <Row
+                          id="implementation"
+                          className="mt-5 mx-3"
+                          style={{
+                            border: "3px dashed #092256",
+                            width: "90%",
+                            backgroundColor: "white",
+                          }}
+                        >
+                          {refactoring !== undefined && (
+                            <>
+                              {loadingRefactoring ? (
+                                <Oval
+                                  className="center-all my-5"
+                                  stroke="#092256"
+                                  strokeOpacity={1}
+                                  strokeWidth={10}
+                                />
+                              ) : (
+                                <Refactoring
+                                  project={project}
+                                  service={service}
+                                  sequence={sequence}
+                                  index={refactoring}
+                                  image={refactoringImage}
+                                  showNumber={true}
+                                  selected={selected2}
+                                  color={color}
+                                  step={step}
+                                  setSelected={setSelected2}
+                                  setColor={setColor}
+                                  setStep={setStep}
+                                ></Refactoring>
+                              )}
+                            </>
+                          )}
+                        </Row>
+                      )}
+                    </>
+                  )}
+                </Row>
+              )}
+            </Col>
+          </>
         )}
       </Container>
     </>
