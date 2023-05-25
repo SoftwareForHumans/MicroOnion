@@ -47,9 +47,11 @@ exports.getRefactoringsSequence = async (req, res) => {
 exports.getServiceDependencies = async (req, res) => {
   const { project } = req.params;
   let { service } = req.params;
+  let {index} = req.params;
 
   try {
     service = service.toString();
+    index = parseInt(index);
     const folder = getProjectFolder(project);
     let response = {};
     const jsonPath = path.join(
@@ -57,24 +59,41 @@ exports.getServiceDependencies = async (req, res) => {
       "..",
       "files",
       folder,
-      "/dependencies.json"
+      "/snapshot" + index + ".json"
     );
+    
     const data = fs.readFileSync(jsonPath, "utf8");
     let jsonData = JSON.parse(data);
-    response["from"] = [];
-    for (j in jsonData[service]) {
-      response["from"].push([j, jsonData[service][j]]);
-    }
 
+    response["from"] = [];
     response["to"] = [];
-    for (i in jsonData) {
-      for (j in jsonData[i]) {
-        if (j === service) {
-          response["to"].push([i, jsonData[i][j]]);
-        }
+    jsonData["services"].forEach((el) => {
+      if(el["id"] === service) {
+        for(let j in el["dependencies"])
+        response["from"].push([j, el["dependencies"][j]]);
       }
-    }
-    console.log(response);
+      else{
+        for(let j in el["dependencies"]){
+          if(j === service){
+            response["to"].push([el["id"], el["dependencies"][j]]);
+          }
+        }
+   
+      }
+    })
+    
+    // for (j in jsonData[service]) {
+    //   response["from"].push([j, jsonData[service][j]]);
+    // }
+
+    
+    // for (i in jsonData) {
+    //   for (j in jsonData[i]) {
+    //     if (j === service) {
+    //       response["to"].push([i, jsonData[i][j]]);
+    //     }
+    //   }
+    // }
     res.status(200).json(response);
   } catch (err) {
     console.log(err);

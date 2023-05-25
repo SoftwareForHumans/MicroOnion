@@ -51,7 +51,7 @@ function ExtractService() {
     try {
       axios
         .get(
-          `${process.env.REACT_APP_BACKEND_URL}projects/${project}/serviceDependencies/${service.microservice}`
+          `${process.env.REACT_APP_BACKEND_URL}projects/${project}/serviceDependencies/${service.microservice}/${index}`
         )
         .then((res) => {
           setFrom(res.data.from);

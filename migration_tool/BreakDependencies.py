@@ -40,25 +40,21 @@ class BreakDependencies:
                 print(f"---\nBreaking dependencies with microservice {k} \n")
                 dependent_service = self.get_service_by_id(k)
                 self.break_dependency_file_by_file(service, dependent_service, v, current_refactoring)
-                # service_ids.append(k)
+                
    
             for m, d in dependencies.items():
                 if microservice in d.keys():
                     d_service = self.get_service_by_id(m)
                     print(f"\nBreaking dependencies of microservice {m} with microservice {microservice}\n")
                     self.break_dependency_file_by_file(d_service, service, dependencies[m][microservice], current_refactoring)
-                    # service_ids.append(m)
-
-            # service_ids.append(microservice)
-            # service_ids = set(service_ids)
+                    
             
             services = []
-            # for i in service_ids:
-            #     services.append(self.get_service_by_id(i))
             for i in self.services:
+                extracting = (i.get_id() == microservice)
+                i.clean_dependencies(extracting)
                 services.append(i)
-
-            service.clean_dependencies()    
+  
             self.update_service(service)
             self.refactoring_representation.set_services(services)
             self.refactoring_representation.create_new_snapshot()

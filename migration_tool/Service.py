@@ -105,13 +105,13 @@ class Service:
                 else:
                     i.remove(type)
             
-    def clean_dependencies(self):
+    def clean_dependencies(self, extracting):
         for i in self.dependencies.keys():
             self.dependencies[i] = dict(filter(lambda x: len(x[1]) > 0, self.dependencies[i].items()))
 
         self.dependencies = dict(filter(lambda x: len(x[1]) > 0, self.dependencies.items()))
 
-        if not self.dependencies:
+        if not self.dependencies and extracting:
             self.set_service_independence()
 
         return self
