@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
@@ -25,35 +24,24 @@ function ExtractService() {
   const [from, setFrom] = useState();
   const [to, setTo] = useState();
   const [loading, setLoading] = useState(true);
-  const [loadingRefactoring, setLoadingRefactoring] = useState(true);
+  const [loadingRefactoring, setLoadingRefactoring] = useState();
   const [sequence, setSequence] = useState();
   const [initialState, setInitialState] = useState();
   const [finalState, setFinalState] = useState();
-  const [refactoring, setRefactoring] = useState();
   const [selected, setSelected] = useState(null);
-  const [show, setShow] = useState(false);
-  const [showFinal, setShowFinal] = useState(false);
-
-  const [selected2, setSelected2] = useState(undefined);
-  const [step, setStep] = useState(undefined);
-  const [color, setColor] = useState(undefined);
-  const [refactoringImage, setRefactoringImage] = useState(undefined);
+  const [refactoringItems, _setRefactoringItems] = useState(null);
 
   const [showInitialState, setShowInitialState] = useState(false);
   const [showFinalState, setShowFinalState] = useState(false);
   const [showSequence, setShowSequence] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const handleCloseFinal = () => setShowFinal(false);
-  const handleShowFinal = () => setShowFinal(true);
+  const setRefactoringItems = (field, value) => {
+    _setRefactoringItems((prev) => ({ ...prev, [field]: value }));
+  };
 
   const handleOnClick = (index) => {
+    setLoadingRefactoring(true);
     setSelected(index);
-    setRefactoring(index);
-    setColor(undefined);
-    setStep(undefined);
-    setSelected2(undefined);
     let id = sequence[index].id;
     try {
       axios
@@ -66,7 +54,15 @@ function ExtractService() {
           }
         )
         .then((res) => {
-          setRefactoringImage(res.data);
+          _setRefactoringItems({
+            selected2: undefined,
+            sequence: sequence,
+            index: index,
+            color: undefined,
+            step: undefined,
+            image: res.data,
+            setSelected2: undefined
+          });
           setLoadingRefactoring(false);
         });
     } catch (err) {
@@ -333,7 +329,7 @@ function ExtractService() {
                           );
                         })}
                       </Row>
-                      {refactoring !== undefined && (
+                      {loadingRefactoring !== undefined && (
                         <Row
                           id="implementation"
                           className="mt-5 mx-3"
@@ -343,35 +339,25 @@ function ExtractService() {
                             backgroundColor: "white",
                           }}
                         >
-                          {refactoring !== undefined && (
-                            <>
-                              {loadingRefactoring ? (
-                                <Oval
-                                  className="center-all my-5"
-                                  stroke="#092256"
-                                  strokeOpacity={1}
-                                  strokeWidth={10}
-                                />
-                              ) : (
-                                <Refactoring
-                                  project={project}
-                                  service={service}
-                                  sequence={sequence}
-                                  index={refactoring}
-                                  image={refactoringImage}
-                                  showNumber={true}
-                                  selected={selected2}
-                                  color={color}
-                                  step={step}
-                                  setSelected={setSelected2}
-                                  setColor={setColor}
-                                  setStep={setStep}
-                                ></Refactoring>
-                              )}
-                            </>
+                          {loadingRefactoring ? (
+                            <Oval
+                              className="center-all my-5"
+                              stroke="#092256"
+                              strokeOpacity={1}
+                              strokeWidth={10}
+                            />
+                          ) : (
+                            <Refactoring
+                              project={project}
+                              service={service}
+                              refactoringItems={refactoringItems}
+                              setRefactoringItems={setRefactoringItems}
+                              showNumber={true}
+                            ></Refactoring>
                           )}
                         </Row>
                       )}
+                      
                     </>
                   )}
                 </Row>

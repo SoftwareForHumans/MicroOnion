@@ -5,24 +5,20 @@ import StepButton from "./StepButton";
 function FileDependency({
   project,
   service,
-  index,
+  refactoringItems,
+  setRefactoringItems,
   refactoring,
   showNumber,
-  selected,
-  step,
-  setSelected,
-  setStep,
-  image
 }) {
   const handleOnClick = (index, text) => {
-    setSelected(index);
-    setStep(text);
+    setRefactoringItems("selected", index);
+    setRefactoringItems("step", text);
   };
 
   return (
-    <>
-      <p className="mt-2 blue-text" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
-        {showNumber ? (index + 1).toString() + ". " : ""}
+    <Row className="mt-2 blue-text">
+      <p  style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
+        {showNumber ? (refactoringItems.index + 1).toString() + ". " : ""}
         {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>
       <p style={{ fontWeight: "bold", fontSize: "0.9rem" }}>
@@ -38,7 +34,7 @@ function FileDependency({
         <img
           className="pb-3"
           style={{ width: "90%", alignSelf: "center" }}
-          src={`data:image/png;base64,${image}`}
+          src={`data:image/png;base64,${refactoringItems.image}`}
           alt="refactoring change schema"
         ></img>
         <p>
@@ -52,7 +48,7 @@ function FileDependency({
               <StepButton
                 name="Duplicate the file"
                 index={0}
-                active={selected}
+                active={refactoringItems.selected}
                 hasNext={false}
                 handleClick={handleOnClick}
                 text={
@@ -72,17 +68,17 @@ function FileDependency({
           </p>
         )}
 
-        {step !== undefined && (
+        {refactoringItems.step !== undefined && (
           <Row
             id="implementation"
             className="d-flex justify-content-center py-3 my-3 mx-5"
             style={{ border: "3px dashed #3C76E1" }}
           >
-            {step}
+            {refactoringItems.step}
           </Row>
         )}
       </div>
-    </>
+    </Row>
   );
 }
 

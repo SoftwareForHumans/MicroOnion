@@ -8,39 +8,34 @@ import r2 from "../assets/refactoring_2.png";
 function ChangeDataOwnership({
   project,
   service,
-  index,
+  refactoringItems,
+  setRefactoringItems,
   refactoring,
   showNumber,
-  selected,
-  color,
-  step,
-  setSelected,
-  setColor,
-  setStep,
 }) {
   const handleOnClick = (index, text) => {
-    setSelected(index);
-    setStep(text);
-    setColor("#687f8c");
+    setRefactoringItems("selected", index);
+    setRefactoringItems("step", text);
+    setRefactoringItems("color", "#687f8c");
   };
 
-  const handleRefactorigClick = (index) => {
-    setSelected(index + 1);
-    setStep(
-      <Refactoring
+  const handleRefactoringClick = (index) => {
+    setRefactoringItems("selected", index + 1);
+    setRefactoringItems("step",
+    <Refactoring
         project={project}
         service={service}
         sequence={refactoring.refactorings}
         index={index}
       ></Refactoring>
-    );
-    setColor("#1E488F");
+    )
+    setRefactoringItems("color", "#1E488F");
   };
 
   return (
-    <>
-      <p className="mt-2 blue-text" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
-        {showNumber ? (index + 1).toString() + ". " : ""}
+    <Row className="mt-2 blue-text">
+      <p style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
+        {showNumber ? (refactoringItems.index + 1).toString() + ". " : ""}
         {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>
       <p style={{ fontWeight: "bold", fontSize: "0.9rem" }}>
@@ -65,7 +60,7 @@ function ChangeDataOwnership({
             <StepButton
               name="Change Owner"
               index={0}
-              active={selected}
+              active={refactoringItems.selected}
               hasNext={true}
               handleClick={handleOnClick}
               text="When extracting a new service that encapsulates the business logic of
@@ -80,29 +75,24 @@ function ChangeDataOwnership({
                 <>
                   <RefactoringButton
                     item={item}
-                    active={selected === index + 1}
-                    handleClick={handleRefactorigClick}
+                    active={refactoringItems.selected === index + 1}
+                    handleClick={handleRefactoringClick}
                     sequence={refactoring.refactorings}
                     index={index}
                     color="#1E488F"
                     showNumber={false}
-                    selected={selected}
-                    step={step}
-                    setSelected={setSelected}
-                    setColor={setColor}
-                    setStep={setStep}
                   ></RefactoringButton>
                 </>
               );
             })}
         </div>
-        {step !== undefined && (
+        {refactoringItems.step !== undefined && (
           <Row
             id="implementation"
             className="d-flex justify-content-center py-3 my-3 mx-5 px-2"
-            style={{ border: "3px dashed " + color }}
+            style={{ border: "3px dashed " + refactoringItems.color }}
           >
-            {step}
+            {refactoringItems.step}
           </Row>
         )}
 
@@ -112,7 +102,7 @@ function ChangeDataOwnership({
           splitting a table, replication, etc. .
         </p>
       </div>
-    </>
+    </Row>
   );
 }
 

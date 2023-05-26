@@ -7,26 +7,20 @@ import StepButton from "./StepButton";
 function ServiceCall({
   project,
   service,
-  index,
+  refactoringItems,
+  setRefactoringItems,
   refactoring,
   showNumber,
-  selected,
-  color,
-  step,
-  setSelected,
-  setColor,
-  setStep,
-  image
 }) {
   const handleOnClick = (index, text) => {
-    setSelected(index);
-    setStep(text);
-    setColor("#687f8c");
+    setRefactoringItems("selected", index);
+    setRefactoringItems("step", text);
+    setRefactoringItems("color", "#687f8c");
   };
 
   const handleRefactorigClick = (index) => {
-    setSelected(index);
-    setStep(
+    setRefactoringItems("selected", index);
+    setRefactoringItems("step",
       <Refactoring
         project={project}
         service={service}
@@ -34,13 +28,13 @@ function ServiceCall({
         index={index - 2}
       ></Refactoring>
     );
-    setColor("#1E488F");
+    setRefactoringItems("color", "#1E488F");
   };
 
   return (
-    <>
-      <p className="mt-2 blue-text" style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
-        {showNumber ? (index + 1).toString() + ". " : ""}
+    <Row className="mt-2 blue-text">
+      <p  style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
+        {showNumber ? (refactoringItems.index + 1).toString() + ". " : ""}
         {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>
       <p style={{ fontWeight: "bold", fontSize: "0.9rem" }}>
@@ -53,7 +47,7 @@ function ServiceCall({
         <img
           className="pb-3"
           style={{ width: "90%", alignSelf: "center" }}
-          src={`data:image/png;base64,${image}`}
+          src={`data:image/png;base64,${refactoringItems.image}`}
           alt="refactoring change schema"
         ></img>
         <p>
@@ -65,7 +59,7 @@ function ServiceCall({
             <StepButton
               name="Decide the communication strategy"
               index={0}
-              active={selected}
+              active={refactoringItems.selected}
               hasNext={true}
               handleClick={handleOnClick}
               text={
@@ -78,7 +72,7 @@ function ServiceCall({
             <StepButton
               name="Configure invoker"
               index={1}
-              active={selected}
+              active={refactoringItems.selected}
               hasNext={true}
               handleClick={handleOnClick}
               text={[
@@ -102,7 +96,7 @@ function ServiceCall({
             <StepButton
               name="Configure method owner"
               index={2}
-              active={selected}
+              active={refactoringItems.selected}
               hasNext={refactoring.refactorings}
               handleClick={handleOnClick}
               text={[
@@ -126,30 +120,30 @@ function ServiceCall({
                   <Col className="d-inline">
                     <RefactoringButton
                       item={item}
-                      active={selected === index}
+                      active={refactoringItems.selected === index}
                       handleClick={handleRefactorigClick}
                       sequence={refactoring.refactorings}
                       index={index}
                       color="#1E488F"
                       showNumber={false}
-                      selected={selected}
-                      step={step}
-                      setSelected={setSelected}
-                      setColor={setColor}
-                      setStep={setStep}
+                      selected={refactoringItems.selected}
+                      step={refactoringItems.step}
+                      setSelected={refactoringItems.setSelected}
+                      setColor={refactoringItems.setColor}
+                      setStep={refactoringItems.setStep}
                     ></RefactoringButton>
                   </Col>
                 </>
               );
             })}
         </div>
-        {step !== undefined && (
+        {refactoringItems.step !== undefined && (
           <Row
             id="implementation"
             className="d-flex justify-content-center py-3 my-3 mx-5 px-2"
-            style={{ border: "3px dashed " + color, "white-space": "pre-line" }}
+            style={{ border: "3px dashed " + refactoringItems.color, "white-space": "pre-line" }}
           >
-            {step}
+            {refactoringItems.step}
           </Row>
         )}
 
@@ -160,7 +154,7 @@ function ServiceCall({
           catalog to find out how to implement an asynchronous call.
         </p>
       </div>
-    </>
+    </Row>
   );
 }
 
