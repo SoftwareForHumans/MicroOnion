@@ -8,18 +8,66 @@ function createDataTypeDependencyUML(ref) {
 
 function createChangeLocalMethodUML(ref) {
   console.log("CHANGE LOCAL METHOD CALL DEPENDENCY");
+  let res = "@startuml \nallow_mixing\nleft to right direction\n"
+  res += "package \"" + ref["microservice"] + "\"{\n"
+  res += "class " + ref["notes"]["requester"] + "\n"
+  res += "class " + ref["notes"]["new_classes"][0] + "\n"
+  res += "interface " + ref["notes"]["interfaces"][0] + "\n"
+  res += "\n}\n"
+
+  res += "package \"" + ref["dependent_microservice"] + "\"{\n"
+  res += "class " + ref["notes"]["target"] + "\n"
+  res += "class " + ref["notes"]["new_classes"][1] + "\n"
+  res += "\n}\n"
+
+  res += "\"" + ref["microservice"] + "\" ..> \"" + ref["dependent_microservice"] + "\":" + ref["notes"]["protocol"] + ":" + ref["notes"]["method"] + "\n";
+ 
+  res += "@enduml"
+  return res
 }
 
 function createChangeDataOwnershipUML(ref) {
   console.log("CHANGE DATA OWNERSHIP");
+  return createMoveForeignKeyUML(ref["refactorings"][0])
 }
 
 function createMoveForeignKeyUML(ref) {
   console.log("MOVE FOREIGN-KEY REL");
+  //todo: caso de não vir extamaente isto
+  let res = "@startuml \nallow_mixing\nleft to right direction\n"
+  res += "package \"" + ref["microservice"] + "\"{\n"
+  res += "entity " + ref["notes"]["entities"][0] + "\n"
+  res += "interface " + ref["notes"]["interfaces"][0] + "\n"
+  res += "\n}\n"
+  
+
+  res += "package \"" + ref["dependent_microservice"] + "\"{\n"
+  res += "entity " + ref["notes"]["entities"][1] + "\n"
+  res += "interface " + ref["notes"]["interfaces"][1] + "\n"
+  res += "\n}\n"
+
+  res += "\"" + ref["microservice"] + "\" --x \"" + ref["dependent_microservice"] + "\":" + ref["notes"]["relationship"] + "\n"
+  res += "\"" + ref["microservice"] + "\" ..> \"" + ref["dependent_microservice"] +"\"\n"
+  res += "@enduml"
+  return res;
 }
 
 function createDataTransferObjectUML(ref) {
   console.log("CREATE DATA TRANSFER OBJECT");
+  let res = "@startuml \nallow_mixing\nleft to right direction\n"
+  res += "package \"" + ref["microservice"] + "\"{\n"
+  res += "entity " + ref["notes"]["created"] + "\n"
+  res += "\n}\n"
+  
+
+  res += "package \"" + ref["dependent_microservice"] + "\"{\n"
+  let parts = ref["notes"]["dependent"].split(".")
+  let dep = parts.pop()
+  res += "class " + dep + "\n"
+  res += "}\n"
+
+  res += "@enduml"
+  return res;
 }
 
 function createFileDependencyUML(ref) {
@@ -27,7 +75,7 @@ function createFileDependencyUML(ref) {
 }
 
 function createImportDependencyUML(ref) {
-  console.log("IMPORT DEP");
+  console.log("IMPORT DEPENDENCY");
 }
 
 function createFinalStateUML(project, service, state) {

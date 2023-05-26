@@ -153,6 +153,7 @@ class BreakDependencies:
         notes["protocol"] = "HTTP"
         notes["type"] = "synchronous"
         notes["target"] = class_name
+        notes["requester"] = file
         notes["new_classes"] = [class_name + "RequestInterfaceImpl", class_name + "HandleRequest"]
         notes["interfaces"] = [class_name + "RequestInterface"]
         microservice.add_interface(class_name + "RequestInterface")
@@ -196,7 +197,7 @@ class BreakDependencies:
         notes["dependent_file"] = dependent_file
         notes["dependencies"] = to_append
         notes["interfaces"] = []
-        notes_dtos = {"created": ""}
+        notes_dtos = {"created": "", "dependent": dependent_file}
 
         if "variableType" in to_append or "methodVariable" in to_append: # we will  need only create one DTO for this dependency 
             object_name = dependent_file.split(".").pop()
