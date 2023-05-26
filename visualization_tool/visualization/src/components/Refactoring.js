@@ -5,11 +5,19 @@ import MoveForeignKey from "../components/MoveForeignKey";
 import DTO from "../components/DTO";
 import FileDependency from "../components/FileDependency";
 
-function Refactoring({project, service, refactoringItems, setRefactoringItems, showNumber}) {
- 
+function Refactoring({
+  project,
+  service,
+  refactoringItems,
+  setRefactoringItems,
+  refactoringItems2,
+  setRefactoringItems2,
+  showNumber,
+}) {
   const refactoring = refactoringItems.sequence[refactoringItems.index];
-  showNumber = showNumber !== undefined? showNumber: false;
-  console.log(refactoringItems.index)
+  showNumber = showNumber !== undefined ? showNumber : false;
+  
+
   return (
     <>
       {refactoring.name === "BREAK DATA TYPE DEPENDENCY" && (
@@ -19,6 +27,8 @@ function Refactoring({project, service, refactoringItems, setRefactoringItems, s
           refactoringItems={refactoringItems}
           setRefactoringItems={setRefactoringItems}
           refactoring={refactoring}
+          refactoringItems2={refactoringItems2}
+          setRefactoringItems2={setRefactoringItems2}
           showNumber={showNumber}
         ></DataTypeDependency>
       )}
@@ -30,6 +40,8 @@ function Refactoring({project, service, refactoringItems, setRefactoringItems, s
           refactoringItems={refactoringItems}
           setRefactoringItems={setRefactoringItems}
           refactoring={refactoring}
+          refactoringItems2={refactoringItems2}
+          setRefactoringItems2={setRefactoringItems2}
           showNumber={showNumber}
         ></ServiceCall>
       )}
@@ -40,6 +52,8 @@ function Refactoring({project, service, refactoringItems, setRefactoringItems, s
           refactoringItems={refactoringItems}
           setRefactoringItems={setRefactoringItems}
           refactoring={refactoring}
+          refactoringItems2={refactoringItems2}
+          setRefactoringItems2={setRefactoringItems2}
           showNumber={showNumber}
         ></ChangeDataOwnership>
       )}
@@ -50,6 +64,8 @@ function Refactoring({project, service, refactoringItems, setRefactoringItems, s
           refactoringItems={refactoringItems}
           setRefactoringItems={setRefactoringItems}
           refactoring={refactoring}
+          refactoringItems2={refactoringItems2}
+          setRefactoringItems2={setRefactoringItems2}
           showNumber={showNumber}
         ></MoveForeignKey>
       )}
@@ -60,6 +76,8 @@ function Refactoring({project, service, refactoringItems, setRefactoringItems, s
           refactoringItems={refactoringItems}
           setRefactoringItems={setRefactoringItems}
           refactoring={refactoring}
+          refactoringItems2={refactoringItems2}
+          setRefactoringItems2={setRefactoringItems2}
           showNumber={showNumber}
         ></DTO>
       )}

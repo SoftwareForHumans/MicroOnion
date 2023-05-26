@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import StepButton from "./StepButton";
@@ -8,16 +9,23 @@ function FileDependency({
   refactoringItems,
   setRefactoringItems,
   refactoring,
+  refactoringItems2,
+  setRefactoringItems2,
   showNumber,
 }) {
+  const [step, setStep] = useState(undefined);
   const handleOnClick = (index, text) => {
-    setRefactoringItems("selected", index);
-    setRefactoringItems("step", text);
+    setStep(text);
+    setRefactoringItems((prev) => ({
+      ...prev,
+      selected: index,
+      color: "#1E488F",
+    }));
   };
 
   return (
     <Row className="mt-2 blue-text">
-      <p  style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
+      <p style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
         {showNumber ? (refactoringItems.index + 1).toString() + ". " : ""}
         {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>
@@ -68,13 +76,13 @@ function FileDependency({
           </p>
         )}
 
-        {refactoringItems.step !== undefined && (
+        {step !== undefined && (
           <Row
             id="implementation"
             className="d-flex justify-content-center py-3 my-3 mx-5"
             style={{ border: "3px dashed #3C76E1" }}
           >
-            {refactoringItems.step}
+            {step}
           </Row>
         )}
       </div>

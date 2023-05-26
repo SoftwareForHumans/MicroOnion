@@ -30,6 +30,7 @@ function ExtractService() {
   const [finalState, setFinalState] = useState();
   const [selected, setSelected] = useState(null);
   const [refactoringItems, _setRefactoringItems] = useState(null);
+  const [refactoringItems2, _setRefactoringItems2] = useState(null);
 
   const [showInitialState, setShowInitialState] = useState(false);
   const [showFinalState, setShowFinalState] = useState(false);
@@ -38,11 +39,14 @@ function ExtractService() {
   const setRefactoringItems = (field, value) => {
     _setRefactoringItems((prev) => ({ ...prev, [field]: value }));
   };
+  const setRefactoringItems2 = (field, value) => {
+    _setRefactoringItems2((prev) => ({ ...prev, [field]: value }));
+  };
 
-  const handleOnClick = (index) => {
+  const handleOnClick = (idx) => {
     setLoadingRefactoring(true);
-    setSelected(index);
-    let id = sequence[index].id;
+    setSelected(idx);
+    let id = sequence[idx].id;
     try {
       axios
         .get(
@@ -55,13 +59,18 @@ function ExtractService() {
         )
         .then((res) => {
           _setRefactoringItems({
-            selected2: undefined,
+            selected: undefined,
             sequence: sequence,
-            index: index,
+            index: idx,
             color: undefined,
-            step: undefined,
             image: res.data,
-            setSelected2: undefined
+          });
+          _setRefactoringItems2({
+            selected: undefined,
+            sequence: undefined,
+            index: undefined,
+            color: undefined,
+            image: undefined,
           });
           setLoadingRefactoring(false);
         });
@@ -122,7 +131,7 @@ function ExtractService() {
     if (finalState !== undefined && initialState !== undefined) {
       setLoading(false);
     }
-  }, [from, to, sequence, finalState, initialState]);
+  }, [finalState, initialState]);
 
   return (
     <>
@@ -314,15 +323,16 @@ function ExtractService() {
                         </p>
                       </Row>
                       <Row className="d-inline mx-5">
-                        {sequence.map((item, index) => {
+                        {sequence.map((item, idx) => {
                           return (
                             <>
                               <RefactoringButton
+                                key={idx}
                                 item={item}
                                 handleClick={handleOnClick}
                                 sequence={sequence}
-                                index={index}
-                                active={selected === index}
+                                index={idx}
+                                active={selected === idx}
                                 color="#092256"
                               ></RefactoringButton>
                             </>
@@ -351,13 +361,14 @@ function ExtractService() {
                               project={project}
                               service={service}
                               refactoringItems={refactoringItems}
-                              setRefactoringItems={setRefactoringItems}
+                              setRefactoringItems={_setRefactoringItems}
+                              refactoringItems2={refactoringItems2}
+                              setRefactoringItems2={_setRefactoringItems2}
                               showNumber={true}
                             ></Refactoring>
                           )}
                         </Row>
                       )}
-                      
                     </>
                   )}
                 </Row>

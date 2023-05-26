@@ -15,7 +15,10 @@ function RefactoringButton(props) {
     <>
       <Col className="d-inline">
         <Button
-          onClick={() => handleClick(index)}
+          onClick={(e) => {
+            e.preventDefault();
+            handleClick(index);
+          }}
           id={item.id}
           name={item.name}
           size="lg"
@@ -39,7 +42,7 @@ function RefactoringButton(props) {
           <MdKeyboardDoubleArrowRight
             size={"20px"}
             className="d-inline"
-            style={{ color: showNumber? "white": "#687f8c" }}
+            style={{ color: showNumber ? "white" : "#687f8c" }}
           ></MdKeyboardDoubleArrowRight>
         </Col>
       ) : (

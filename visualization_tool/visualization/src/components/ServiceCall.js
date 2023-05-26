@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
@@ -10,30 +11,50 @@ function ServiceCall({
   refactoringItems,
   setRefactoringItems,
   refactoring,
+  refactoringItems2,
+  setRefactoringItems2,
   showNumber,
 }) {
+  const [loadStep, setLoadStep] = useState(undefined);
+  const [step, setStep] = useState(undefined);
   const handleOnClick = (index, text) => {
-    setRefactoringItems("selected", index);
-    setRefactoringItems("step", text);
-    setRefactoringItems("color", "#687f8c");
+    setLoadStep(true);
+    setStep(text);
+    setRefactoringItems((prev) => ({
+      ...prev,
+      selected: index,
+      color: "#687f8c",
+    }));
+    setLoadStep(false);
   };
 
   const handleRefactorigClick = (index) => {
-    setRefactoringItems("selected", index);
-    setRefactoringItems("step",
-      <Refactoring
-        project={project}
-        service={service}
-        sequence={refactoring.refactorings}
-        index={index - 2}
-      ></Refactoring>
-    );
-    setRefactoringItems("color", "#1E488F");
+    setLoadStep(true);
+    setStep(undefined);
+    setRefactoringItems2((prev) => ({
+      ...prev,
+      selected: undefined,
+      step: undefined,
+      color: undefined,
+      index: index,
+      sequence: refactoring.refactorings,
+      image: undefined,
+    })); //todo: fazer aqui o pedido da imagem
+
+    let idx = index + 3;
+
+    setRefactoringItems((prev) => ({
+      ...prev,
+      selected: idx,
+      color: "#1E488F",
+    }));
+
+    setLoadStep(false);
   };
 
   return (
     <Row className="mt-2 blue-text">
-      <p  style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
+      <p style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
         {showNumber ? (refactoringItems.index + 1).toString() + ". " : ""}
         {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>
@@ -117,7 +138,7 @@ function ServiceCall({
               index = index + 2;
               return (
                 <>
-                  <Col className="d-inline">
+                  <Col className="d-inline" key={index}>
                     <RefactoringButton
                       item={item}
                       active={refactoringItems.selected === index}
@@ -137,13 +158,31 @@ function ServiceCall({
               );
             })}
         </div>
-        {refactoringItems.step !== undefined && (
+        {loadStep !== undefined && (
           <Row
             id="implementation"
             className="d-flex justify-content-center py-3 my-3 mx-5 px-2"
-            style={{ border: "3px dashed " + refactoringItems.color, "white-space": "pre-line" }}
+            style={{ border: "3px dashed " + refactoringItems.color }}
           >
-            {refactoringItems.step}
+            {loadStep === true ? (
+              <></>
+            ) : (
+              <>
+                {step !== undefined ? (
+                  <>{step}</>
+                ) : (
+                  <Refactoring
+                    project={project}
+                    service={service}
+                    refactoringItems={refactoringItems2}
+                    setRefactoringItems={setRefactoringItems2}
+                    refactoringItems2={{}}
+                    setRefactoringItems2={() => {}}
+                    showNumber={false}
+                  />
+                )}
+              </>
+            )}
           </Row>
         )}
 

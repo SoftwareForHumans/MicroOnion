@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
@@ -11,25 +12,45 @@ function ChangeDataOwnership({
   refactoringItems,
   setRefactoringItems,
   refactoring,
+  refactoringItems2,
+  setRefactoringItems2,
   showNumber,
 }) {
+  const [loadStep, setLoadStep] = useState(undefined);
+  const [step, setStep] = useState(undefined);
   const handleOnClick = (index, text) => {
-    setRefactoringItems("selected", index);
-    setRefactoringItems("step", text);
-    setRefactoringItems("color", "#687f8c");
+    setLoadStep(true);
+    setStep(text);
+    setRefactoringItems((prev) => ({
+      ...prev,
+      selected: index,
+      color: "#687f8c",
+    }));
+    setLoadStep(false);
   };
 
   const handleRefactoringClick = (index) => {
-    setRefactoringItems("selected", index + 1);
-    setRefactoringItems("step",
-    <Refactoring
-        project={project}
-        service={service}
-        sequence={refactoring.refactorings}
-        index={index}
-      ></Refactoring>
-    )
-    setRefactoringItems("color", "#1E488F");
+    setStep(undefined);
+    setLoadStep(true);
+    setRefactoringItems2((prev) => ({
+      ...prev,
+      selected: undefined,
+      step: undefined,
+      color: undefined,
+      index: index,
+      sequence: refactoring.refactorings,
+      image: undefined,
+    })); //todo: fazer aqui o pedido da imagem
+
+    let idx = index + 1;
+
+    setRefactoringItems((prev) => ({
+      ...prev,
+      selected: idx,
+      color: "#1E488F",
+    }));
+
+    setLoadStep(false);
   };
 
   return (
@@ -74,6 +95,7 @@ function ChangeDataOwnership({
               return (
                 <>
                   <RefactoringButton
+                    key={index}
                     item={item}
                     active={refactoringItems.selected === index + 1}
                     handleClick={handleRefactoringClick}
@@ -86,13 +108,31 @@ function ChangeDataOwnership({
               );
             })}
         </div>
-        {refactoringItems.step !== undefined && (
+        {loadStep !== undefined && (
           <Row
             id="implementation"
             className="d-flex justify-content-center py-3 my-3 mx-5 px-2"
             style={{ border: "3px dashed " + refactoringItems.color }}
           >
-            {refactoringItems.step}
+            {loadStep === true ? (
+              <></>
+            ) : (
+              <>
+                {step !== undefined ? (
+                  <>{step}</>
+                ) : (
+                  <Refactoring
+                    project={project}
+                    service={service}
+                    refactoringItems={refactoringItems2}
+                    setRefactoringItems={setRefactoringItems2}
+                    refactoringItems2={{}}
+                    setRefactoringItems2={() => {}}
+                    showNumber={false}
+                  />
+                )}
+              </>
+            )}
           </Row>
         )}
 

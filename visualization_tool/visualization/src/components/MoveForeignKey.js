@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
@@ -10,33 +11,52 @@ function MoveForeignKey({
   refactoringItems,
   setRefactoringItems,
   refactoring,
+  refactoringItems2,
+  setRefactoringItems2,
   showNumber,
 }) {
+  const [loadStep, setLoadStep] = useState(undefined);
+  const [step, setStep] = useState(undefined);
   const handleOnClick = (index, text) => {
-    setRefactoringItems("selected", index);
-    setRefactoringItems("step", text);
-    setRefactoringItems("color", "#687f8c");
+    setLoadStep(true);
+    setStep(text);
+    setRefactoringItems((prev) => ({
+      ...prev,
+      selected: index,
+      color: "#687f8c",
+    }));
+    setLoadStep(false);
   };
 
-  const handleRefactorigClick = (index) => {
-    setRefactoringItems("selected", index);
-    setRefactoringItems(
-      "step",
-      <Refactoring
-        project={project}
-        service={service}
-        sequence={refactoring.refactorings}
-        index={index - 2}
-      ></Refactoring>
-    );
-    setRefactoringItems("color", "#1E488F");
+  const handleRefactoringClick = (index) => {
+    setStep(undefined);
+    setLoadStep(true);
+    setRefactoringItems2((prev) => ({
+      ...prev,
+      selected: undefined,
+      step: undefined,
+      color: undefined,
+      index: index,
+      sequence: refactoring.refactorings,
+      image: undefined,
+    })); //todo: fazer aqui o pedido da imagem
+
+    let idx =
+      index +
+      (refactoring.notes.interfaces ? refactoring.notes.interfaces.length : 0) +
+      4; //todo: see this
+
+    setRefactoringItems((prev) => ({
+      ...prev,
+      selected: idx,
+      color: "#1E488F",
+    }));
+    setLoadStep(false);
   };
+
   return (
     <Row className="py-2 blue-text">
-      <p
-        
-        style={{ fontSize: "1.15rem", fontWeight: "bold" }}
-      >
+      <p style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
         {showNumber ? (refactoringItems.index + 1).toString() + ". " : ""}
         {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
       </p>
@@ -146,11 +166,11 @@ function MoveForeignKey({
               index = index + 5;
               return (
                 <>
-                  <Col className="d-inline">
+                  <Col className="d-inline" key={index}>
                     <RefactoringButton
                       item={item}
                       active={refactoringItems.selected === index}
-                      handleClick={handleRefactorigClick}
+                      handleClick={handleRefactoringClick}
                       sequence={refactoring.refactorings}
                       index={index}
                       showNumber={false}
@@ -175,13 +195,31 @@ function MoveForeignKey({
         ) : (
           <></>
         )}
-        {refactoringItems.step !== undefined && (
+        {loadStep !== undefined && (
           <Row
             id="implementation"
-            className="d-flex justify-content-center pt-3 pb-1 my-3 mx-5"
+            className="d-flex justify-content-center py-3 my-3 mx-5 px-2"
             style={{ border: "3px dashed " + refactoringItems.color }}
           >
-            <p>{refactoringItems.step}</p>
+            {loadStep === true ? (
+              <></>
+            ) : (
+              <>
+                {step !== undefined ? (
+                  <>{step}</>
+                ) : (
+                  <Refactoring
+                    project={project}
+                    service={service}
+                    refactoringItems={refactoringItems2}
+                    setRefactoringItems={setRefactoringItems2}
+                    refactoringItems2={{}}
+                    setRefactoringItems2={() => {}}
+                    showNumber={false}
+                  />
+                )}
+              </>
+            )}
           </Row>
         )}
 
