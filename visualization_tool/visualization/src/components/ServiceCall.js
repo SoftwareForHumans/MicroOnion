@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
 import Refactoring from "../components/Refactoring";
 import StepButton from "./StepButton";
+import axios from "axios";
 
 function ServiceCall({
   project,
@@ -31,25 +32,41 @@ function ServiceCall({
   const handleRefactorigClick = (index) => {
     setLoadStep(true);
     setStep(undefined);
-    setRefactoringItems2((prev) => ({
-      ...prev,
-      selected: undefined,
-      step: undefined,
-      color: undefined,
-      index: index,
-      sequence: refactoring.refactorings,
-      image: undefined,
-    })); //todo: fazer aqui o pedido da imagem
-
-    let idx = index + 3;
-
-    setRefactoringItems((prev) => ({
-      ...prev,
-      selected: idx,
-      color: "#1E488F",
-    }));
-
-    setLoadStep(false);
+    let id = refactoringItems.sequence[index].id;
+    try {
+      axios
+        .get(
+          `${process.env.REACT_APP_BACKEND_URL}projects/${project}/getRefactoringImage/${service.microservice}/${id}`,
+          {
+            headers: {
+              "Content-Type": "image/png",
+            },
+          }
+        )
+        .then((res) => {
+          setRefactoringItems2((prev) => ({
+            ...prev,
+            selected: undefined,
+            step: undefined,
+            color: undefined,
+            index: index,
+            sequence: refactoring.refactorings,
+            image: res.data,
+          })); 
+      
+          let idx = index + 3;
+      
+          setRefactoringItems((prev) => ({
+            ...prev,
+            selected: idx,
+            color: "#1E488F",
+          }));
+      
+          setLoadStep(false);
+        });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -135,7 +152,7 @@ function ServiceCall({
           </Col>
           {refactoring.refactorings &&
             refactoring.refactorings.map((item, index) => {
-              index = index + 2;
+              index = index + 3;
               return (
                 <>
                   <Col className="d-inline" key={index}>

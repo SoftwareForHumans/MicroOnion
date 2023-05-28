@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
 import Refactoring from "../components/Refactoring";
 import StepButton from "./StepButton";
-import r2 from "../assets/refactoring_2.png";
+import axios from "axios";
 
 function ChangeDataOwnership({
   project,
@@ -32,25 +32,41 @@ function ChangeDataOwnership({
   const handleRefactoringClick = (index) => {
     setStep(undefined);
     setLoadStep(true);
-    setRefactoringItems2((prev) => ({
-      ...prev,
-      selected: undefined,
-      step: undefined,
-      color: undefined,
-      index: index,
-      sequence: refactoring.refactorings,
-      image: undefined,
-    })); //todo: fazer aqui o pedido da imagem
-
-    let idx = index + 1;
-
-    setRefactoringItems((prev) => ({
-      ...prev,
-      selected: idx,
-      color: "#1E488F",
-    }));
-
-    setLoadStep(false);
+    let id = refactoringItems.sequence[index].id;
+    try {
+      axios
+        .get(
+          `${process.env.REACT_APP_BACKEND_URL}projects/${project}/getRefactoringImage/${service.microservice}/${id}`,
+          {
+            headers: {
+              "Content-Type": "image/png",
+            },
+          }
+        )
+        .then((res) => {
+          setRefactoringItems2((prev) => ({
+            ...prev,
+            selected: undefined,
+            step: undefined,
+            color: undefined,
+            index: index,
+            sequence: refactoring.refactorings,
+            image: res.data,
+          })); 
+      
+          let idx = index + 1;
+      
+          setRefactoringItems((prev) => ({
+            ...prev,
+            selected: idx,
+            color: "#1E488F",
+          }));
+      
+          setLoadStep(false);
+        });
+    } catch (err) {
+      console.log(err);
+    }    
   };
 
   return (
@@ -69,7 +85,7 @@ function ChangeDataOwnership({
         <img
           className="pb-3"
           style={{ width: "90%", alignSelf: "center" }}
-          src={r2}
+          src={`data:image/png;base64,${refactoringItems.image}`}
           alt="refactoring change schema"
         ></img>
         <p>

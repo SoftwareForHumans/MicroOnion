@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
 import Refactoring from "../components/Refactoring";
 import StepButton from "./StepButton";
+import axios from "axios";
 
 function MoveForeignKey({
   project,
@@ -31,24 +32,41 @@ function MoveForeignKey({
   const handleRefactoringClick = (index) => {
     setStep(undefined);
     setLoadStep(true);
-    setRefactoringItems2((prev) => ({
-      ...prev,
-      selected: undefined,
-      step: undefined,
-      color: undefined,
-      index: index,
-      sequence: refactoring.refactorings,
-      image: undefined,
-    })); //todo: fazer aqui o pedido da imagem
-
-    let idx = index + (refactoring.notes.interfaces ? 5 : 4);
-
-    setRefactoringItems((prev) => ({
-      ...prev,
-      selected: idx,
-      color: "#1E488F",
-    }));
-    setLoadStep(false);
+    let id = refactoringItems.sequence[index].id;
+    try {
+      axios
+        .get(
+          `${process.env.REACT_APP_BACKEND_URL}projects/${project}/getRefactoringImage/${service.microservice}/${id}`,
+          {
+            headers: {
+              "Content-Type": "image/png",
+            },
+          }
+        )
+        .then((res) => {
+          setRefactoringItems2((prev) => ({
+            ...prev,
+            selected: undefined,
+            step: undefined,
+            color: undefined,
+            index: index,
+            sequence: refactoring.refactorings,
+            image: res.data,
+          })); 
+      
+          let idx = index + (refactoring.notes.interfaces ? 5 : 4);
+      
+          setRefactoringItems((prev) => ({
+            ...prev,
+            selected: idx,
+            color: "#1E488F",
+          }));
+      
+          setLoadStep(false);
+        });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -160,7 +178,7 @@ function MoveForeignKey({
           </Col>
           {refactoring.refactorings &&
             refactoring.refactorings.map((item, index) => {
-              index = index + 5;
+              index = index + (refactoring.notes.interfaces? 5 : 4);
               return (
                 <>
                   <Col className="d-inline" key={index}>
