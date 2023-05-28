@@ -29,7 +29,7 @@ package "6"{
 class AuthController
 }
 }
-"0"..>"1":UserDetailsServiceImpl:loadUserByUsername(HTTP)
-"0"..>"1":UserPrinciple:getUsername(HTTP)
+"0"..>"1":UserDetailsServiceImpl:loadUserByUsername (HTTP)
+"0"..>"1":UserPrinciple:getUsername (HTTP)
 "6"..>"0":JwtProvider:generateJwtToken (HTTP)
 @enduml

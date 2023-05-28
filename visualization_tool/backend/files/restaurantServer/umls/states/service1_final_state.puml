@@ -42,7 +42,7 @@ class AuthController
 class AuthController
 }
 }
-"1"..>"6":MailService:sendEmail(HTTP)
+"1"..>"6":MailService:sendEmail (HTTP)
 "0"..>"1":UserDetailsServiceImpl:loadUserByUsername (HTTP)
 "0"..>"1":UserPrinciple:getUsername (HTTP)
 "4"..>"1":UserRepository:save (HTTP)

@@ -41,10 +41,7 @@ function MoveForeignKey({
       image: undefined,
     })); //todo: fazer aqui o pedido da imagem
 
-    let idx =
-      index +
-      (refactoring.notes.interfaces ? refactoring.notes.interfaces.length : 0) +
-      4; //todo: see this
+    let idx = index + (refactoring.notes.interfaces ? 5 : 4);
 
     setRefactoringItems((prev) => ({
       ...prev,
@@ -154,7 +151,7 @@ function MoveForeignKey({
           <Col className="d-inline me-3">
             <StepButton
               name="Make necessary changes"
-              index={4}
+              index={refactoring.notes.interfaces ? 4 : 3}
               active={refactoringItems.selected}
               hasNext={refactoring.refactorings}
               handleClick={handleOnClick}

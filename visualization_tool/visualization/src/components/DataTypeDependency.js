@@ -76,13 +76,24 @@ function DataTypeDependency({
         <p className="d-flex align-self-start ms-5">
           Refactoring schematical representation:
         </p>
+        {/* <a
+          href="http://www.plantuml.com/plantuml/png/ZP2nJiGm44HxVuLrDITHKLo13a5neU64_0EBFLmid7LORm8HujynA0e2Kj2EdvzcPr-KH8SkcPxy4vrWDnURDsEjJrIAlHgqlSwiabE2r1YiKITx-w97oMCCa1jtj-0_uuOLyaWUQ-_tU1vGT66Qha__uSpxTzFpslJlZvNeG1mIPbKrc7gatMvVFnMx3jhcqF2OFMdCV6P7aaWF2MxgCQENN-Z1kUFk18QGujSsUt2eEtu0"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            className="pb-3"
+            style={{ width: "90%", alignSelf: "center" }}
+            src="http://www.plantuml.com/plantuml/png/ZP2nJiGm44HxVuLrDITHKLo13a5neU64_0EBFLmid7LORm8HujynA0e2Kj2EdvzcPr-KH8SkcPxy4vrWDnURDsEjJrIAlHgqlSwiabE2r1YiKITx-w97oMCCa1jtj-0_uuOLyaWUQ-_tU1vGT66Qha__uSpxTzFpslJlZvNeG1mIPbKrc7gatMvVFnMx3jhcqF2OFMdCV6P7aaWF2MxgCQENN-Z1kUFk18QGujSsUt2eEtu0" //{`data:image/png;base64,${refactoringItems.image}`}
+            alt="refactoring change schema"
+          ></img>
+        </a> */}
         <img
-          className="pb-3"
-          style={{ width: "90%", alignSelf: "center" }}
-          src={`data:image/png;base64,${refactoringItems.image}`}
-          alt="refactoring change schema"
-        ></img>
-
+            className="pb-3"
+            style={{ width: "90%", alignSelf: "center" }}
+            src={`data:image/png;base64,${refactoringItems.image}`}
+            alt="refactoring change schema"
+          ></img>
         <p>
           To apply this refactoring, follow the below sequence of steps (
           <b>click on each of them to find out how to implement them</b>):
@@ -128,7 +139,10 @@ function DataTypeDependency({
                 <RefactoringButton
                   key={index}
                   item={item}
-                  active={refactoringItems.selected === (refactoring.notes.interfaces ? index + 2 : index + 1)}
+                  active={
+                    refactoringItems.selected ===
+                    (refactoring.notes.interfaces ? index + 2 : index + 1)
+                  }
                   handleClick={handleRefactoringClick}
                   sequence={seq}
                   index={index}
