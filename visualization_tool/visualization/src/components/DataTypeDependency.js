@@ -92,7 +92,7 @@ function DataTypeDependency({
             <StepButton
               name="Identify where the data type is used"
               index={0}
-              active={refactoringItems.selected === 0}
+              active={refactoringItems.selected}
               hasNext={true}
               handleClick={handleOnClick}
               text={
@@ -106,7 +106,7 @@ function DataTypeDependency({
               <StepButton
                 name="Create an interface"
                 index={1}
-                active={refactoringItems.selected === 1}
+                active={refactoringItems.selected}
                 hasNext={refactoring.refactorings}
                 handleClick={handleOnClick}
                 text={
@@ -128,7 +128,7 @@ function DataTypeDependency({
                 <RefactoringButton
                   key={index}
                   item={item}
-                  active={refactoringItems.selected === index + 2}
+                  active={refactoringItems.selected === (refactoring.notes.interfaces ? index + 2 : index + 1)}
                   handleClick={handleRefactoringClick}
                   sequence={seq}
                   index={index}
@@ -141,7 +141,7 @@ function DataTypeDependency({
             <StepButton
               name="Make the necessary changes"
               index={indexLast}
-              active={refactoringItems.selected === indexLast}
+              active={refactoringItems.selected}
               hasNext={false}
               handleClick={handleOnClick}
               text="Make the necessary changes in the code to use the new data type and the right interface for the method calls."

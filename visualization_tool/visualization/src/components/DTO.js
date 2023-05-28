@@ -23,7 +23,7 @@ function DTO({
     setRefactoringItems((prev) => ({
       ...prev,
       selected: index,
-      color: "#1E488F",
+      color: "#687f8c",
     }));
   };
 
@@ -66,7 +66,7 @@ function DTO({
           <Row
             id="implementation"
             className="d-flex justify-content-center py-3 my-3 mx-5"
-            style={{ border: "3px dashed #3C76E1" }}
+            style={{ border: "3px dashed" + refactoringItems.color  }}
           >
             {step}
           </Row>
