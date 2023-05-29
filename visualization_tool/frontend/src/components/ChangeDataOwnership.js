@@ -13,7 +13,7 @@ function ChangeDataOwnership({
   setRefactoringItems,
   refactoring,
   refactoringItems2,
-  setRefactoringItems2
+  setRefactoringItems2,
 }) {
   const [loadStep, setLoadStep] = useState(undefined);
   const [step, setStep] = useState(undefined);
@@ -158,8 +158,16 @@ function ChangeDataOwnership({
 
       <p className="mt-3" style={{ fontSize: "0.8rem" }}>
         Note: In this case we only portray the case of not needing to break a
-        database table. You can find the other cases in the catalogue, like
-        splitting a table, replication, etc. .
+        database table. You can find the other cases in the{" "}
+        <a
+          style={{ color: "#092256" }}
+          href="https://drive.google.com/file/d/1giOX96fcBT8IA82PBAeU_RDuEV4inyxX/view?usp=sharing"
+          target="_blank"
+          rel="noreferrer"
+        >
+          catalogue
+        </a>{" "}
+        , like splitting a table, replication, etc. .
       </p>
     </>
   );

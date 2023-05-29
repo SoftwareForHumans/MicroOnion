@@ -13,7 +13,7 @@ function ServiceCall({
   setRefactoringItems,
   refactoring,
   refactoringItems2,
-  setRefactoringItems2
+  setRefactoringItems2,
 }) {
   const [loadStep, setLoadStep] = useState(undefined);
   const [step, setStep] = useState(undefined);
@@ -213,7 +213,15 @@ function ServiceCall({
         Note: By default, we apply this refactoring implementing a synchronous
         call, however if you don't need an instant response or don't want a
         service to wait for the response, it can be asynchronous. Check the
-        catalogue to find out how to implement an asynchronous call.
+        <a
+          style={{ color: "#092256" }}
+          href="https://drive.google.com/file/d/1giOX96fcBT8IA82PBAeU_RDuEV4inyxX/view?usp=sharing"
+          target="_blank"
+          rel="noreferrer"
+        >
+          catalogue
+        </a>{" "}
+        to find out how to implement an asynchronous call.
       </p>
     </>
   );

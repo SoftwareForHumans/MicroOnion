@@ -80,7 +80,7 @@ function Principles() {
             more information on the{" "}
             <a
               style={{ color: "#092256" }}
-              href="https://drive.google.com/file/d/1OHzI64pzNWmRZ2t61A30LHS_ItqX4all/view?usp=sharing"
+              href="https://drive.google.com/file/d/1giOX96fcBT8IA82PBAeU_RDuEV4inyxX/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
             >

@@ -13,7 +13,7 @@ function MoveForeignKey({
   setRefactoringItems,
   refactoring,
   refactoringItems2,
-  setRefactoringItems2
+  setRefactoringItems2,
 }) {
   const [loadStep, setLoadStep] = useState(undefined);
   const [step, setStep] = useState(undefined);
@@ -244,9 +244,18 @@ function MoveForeignKey({
       <p className="mt-3" style={{ fontSize: "0.8rem" }}>
         Note: Although not mentioned here, data replication is always an option
         to solve a database dependency. If you think it is more suitable for
-        your system, check the catalogue to find out how to implement it.
-        Additionally, you may need to remove code annotations when using
-        specific programming languages, frameworks or ORMs that use it.
+        your system, check the{" "}
+        <a
+          style={{ color: "#092256" }}
+          href="https://drive.google.com/file/d/1giOX96fcBT8IA82PBAeU_RDuEV4inyxX/view?usp=sharing"
+          target="_blank"
+          rel="noreferrer"
+        >
+          catalogue
+        </a>{" "}
+        to find out how to implement it. Additionally, you may need to remove
+        code annotations when using specific programming languages, frameworks
+        or ORMs that use it.
       </p>
     </>
   );
