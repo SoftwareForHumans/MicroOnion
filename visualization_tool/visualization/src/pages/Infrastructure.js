@@ -23,6 +23,7 @@ function Infrastructure() {
     "The addresses where the instances are hosted are frequently dynamically allocated. Because the number of instances running changes dynamically, it is difficult to predict which address each service will have. It is usual in these scenarios to set up a service discovery with a service registry to keep track of the locations of existing systems.",
     "Microservices must be notified when a service fails in order to avoid routing requests to that microservice. This is often accomplished by sending a health check request to the microservice to determine whether or not it is operational. It should either respond positively or return the specific error that is causing it to malfunction.",
   ];
+
   return (
     <Container className="my-4">
       <Row className="px-5 center-all blue-text">
@@ -34,34 +35,37 @@ function Infrastructure() {
           it accommodate better the microservices paradigm.
         </p>
       </Row>
-      <div
-        className="center-all flex-row"
-      >
-        <Row>
-          {titles.map((title, index) => (
-            <Card
-              className="m-3 pb-2"
+      <Row>
+        {titles.map((title, index) => (
+          <Card
+            className="m-3"
+            style={{
+              width: "400px",
+              backgroundColor:
+                index % 2 === 0 ? "rgba(32, 65, 140, 1)" : "#687f8c",
+              borderColor:
+                index % 2 === 0 ? "rgba(32, 65, 140, 1)" : "#687f8c",
+            }}
+          >
+            <Card.Body
               style={{
-                width: "400px",
-                backgroundColor:
-                  index % 2 === 0 ? "rgba(30, 72, 143,0.9)" : "#687f8c",
-                borderColor:
-                  index % 2 === 0 ? "rgba(30, 72, 143,0.9)" : "#687f8c",
-              }}
-            >
-              <Card.Body>
-                <Card.Title
-                  className="mb-2"
-                  style={{ color: index % 2 === 0 ? "#c0c0c0" : "#2F4F4F" }}
-                >
-                  {title}
-                </Card.Title>
-                <Card.Text className="text-white">{texts[index]}</Card.Text>
-              </Card.Body>
-            </Card>
-          ))}
-        </Row>
-      </div>
+                gridTemplateRows: "auto 1fr auto",
+                display: "grid",
+              }}>
+              <Card.Title
+                className="mb-2"
+                style={{ color: "#ffffff" }}>
+                {title}
+              </Card.Title>
+              <Card.Text
+                className="text-white mt-4"
+                style={{ fontWeight: "300" }}>
+                {texts[index]}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        ))}
+      </Row>
       <Row className="my-4 pb-5 center-all blue-text">
         <p className="my-2">
           You can find{" "}

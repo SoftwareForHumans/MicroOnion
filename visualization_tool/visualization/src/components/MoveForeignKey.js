@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
@@ -18,9 +18,24 @@ function MoveForeignKey({
 }) {
   const [loadStep, setLoadStep] = useState(undefined);
   const [step, setStep] = useState(undefined);
+  const [scrollToElementId, setScrollToElement] = useState();
+
+  const scrollToElement = (id) => {
+    let element = document.getElementById(id);
+    let header = document.getElementById("header");
+    if (element) {
+      setTimeout(scroll, 500);
+      function scroll() {
+        window.scrollTo(element.offsetLeft, element.offsetTop - header.offsetHeight);
+        setScrollToElement('');
+      }
+    }
+  }
+
   const handleOnClick = (index, text) => {
     setLoadStep(true);
     setStep(text);
+    setScrollToElement('implementationStep');
     setRefactoringItems((prev) => ({
       ...prev,
       selected: index,
@@ -61,13 +76,17 @@ function MoveForeignKey({
             selected: idx,
             color: "#1E488F",
           }));
-      
           setLoadStep(false);
+          setScrollToElement('implementationStep');
         });
     } catch (err) {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    scrollToElement(scrollToElementId);
+  }, [scrollToElementId]);
 
   return (
     <Row className="py-2 blue-text">
@@ -210,35 +229,40 @@ function MoveForeignKey({
         ) : (
           <></>
         )}
-        {loadStep !== undefined && (
-          <Row
-            id="implementation"
-            className="d-flex justify-content-center py-3 my-3 mx-5 px-2"
-            style={{ border: "3px dashed " + refactoringItems.color }}
-          >
-            {loadStep === true ? (
-              <></>
-            ) : (
-              <>
-                {step !== undefined ? (
-                  <>{step}</>
-                ) : (
-                  <Refactoring
-                    project={project}
-                    service={service}
-                    refactoringItems={refactoringItems2}
-                    setRefactoringItems={setRefactoringItems2}
-                    refactoringItems2={{}}
-                    setRefactoringItems2={() => {}}
-                    showNumber={false}
-                  />
-                )}
-              </>
-            )}
-          </Row>
-        )}
 
-        <p className="mt-5" style={{ fontSize: "0.8rem" }}>
+        <Row
+          id="implementation"
+          className="mx-5">
+          {loadStep !== undefined && (
+            <>
+              {loadStep === true ? (
+                <></>
+              ) : (
+                <>
+                  <div
+                    className="d-flex justify-content-center py-3 my-3 px-2"
+                    style={{ border: "3px dashed " + refactoringItems.color }}>
+                    {step !== undefined ? (
+                      <>{step}</>
+                    ) : (
+                      <Refactoring
+                        project={project}
+                        service={service}
+                        refactoringItems={refactoringItems2}
+                        setRefactoringItems={setRefactoringItems2}
+                        refactoringItems2={{}}
+                        setRefactoringItems2={() => { }}
+                        showNumber={false}
+                      />
+                    )}
+                  </div>
+                </>
+              )}
+            </>
+          )}
+        </Row>
+
+        <p className="mt-3" style={{ fontSize: "0.8rem" }}>
           Note: Although not mentioned here, data replication is always an
           option to solve a database dependency. If you think it is more
           suitable for your system, check the catalog to find out how to

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
@@ -18,15 +18,33 @@ function ServiceCall({
 }) {
   const [loadStep, setLoadStep] = useState(undefined);
   const [step, setStep] = useState(undefined);
+  const [scrollToElementId, setScrollToElement] = useState();
+  const scrollToElement = (id) => {
+    let element = document.getElementById(id);
+    let header = document.getElementById("header");
+    if (element) {
+      setTimeout(scroll, 500);
+      function scroll() {
+        window.scrollTo(
+          element.offsetLeft,
+          element.offsetTop - header.offsetHeight
+        );
+        setScrollToElement("");
+      }
+    }
+  };
+
   const handleOnClick = (index, text) => {
     setLoadStep(true);
     setStep(text);
+    
     setRefactoringItems((prev) => ({
       ...prev,
       selected: index,
       color: "#687f8c",
     }));
     setLoadStep(false);
+    setScrollToElement("implementationStep");
   };
 
   const handleRefactorigClick = (index) => {
@@ -54,6 +72,8 @@ function ServiceCall({
             image: res.data,
           }));
 
+          setScrollToElement("implementationStep");
+
           let idx = index + 3;
 
           setRefactoringItems((prev) => ({
@@ -68,6 +88,10 @@ function ServiceCall({
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    scrollToElement(scrollToElementId);
+  }, [scrollToElementId]);
 
   return (
     <Row className="mt-2 blue-text">
@@ -175,45 +199,39 @@ function ServiceCall({
               );
             })}
         </div>
-        {loadStep !== undefined && (
-          <Row
-            id="implementation"
-            className="d-flex justify-content-center py-3 my-3 mx-5 px-2"
-            style={{ border: "3px dashed " + refactoringItems.color }}
-          >
-            {loadStep === true ? (
-              <></>
-            ) : (
-              <>
-                {step !== undefined ? (
-                  <>
-                    {typeof step === "string" ? (
+
+        <Row id="implementationStep" className="mx-5">
+          {loadStep !== undefined && (
+            <>
+              {loadStep === true ? (
+                <></>
+              ) : (
+                <>
+                  <div
+                    className="d-flex justify-content-center py-3 my-3 px-2"
+                    style={{ border: "3px dashed " + refactoringItems.color }}
+                  >
+                    {step !== undefined ? (
                       <>{step}</>
                     ) : (
-                      <>
-                        {Object.keys(step).map((key) => (
-                          <div key={key}>{step[key]}</div>
-                        ))}
-                      </>
+                      <Refactoring
+                        project={project}
+                        service={service}
+                        refactoringItems={refactoringItems2}
+                        setRefactoringItems={setRefactoringItems2}
+                        refactoringItems2={{}}
+                        setRefactoringItems2={() => {}}
+                        showNumber={false}
+                      />
                     )}
-                  </>
-                ) : (
-                  <Refactoring
-                    project={project}
-                    service={service}
-                    refactoringItems={refactoringItems2}
-                    setRefactoringItems={setRefactoringItems2}
-                    refactoringItems2={{}}
-                    setRefactoringItems2={() => {}}
-                    showNumber={false}
-                  />
-                )}
-              </>
-            )}
-          </Row>
-        )}
+                  </div>
+                </>
+              )}
+            </>
+          )}
+        </Row>
 
-        <p className="mt-5" style={{ fontSize: "0.8rem" }}>
+        <p className="mt-3" style={{ fontSize: "0.8rem" }}>
           Note: By default, we apply this refactoring implementing a synchronous
           call, however if you don't need an instant response or don't want a
           service to wait for the response, it can be asynchronous. Check the

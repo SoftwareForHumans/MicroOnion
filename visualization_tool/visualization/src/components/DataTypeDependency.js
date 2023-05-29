@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
@@ -21,9 +21,24 @@ function DataTypeDependency({
   const indexLast =
     1 + (refactoring.refactorings ? refactoring.refactorings.length + 1 : 0);
 
+  const [scrollToElementId, setScrollToElement] = useState();
+
+  const scrollToElement = (id) => {
+    let element = document.getElementById(id);
+    let header = document.getElementById("header");
+    if (element) {
+      setTimeout(scroll, 500);
+      function scroll() {
+        window.scrollTo(element.offsetLeft, element.offsetTop - header.offsetHeight);
+        setScrollToElement('');
+      }
+    }
+  }
+
   const handleOnClick = (index, text) => {
     setLoadStep(true);
     setStep(text);
+    setScrollToElement('implementationStep');
     setRefactoringItems((prev) => ({
       ...prev,
       selected: index,
@@ -65,11 +80,16 @@ function DataTypeDependency({
           }));
       
           setLoadStep(false);
+          setScrollToElement('implementationStep');
         });
     } catch (err) {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    scrollToElement(scrollToElementId);
+  }, [scrollToElementId]);
 
   function hasDTO(arr) {
     for (let i in arr) {
@@ -95,18 +115,6 @@ function DataTypeDependency({
         <p className="d-flex align-self-start ms-5">
           Refactoring schematical representation:
         </p>
-        {/* <a
-          href="http://www.plantuml.com/plantuml/png/ZP2nJiGm44HxVuLrDITHKLo13a5neU64_0EBFLmid7LORm8HujynA0e2Kj2EdvzcPr-KH8SkcPxy4vrWDnURDsEjJrIAlHgqlSwiabE2r1YiKITx-w97oMCCa1jtj-0_uuOLyaWUQ-_tU1vGT66Qha__uSpxTzFpslJlZvNeG1mIPbKrc7gatMvVFnMx3jhcqF2OFMdCV6P7aaWF2MxgCQENN-Z1kUFk18QGujSsUt2eEtu0"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            className="pb-3"
-            style={{ width: "90%", alignSelf: "center" }}
-            src="http://www.plantuml.com/plantuml/png/ZP2nJiGm44HxVuLrDITHKLo13a5neU64_0EBFLmid7LORm8HujynA0e2Kj2EdvzcPr-KH8SkcPxy4vrWDnURDsEjJrIAlHgqlSwiabE2r1YiKITx-w97oMCCa1jtj-0_uuOLyaWUQ-_tU1vGT66Qha__uSpxTzFpslJlZvNeG1mIPbKrc7gatMvVFnMx3jhcqF2OFMdCV6P7aaWF2MxgCQENN-Z1kUFk18QGujSsUt2eEtu0" //{`data:image/png;base64,${refactoringItems.image}`}
-            alt="refactoring change schema"
-          ></img>
-        </a> */}
         <img
             className="pb-3"
             style={{ maxHeight:"25rem", maxWidth:"100%", alignSelf: "center" }}
@@ -189,7 +197,7 @@ function DataTypeDependency({
             </p>
           )}
           {refactoring.notes.dependencies.includes("methodInvocation") &&
-          refactoring.notes.interfaces === undefined ? (
+            refactoring.notes.interfaces === undefined ? (
             <p>
               In a prior refactoring, the interface for the definition of the
               DTO's method invocations was already created. Use the interface
@@ -199,35 +207,41 @@ function DataTypeDependency({
             <></>
           )}
         </div>
-        {loadStep !== undefined && (
-          <Row
-            id="implementation"
-            className="d-flex justify-content-center py-3 my-3 mx-5 px-2"
-            style={{ border: "3px dashed " + refactoringItems.color }}
-          >
-            {loadStep === true ? (
-              <></>
-            ) : (
-              <>
-                {step !== undefined ? (
-                  <>{step}</>
-                ) : (
-                  <Refactoring
-                    project={project}
-                    service={service}
-                    refactoringItems={refactoringItems2}
-                    setRefactoringItems={setRefactoringItems2}
-                    refactoringItems2={{}}
-                    setRefactoringItems2={() => {}}
-                    showNumber={false}
-                  />
-                )}
-              </>
-            )}
-          </Row>
-        )}
 
-        <p className="mt-5" style={{ fontSize: "0.8rem" }}>
+        <Row 
+          id="implementationStep"
+          className="mx-5">
+          {loadStep !== undefined && (
+            <>
+              {loadStep === true ? (
+                <></>
+              ) : (
+                <>
+                <div 
+                  className="d-flex justify-content-center py-3 my-3 px-2"
+                  style={{ border: "3px dashed " + refactoringItems.color }}>
+                {step !== undefined ? (
+                    <>{step}</>
+                  ) : (
+                    <Refactoring
+                      project={project}
+                      service={service}
+                      refactoringItems={refactoringItems2}
+                      setRefactoringItems={setRefactoringItems2}
+                      refactoringItems2={{}}
+                      setRefactoringItems2={() => { }}
+                      showNumber={false}
+                    />
+                  )}
+                </div>
+                </>
+              )}
+            </>
+          )}
+        </Row>
+
+
+        <p className="mt-3" style={{ fontSize: "0.8rem" }}>
           Note: By default we assume the data type is owned and exist only on
           the microservice where it was first defined. However, there are two
           other options that can be used keeping it in both microservices: to
