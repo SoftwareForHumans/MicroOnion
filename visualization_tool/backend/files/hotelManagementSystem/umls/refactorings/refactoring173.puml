@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "10"{
+class DoSend
+entity InStorageDTO
+
+}
+package "4"{
+class InStorage
+
+}
+"10" --x "4":variableType,methodVariable
+@enduml

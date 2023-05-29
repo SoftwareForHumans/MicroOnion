@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class InStorageService
+class EmployeeRequestInterfaceImpl
+interface EmployeeRequestInterface
+
+}
+package "2"{
+class Employee
+class EmployeeHandleRequest
+
+}
+"4" ..> "2":HTTP:getUserName
+@enduml

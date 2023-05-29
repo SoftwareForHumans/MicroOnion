@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "14"{
+class Guest
+entity RoomDTO
+
+}
+package "0"{
+class Room
+
+}
+"14" --x "0":variableType,methodVariable
+@enduml

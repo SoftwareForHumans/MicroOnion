@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workServiceImpl
+class SchedulEventRequestInterfaceImpl
+interface SchedulEventRequestInterface
+
+}
+package "9"{
+class SchedulEvent
+class SchedulEventHandleRequest
+
+}
+"7" ..> "9":HTTP:getCalendar
+@enduml

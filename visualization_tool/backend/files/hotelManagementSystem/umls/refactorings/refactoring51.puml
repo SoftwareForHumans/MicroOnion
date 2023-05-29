@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "13"{
+class LoseGoodsController
+interface ExtjsPageRequestDTOInterface
+entity ExtjsPageRequestDTO
+class ExtjsPageRequestRequestInterfaceImpl
+interface ExtjsPageRequestRequestInterface
+
+}
+package "10"{
+class ExtjsPageRequest
+class ExtjsPageRequestHandleRequest
+
+}
+"13" --x "10":methodInvocation,methodVariable
+"13" ..> "10":HTTP:getPageable
+@enduml

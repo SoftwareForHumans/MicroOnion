@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+class TravelController
+entity ExtAjaxResponseDTO
+
+}
+package "2"{
+class ExtAjaxResponse
+
+}
+"6" --x "2":methodVariable
+@enduml

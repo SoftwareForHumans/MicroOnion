@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "5"{
+class GroupController
+entity ExtAjaxResponseDTO
+
+}
+package "2"{
+class ExtAjaxResponse
+
+}
+"5" --x "2":methodVariable
+@enduml

@@ -1,0 +1,17 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+class TravelController
+class EmployeeServiceRequestInterfaceImpl
+interface EmployeeServiceRequestInterface
+
+}
+package "2"{
+class EmployeeService
+class EmployeeServiceHandleRequest
+
+}
+"6" --x "2":methodInvocation,variableType
+"6" ..> "2":HTTP:findByEmpNameAndEmpNo
+@enduml

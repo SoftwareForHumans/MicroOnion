@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class BcardQueryDTO
+entity DepartmentDTO
+
+}
+package "3"{
+class Department
+
+}
+"1" --x "3":variableType,methodVariable
+@enduml

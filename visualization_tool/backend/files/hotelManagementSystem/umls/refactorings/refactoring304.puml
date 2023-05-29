@@ -1,0 +1,11 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+entity IWorkflowServiceDTO
+
+}
+package "2"{
+class IWorkflowService
+}
+@enduml

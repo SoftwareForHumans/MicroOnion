@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class RoomCleanController
+class IStockServiceRequestInterfaceImpl
+interface IStockServiceRequestInterface
+
+}
+package "10"{
+class IStockService
+class IStockServiceHandleRequest
+
+}
+"0" ..> "10":HTTP:findByGoodsNo
+@enduml

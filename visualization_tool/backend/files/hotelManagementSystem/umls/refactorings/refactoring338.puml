@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "8"{
+class AfterModifyApplyContentProcessor
+class EmployeeServiceRequestInterfaceImpl
+interface EmployeeServiceRequestInterface
+
+}
+package "2"{
+class EmployeeService
+class EmployeeServiceHandleRequest
+
+}
+"8" ..> "2":HTTP:findByEmpNo
+@enduml

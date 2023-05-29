@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "10"{
+class InSendController
+interface EmployeeServiceDTOInterface
+entity EmployeeServiceDTO
+class EmployeeServiceRequestInterfaceImpl
+interface EmployeeServiceRequestInterface
+
+}
+package "2"{
+class EmployeeService
+class EmployeeServiceHandleRequest
+
+}
+"10" --x "2":methodInvocation,variableType
+"10" ..> "2":HTTP:findByUserName
+@enduml

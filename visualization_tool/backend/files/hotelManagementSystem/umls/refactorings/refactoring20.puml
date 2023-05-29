@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "9"{
+class CalendarEventController
+class DeptServiceRequestInterfaceImpl
+interface DeptServiceRequestInterface
+
+}
+package "3"{
+class DeptService
+class DeptServiceHandleRequest
+
+}
+"9" ..> "3":HTTP:findByDeptName
+@enduml

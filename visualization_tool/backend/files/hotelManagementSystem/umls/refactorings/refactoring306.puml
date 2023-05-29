@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+class TravelServiceImpl
+class WorkflowDTORequestInterfaceImpl
+interface WorkflowDTORequestInterface
+
+}
+package "2"{
+class WorkflowDTO
+class WorkflowDTOHandleRequest
+
+}
+"6" ..> "2":HTTP:getBusinessKey
+@enduml

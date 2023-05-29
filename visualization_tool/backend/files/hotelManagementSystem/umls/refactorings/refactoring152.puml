@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class InStorageService
+interface EmployeeDaoDTOInterface
+entity EmployeeDaoDTO
+class EmployeeDaoRequestInterfaceImpl
+interface EmployeeDaoRequestInterface
+
+}
+package "2"{
+class EmployeeDao
+class EmployeeDaoHandleRequest
+
+}
+"4" --x "2":methodInvocation,variableType
+"4" ..> "2":HTTP:findByUserName
+@enduml

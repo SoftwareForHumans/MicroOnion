@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+class TravelServiceImpl
+class EmployeeRequestInterfaceImpl
+interface EmployeeRequestInterface
+
+}
+package "2"{
+class Employee
+class EmployeeHandleRequest
+
+}
+"6" ..> "2":HTTP:getEmpName
+@enduml

@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "12"{
+class SalaryController
+interface ExtjsPageRequestDTOInterface
+entity ExtjsPageRequestDTO
+class ExtjsPageRequestRequestInterfaceImpl
+interface ExtjsPageRequestRequestInterface
+
+}
+package "10"{
+class ExtjsPageRequest
+class ExtjsPageRequestHandleRequest
+
+}
+"12" --x "10":methodInvocation,methodVariable
+"12" ..> "10":HTTP:getPageable
+@enduml

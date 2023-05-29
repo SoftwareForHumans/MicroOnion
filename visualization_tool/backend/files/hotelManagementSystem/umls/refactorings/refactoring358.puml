@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workServiceImpl
+entity IWorkflowServiceDTO
+
+}
+package "2"{
+class IWorkflowService
+
+}
+"7" --x "2":variableType
+@enduml

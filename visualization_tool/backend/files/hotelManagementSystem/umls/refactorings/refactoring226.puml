@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "10"{
+class OutStorageService
+class OutStorageRepositoryRequestInterfaceImpl
+interface OutStorageRepositoryRequestInterface
+
+}
+package "0"{
+class OutStorageRepository
+class OutStorageRepositoryHandleRequest
+
+}
+"10" ..> "0":HTTP:save
+@enduml

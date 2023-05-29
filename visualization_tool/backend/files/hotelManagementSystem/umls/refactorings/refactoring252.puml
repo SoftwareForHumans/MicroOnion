@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class RoomCleanService
+class OutStorageRequestInterfaceImpl
+interface OutStorageRequestInterface
+
+}
+package "10"{
+class OutStorage
+class OutStorageHandleRequest
+
+}
+"0" ..> "10":HTTP:setRoomNo
+@enduml

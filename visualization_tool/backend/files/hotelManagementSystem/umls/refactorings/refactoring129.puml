@@ -1,0 +1,11 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+entity IDeptServiceDTO
+
+}
+package "3"{
+class IDeptService
+}
+@enduml

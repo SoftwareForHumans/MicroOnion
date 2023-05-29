@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "9"{
+class CalendarEventController
+class SessionUtilRequestInterfaceImpl
+interface SessionUtilRequestInterface
+
+}
+package "2"{
+class SessionUtil
+class SessionUtilHandleRequest
+
+}
+"9" ..> "2":HTTP:getUserName
+@enduml

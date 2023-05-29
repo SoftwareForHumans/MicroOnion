@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class BcardController
+interface EmployeeServiceDTOInterface
+entity EmployeeServiceDTO
+class EmployeeServiceRequestInterfaceImpl
+interface EmployeeServiceRequestInterface
+
+}
+package "2"{
+class EmployeeService
+class EmployeeServiceHandleRequest
+
+}
+"1" --x "2":methodInvocation,variableType
+"1" ..> "2":HTTP:findByUserName
+@enduml

@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "10"{
+class DoSend
+
+}
+package "2"{
+class Employee
+
+}
+"10" --x "2":variableType,methodVariable
+@enduml

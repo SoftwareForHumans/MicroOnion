@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class RoomCleanService
+class OutDetailedRequestInterfaceImpl
+interface OutDetailedRequestInterface
+
+}
+package "10"{
+class OutDetailed
+class OutDetailedHandleRequest
+
+}
+"0" ..> "10":HTTP:setAmount
+@enduml

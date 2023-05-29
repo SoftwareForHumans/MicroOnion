@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class RoomController
+class GuestRequestInterfaceImpl
+interface GuestRequestInterface
+
+}
+package "14"{
+class Guest
+class GuestHandleRequest
+
+}
+"0" ..> "14":HTTP:getRoom
+@enduml

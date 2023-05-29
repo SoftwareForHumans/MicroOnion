@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "9"{
+class SchedulQueryDTO
+entity DepartmentDTO
+
+}
+package "3"{
+class Department
+
+}
+"9" --x "3":variableType,methodVariable
+@enduml

@@ -2,8 +2,6 @@ const path = require("path");
 const fs = require("fs");
 
 function createDataTypeDependencyUML(ref) {
-  // console.log("BREAK DATA TYPE DEPENDENCY");
-
   let sizeOfNewClasses = -1;
   let refactoring = null;
 
@@ -88,8 +86,6 @@ function createDataTypeDependencyUML(ref) {
 }
 
 function createChangeLocalMethodUML(ref) {
-  // console.log("CHANGE LOCAL METHOD CALL DEPENDENCY");
-
   let res = "@startuml \nallow_mixing\nleft to right direction\n";
   res += 'package "' + ref["microservice"] + '"{\n';
   res += "class " + ref["notes"]["requester"] + "\n";
@@ -136,13 +132,10 @@ function createChangeLocalMethodUML(ref) {
 }
 
 function createChangeDataOwnershipUML(ref) {
-  // console.log("CHANGE DATA OWNERSHIP");
   return createMoveForeignKeyUML(ref["refactorings"][0]);
 }
 
 function createMoveForeignKeyUML(ref) {
-  // console.log("MOVE FOREIGN-KEY REL");
-  
   //todo: ver se ha change local method no interior
   let res = "@startuml \nallow_mixing\nleft to right direction\n";
   res += 'package "' + ref["microservice"] + '"{\n';
@@ -155,7 +148,7 @@ function createMoveForeignKeyUML(ref) {
         res += "interface " + ref["notes"]["interfaces"][0] + "\n";
   }
   res += "\n}\n";
-  
+
   res += 'package "' + ref["dependent_microservice"] + '"{\n';
   res += "entity " + ref["notes"]["entities"][1] + "\n";
   if (ref["notes"]["interfaces"]) {
@@ -187,8 +180,6 @@ function createMoveForeignKeyUML(ref) {
 }
 
 function createDataTransferObjectUML(ref) {
-  // console.log("CREATE DATA TRANSFER OBJECT");
-
   let res = "@startuml \nallow_mixing\nleft to right direction\n";
   res += 'package "' + ref["microservice"] + '"{\n';
   if (ref["notes"]["created"])
@@ -206,8 +197,6 @@ function createDataTransferObjectUML(ref) {
 }
 
 function createFileDependencyUML(ref) {
-  // console.log("FILE DEPENDENCY");
-
   let res = "@startuml \nallow_mixing\nleft to right direction\n";
   res += 'package "' + ref["microservice"] + '"{\n';
 
@@ -229,8 +218,6 @@ function createFileDependencyUML(ref) {
 }
 
 function createImportDependencyUML(ref) {
-  // console.log("IMPORT DEPENDENCY");
-
   let res = "@startuml \nallow_mixing\nleft to right direction\n";
   res += 'package "' + ref["microservice"] + '"{\n';
   res += "class " + ref["notes"]["new_classes"] + "\n";

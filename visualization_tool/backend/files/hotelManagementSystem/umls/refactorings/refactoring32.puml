@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workController
+class SchedulEventServiceRequestInterfaceImpl
+interface SchedulEventServiceRequestInterface
+
+}
+package "9"{
+class SchedulEventService
+class SchedulEventServiceHandleRequest
+
+}
+"7" ..> "9":HTTP:findattenceTotalTime
+@enduml

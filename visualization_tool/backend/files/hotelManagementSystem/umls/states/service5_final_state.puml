@@ -70,11 +70,11 @@ package "14"{
 package "15"{
 }
 }
-"5"..>"3":DeptService:findByDeptName(HTTP)
-"5"..>"3":Department:getDeptName(HTTP)
-"5"..>"3":BeanUtils:copyProperties(HTTP)
-"5"..>"2":IWorkflowService:addGroup(HTTP)
-"5"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"5"..>"3":DeptService:findByDeptName (HTTP)
+"5"..>"3":Department:getDeptName (HTTP)
+"5"..>"3":BeanUtils:copyProperties (HTTP)
+"5"..>"2":IWorkflowService:addGroup (HTTP)
+"5"..>"10":ExtjsPageRequest:getPageable (HTTP)
 "2"..>"5":GroupRoleService:findByGroupName (HTTP)
 "2"..>"5":GroupRole:getGroupId (HTTP)
 "2"..>"5":GroupRoleService:findByGroupName (HTTP)

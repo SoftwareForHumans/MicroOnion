@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class EmployeeController
+class BeanUtilsRequestInterfaceImpl
+interface BeanUtilsRequestInterface
+
+}
+package "3"{
+class BeanUtils
+class BeanUtilsHandleRequest
+
+}
+"2" ..> "3":HTTP:copyProperties
+@enduml

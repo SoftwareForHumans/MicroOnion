@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "15"{
+class FinanceReportDailyService
+interface SalaryOrderRepositoryDTOInterface
+entity SalaryOrderRepositoryDTO
+class SalaryOrderRepositoryRequestInterfaceImpl
+interface SalaryOrderRepositoryRequestInterface
+
+}
+package "12"{
+class SalaryOrderRepository
+class SalaryOrderRepositoryHandleRequest
+
+}
+"15" --x "12":methodInvocation,variableType
+"15" ..> "12":HTTP:findSalaryByDay
+@enduml

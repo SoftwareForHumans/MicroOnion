@@ -1,0 +1,11 @@
+@startuml 
+allow_mixing
+left to right direction
+package "10"{
+entity InDetailedRepositoryDTO
+
+}
+package "4"{
+class InDetailedRepository
+}
+@enduml

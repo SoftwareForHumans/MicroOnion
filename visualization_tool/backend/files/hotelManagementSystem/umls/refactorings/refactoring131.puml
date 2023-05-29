@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class WorkQueryDTO
+entity DepartmentDTO
+
+}
+package "3"{
+class Department
+
+}
+"7" --x "3":variableType,methodVariable
+@enduml

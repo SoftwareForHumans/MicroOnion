@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "15"{
+class FinanceReportDailyController
+interface ExtjsPageRequestDTOInterface
+entity ExtjsPageRequestDTO
+class ExtjsPageRequestRequestInterfaceImpl
+interface ExtjsPageRequestRequestInterface
+
+}
+package "10"{
+class ExtjsPageRequest
+class ExtjsPageRequestHandleRequest
+
+}
+"15" --x "10":methodInvocation,methodVariable
+"15" ..> "10":HTTP:getPageable
+@enduml

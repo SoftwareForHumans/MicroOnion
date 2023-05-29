@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class WorkDao
+
+}
+package "2"{
+class Employee
+
+}
+"7" --x "2":methodVariable
+@enduml

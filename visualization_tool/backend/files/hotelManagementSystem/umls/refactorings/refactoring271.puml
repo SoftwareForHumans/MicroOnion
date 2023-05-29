@@ -1,0 +1,17 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class ProcessDefinitionController
+class ExtjsPageRequestRequestInterfaceImpl
+interface ExtjsPageRequestRequestInterface
+
+}
+package "10"{
+class ExtjsPageRequest
+class ExtjsPageRequestHandleRequest
+
+}
+"2" --x "10":methodInvocation,methodVariable
+"2" ..> "10":HTTP:getPageable
+@enduml

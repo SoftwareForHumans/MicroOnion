@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class BcardServiceImpl
+interface IWorkflowServiceDTOInterface
+entity IWorkflowServiceDTO
+class IWorkflowServiceRequestInterfaceImpl
+interface IWorkflowServiceRequestInterface
+
+}
+package "2"{
+class IWorkflowService
+class IWorkflowServiceHandleRequest
+
+}
+"1" --x "2":methodInvocation,variableType
+"1" ..> "2":HTTP:startWorkflow
+@enduml

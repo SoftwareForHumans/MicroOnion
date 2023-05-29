@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "5"{
+class GroupRoleImpl
+interface DeptServiceDTOInterface
+entity DeptServiceDTO
+class DeptServiceRequestInterfaceImpl
+interface DeptServiceRequestInterface
+
+}
+package "3"{
+class DeptService
+class DeptServiceHandleRequest
+
+}
+"5" --x "3":methodInvocation,variableType
+"5" ..> "3":HTTP:findByDeptName
+@enduml

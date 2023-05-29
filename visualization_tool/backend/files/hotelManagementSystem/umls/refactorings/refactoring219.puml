@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "10"{
+class OutStorage
+entity RoomCleanRecordDTO
+
+}
+package "0"{
+class RoomCleanRecord
+
+}
+"10" --x "0":variableType,methodVariable
+@enduml

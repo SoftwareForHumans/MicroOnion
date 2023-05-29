@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "5"{
+class GroupController
+class ExtjsPageRequestRequestInterfaceImpl
+interface ExtjsPageRequestRequestInterface
+
+}
+package "10"{
+class ExtjsPageRequest
+class ExtjsPageRequestHandleRequest
+
+}
+"5" ..> "10":HTTP:getPageable
+@enduml

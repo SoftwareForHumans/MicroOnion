@@ -1,0 +1,11 @@
+@startuml 
+allow_mixing
+left to right direction
+package "5"{
+entity ExtAjaxResponseDTO
+
+}
+package "2"{
+class ExtAjaxResponse
+}
+@enduml

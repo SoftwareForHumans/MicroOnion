@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "15"{
+class FinanceReportDailyService
+class RoomOrderRepositoryRequestInterfaceImpl
+interface RoomOrderRepositoryRequestInterface
+
+}
+package "11"{
+class RoomOrderRepository
+class RoomOrderRepositoryHandleRequest
+
+}
+"15" ..> "11":HTTP:findRoomOrderByDay
+@enduml

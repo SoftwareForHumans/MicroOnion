@@ -67,8 +67,8 @@ package "2"{
 package "7"{
 }
 }
-"15"..>"11":RoomOrderRepository:findRoomOrderByDay(HTTP)
-"15"..>"4":InStorageRepository:findInStorageOrderByDay(HTTP)
-"15"..>"10":ExtjsPageRequest:getPageable(HTTP)
-"15"..>"12":SalaryOrderRepository:findSalaryByDay(HTTP)
+"15"..>"11":RoomOrderRepository:findRoomOrderByDay (HTTP)
+"15"..>"4":InStorageRepository:findInStorageOrderByDay (HTTP)
+"15"..>"10":ExtjsPageRequest:getPageable (HTTP)
+"15"..>"12":SalaryOrderRepository:findSalaryByDay (HTTP)
 @enduml

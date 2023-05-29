@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "9"{
+class CalendarEventController
+class BeanUtilsRequestInterfaceImpl
+interface BeanUtilsRequestInterface
+
+}
+package "3"{
+class BeanUtils
+class BeanUtilsHandleRequest
+
+}
+"9" ..> "3":HTTP:copyProperties
+@enduml

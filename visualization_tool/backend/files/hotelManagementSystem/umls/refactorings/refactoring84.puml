@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+class TravelController
+class WorkflowVariableRequestInterfaceImpl
+interface WorkflowVariableRequestInterface
+
+}
+package "1"{
+class WorkflowVariable
+class WorkflowVariableHandleRequest
+
+}
+"6" ..> "1":HTTP:getVariableMap
+@enduml

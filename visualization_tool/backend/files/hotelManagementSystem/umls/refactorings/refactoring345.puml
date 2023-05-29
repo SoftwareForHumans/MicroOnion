@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workController
+interface ILeaveServiceDTOInterface
+entity ILeaveServiceDTO
+class ILeaveServiceRequestInterfaceImpl
+interface ILeaveServiceRequestInterface
+
+}
+package "8"{
+class ILeaveService
+class ILeaveServiceHandleRequest
+
+}
+"7" --x "8":methodInvocation,variableType
+"7" ..> "8":HTTP:findTotalLeaveTimes
+@enduml

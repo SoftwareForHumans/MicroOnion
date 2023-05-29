@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workServiceImpl
+interface IDeptServiceDTOInterface
+entity IDeptServiceDTO
+class IDeptServiceRequestInterfaceImpl
+interface IDeptServiceRequestInterface
+
+}
+package "3"{
+class IDeptService
+class IDeptServiceHandleRequest
+
+}
+"7" --x "3":methodInvocation,variableType
+"7" ..> "3":HTTP:findByDeptName
+@enduml

@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class RoomCleanRecord
+entity EmployeeDTO
+
+}
+package "2"{
+class Employee
+
+}
+"0" --x "2":variableType,methodVariable
+@enduml

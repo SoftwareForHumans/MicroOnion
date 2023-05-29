@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class InStorageService
+interface WorkflowDTODTOInterface
+entity WorkflowDTODTO
+class WorkflowDTORequestInterfaceImpl
+interface WorkflowDTORequestInterface
+
+}
+package "2"{
+class WorkflowDTO
+class WorkflowDTOHandleRequest
+
+}
+"4" --x "2":methodInvocation,methodVariable
+"4" ..> "2":HTTP:getBusinessKey
+@enduml

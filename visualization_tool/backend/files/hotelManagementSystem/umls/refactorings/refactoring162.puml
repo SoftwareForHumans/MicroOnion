@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class InStorageController
+entity EmployeeServiceDTO
+
+}
+package "2"{
+class EmployeeService
+
+}
+"4" --x "2":variableType
+@enduml

@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "10"{
+class StockController
+class InStorageRequestInterfaceImpl
+interface InStorageRequestInterface
+
+}
+package "4"{
+class InStorage
+class InStorageHandleRequest
+
+}
+"10" ..> "4":HTTP:getInStorageId
+@enduml

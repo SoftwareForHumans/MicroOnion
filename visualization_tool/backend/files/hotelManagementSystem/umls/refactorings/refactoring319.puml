@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workController
+interface TravelServiceDTOInterface
+entity TravelServiceDTO
+class TravelServiceRequestInterfaceImpl
+interface TravelServiceRequestInterface
+
+}
+package "6"{
+class TravelService
+class TravelServiceHandleRequest
+
+}
+"7" --x "6":methodInvocation,variableType
+"7" ..> "6":HTTP:findTotalTravelAllowance
+@enduml

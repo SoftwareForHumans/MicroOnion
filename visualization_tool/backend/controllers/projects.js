@@ -34,8 +34,6 @@ exports.getRefactoringsSequence = async (req, res) => {
       m["microservice"] = arr[i]["microservice"];
       m["dependent_microservice"] = arr[i]["dependent_microservice"];
       m["notes"] = arr[i]["notes"];
-      console.log(m);
-      console.log("-------");
       response.push(m);
     }
 
@@ -217,7 +215,7 @@ exports.getRefactoringImage = async (req, res) => {
   const { project } = req.params;
   let { service } = req.params;
   let { id } = req.params;
-  console.log(id)
+
   try {
     const folder = utils.getProjectFolder(project);
     const jsonPath = path.join(
@@ -279,8 +277,7 @@ exports.getRefactoringImage = async (req, res) => {
       "..",
       "files",
       folder,
-      "/umls/states/service" + service + "_final" + "_state.png"
-      // "/umls/refactorings/" + "refactoring" + id + ".png" 
+      "/umls/refactorings/" + "refactoring" + id + ".png" 
     );
 
     res.writeHead(200, {

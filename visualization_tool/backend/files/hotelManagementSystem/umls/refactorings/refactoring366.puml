@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workController
+class SessionUtilRequestInterfaceImpl
+interface SessionUtilRequestInterface
+
+}
+package "2"{
+class SessionUtil
+class SessionUtilHandleRequest
+
+}
+"7" ..> "2":HTTP:getUserName
+@enduml

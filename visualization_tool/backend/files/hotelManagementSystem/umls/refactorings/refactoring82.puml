@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+class TravelController
+interface WorkflowVariableDTOInterface
+entity WorkflowVariableDTO
+class WorkflowVariableRequestInterfaceImpl
+interface WorkflowVariableRequestInterface
+
+}
+package "1"{
+class WorkflowVariable
+class WorkflowVariableHandleRequest
+
+}
+"6" --x "1":methodInvocation,methodVariable
+"6" ..> "1":HTTP:getVariableMap
+@enduml

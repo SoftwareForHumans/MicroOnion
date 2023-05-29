@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class InStorageService
+class InDetailedRequestInterfaceImpl
+interface InDetailedRequestInterface
+
+}
+package "10"{
+class InDetailed
+class InDetailedHandleRequest
+
+}
+"4" ..> "10":HTTP:setPrice
+@enduml

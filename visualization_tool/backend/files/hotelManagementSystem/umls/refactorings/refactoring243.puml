@@ -1,0 +1,17 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class RoomController
+class IStockServiceRequestInterfaceImpl
+interface IStockServiceRequestInterface
+
+}
+package "10"{
+class IStockService
+class IStockServiceHandleRequest
+
+}
+"0" --x "10":methodInvocation,variableType
+"0" ..> "10":HTTP:findByStockType
+@enduml

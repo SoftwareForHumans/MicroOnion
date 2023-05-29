@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class RoomController
+entity DailyNecessaryDtoDTO
+
+}
+package "10"{
+class DailyNecessaryDto
+
+}
+"0" --x "10":methodVariable
+@enduml

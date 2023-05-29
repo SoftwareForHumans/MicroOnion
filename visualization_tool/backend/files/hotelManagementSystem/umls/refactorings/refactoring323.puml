@@ -1,0 +1,11 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+entity TravelDTO
+
+}
+package "6"{
+class Travel
+}
+@enduml

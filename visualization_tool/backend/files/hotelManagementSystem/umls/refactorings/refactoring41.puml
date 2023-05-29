@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "11"{
+class RoomOrderController
+class SessionUtilRequestInterfaceImpl
+interface SessionUtilRequestInterface
+
+}
+package "2"{
+class SessionUtil
+class SessionUtilHandleRequest
+
+}
+"11" ..> "2":HTTP:getUser
+@enduml

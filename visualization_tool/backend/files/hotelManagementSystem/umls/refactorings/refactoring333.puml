@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "8"{
+class ReportBackEndProcessor
+interface EmployeeServiceDTOInterface
+entity EmployeeServiceDTO
+class EmployeeServiceRequestInterfaceImpl
+interface EmployeeServiceRequestInterface
+
+}
+package "2"{
+class EmployeeService
+class EmployeeServiceHandleRequest
+
+}
+"8" --x "2":methodInvocation,variableType
+"8" ..> "2":HTTP:findByEmpNo
+@enduml

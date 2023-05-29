@@ -94,14 +94,14 @@ package "15"{
 class FinanceReportDailyService
 }
 }
-"4"..>"1":WorkflowVariable:getVariableMap(HTTP)
-"4"..>"2":Employee:getUserName(HTTP)
-"4"..>"2":IWorkflowService:startWorkflow(HTTP)
-"4"..>"2":EmployeeDao:findByUserName(HTTP)
-"4"..>"2":WorkflowDTO:getBusinessKey(HTTP)
-"4"..>"2":SessionUtil:getUserName(HTTP)
-"4"..>"10":InDetailed:setPrice(HTTP)
-"4"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"4"..>"1":WorkflowVariable:getVariableMap (HTTP)
+"4"..>"2":Employee:getUserName (HTTP)
+"4"..>"2":IWorkflowService:startWorkflow (HTTP)
+"4"..>"2":EmployeeDao:findByUserName (HTTP)
+"4"..>"2":WorkflowDTO:getBusinessKey (HTTP)
+"4"..>"2":SessionUtil:getUserName (HTTP)
+"4"..>"10":InDetailed:setPrice (HTTP)
+"4"..>"10":ExtjsPageRequest:getPageable (HTTP)
 "10"..>"4":InStorage:getInStorageDate (HTTP)
 "10"..>"4":InStorage:getInStorageId (HTTP)
 "10"..>"4":InStorage:setInStorageId (HTTP)

@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class Employee
+entity TravelDTO
+
+}
+package "6"{
+class Travel
+
+}
+"2" --x "6":methodVariable
+@enduml

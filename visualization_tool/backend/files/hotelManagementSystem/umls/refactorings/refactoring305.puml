@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+class TravelServiceImpl
+class IWorkflowServiceRequestInterfaceImpl
+interface IWorkflowServiceRequestInterface
+
+}
+package "2"{
+class IWorkflowService
+class IWorkflowServiceHandleRequest
+
+}
+"6" ..> "2":HTTP:startWorkflow
+@enduml

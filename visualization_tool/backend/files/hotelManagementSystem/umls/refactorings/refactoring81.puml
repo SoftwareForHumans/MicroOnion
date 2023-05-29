@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class InStorageController
+class WorkflowVariableRequestInterfaceImpl
+interface WorkflowVariableRequestInterface
+
+}
+package "1"{
+class WorkflowVariable
+class WorkflowVariableHandleRequest
+
+}
+"4" ..> "1":HTTP:getVariableMap
+@enduml

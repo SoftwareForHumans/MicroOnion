@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class RoomCleanService
+class StockRequestInterfaceImpl
+interface StockRequestInterface
+
+}
+package "10"{
+class Stock
+class StockHandleRequest
+
+}
+"0" ..> "10":HTTP:getGoodsName
+@enduml

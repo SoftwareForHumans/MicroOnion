@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workServiceImpl
+interface EmployeeServiceDTOInterface
+entity EmployeeServiceDTO
+class EmployeeServiceRequestInterfaceImpl
+interface EmployeeServiceRequestInterface
+
+}
+package "2"{
+class EmployeeService
+class EmployeeServiceHandleRequest
+
+}
+"7" --x "2":methodInvocation,variableType
+"7" ..> "2":HTTP:findByUserName
+@enduml

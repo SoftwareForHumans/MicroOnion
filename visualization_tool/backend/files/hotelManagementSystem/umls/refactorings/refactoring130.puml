@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workServiceImpl
+class IDeptServiceRequestInterfaceImpl
+interface IDeptServiceRequestInterface
+
+}
+package "3"{
+class IDeptService
+class IDeptServiceHandleRequest
+
+}
+"7" ..> "3":HTTP:findByDeptName
+@enduml

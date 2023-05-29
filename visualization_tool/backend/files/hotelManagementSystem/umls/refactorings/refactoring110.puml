@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "5"{
+class GroupRoleImpl
+class DepartmentRequestInterfaceImpl
+interface DepartmentRequestInterface
+
+}
+package "3"{
+class Department
+class DepartmentHandleRequest
+
+}
+"5" ..> "3":HTTP:getDeptName
+@enduml

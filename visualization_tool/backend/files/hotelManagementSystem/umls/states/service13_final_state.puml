@@ -47,5 +47,5 @@ package "14"{
 package "15"{
 }
 }
-"13"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"13"..>"10":ExtjsPageRequest:getPageable (HTTP)
 @enduml

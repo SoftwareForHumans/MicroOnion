@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "10"{
+class InSendController
+interface IInStorageServiceDTOInterface
+entity IInStorageServiceDTO
+class IInStorageServiceRequestInterfaceImpl
+interface IInStorageServiceRequestInterface
+
+}
+package "4"{
+class IInStorageService
+class IInStorageServiceHandleRequest
+
+}
+"10" --x "4":methodInvocation,variableType
+"10" ..> "4":HTTP:save
+@enduml

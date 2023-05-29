@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "9"{
+class CalendarEventController
+class EmployeeServiceRequestInterfaceImpl
+interface EmployeeServiceRequestInterface
+
+}
+package "2"{
+class EmployeeService
+class EmployeeServiceHandleRequest
+
+}
+"9" ..> "2":HTTP:findByEmpNameAndEmpNo
+@enduml

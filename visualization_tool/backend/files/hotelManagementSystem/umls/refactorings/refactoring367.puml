@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workController
+
+}
+package "2"{
+class EmployeeService
+
+}
+"7" --x "2":variableType
+@enduml

@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class InStorageService
+class IWorkflowServiceRequestInterfaceImpl
+interface IWorkflowServiceRequestInterface
+
+}
+package "2"{
+class IWorkflowService
+class IWorkflowServiceHandleRequest
+
+}
+"4" ..> "2":HTTP:startWorkflow
+@enduml

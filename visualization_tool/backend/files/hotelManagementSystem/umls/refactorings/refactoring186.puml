@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "15"{
+class FinanceReportDailyService
+class InStorageRepositoryRequestInterfaceImpl
+interface InStorageRepositoryRequestInterface
+
+}
+package "4"{
+class InStorageRepository
+class InStorageRepositoryHandleRequest
+
+}
+"15" ..> "4":HTTP:findInStorageOrderByDay
+@enduml

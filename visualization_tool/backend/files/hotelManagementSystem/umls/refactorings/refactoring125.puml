@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "8"{
+class LeaveQueryDTO
+entity DepartmentDTO
+
+}
+package "3"{
+class Department
+
+}
+"8" --x "3":variableType,methodVariable
+@enduml

@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workServiceImpl
+class SchedulQueryDTORequestInterfaceImpl
+interface SchedulQueryDTORequestInterface
+
+}
+package "9"{
+class SchedulQueryDTO
+class SchedulQueryDTOHandleRequest
+
+}
+"7" ..> "9":HTTP:setUserName
+@enduml

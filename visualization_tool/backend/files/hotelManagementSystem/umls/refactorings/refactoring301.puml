@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class RoomCleanService
+
+}
+package "2"{
+class EmployeeService
+
+}
+"0" --x "2":variableType
+@enduml

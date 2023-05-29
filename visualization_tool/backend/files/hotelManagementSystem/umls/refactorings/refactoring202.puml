@@ -1,0 +1,17 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class EmployeeController
+class GroupRoleServiceRequestInterfaceImpl
+interface GroupRoleServiceRequestInterface
+
+}
+package "5"{
+class GroupRoleService
+class GroupRoleServiceHandleRequest
+
+}
+"2" --x "5":methodInvocation,variableType
+"2" ..> "5":HTTP:findByGroupName
+@enduml

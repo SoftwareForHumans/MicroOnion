@@ -1,0 +1,18 @@
+@startuml 
+allow_mixing
+left to right direction
+package "9"{
+class SchedulEventServiceImpl
+interface EmployeeDTOInterface
+class EmployeeRequestInterfaceImpl
+interface EmployeeRequestInterface
+
+}
+package "2"{
+class Employee
+class EmployeeHandleRequest
+
+}
+"9" --x "2":methodInvocation,methodVariable
+"9" ..> "2":HTTP:getEmpName
+@enduml

@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "13"{
+class LoseGoodsController
+entity ExtAjaxResponseDTO
+
+}
+package "2"{
+class ExtAjaxResponse
+
+}
+"13" --x "2":methodVariable
+@enduml

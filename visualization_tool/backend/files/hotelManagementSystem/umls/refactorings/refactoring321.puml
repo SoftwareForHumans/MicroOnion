@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workController
+class TravelServiceRequestInterfaceImpl
+interface TravelServiceRequestInterface
+
+}
+package "6"{
+class TravelService
+class TravelServiceHandleRequest
+
+}
+"7" ..> "6":HTTP:findTotalTravelAllowance
+@enduml

@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class RoomCleanService
+class StockRepositoryRequestInterfaceImpl
+interface StockRepositoryRequestInterface
+
+}
+package "10"{
+class StockRepository
+class StockRepositoryHandleRequest
+
+}
+"0" ..> "10":HTTP:findByStockType
+@enduml

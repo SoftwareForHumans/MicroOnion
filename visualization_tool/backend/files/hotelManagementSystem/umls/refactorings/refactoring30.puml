@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workServiceImpl
+class CalendarRequestInterfaceImpl
+interface CalendarRequestInterface
+
+}
+package "9"{
+class Calendar
+class CalendarHandleRequest
+
+}
+"7" ..> "9":HTTP:getTitle
+@enduml

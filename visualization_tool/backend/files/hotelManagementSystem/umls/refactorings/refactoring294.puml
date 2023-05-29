@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class RoomCleanController
+interface EmployeeServiceDTOInterface
+entity EmployeeServiceDTO
+class EmployeeServiceRequestInterfaceImpl
+interface EmployeeServiceRequestInterface
+
+}
+package "2"{
+class EmployeeService
+class EmployeeServiceHandleRequest
+
+}
+"0" --x "2":methodInvocation,variableType
+"0" ..> "2":HTTP:findByUserName
+@enduml

@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class RoomCleanController
+class BeanUtilsRequestInterfaceImpl
+interface BeanUtilsRequestInterface
+
+}
+package "3"{
+class BeanUtils
+class BeanUtilsHandleRequest
+
+}
+"0" ..> "3":HTTP:copyProperties
+@enduml

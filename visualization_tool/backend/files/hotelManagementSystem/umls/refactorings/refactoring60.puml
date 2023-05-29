@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class BcardServiceImpl
+class WorkflowDTORequestInterfaceImpl
+interface WorkflowDTORequestInterface
+
+}
+package "2"{
+class WorkflowDTO
+class WorkflowDTOHandleRequest
+
+}
+"1" ..> "2":HTTP:getBusinessKey
+@enduml

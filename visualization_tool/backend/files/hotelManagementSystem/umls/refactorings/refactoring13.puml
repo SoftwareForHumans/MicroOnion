@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "9"{
+class SchedulEventService
+
+}
+package "2"{
+class Employee
+
+}
+"9" --x "2":methodVariable
+@enduml

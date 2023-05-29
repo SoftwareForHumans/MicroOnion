@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "8"{
+class LeaveController
+class DepartmentRequestInterfaceImpl
+interface DepartmentRequestInterface
+
+}
+package "3"{
+class Department
+class DepartmentHandleRequest
+
+}
+"8" ..> "3":HTTP:getManagerNo
+@enduml

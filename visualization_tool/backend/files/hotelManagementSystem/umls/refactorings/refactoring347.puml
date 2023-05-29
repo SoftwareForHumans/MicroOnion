@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workController
+class ILeaveServiceRequestInterfaceImpl
+interface ILeaveServiceRequestInterface
+
+}
+package "8"{
+class ILeaveService
+class ILeaveServiceHandleRequest
+
+}
+"7" ..> "8":HTTP:findTotalLeaveTimes
+@enduml

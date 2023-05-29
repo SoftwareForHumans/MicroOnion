@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class BcardController
+class DepartmentRequestInterfaceImpl
+interface DepartmentRequestInterface
+
+}
+package "3"{
+class Department
+class DepartmentHandleRequest
+
+}
+"1" ..> "3":HTTP:getManagerNo
+@enduml

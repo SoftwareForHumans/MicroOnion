@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class Department
+entity GroupRoleDTO
+
+}
+package "5"{
+class GroupRole
+
+}
+"3" --x "5":methodVariable
+@enduml

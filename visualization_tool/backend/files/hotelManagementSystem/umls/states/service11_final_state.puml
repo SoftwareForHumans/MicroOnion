@@ -59,8 +59,8 @@ package "15"{
 class FinanceReportDailyService
 }
 }
-"11"..>"2":EmployeeDao:findByUserName(HTTP)
-"11"..>"2":SessionUtil:getUser(HTTP)
-"11"..>"10":ExtjsPageRequest:getPageable(HTTP)
+"11"..>"2":EmployeeDao:findByUserName (HTTP)
+"11"..>"2":SessionUtil:getUser (HTTP)
+"11"..>"10":ExtjsPageRequest:getPageable (HTTP)
 "15"..>"11":RoomOrderRepository:findRoomOrderByDay (HTTP)
 @enduml

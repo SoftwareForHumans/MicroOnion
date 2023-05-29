@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "10"{
+class OutDetailedService
+interface OutDetailedRepositoryDTOInterface
+entity OutDetailedRepositoryDTO
+class OutDetailedRepositoryRequestInterfaceImpl
+interface OutDetailedRepositoryRequestInterface
+
+}
+package "0"{
+class OutDetailedRepository
+class OutDetailedRepositoryHandleRequest
+
+}
+"10" --x "0":methodInvocation,variableType
+"10" ..> "0":HTTP:save
+@enduml

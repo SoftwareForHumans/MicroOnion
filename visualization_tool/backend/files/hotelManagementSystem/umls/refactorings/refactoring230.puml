@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "14"{
+class GuestController
+interface ExtjsPageRequestDTOInterface
+entity ExtjsPageRequestDTO
+class ExtjsPageRequestRequestInterfaceImpl
+interface ExtjsPageRequestRequestInterface
+
+}
+package "10"{
+class ExtjsPageRequest
+class ExtjsPageRequestHandleRequest
+
+}
+"14" --x "10":methodInvocation,methodVariable
+"14" ..> "10":HTTP:setSort
+@enduml

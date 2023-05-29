@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class RoomController
+class IGuestServiceRequestInterfaceImpl
+interface IGuestServiceRequestInterface
+
+}
+package "14"{
+class IGuestService
+class IGuestServiceHandleRequest
+
+}
+"0" ..> "14":HTTP:findGuestByIdCard
+@enduml

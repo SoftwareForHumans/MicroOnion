@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class InStorage
+entity InDetailedDTO
+
+}
+package "10"{
+class InDetailed
+
+}
+"4" --x "10":methodVariable
+@enduml

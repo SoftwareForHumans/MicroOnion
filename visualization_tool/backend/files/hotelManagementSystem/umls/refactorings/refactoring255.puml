@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class IRoomCleanService
+
+}
+package "10"{
+class ExtjsPageRequest
+
+}
+"0" --x "10":methodVariable
+@enduml

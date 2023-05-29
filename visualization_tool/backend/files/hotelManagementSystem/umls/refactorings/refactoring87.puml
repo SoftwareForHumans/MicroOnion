@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "8"{
+class LeaveController
+class WorkflowVariableRequestInterfaceImpl
+interface WorkflowVariableRequestInterface
+
+}
+package "1"{
+class WorkflowVariable
+class WorkflowVariableHandleRequest
+
+}
+"8" ..> "1":HTTP:getVariableMap
+@enduml

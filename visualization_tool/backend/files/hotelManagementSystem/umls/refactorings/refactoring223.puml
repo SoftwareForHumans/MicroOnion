@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "10"{
+class OutDetailedService
+class OutDetailedRepositoryRequestInterfaceImpl
+interface OutDetailedRepositoryRequestInterface
+
+}
+package "0"{
+class OutDetailedRepository
+class OutDetailedRepositoryHandleRequest
+
+}
+"10" ..> "0":HTTP:save
+@enduml

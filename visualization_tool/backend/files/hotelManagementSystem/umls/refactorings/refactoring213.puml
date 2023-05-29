@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "10"{
+class StockController
+
+}
+package "2"{
+class ExtAjaxResponse
+
+}
+"10" --x "2":methodVariable
+@enduml

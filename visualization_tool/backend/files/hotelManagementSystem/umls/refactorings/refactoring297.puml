@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class RoomCleanController
+entity ExtAjaxResponseDTO
+
+}
+package "2"{
+class ExtAjaxResponse
+
+}
+"0" --x "2":methodVariable
+@enduml

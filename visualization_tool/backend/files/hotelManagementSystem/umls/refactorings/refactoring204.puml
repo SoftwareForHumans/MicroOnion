@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class EmployeeController
+class GroupRoleRequestInterfaceImpl
+interface GroupRoleRequestInterface
+
+}
+package "5"{
+class GroupRole
+class GroupRoleHandleRequest
+
+}
+"2" ..> "5":HTTP:getGroupId
+@enduml

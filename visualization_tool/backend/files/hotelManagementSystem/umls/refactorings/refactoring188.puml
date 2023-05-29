@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "5"{
+class GroupRoleImpl
+class IWorkflowServiceRequestInterfaceImpl
+interface IWorkflowServiceRequestInterface
+
+}
+package "2"{
+class IWorkflowService
+class IWorkflowServiceHandleRequest
+
+}
+"5" ..> "2":HTTP:addGroup
+@enduml

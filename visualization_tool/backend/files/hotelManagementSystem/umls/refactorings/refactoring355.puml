@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workServiceImpl
+interface EmployeeDTOInterface
+entity EmployeeDTO
+class EmployeeRequestInterfaceImpl
+interface EmployeeRequestInterface
+
+}
+package "2"{
+class Employee
+class EmployeeHandleRequest
+
+}
+"7" --x "2":methodInvocation,methodVariable
+"7" ..> "2":HTTP:getEmpNo
+@enduml

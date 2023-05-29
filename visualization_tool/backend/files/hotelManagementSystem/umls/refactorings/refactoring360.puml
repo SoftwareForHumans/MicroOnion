@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class workServiceImpl
+entity ExtAjaxResponseDTO
+
+}
+package "2"{
+class ExtAjaxResponse
+
+}
+"7" --x "2":methodVariable
+@enduml
