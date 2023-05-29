@@ -68,8 +68,8 @@ function ExtractionSequence() {
         </Col>
       ) : (
         <>
-          <div className="full-height d-flex mt-5 flex-column">
-            <Row className="mt-4">
+          <div className="full-height d-flex flex-column">
+            <Row className="mt-5 pt-5">
               <h4 className="mb-4"> Proposed Refactoring Sequence</h4>
               <p>
                 {" "}

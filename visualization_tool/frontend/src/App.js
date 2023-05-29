@@ -1,6 +1,6 @@
 import "./styles/App.css";
 import { Routes, Route } from "react-router-dom";
-import Categories from "./pages/Categories";
+import Home from "./pages/Home";
 import ChooseProject from "./pages/ChooseProject";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<Categories />} />
+        <Route path="/" element={<Home />} />
         <Route path="/chooseProject" element={<ChooseProject />} />
         <Route path="/extractionSequence" element={<ExtractionSequence />} />
         <Route path="/extractService" element={<ExtractService />} />

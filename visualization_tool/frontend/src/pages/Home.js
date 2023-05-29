@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
-function Categories() {
+function Home() {
   const [hoverExtract, setHoverExtract] = useState(false);
   const [hoverInfrastructure, setHoverInfrastructure] = useState(false);
   const [hoverDeployment, setHoverDeployment] = useState(false);
@@ -150,4 +150,4 @@ function Categories() {
   );
 }
 
-export default Categories;
+export default Home;
