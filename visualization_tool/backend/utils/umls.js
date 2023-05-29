@@ -88,10 +88,39 @@ function createDataTypeDependencyUML(ref) {
 function createChangeLocalMethodUML(ref) {
   let res = "@startuml \nallow_mixing\nleft to right direction\n";
   res += 'package "' + ref["microservice"] + '"{\n';
+  res = createChangeLocalMethodUMLRequester(ref, res);
+  res += "\n}\n";
+
+  res += 'package "' + ref["dependent_microservice"] + '"{\n';
+  res = createChangeLocalMethodUMLOwner(ref, res);
+
+  res += "\n}\n";
+
+  res = createChangeLocalMethodUMLServiceCall(ref, res);
+
+  res += "@enduml";
+  return res;
+}
+
+function createChangeLocalMethodUMLServiceCall(ref, res){
+  res +=
+    '"' +
+    ref["microservice"] +
+    '" ..> "' +
+    ref["dependent_microservice"] +
+    '":' +
+    ref["notes"]["protocol"] +
+    ":" +
+    ref["notes"]["method"] +
+    "\n";
+  return res;
+}
+
+function createChangeLocalMethodUMLRequester(ref, res){
   res += "class " + ref["notes"]["requester"] + "\n";
 
   if (ref["notes"]["new_classes"]) {
-    sizeOfNewClasses = ref["notes"]["new_classes"].length;
+    let sizeOfNewClasses = ref["notes"]["new_classes"].length;
 
     if (sizeOfNewClasses === 2)
       res += "class " + ref["notes"]["new_classes"][0] + "\n";
@@ -103,9 +132,10 @@ function createChangeLocalMethodUML(ref) {
 
   if (ref["notes"]["interfaces"])
     res += "interface " + ref["notes"]["interfaces"][0] + "\n";
-  res += "\n}\n";
+  return res;
+}
 
-  res += 'package "' + ref["dependent_microservice"] + '"{\n';
+function createChangeLocalMethodUMLOwner(ref, res){
   res += "class " + ref["notes"]["target"] + "\n";
   if (sizeOfNewClasses === 2)
     res += "class " + ref["notes"]["new_classes"][1] + "\n";
@@ -113,21 +143,7 @@ function createChangeLocalMethodUML(ref) {
   if (sizeOfNewClasses === 1)
     if (ref["notes"]["new_classes"][0].includes("HandleRequest"))
       res += "class " + ref["notes"]["new_classes"][0] + "\n";
-
-  res += "\n}\n";
-
-  res +=
-    '"' +
-    ref["microservice"] +
-    '" ..> "' +
-    ref["dependent_microservice"] +
-    '":' +
-    ref["notes"]["protocol"] +
-    ":" +
-    ref["notes"]["method"] +
-    "\n";
-
-  res += "@enduml";
+  
   return res;
 }
 
@@ -136,7 +152,13 @@ function createChangeDataOwnershipUML(ref) {
 }
 
 function createMoveForeignKeyUML(ref) {
-  //todo: ver se ha change local method no interior
+  let r = null;
+  if(ref["refactorings"]){
+    for (let i in ref["refactorings"])
+      if (ref["refactorings"][i]["name"] === "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL")
+        r = ref["refactorings"][i];
+  }
+
   let res = "@startuml \nallow_mixing\nleft to right direction\n";
   res += 'package "' + ref["microservice"] + '"{\n';
   res += "entity " + ref["notes"]["entities"][0] + "\n";
@@ -147,6 +169,9 @@ function createMoveForeignKeyUML(ref) {
       if (ref["notes"]["interfaces"][0].includes(ref["notes"]["entities"][0]))
         res += "interface " + ref["notes"]["interfaces"][0] + "\n";
   }
+  if(r !== null)
+    res = createChangeLocalMethodUMLRequester(r, res);
+  
   res += "\n}\n";
 
   res += 'package "' + ref["dependent_microservice"] + '"{\n';
@@ -158,7 +183,9 @@ function createMoveForeignKeyUML(ref) {
       if (ref["notes"]["interfaces"][0].includes(ref["notes"]["entities"][1]))
         res += "interface " + ref["notes"]["interfaces"][0] + "\n";
   }
-
+  if(r !== null)
+    res = createChangeLocalMethodUMLOwner(r, res);
+  
   res += "\n}\n";
 
   res +=
@@ -175,6 +202,8 @@ function createMoveForeignKeyUML(ref) {
     '" ..> "' +
     ref["dependent_microservice"] +
     '"\n';
+  if(r !== null)
+    res = createChangeLocalMethodUMLServiceCall(r, res);
   res += "@enduml";
   return res;
 }
