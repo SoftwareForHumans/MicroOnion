@@ -36,10 +36,10 @@ function ExtractionSequence() {
     if (extract_services.length === extract_services_len) {
       setLoading(false);
     }
-  }, [extract_services]);
+  }, [extract_services, extract_services_len]);
 
   return (
-    <Container>
+    <Container className="blue-text">
       <Col
         className="position-fixed"
         style={{
@@ -68,7 +68,7 @@ function ExtractionSequence() {
         </Col>
       ) : (
         <>
-          <div className="full-height d-flex justify-content-center flex-column">
+          <div className="full-height d-flex mt-5 flex-column">
             <Row className="mt-4">
               <h4 className="mb-4"> Proposed Refactoring Sequence</h4>
               <p>
@@ -110,13 +110,6 @@ function ExtractionSequence() {
                 </Col>
               ))}
             </Row>
-            {/* <Row style={{ justifyContent: "center" }} className="mt-5">
-              <p>
-                In this scenario, we prioritized the services' extraction{" "}
-                <b>from least to most coupled</b>, but other approaches are possible
-                to decide this order.
-              </p>
-            </Row> */}
           </div>
         </>
       )}

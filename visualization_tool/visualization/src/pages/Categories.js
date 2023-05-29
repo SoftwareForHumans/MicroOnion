@@ -37,7 +37,7 @@ function Categories() {
   };
 
   return (
-    <Container className="text-center pt-2 center-all flex-column">
+    <Container className="text-center center-all flex-column">
       <p className="my-4 small-text" style={{ width: "80%" }}>
         This tool assists the migration of systems to microservices, guiding
         this process based on a set of refactorings.

@@ -49,12 +49,6 @@ function ExtractService() {
     }
   }
 
-  const setRefactoringItems = (field, value) => {
-    _setRefactoringItems((prev) => ({ ...prev, [field]: value }));
-  };
-  const setRefactoringItems2 = (field, value) => {
-    _setRefactoringItems2((prev) => ({ ...prev, [field]: value }));
-  };
 
   const handleOnClick = (idx) => {
     setLoadingRefactoring(true);
@@ -203,7 +197,7 @@ function ExtractService() {
               <Row className="m-4 mx-0">
                 <Col className="display-flex justify-content-end">
                   <div className="display-flex flex-column">
-                    <div className="display-flex full-height justify-content-center align-items-center">
+                    <div className="display-flex full-height justify-content-center align-items-center mb-3">
                       <img
                         src={monolith}
                         style={{ width: "200px" }}
@@ -211,7 +205,7 @@ function ExtractService() {
                       ></img>
                     </div>
                     <Button
-                      className="px-5 choose-project-buttons"
+                      className="px-3 choose-project-buttons"
                       onClick={() => {
                         setShowInitialState(true);
                         setShowFinalState(false);
@@ -225,7 +219,7 @@ function ExtractService() {
                 </Col>
                 <Col className="display-flex justify-content-center">
                   <div className="display-flex flex-column">
-                    <div className="display-flex full-height justify-content-center align-items-center">
+                    <div className="display-flex full-height justify-content-center align-items-center mb-3">
                       <img
                         src={arrow}
                         style={{ width: "200px", height: "60px" }}
@@ -233,7 +227,7 @@ function ExtractService() {
                       ></img>
                     </div>
                     <Button
-                      className="px-5 choose-project-buttons"
+                      className="px-3 choose-project-buttons"
                       onClick={() => {
                         setShowInitialState(false);
                         setShowFinalState(false);
@@ -245,13 +239,13 @@ function ExtractService() {
                     </Button>{" "}
                   </div>
                 </Col>
-                <Col className="display-flex">
-                  <div className="display-flex flex-column">
-                    <div>
-                      <img src={microservices} style={{ width: "310px" }} alt="microservices"></img>
+                <Col className="display-flex justify-content-start">
+                  <div className="display-flex flex-column ">
+                    <div className="mb-4">
+                      <img src={microservices} style={{ width: "270px" }} alt="microservices"></img>
                     </div>
                     <Button
-                      className="mt-3 px-5 choose-project-buttons"
+                      className="px-3 choose-project-buttons"
                       onClick={() => {
                         setShowInitialState(false);
                         setShowFinalState(true);

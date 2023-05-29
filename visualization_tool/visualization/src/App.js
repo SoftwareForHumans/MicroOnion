@@ -1,7 +1,7 @@
 import "./styles/App.css";
 import { Routes, Route } from "react-router-dom";
 import Categories from "./pages/Categories";
-// import ChooseProject from "./pages/ChooseProject";
+import ChooseProject from "./pages/ChooseProject";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ExtractionSequence from "./pages/ExtractionSequence";
@@ -9,7 +9,6 @@ import Infrastructure from "./pages/Infrastructure";
 import Deployment from "./pages/Deployment";
 import Principles from "./pages/Principles";
 import ExtractService from "./pages/ExtractService";
-import NewChoose from "./pages/NewChoose";
 
 function App() {
   return (
@@ -17,7 +16,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Categories />} />
-        <Route path="/chooseProject" element={<NewChoose />} />
+        <Route path="/chooseProject" element={<ChooseProject />} />
         <Route path="/extractionSequence" element={<ExtractionSequence />} />
         <Route path="/extractService" element={<ExtractService />} />
         <Route path="/infrastructure" element={<Infrastructure />} />

@@ -43,10 +43,10 @@ function Deployment() {
       >
         {titles.map((title, index) => (
           <Card
-            className="m-3 full-height"
+            className="m-3 full-height p-1"
             style={{
               width: "400px",
-              height: "350px",
+              height: "370px",
               backgroundColor:
                 index % 2 === 0 ? "rgba(60,118,225,0.65)" : "rgba(9,34,86,0.9)",
               borderColor:
