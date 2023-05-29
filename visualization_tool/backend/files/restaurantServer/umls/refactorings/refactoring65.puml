@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "5"{
+class ReservationService
+class RTableServiceRequestInterfaceImpl
+interface RTableServiceRequestInterface
+
+}
+package "3"{
+class RTableService
+class RTableServiceHandleRequest
+
+}
+"5" ..> "3":HTTP:getRTableById
+@enduml

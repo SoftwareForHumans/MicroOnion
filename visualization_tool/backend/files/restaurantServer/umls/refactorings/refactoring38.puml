@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class BillPosition
+entity DishDTO
+
+}
+package "4"{
+class Dish
+
+}
+"2" --x "4":variableType,methodVariable
+@enduml

@@ -1,0 +1,11 @@
+@startuml 
+allow_mixing
+left to right direction
+package "5"{
+entity MailServiceDTO
+
+}
+package "6"{
+class MailService
+}
+@enduml

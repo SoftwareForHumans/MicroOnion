@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "5"{
+class ReservationService
+class UserServiceRequestInterfaceImpl
+interface UserServiceRequestInterface
+
+}
+package "1"{
+class UserService
+class UserServiceHandleRequest
+
+}
+"5" ..> "1":HTTP:getUserById
+@enduml

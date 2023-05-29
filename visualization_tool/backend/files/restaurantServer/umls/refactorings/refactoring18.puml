@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class User
+entity RoleDTO
+
+}
+package "6"{
+class Role
+
+}
+"1" --x "6":methodVariable
+@enduml

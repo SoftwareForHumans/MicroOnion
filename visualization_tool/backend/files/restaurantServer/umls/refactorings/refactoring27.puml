@@ -1,0 +1,11 @@
+@startuml 
+allow_mixing
+left to right direction
+package "5"{
+entity UserServiceDTO
+
+}
+package "1"{
+class UserService
+}
+@enduml

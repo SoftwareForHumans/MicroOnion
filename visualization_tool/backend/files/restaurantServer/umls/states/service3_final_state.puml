@@ -34,7 +34,7 @@ class ReservationService
 package "6"{
 }
 }
-"3"..>"2":Bill:getStatus(HTTP)
+"3"..>"2":Bill:getStatus (HTTP)
 "2"..>"3":RTableRepository:findById (HTTP)
 "2"..>"3":RTableRepository:findById (HTTP)
 "4"..>"3":RTableRepository:save (HTTP)

@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class UserController
+class MailServiceRequestInterfaceImpl
+interface MailServiceRequestInterface
+
+}
+package "6"{
+class MailService
+class MailServiceHandleRequest
+
+}
+"1" ..> "6":HTTP:sendEmail
+@enduml

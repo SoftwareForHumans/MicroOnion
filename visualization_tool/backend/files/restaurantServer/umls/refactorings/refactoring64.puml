@@ -1,0 +1,11 @@
+@startuml 
+allow_mixing
+left to right direction
+package "5"{
+entity RTableServiceDTO
+
+}
+package "3"{
+class RTableService
+}
+@enduml

@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+class JwtResponse
+entity ReservationDTO
+
+}
+package "5"{
+class Reservation
+
+}
+"6" --x "5":methodVariable
+@enduml

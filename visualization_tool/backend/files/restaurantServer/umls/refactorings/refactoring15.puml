@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class UserController
+
+}
+package "5"{
+class Reservation
+
+}
+"1" --x "5":methodVariable
+@enduml

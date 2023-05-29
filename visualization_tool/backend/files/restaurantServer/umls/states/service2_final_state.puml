@@ -38,8 +38,8 @@ package "5"{
 package "6"{
 }
 }
-"2"..>"4":Dish:getPrice(HTTP)
-"2"..>"3":RTableRepository:findById(HTTP)
-"2"..>"3":RTableRepository:findById(HTTP)
+"2"..>"4":Dish:getPrice (HTTP)
+"2"..>"3":RTableRepository:findById (HTTP)
+"2"..>"3":RTableRepository:findById (HTTP)
 "3"..>"2":Bill:getStatus (HTTP)
 @enduml

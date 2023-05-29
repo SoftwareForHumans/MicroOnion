@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class RestaurantServerApplication
+interface UserRepositoryDTOInterface
+entity UserRepositoryDTO
+class UserRepositoryRequestInterfaceImpl
+interface UserRepositoryRequestInterface
+
+}
+package "1"{
+class UserRepository
+class UserRepositoryHandleRequest
+
+}
+"4" --x "1":methodInvocation,methodVariable
+"4" ..> "1":HTTP:save
+@enduml

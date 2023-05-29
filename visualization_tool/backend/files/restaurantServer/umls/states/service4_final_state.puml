@@ -38,8 +38,8 @@ package "6"{
 class RoleRepository
 }
 }
-"4"..>"1":UserRepository:save(HTTP)
-"4"..>"3":RTableRepository:save(HTTP)
-"4"..>"6":RoleRepository:save(HTTP)
+"4"..>"1":UserRepository:save (HTTP)
+"4"..>"3":RTableRepository:save (HTTP)
+"4"..>"6":RoleRepository:save (HTTP)
 "2"..>"4":Dish:getPrice (HTTP)
 @enduml

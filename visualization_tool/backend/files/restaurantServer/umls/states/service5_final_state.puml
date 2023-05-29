@@ -41,9 +41,9 @@ package "6"{
 class MailService
 }
 }
-"5"..>"1":UserService:getUserById(HTTP)
-"5"..>"1":User:getMail(HTTP)
-"5"..>"3":RTableService:getRTableById(HTTP)
-"5"..>"3":RTable:getReservations(HTTP)
-"5"..>"6":MailService:sendEmail(HTTP)
+"5"..>"1":UserService:getUserById (HTTP)
+"5"..>"1":User:getMail (HTTP)
+"5"..>"3":RTableService:getRTableById (HTTP)
+"5"..>"3":RTable:getReservations (HTTP)
+"5"..>"6":MailService:sendEmail (HTTP)
 @enduml

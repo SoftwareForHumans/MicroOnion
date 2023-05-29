@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+class AuthController
+class UserRequestInterfaceImpl
+interface UserRequestInterface
+
+}
+package "1"{
+class User
+class UserHandleRequest
+
+}
+"6" ..> "1":HTTP:getMail
+@enduml

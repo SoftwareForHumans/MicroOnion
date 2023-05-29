@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class RTable
+
+}
+package "2"{
+class Bill
+
+}
+"3" --x "2":methodVariable
+@enduml

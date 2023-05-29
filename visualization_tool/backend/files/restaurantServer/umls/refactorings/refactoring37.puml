@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+entity BillPosition
+interface BillPositionInterface
+
+}
+package "4"{
+entity Dish
+interface DishInterface
+
+}
+"2" --x "4":ManyToOne
+"2" ..> "4"
+@enduml

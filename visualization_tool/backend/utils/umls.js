@@ -142,26 +142,27 @@ function createChangeDataOwnershipUML(ref) {
 
 function createMoveForeignKeyUML(ref) {
   console.log("MOVE FOREIGN-KEY REL");
+  
   //todo: ver se ha change local method no interior
   let res = "@startuml \nallow_mixing\nleft to right direction\n";
   res += 'package "' + ref["microservice"] + '"{\n';
   res += "entity " + ref["notes"]["entities"][0] + "\n";
-  if (res["notes"]["interfaces"]) {
-    if (res["notes"]["interfaces"].length === 2)
+  if (ref["notes"]["interfaces"]) {
+    if (ref["notes"]["interfaces"].length === 2)
       res += "interface " + ref["notes"]["interfaces"][0] + "\n";
-    if (res["notes"]["interfaces"].length === 1)
-      if (res["notes"]["interfaces"][0].includes(res["notes"]["entities"][0]))
+    if (ref["notes"]["interfaces"].length === 1)
+      if (ref["notes"]["interfaces"][0].includes(ref["notes"]["entities"][0]))
         res += "interface " + ref["notes"]["interfaces"][0] + "\n";
   }
   res += "\n}\n";
-
+  
   res += 'package "' + ref["dependent_microservice"] + '"{\n';
   res += "entity " + ref["notes"]["entities"][1] + "\n";
-  if (res["notes"]["interfaces"]) {
-    if (res["notes"]["interfaces"].length === 2)
+  if (ref["notes"]["interfaces"]) {
+    if (ref["notes"]["interfaces"].length === 2)
       res += "interface " + ref["notes"]["interfaces"][1] + "\n";
-    if (res["notes"]["interfaces"].length === 1)
-      if (res["notes"]["interfaces"][0].includes(res["notes"]["entities"][1]))
+    if (ref["notes"]["interfaces"].length === 1)
+      if (ref["notes"]["interfaces"][0].includes(ref["notes"]["entities"][1]))
         res += "interface " + ref["notes"]["interfaces"][0] + "\n";
   }
 

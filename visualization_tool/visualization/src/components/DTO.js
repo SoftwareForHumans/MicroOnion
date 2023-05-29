@@ -42,7 +42,7 @@ function DTO({
         </p>
         <img
           className="pb-3"
-          style={{ width: "90%", alignSelf: "center" }}
+          style={{ maxHeight:"25rem", maxWidth:"100%", alignSelf: "center" }}
           src={`data:image/png;base64,${refactoringItems.image}`}
           alt="refactoring change schema"
         ></img>

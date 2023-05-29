@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+entity RTable
+interface RTableInterface
+
+}
+package "2"{
+entity Bill
+interface BillInterface
+
+}
+"3" --x "2":OneToMany
+"3" ..> "2"
+@enduml

@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+class AuthController
+class UserRepositoryRequestInterfaceImpl
+interface UserRepositoryRequestInterface
+
+}
+package "1"{
+class UserRepository
+class UserRepositoryHandleRequest
+
+}
+"6" ..> "1":HTTP:findByMail
+@enduml

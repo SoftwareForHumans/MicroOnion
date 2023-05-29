@@ -217,7 +217,7 @@ exports.getRefactoringImage = async (req, res) => {
   const { project } = req.params;
   let { service } = req.params;
   let { id } = req.params;
-
+  console.log(id)
   try {
     const folder = utils.getProjectFolder(project);
     const jsonPath = path.join(
@@ -235,51 +235,51 @@ exports.getRefactoringImage = async (req, res) => {
     let refactoring = utils.getRefactoring(id, service, arr, true);
     let ret = "";
 
-    // switch (refactoring["name"]) {
-    //   case "BREAK DATA TYPE DEPENDENCY":
-    //     ret = umls.createDataTypeDependencyUML(refactoring);
-    //     break;
-    //   case "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL":
-    //     ret = umls.createChangeLocalMethodUML(refactoring);
-    //     break;
-    //   case "CHANGE DATA OWNERSHIP":
-    //     ret = umls.createChangeDataOwnershipUML(refactoring);
-    //     break;
-    //   case "MOVE FOREIGN-KEY RELATIONSHIP TO CODE":
-    //     ret = umls.createMoveForeignKeyUML(refactoring);
-    //     break;
-    //   case "CREATE DATA TRANSFER OBJECT":
-    //     ret = umls.createDataTransferObjectUML(refactoring);
-    //     break;
-    //   case "FILE DEPENDENCY":
-    //     ret = umls.createFileDependencyUML(refactoring);
-    //   case "IMPORT DEPENDENCY":
-    //     ret = umls.createImportDependencyUML(refactoring);
-    //     break;
-    // }
+    switch (refactoring["name"]) {
+      case "BREAK DATA TYPE DEPENDENCY":
+        ret = umls.createDataTypeDependencyUML(refactoring);
+        break;
+      case "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL":
+        ret = umls.createChangeLocalMethodUML(refactoring);
+        break;
+      case "CHANGE DATA OWNERSHIP":
+        ret = umls.createChangeDataOwnershipUML(refactoring);
+        break;
+      case "MOVE FOREIGN-KEY RELATIONSHIP TO CODE":
+        ret = umls.createMoveForeignKeyUML(refactoring);
+        break;
+      case "CREATE DATA TRANSFER OBJECT":
+        ret = umls.createDataTransferObjectUML(refactoring);
+        break;
+      case "FILE DEPENDENCY":
+        ret = umls.createFileDependencyUML(refactoring);
+      case "IMPORT DEPENDENCY":
+        ret = umls.createImportDependencyUML(refactoring);
+        break;
+    }
    
 
-    // const f = path.join(
-    //   __dirname,
-    //   "..",
-    //   "files",
-    //   project,
-    //   "/umls/refactorings/",
-    //   "refactoring" + id + ".puml"
-    // );
+    const f = path.join(
+      __dirname,
+      "..",
+      "files",
+      project,
+      "/umls/refactorings/",
+      "refactoring" + id + ".puml"
+    );
 
-    // fs.writeFileSync(f, ret, { flag: "w" }, (err) => {
-    //   if (err) {
-    //     console.error(err);
-    //   }
-    // });
+    fs.writeFileSync(f, ret, { flag: "w" }, (err) => {
+      if (err) {
+        console.error(err);
+      }
+    });
 
     const filename = path.join(
       __dirname,
       "..",
       "files",
       folder,
-      "/umls/states/service" + service + "_final" + "_state.png" //TODO: mudar isto para "/umls/service" + service + "refactoring" + id + ".png"
+      "/umls/refactorings/" + "refactoring" + id + ".png" //TODO: mudar isto para "/umls/service" + service + "refactoring" + id + ".png"
     );
 
     res.writeHead(200, {

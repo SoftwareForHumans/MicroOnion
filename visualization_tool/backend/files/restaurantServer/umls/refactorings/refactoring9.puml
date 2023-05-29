@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+class AuthController
+class JwtProviderRequestInterfaceImpl
+interface JwtProviderRequestInterface
+
+}
+package "0"{
+class JwtProvider
+class JwtProviderHandleRequest
+
+}
+"6" ..> "0":HTTP:generateJwtToken
+@enduml

@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class BillPositionService
+class DishRequestInterfaceImpl
+interface DishRequestInterface
+
+}
+package "4"{
+class Dish
+class DishHandleRequest
+
+}
+"2" ..> "4":HTTP:getPrice
+@enduml

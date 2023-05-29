@@ -32,7 +32,7 @@ function ChangeDataOwnership({
   const handleRefactoringClick = (index) => {
     setStep(undefined);
     setLoadStep(true);
-    let id = refactoringItems.sequence[index].id;
+    let id = refactoring.refactorings[index].id;
     try {
       axios
         .get(
@@ -84,7 +84,7 @@ function ChangeDataOwnership({
         </p>
         <img
           className="pb-3"
-          style={{ width: "90%", alignSelf: "center" }}
+          style={{ maxHeight:"25rem", maxWidth:"100%", alignSelf: "center" }}
           src={`data:image/png;base64,${refactoringItems.image}`}
           alt="refactoring change schema"
         ></img>

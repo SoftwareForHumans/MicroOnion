@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+entity User
+interface UserInterface
+
+}
+package "5"{
+entity Reservation
+interface ReservationInterface
+
+}
+"1" --x "5":OneToMany
+"1" ..> "5"
+@enduml

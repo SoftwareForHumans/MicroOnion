@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class RTableService
+interface BillDTOInterface
+entity BillDTO
+class BillRequestInterfaceImpl
+interface BillRequestInterface
+
+}
+package "2"{
+class Bill
+class BillHandleRequest
+
+}
+"3" --x "2":methodInvocation,methodVariable
+"3" ..> "2":HTTP:getStatus
+@enduml

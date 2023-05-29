@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class RestaurantServerApplication
+class UserRepositoryRequestInterfaceImpl
+interface UserRepositoryRequestInterface
+
+}
+package "1"{
+class UserRepository
+class UserRepositoryHandleRequest
+
+}
+"4" ..> "1":HTTP:save
+@enduml

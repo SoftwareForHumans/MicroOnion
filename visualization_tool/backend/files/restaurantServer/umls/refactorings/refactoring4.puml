@@ -1,0 +1,18 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class JwtAuthTokenFilter
+interface UserDetailsServiceImplDTOInterface
+class UserDetailsServiceImplRequestInterfaceImpl
+interface UserDetailsServiceImplRequestInterface
+
+}
+package "1"{
+class UserDetailsServiceImpl
+class UserDetailsServiceImplHandleRequest
+
+}
+"0" --x "1":methodInvocation,variableType
+"0" ..> "1":HTTP:loadUserByUsername
+@enduml

@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class RTableService
+entity ReservationDTO
+
+}
+package "5"{
+class Reservation
+
+}
+"3" --x "5":methodVariable
+@enduml
