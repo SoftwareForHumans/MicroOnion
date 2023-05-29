@@ -43,8 +43,8 @@ package "6"{
 package "8"{
 }
 }
-"7"..>"2":Logging:setTrace(HTTP)
-"7"..>"2":Logging:setTrace(HTTP)
-"7"..>"2":Logging:setTrace(HTTP)
+"7"..>"2":Logging:setTrace (HTTP)
+"7"..>"2":Logging:setTrace (HTTP)
+"7"..>"2":Logging:setTrace (HTTP)
 "2"..>"7":Usuario_sysRep:findById (HTTP)
 @enduml

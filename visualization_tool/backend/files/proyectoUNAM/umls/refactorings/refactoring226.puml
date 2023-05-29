@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+class ProcessorCurso
+
+}
+package "3"{
+class GrupoRep
+
+}
+"6" --x "3":variableType
+@enduml

@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "8"{
+class CargaBatchServiceDAO
+entity GrupoDtoDTO
+
+}
+package "3"{
+class GrupoDto
+
+}
+"8" --x "3":methodVariable
+@enduml

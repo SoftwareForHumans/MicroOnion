@@ -1,0 +1,11 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+entity InscripcionRepDTO
+
+}
+package "1"{
+class InscripcionRep
+}
+@enduml

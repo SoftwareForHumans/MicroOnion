@@ -1,0 +1,11 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+entity ProfesorDTO
+
+}
+package "0"{
+class Profesor
+}
+@enduml

@@ -92,12 +92,12 @@ class ConsultaController
 package "8"{
 }
 }
-"0"..>"2":CertificadoRep:findCertificado(HTTP)
-"0"..>"2":Certificado:getPk_id_certificado(HTTP)
-"0"..>"2":Logging:setTrace(HTTP)
-"0"..>"2":Logging:setTrace(HTTP)
-"0"..>"2":Logging:setTrace(HTTP)
-"0"..>"3":GrupoRep:findByIdAsesor(HTTP)
+"0"..>"2":CertificadoRep:findCertificado (HTTP)
+"0"..>"2":Certificado:getPk_id_certificado (HTTP)
+"0"..>"2":Logging:setTrace (HTTP)
+"0"..>"2":Logging:setTrace (HTTP)
+"0"..>"2":Logging:setTrace (HTTP)
+"0"..>"3":GrupoRep:findByIdAsesor (HTTP)
 "1"..>"0":ProfesorRep:findByName (HTTP)
 "1"..>"0":Profesor:getFk_id_grado_profesor (HTTP)
 "1"..>"0":Grado_profesor:getPk_id_grado_profesor (HTTP)

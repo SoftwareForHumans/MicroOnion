@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class ClienteCertificadoController
+class ProfesorRepRequestInterfaceImpl
+interface ProfesorRepRequestInterface
+
+}
+package "0"{
+class ProfesorRep
+class ProfesorRepHandleRequest
+
+}
+"2" ..> "0":HTTP:findByCorreo
+@enduml

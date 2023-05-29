@@ -1,0 +1,11 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+entity GrupoRepDTO
+
+}
+package "3"{
+class GrupoRep
+}
+@enduml

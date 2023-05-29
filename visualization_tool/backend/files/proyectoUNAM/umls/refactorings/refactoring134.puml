@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class ModificarGrupos
+entity TurnoRepDTO
+
+}
+package "0"{
+class TurnoRep
+
+}
+"3" --x "0":variableType
+@enduml

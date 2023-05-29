@@ -1,0 +1,11 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+entity TurnoRepDTO
+
+}
+package "0"{
+class TurnoRep
+}
+@enduml

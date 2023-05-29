@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class ClienteCertificadoController
+class CursoRequestInterfaceImpl
+interface CursoRequestInterface
+
+}
+package "6"{
+class Curso
+class CursoHandleRequest
+
+}
+"2" ..> "6":HTTP:getClave
+@enduml

@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class GrupoController
+class CursoRepRequestInterfaceImpl
+interface CursoRepRequestInterface
+
+}
+package "6"{
+class CursoRep
+class CursoRepHandleRequest
+
+}
+"3" ..> "6":HTTP:findAll
+@enduml

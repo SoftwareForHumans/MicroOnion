@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class WebService
+interface GrupoRepDTOInterface
+entity GrupoRepDTO
+class GrupoRepRequestInterfaceImpl
+interface GrupoRepRequestInterface
+
+}
+package "3"{
+class GrupoRep
+class GrupoRepHandleRequest
+
+}
+"4" --x "3":methodInvocation,variableType
+"4" ..> "3":HTTP:findByClaveGrupoIdCurso
+@enduml

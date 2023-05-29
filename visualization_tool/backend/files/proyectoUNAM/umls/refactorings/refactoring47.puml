@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class ModificarProfesor
+
+}
+package "3"{
+class GrupoRep
+
+}
+"0" --x "3":variableType
+@enduml

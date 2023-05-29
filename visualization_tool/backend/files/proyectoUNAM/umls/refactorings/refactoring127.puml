@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class ModificarGrupos
+class ProfesorRepRequestInterfaceImpl
+interface ProfesorRepRequestInterface
+
+}
+package "0"{
+class ProfesorRep
+class ProfesorRepHandleRequest
+
+}
+"3" ..> "0":HTTP:findAll
+@enduml

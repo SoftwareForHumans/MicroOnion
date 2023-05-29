@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class WebService
+class ProfesorRepRequestInterfaceImpl
+interface ProfesorRepRequestInterface
+
+}
+package "0"{
+class ProfesorRep
+class ProfesorRepHandleRequest
+
+}
+"4" ..> "0":HTTP:findByCurp
+@enduml

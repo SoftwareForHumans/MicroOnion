@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class CertificadoMasivoController
+class CursoRepRequestInterfaceImpl
+interface CursoRepRequestInterface
+
+}
+package "6"{
+class CursoRep
+class CursoRepHandleRequest
+
+}
+"2" ..> "6":HTTP:findByUniqueClave
+@enduml

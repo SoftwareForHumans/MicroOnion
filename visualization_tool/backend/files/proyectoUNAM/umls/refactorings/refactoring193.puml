@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class BatchController
+entity InscripcionRepDTO
+
+}
+package "1"{
+class InscripcionRep
+
+}
+"3" --x "1":variableType
+@enduml

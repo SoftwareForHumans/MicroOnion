@@ -1,0 +1,11 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+entity CursoDTO
+
+}
+package "6"{
+class Curso
+}
+@enduml

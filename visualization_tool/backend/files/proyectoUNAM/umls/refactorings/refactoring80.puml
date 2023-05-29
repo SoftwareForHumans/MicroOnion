@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class ModificarInscripcion
+entity TurnoRepDTO
+
+}
+package "0"{
+class TurnoRep
+
+}
+"1" --x "0":variableType
+@enduml

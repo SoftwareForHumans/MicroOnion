@@ -1,0 +1,17 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class ProcessorGrupo
+class CursoRepRequestInterfaceImpl
+interface CursoRepRequestInterface
+
+}
+package "6"{
+class CursoRep
+class CursoRepHandleRequest
+
+}
+"3" --x "6":methodInvocation,variableType
+"3" ..> "6":HTTP:findByNombre
+@enduml

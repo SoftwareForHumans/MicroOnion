@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class ModificarInscripcion
+
+}
+package "6"{
+class CursoRep
+
+}
+"1" --x "6":variableType
+@enduml

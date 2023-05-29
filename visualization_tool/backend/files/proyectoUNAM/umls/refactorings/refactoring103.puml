@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class DescargasController
+entity ProfesorRepDTO
+
+}
+package "0"{
+class ProfesorRep
+
+}
+"2" --x "0":variableType
+@enduml

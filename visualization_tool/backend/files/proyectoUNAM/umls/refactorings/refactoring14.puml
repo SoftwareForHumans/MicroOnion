@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class Logging
+class Usuario_sysRepRequestInterfaceImpl
+interface Usuario_sysRepRequestInterface
+
+}
+package "7"{
+class Usuario_sysRep
+class Usuario_sysRepHandleRequest
+
+}
+"2" ..> "7":HTTP:findById
+@enduml

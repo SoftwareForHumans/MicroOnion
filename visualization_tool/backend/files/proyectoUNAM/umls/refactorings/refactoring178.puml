@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class InscripcionesController
+class LoggingRequestInterfaceImpl
+interface LoggingRequestInterface
+
+}
+package "2"{
+class Logging
+class LoggingHandleRequest
+
+}
+"1" ..> "2":HTTP:setTrace
+@enduml

@@ -52,16 +52,16 @@ function ServiceCall({
             index: index,
             sequence: refactoring.refactorings,
             image: res.data,
-          })); 
-      
+          }));
+
           let idx = index + 3;
-      
+
           setRefactoringItems((prev) => ({
             ...prev,
             selected: idx,
             color: "#1E488F",
           }));
-      
+
           setLoadStep(false);
         });
     } catch (err) {
@@ -84,7 +84,7 @@ function ServiceCall({
         </p>
         <img
           className="pb-3"
-          style={{maxHeight:"25rem", maxWidth:"100%", alignSelf: "center" }}
+          style={{ maxHeight: "25rem", maxWidth: "100%", alignSelf: "center" }}
           src={`data:image/png;base64,${refactoringItems.image}`}
           alt="refactoring change schema"
         ></img>
@@ -186,7 +186,17 @@ function ServiceCall({
             ) : (
               <>
                 {step !== undefined ? (
-                  <>{step}</>
+                  <>
+                    {typeof step === "string" ? (
+                      <>{step}</>
+                    ) : (
+                      <>
+                        {Object.keys(step).map((key) => (
+                          <div key={key}>{step[key]}</div>
+                        ))}
+                      </>
+                    )}
+                  </>
                 ) : (
                   <Refactoring
                     project={project}

@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class WebService
+interface ProfesorRepDTOInterface
+entity ProfesorRepDTO
+class ProfesorRepRequestInterfaceImpl
+interface ProfesorRepRequestInterface
+
+}
+package "0"{
+class ProfesorRep
+class ProfesorRepHandleRequest
+
+}
+"4" --x "0":methodInvocation,variableType
+"4" ..> "0":HTTP:findByCurp
+@enduml

@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class WebService
+interface LoggingDTOInterface
+entity LoggingDTO
+class LoggingRequestInterfaceImpl
+interface LoggingRequestInterface
+
+}
+package "2"{
+class Logging
+class LoggingHandleRequest
+
+}
+"4" --x "2":methodInvocation,variableType
+"4" ..> "2":HTTP:logtrace
+@enduml

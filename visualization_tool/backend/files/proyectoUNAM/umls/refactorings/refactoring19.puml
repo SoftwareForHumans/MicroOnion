@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class BatchController
+entity SendMailServiceDTO
+
+}
+package "7"{
+class SendMailService
+
+}
+"3" --x "7":variableType
+@enduml

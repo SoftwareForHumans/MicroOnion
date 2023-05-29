@@ -71,9 +71,9 @@ class WebService
 package "8"{
 }
 }
-"6"..>"0":ProfesorRep:findByCompleteNameList(HTTP)
-"6"..>"2":Logging:setTrace(HTTP)
-"6"..>"2":Logging:setTrace(HTTP)
+"6"..>"0":ProfesorRep:findByCompleteNameList (HTTP)
+"6"..>"2":Logging:setTrace (HTTP)
+"6"..>"2":Logging:setTrace (HTTP)
 "1"..>"6":CursoRep:findByParams (HTTP)
 "1"..>"6":Curso:getPk_id_curso (HTTP)
 "1"..>"6":CursoRep:findByNombre (HTTP)

@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+class ModificarCursos
+entity EstadoRepDTO
+
+}
+package "0"{
+class EstadoRep
+
+}
+"6" --x "0":variableType
+@enduml

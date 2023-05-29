@@ -1,0 +1,17 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+class RecuperaContrasena
+class LoggingRequestInterfaceImpl
+interface LoggingRequestInterface
+
+}
+package "2"{
+class Logging
+class LoggingHandleRequest
+
+}
+"7" --x "2":methodInvocation,variableType
+"7" ..> "2":HTTP:setTrace
+@enduml

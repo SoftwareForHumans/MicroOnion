@@ -1,0 +1,17 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class InscripcionesController
+class GrupoRepRequestInterfaceImpl
+interface GrupoRepRequestInterface
+
+}
+package "3"{
+class GrupoRep
+class GrupoRepHandleRequest
+
+}
+"1" --x "3":methodInvocation,variableType
+"1" ..> "3":HTTP:findAll
+@enduml

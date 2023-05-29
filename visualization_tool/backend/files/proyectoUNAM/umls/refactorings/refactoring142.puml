@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "8"{
+class CorreoService
+
+}
+package "0"{
+class ProfesorDto
+
+}
+"8" --x "0":methodVariable
+@enduml

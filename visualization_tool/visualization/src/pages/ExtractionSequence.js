@@ -81,13 +81,13 @@ function ExtractionSequence() {
             </Col>
           ))}
         </Row>
-        <Row style={{ justifyContent: "center" }} className="mt-5">
+        {/* <Row style={{ justifyContent: "center" }} className="mt-5">
           <p>
             In this scenario, we prioritized the services' extraction{" "}
             <b>from least to most coupled</b>, but other approaches are possible
             to decide this order.
           </p>
-        </Row>
+        </Row> */}
       </div>
     </Container>
   );

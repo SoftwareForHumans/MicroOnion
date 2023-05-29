@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class ConsultaInscripcionController
+class CertificadoRequestInterfaceImpl
+interface CertificadoRequestInterface
+
+}
+package "2"{
+class Certificado
+class CertificadoHandleRequest
+
+}
+"1" ..> "2":HTTP:getPk_id_certificado
+@enduml

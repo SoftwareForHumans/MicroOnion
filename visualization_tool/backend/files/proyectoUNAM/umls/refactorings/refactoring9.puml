@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "7"{
+entity Usuario_sys
+interface Usuario_sysInterface
+
+}
+package "2"{
+entity Log_sys
+interface Log_sysInterface
+
+}
+"7" --x "2":OneToMany
+"7" ..> "2"
+@enduml

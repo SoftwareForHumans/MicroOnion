@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class ConsultaInscripcionController
+class GeneroRequestInterfaceImpl
+interface GeneroRequestInterface
+
+}
+package "0"{
+class Genero
+class GeneroHandleRequest
+
+}
+"1" ..> "0":HTTP:getPk_id_genero
+@enduml

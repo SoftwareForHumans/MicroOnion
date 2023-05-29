@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class InscripcionesController
+class GrupoRequestInterfaceImpl
+interface GrupoRequestInterface
+
+}
+package "3"{
+class Grupo
+class GrupoHandleRequest
+
+}
+"1" ..> "3":HTTP:getClave
+@enduml

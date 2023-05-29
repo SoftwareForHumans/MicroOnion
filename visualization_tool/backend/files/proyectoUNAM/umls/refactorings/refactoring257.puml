@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class ConsultaGrupoController
+class CursoRequestInterfaceImpl
+interface CursoRequestInterface
+
+}
+package "6"{
+class Curso
+class CursoHandleRequest
+
+}
+"3" ..> "6":HTTP:getClave
+@enduml

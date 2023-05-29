@@ -1,0 +1,17 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class ModificarProfesor
+class LoggingRequestInterfaceImpl
+interface LoggingRequestInterface
+
+}
+package "2"{
+class Logging
+class LoggingHandleRequest
+
+}
+"0" --x "2":methodInvocation,variableType
+"0" ..> "2":HTTP:setTrace
+@enduml

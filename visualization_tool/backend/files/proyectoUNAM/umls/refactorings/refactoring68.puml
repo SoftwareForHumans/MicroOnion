@@ -1,0 +1,17 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class InscripcionesController
+class ProfesorRepRequestInterfaceImpl
+interface ProfesorRepRequestInterface
+
+}
+package "0"{
+class ProfesorRep
+class ProfesorRepHandleRequest
+
+}
+"1" --x "0":methodInvocation,variableType
+"1" ..> "0":HTTP:findAll
+@enduml

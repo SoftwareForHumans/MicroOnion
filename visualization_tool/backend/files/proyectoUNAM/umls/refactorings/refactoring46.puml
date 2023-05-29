@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class ConsultaProfesorController
+class GrupoRepRequestInterfaceImpl
+interface GrupoRepRequestInterface
+
+}
+package "3"{
+class GrupoRep
+class GrupoRepHandleRequest
+
+}
+"0" ..> "3":HTTP:findByIdAsesor
+@enduml

@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class CertificadoMasivoController
+
+}
+package "3"{
+class GrupoRep
+
+}
+"2" --x "3":variableType
+@enduml

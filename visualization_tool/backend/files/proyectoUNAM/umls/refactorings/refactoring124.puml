@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class GrupoController
+class ProfesorRequestInterfaceImpl
+interface ProfesorRequestInterface
+
+}
+package "0"{
+class Profesor
+class ProfesorHandleRequest
+
+}
+"3" ..> "0":HTTP:getRfc
+@enduml

@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "5"{
+class BatchConfig
+entity ProcessorProfesorDTO
+
+}
+package "0"{
+class ProcessorProfesor
+
+}
+"5" --x "0":variableType
+@enduml

@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "5"{
+class BatchConfig
+entity CursoDTO
+
+}
+package "6"{
+class Curso
+
+}
+"5" --x "6":methodVariable
+@enduml

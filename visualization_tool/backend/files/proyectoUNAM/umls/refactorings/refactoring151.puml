@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class ConsultaInscripcionController
+interface GrupoRepDTOInterface
+entity GrupoRepDTO
+class GrupoRepRequestInterfaceImpl
+interface GrupoRepRequestInterface
+
+}
+package "3"{
+class GrupoRep
+class GrupoRepHandleRequest
+
+}
+"1" --x "3":methodInvocation,variableType
+"1" ..> "3":HTTP:findByClave
+@enduml

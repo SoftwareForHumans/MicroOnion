@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class WebService
+class CursoRepRequestInterfaceImpl
+interface CursoRepRequestInterface
+
+}
+package "6"{
+class CursoRep
+class CursoRepHandleRequest
+
+}
+"4" ..> "6":HTTP:findByUniqueClaveCurso
+@enduml

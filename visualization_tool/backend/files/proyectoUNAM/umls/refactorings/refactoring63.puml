@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class ConsultaInscripcionController
+class Grado_profesorRequestInterfaceImpl
+interface Grado_profesorRequestInterface
+
+}
+package "0"{
+class Grado_profesor
+class Grado_profesorHandleRequest
+
+}
+"1" ..> "0":HTTP:getPk_id_grado_profesor
+@enduml

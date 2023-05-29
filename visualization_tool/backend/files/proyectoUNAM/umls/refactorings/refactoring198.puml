@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class WebService
+class InscripcionRepRequestInterfaceImpl
+interface InscripcionRepRequestInterface
+
+}
+package "1"{
+class InscripcionRep
+class InscripcionRepHandleRequest
+
+}
+"4" ..> "1":HTTP:saveI
+@enduml

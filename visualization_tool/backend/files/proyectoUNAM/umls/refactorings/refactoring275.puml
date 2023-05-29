@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class CertificadoMasivoController
+class GrupoRequestInterfaceImpl
+interface GrupoRequestInterface
+
+}
+package "3"{
+class Grupo
+class GrupoHandleRequest
+
+}
+"2" ..> "3":HTTP:getClave
+@enduml

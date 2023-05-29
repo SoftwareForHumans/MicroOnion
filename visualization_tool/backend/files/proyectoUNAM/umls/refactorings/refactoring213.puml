@@ -1,0 +1,11 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+entity LoggingDTO
+
+}
+package "2"{
+class Logging
+}
+@enduml

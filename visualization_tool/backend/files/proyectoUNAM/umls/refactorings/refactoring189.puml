@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class CertificadoMasivoController
+class InscripcionRequestInterfaceImpl
+interface InscripcionRequestInterface
+
+}
+package "1"{
+class Inscripcion
+class InscripcionHandleRequest
+
+}
+"2" ..> "1":HTTP:getFk_id_grupo
+@enduml

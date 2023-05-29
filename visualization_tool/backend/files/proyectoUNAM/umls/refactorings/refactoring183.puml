@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "5"{
+class BatchConfig
+entity InscripcionDTO
+
+}
+package "1"{
+class Inscripcion
+
+}
+"5" --x "1":methodVariable
+@enduml

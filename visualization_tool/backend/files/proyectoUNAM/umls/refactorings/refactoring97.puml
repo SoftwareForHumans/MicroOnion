@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+class ConsultaController
+class ProfesorRepRequestInterfaceImpl
+interface ProfesorRepRequestInterface
+
+}
+package "0"{
+class ProfesorRep
+class ProfesorRepHandleRequest
+
+}
+"6" ..> "0":HTTP:findByCompleteNameList
+@enduml

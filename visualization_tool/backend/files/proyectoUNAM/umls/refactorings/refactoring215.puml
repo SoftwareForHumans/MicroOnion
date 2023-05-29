@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "6"{
+entity Curso
+interface CursoInterface
+
+}
+package "2"{
+entity Certificado
+interface CertificadoInterface
+
+}
+"6" --x "2":OneToMany
+"6" ..> "2"
+@enduml

@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class DescargasController
+entity InscripcionRepDTO
+
+}
+package "1"{
+class InscripcionRep
+
+}
+"2" --x "1":variableType
+@enduml

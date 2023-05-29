@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class ClienteCertificadoController
+interface GrupoRepDTOInterface
+entity GrupoRepDTO
+class GrupoRepRequestInterfaceImpl
+interface GrupoRepRequestInterface
+
+}
+package "3"{
+class GrupoRep
+class GrupoRepHandleRequest
+
+}
+"2" --x "3":methodInvocation,variableType
+"2" ..> "3":HTTP:findAll
+@enduml

@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class DescargasController
+class ProfesorRequestInterfaceImpl
+interface ProfesorRequestInterface
+
+}
+package "0"{
+class Profesor
+class ProfesorHandleRequest
+
+}
+"2" ..> "0":HTTP:getPk_id_profesor
+@enduml

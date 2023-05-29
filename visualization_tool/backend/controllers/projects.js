@@ -263,7 +263,7 @@ exports.getRefactoringImage = async (req, res) => {
       __dirname,
       "..",
       "files",
-      project,
+      folder,
       "/umls/refactorings/",
       "refactoring" + id + ".puml"
     );
@@ -279,7 +279,8 @@ exports.getRefactoringImage = async (req, res) => {
       "..",
       "files",
       folder,
-      "/umls/refactorings/" + "refactoring" + id + ".png" //TODO: mudar isto para "/umls/service" + service + "refactoring" + id + ".png"
+      "/umls/states/service" + service + "_final" + "_state.png"
+      // "/umls/refactorings/" + "refactoring" + id + ".png" 
     );
 
     res.writeHead(200, {

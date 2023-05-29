@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class Profesor
+entity InscripcionDTO
+
+}
+package "1"{
+class Inscripcion
+
+}
+"0" --x "1":methodVariable
+@enduml

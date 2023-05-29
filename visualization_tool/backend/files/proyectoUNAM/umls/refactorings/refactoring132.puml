@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class ModificarGrupos
+entity Grado_profesorRepDTO
+
+}
+package "0"{
+class Grado_profesorRep
+
+}
+"3" --x "0":variableType
+@enduml

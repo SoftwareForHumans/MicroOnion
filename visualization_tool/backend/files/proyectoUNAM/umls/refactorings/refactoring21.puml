@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "8"{
+class AvisosCorreoDAO
+entity SendMailServiceDTO
+
+}
+package "7"{
+class SendMailService
+
+}
+"8" --x "7":variableType
+@enduml

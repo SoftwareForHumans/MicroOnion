@@ -1,0 +1,19 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class ConsultaInscripcionController
+interface CertificadoRepDTOInterface
+entity CertificadoRepDTO
+class CertificadoRepRequestInterfaceImpl
+interface CertificadoRepRequestInterface
+
+}
+package "2"{
+class CertificadoRep
+class CertificadoRepHandleRequest
+
+}
+"1" --x "2":methodInvocation,variableType
+"1" ..> "2":HTTP:findCertificado
+@enduml

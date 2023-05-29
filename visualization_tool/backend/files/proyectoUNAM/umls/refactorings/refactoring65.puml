@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class ConsultaInscripcionController
+class TurnoRequestInterfaceImpl
+interface TurnoRequestInterface
+
+}
+package "0"{
+class Turno
+class TurnoHandleRequest
+
+}
+"1" ..> "0":HTTP:getPk_id_turno
+@enduml

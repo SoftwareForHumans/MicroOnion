@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class Log_sys
+entity Usuario_sysDTO
+
+}
+package "7"{
+class Usuario_sys
+
+}
+"2" --x "7":variableType
+@enduml

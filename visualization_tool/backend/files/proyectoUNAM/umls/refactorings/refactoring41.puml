@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "0"{
+class ModificarProfesor
+entity InscripcionRepDTO
+
+}
+package "1"{
+class InscripcionRep
+
+}
+"0" --x "1":variableType
+@enduml

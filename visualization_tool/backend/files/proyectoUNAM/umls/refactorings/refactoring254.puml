@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class ModificarGrupos
+entity Tipo_cursoRepDTO
+
+}
+package "6"{
+class Tipo_cursoRep
+
+}
+"3" --x "6":variableType
+@enduml

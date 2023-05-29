@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "4"{
+class WebService
+class GrupoRequestInterfaceImpl
+interface GrupoRequestInterface
+
+}
+package "3"{
+class Grupo
+class GrupoHandleRequest
+
+}
+"4" ..> "3":HTTP:getPk_id_grupo
+@enduml

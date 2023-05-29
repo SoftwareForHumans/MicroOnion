@@ -1,0 +1,13 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+class GrupoRep
+
+}
+package "6"{
+class Curso
+
+}
+"3" --x "6":methodVariable
+@enduml

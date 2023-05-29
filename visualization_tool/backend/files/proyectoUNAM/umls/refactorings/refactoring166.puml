@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class ConsultaInscripcionController
+class CursoRequestInterfaceImpl
+interface CursoRequestInterface
+
+}
+package "6"{
+class Curso
+class CursoHandleRequest
+
+}
+"1" ..> "6":HTTP:getPk_id_curso
+@enduml

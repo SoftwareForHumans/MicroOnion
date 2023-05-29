@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "3"{
+entity Grupo
+interface GrupoInterface
+
+}
+package "0"{
+entity Profesor
+interface ProfesorInterface
+
+}
+"3" --x "0":ManyToOne
+"3" ..> "0"
+@enduml

@@ -1,0 +1,16 @@
+@startuml 
+allow_mixing
+left to right direction
+package "1"{
+class ProcessorInscripcion
+class CursoRepRequestInterfaceImpl
+interface CursoRepRequestInterface
+
+}
+package "6"{
+class CursoRep
+class CursoRepHandleRequest
+
+}
+"1" ..> "6":HTTP:findByNombre
+@enduml

@@ -1,0 +1,14 @@
+@startuml 
+allow_mixing
+left to right direction
+package "2"{
+class Certificado
+entity GrupoDTO
+
+}
+package "3"{
+class Grupo
+
+}
+"2" --x "3":variableType,methodVariable
+@enduml
