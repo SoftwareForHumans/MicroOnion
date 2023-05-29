@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
@@ -17,9 +17,23 @@ function ServiceCall({
 }) {
   const [loadStep, setLoadStep] = useState(undefined);
   const [step, setStep] = useState(undefined);
+  const [scrollToElementId, setScrollToElement] = useState();
+  const scrollToElement = (id) => {
+    let element = document.getElementById(id);
+    let header = document.getElementById("header");
+    if (element) {
+      setTimeout(scroll, 500);
+      function scroll() {
+        window.scrollTo(element.offsetLeft, element.offsetTop - header.offsetHeight);
+        setScrollToElement('');
+      }
+    }
+  }
+
   const handleOnClick = (index, text) => {
     setLoadStep(true);
     setStep(text);
+    setScrollToElement('implementationStep');
     setRefactoringItems((prev) => ({
       ...prev,
       selected: index,
@@ -31,6 +45,7 @@ function ServiceCall({
   const handleRefactorigClick = (index) => {
     setLoadStep(true);
     setStep(undefined);
+    setScrollToElement('implementationStep');
     setRefactoringItems2((prev) => ({
       ...prev,
       selected: undefined,
@@ -51,6 +66,10 @@ function ServiceCall({
 
     setLoadStep(false);
   };
+
+  useEffect(() => {
+    scrollToElement(scrollToElementId);
+  }, [scrollToElementId]);
 
   return (
     <Row className="mt-2 blue-text">
@@ -100,16 +119,16 @@ function ServiceCall({
                 "Change the method calls to and from local components to be remote calls using this protocol to reach a different service:",
                 "\n",
                 "1. Create an interface with the declaration of the identified methods - " +
-                  (refactoring.notes.interfaces !== undefined
-                    ? refactoring.notes.interfaces
-                    : "the interface was already created in a previous refactoring") +
-                  ".",
+                (refactoring.notes.interfaces !== undefined
+                  ? refactoring.notes.interfaces
+                  : "the interface was already created in a previous refactoring") +
+                ".",
                 "\n",
                 "2. Create a class that implements that interface and makes the service calls, a Request Class - " +
-                  (refactoring.notes.new_classes[0] !== undefined
-                    ? refactoring.notes.new_classes[0]
-                    : "the request class was already created in a previous refactoring") +
-                  ".",
+                (refactoring.notes.new_classes[0] !== undefined
+                  ? refactoring.notes.new_classes[0]
+                  : "the request class was already created in a previous refactoring") +
+                ".",
               ]}
             ></StepButton>
           </Col>
@@ -124,10 +143,10 @@ function ServiceCall({
                 "Arrange the microservice owning the method to respond to this communication protocol, creating an API to respond to the service calls.",
                 "\n",
                 "1. Create a class that defines the resource paths for the requests and processes them producing a response - " +
-                  (refactoring.notes.new_classes[1] !== undefined
-                    ? refactoring.notes.new_classes[1]
-                    : "the request handler class was already created in a previous refactoring") +
-                  ".",
+                (refactoring.notes.new_classes[1] !== undefined
+                  ? refactoring.notes.new_classes[1]
+                  : "the request handler class was already created in a previous refactoring") +
+                ".",
                 "\n",
                 "2. Add methods to the class to perform the actions required by the service calls.",
               ]}
@@ -158,35 +177,41 @@ function ServiceCall({
               );
             })}
         </div>
-        {loadStep !== undefined && (
-          <Row
-            id="implementation"
-            className="d-flex justify-content-center py-3 my-3 mx-5 px-2"
-            style={{ border: "3px dashed " + refactoringItems.color }}
-          >
-            {loadStep === true ? (
-              <></>
-            ) : (
-              <>
-                {step !== undefined ? (
-                  <>{step}</>
-                ) : (
-                  <Refactoring
-                    project={project}
-                    service={service}
-                    refactoringItems={refactoringItems2}
-                    setRefactoringItems={setRefactoringItems2}
-                    refactoringItems2={{}}
-                    setRefactoringItems2={() => {}}
-                    showNumber={false}
-                  />
-                )}
-              </>
-            )}
-          </Row>
-        )}
 
-        <p className="mt-5" style={{ fontSize: "0.8rem" }}>
+        <Row
+          id="implementationStep"
+          className="mx-5">
+          {loadStep !== undefined && (
+            <>
+              {loadStep === true ? (
+                <></>
+              ) : (
+                <>
+                  <div
+                    className="d-flex justify-content-center py-3 my-3 px-2"
+                    style={{ border: "3px dashed " + refactoringItems.color }}>
+                    {step !== undefined ? (
+                      <>{step}</>
+                    ) : (
+                      <Refactoring
+                        project={project}
+                        service={service}
+                        refactoringItems={refactoringItems2}
+                        setRefactoringItems={setRefactoringItems2}
+                        refactoringItems2={{}}
+                        setRefactoringItems2={() => { }}
+                        showNumber={false}
+                      />
+                    )}
+                  </div>
+                </>
+              )}
+            </>
+          )}
+        </Row>
+
+
+        <p className="mt-3" style={{ fontSize: "0.8rem" }}>
           Note: By default, we apply this refactoring implementing a synchronous
           call, however if you don't need an instant response or don't want a
           service to wait for the response, it can be asynchronous. Check the

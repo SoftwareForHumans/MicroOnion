@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import RefactoringButton from "../components/RefactoringButton";
@@ -20,9 +20,24 @@ function DataTypeDependency({
   const indexLast =
     1 + (refactoring.refactorings ? refactoring.refactorings.length + 1 : 0);
 
+  const [scrollToElementId, setScrollToElement] = useState();
+
+  const scrollToElement = (id) => {
+    let element = document.getElementById(id);
+    let header = document.getElementById("header");
+    if (element) {
+      setTimeout(scroll, 500);
+      function scroll() {
+        window.scrollTo(element.offsetLeft, element.offsetTop - header.offsetHeight);
+        setScrollToElement('');
+      }
+    }
+  }
+
   const handleOnClick = (index, text) => {
     setLoadStep(true);
     setStep(text);
+    setScrollToElement('implementationStep');
     setRefactoringItems((prev) => ({
       ...prev,
       selected: index,
@@ -33,6 +48,7 @@ function DataTypeDependency({
   const handleRefactoringClick = (index) => {
     setStep(undefined);
     setLoadStep(true);
+    setScrollToElement('implementationStep');
     setRefactoringItems2((prev) => ({
       ...prev,
       selected: undefined,
@@ -51,6 +67,10 @@ function DataTypeDependency({
     }));
     setLoadStep(false);
   };
+
+  useEffect(() => {
+    scrollToElement(scrollToElementId);
+  }, [scrollToElementId]);
 
   function hasDTO(arr) {
     for (let i in arr) {
@@ -156,7 +176,7 @@ function DataTypeDependency({
             </p>
           )}
           {refactoring.notes.dependencies.includes("methodInvocation") &&
-          refactoring.notes.interfaces === undefined ? (
+            refactoring.notes.interfaces === undefined ? (
             <p>
               In a prior refactoring, the interface for the definition of the
               DTO's method invocations was already created. Use the interface
@@ -166,35 +186,41 @@ function DataTypeDependency({
             <></>
           )}
         </div>
-        {loadStep !== undefined && (
-          <Row
-            id="implementation"
-            className="d-flex justify-content-center py-3 my-3 mx-5 px-2"
-            style={{ border: "3px dashed " + refactoringItems.color }}
-          >
-            {loadStep === true ? (
-              <></>
-            ) : (
-              <>
-                {step !== undefined ? (
-                  <>{step}</>
-                ) : (
-                  <Refactoring
-                    project={project}
-                    service={service}
-                    refactoringItems={refactoringItems2}
-                    setRefactoringItems={setRefactoringItems2}
-                    refactoringItems2={{}}
-                    setRefactoringItems2={() => {}}
-                    showNumber={false}
-                  />
-                )}
-              </>
-            )}
-          </Row>
-        )}
 
-        <p className="mt-5" style={{ fontSize: "0.8rem" }}>
+        <Row 
+          id="implementationStep"
+          className="mx-5">
+          {loadStep !== undefined && (
+            <>
+              {loadStep === true ? (
+                <></>
+              ) : (
+                <>
+                <div 
+                  className="d-flex justify-content-center py-3 my-3 px-2"
+                  style={{ border: "3px dashed " + refactoringItems.color }}>
+                {step !== undefined ? (
+                    <>{step}</>
+                  ) : (
+                    <Refactoring
+                      project={project}
+                      service={service}
+                      refactoringItems={refactoringItems2}
+                      setRefactoringItems={setRefactoringItems2}
+                      refactoringItems2={{}}
+                      setRefactoringItems2={() => { }}
+                      showNumber={false}
+                    />
+                  )}
+                </div>
+                </>
+              )}
+            </>
+          )}
+        </Row>
+
+
+        <p className="mt-3" style={{ fontSize: "0.8rem" }}>
           Note: By default we assume the data type is owned and exist only on
           the microservice where it was first defined. However, there are two
           other options that can be used keeping it in both microservices: to

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import StepButton from "./StepButton";
@@ -14,14 +14,33 @@ function FileDependency({
   showNumber,
 }) {
   const [step, setStep] = useState(undefined);
+  const [scrollToElementId, setScrollToElement] = useState();
+
+  const scrollToElement = (id) => {
+    let element = document.getElementById(id);
+    let header = document.getElementById("header");
+    if (element) {
+      setTimeout(scroll, 500);
+      function scroll() {
+        window.scrollTo(element.offsetLeft, element.offsetTop - header.offsetHeight);
+        setScrollToElement('');
+      }
+    }
+  }
+
   const handleOnClick = (index, text) => {
     setStep(text);
+    setScrollToElement('implementationStep');
     setRefactoringItems((prev) => ({
       ...prev,
       selected: index,
       color: "#1E488F",
     }));
   };
+
+  useEffect(() => {
+    scrollToElement(scrollToElementId);
+  }, [scrollToElementId]);
 
   return (
     <Row className="mt-2 blue-text">
@@ -50,7 +69,7 @@ function FileDependency({
           <b>click on each of them to find out how to implement them</b>):
         </p>
         {refactoring.notes.new_classes !== undefined ||
-        refactoring.notes.interfaces !== undefined ? (
+          refactoring.notes.interfaces !== undefined ? (
           <div className="d-inline my-4">
             <Col className="d-inline me-3">
               <StepButton
@@ -61,10 +80,10 @@ function FileDependency({
                 handleClick={handleOnClick}
                 text={
                   "In this case, as this classes do not handle business logic, it is ok to simply duplicate the " +
-                  refactoring.notes.new_classes
+                    refactoring.notes.new_classes
                     ? refactoring.notes.new_classes
                     : refactoring.notes.interfaces +
-                      " file for each microservice."
+                    " file for each microservice."
                 }
               ></StepButton>
             </Col>
@@ -76,15 +95,15 @@ function FileDependency({
           </p>
         )}
 
-        {step !== undefined && (
-          <Row
-            id="implementation"
-            className="d-flex justify-content-center py-3 my-3 mx-5"
-            style={{ border: "3px dashed #3C76E1" }}
-          >
-            {step}
-          </Row>
-        )}
+        <Row
+          id="implementationStep"
+          className="d-flex justify-content-center py-3 my-3 mx-5"
+          style={{ border: "3px dashed #3C76E1" }}
+        >
+          {step !== undefined && (
+            { step }
+          )}
+        </Row>
       </div>
     </Row>
   );

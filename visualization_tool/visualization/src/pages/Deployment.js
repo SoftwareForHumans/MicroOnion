@@ -43,7 +43,7 @@ function Deployment() {
       >
         {titles.map((title, index) => (
           <Card
-            className="m-3"
+            className="m-3 full-height"
             style={{
               width: "400px",
               height: "350px",
@@ -53,14 +53,23 @@ function Deployment() {
                 index % 2 === 0 ? "rgba(60,118,225,0.65)" : "rgba(9,34,86,0.9)",
             }}
           >
-            <Card.Body>
+            <Card.Body
+              style={{
+                gridTemplateRows: "auto 1fr auto",
+                display: "grid",
+              }}>
               <Card.Title
                 className="mb-2"
-                style={{ color: index % 2 === 0 ? "#092256" : "#c0c0c0" }}
+                style={{ color: index % 2 === 0 ? "black" : "white" }}
               >
                 {title}
               </Card.Title>
-              <Card.Text style={{ color: index % 2 === 0 ? "black" : "white" }}>
+              <Card.Text
+                className="mt-4"
+                style={{
+                  color: index % 2 === 0 ? "black" : "white",
+                  fontWeight: "300"
+                }}>
                 {texts[index]}
               </Card.Text>
             </Card.Body>

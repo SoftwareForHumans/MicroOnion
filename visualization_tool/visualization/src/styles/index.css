@@ -6,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  grid-template-rows: auto 1fr auto;
 }
 
 code {
@@ -15,14 +15,9 @@ code {
 }
 
 footer {
-  position: fixed;
   background-color: #092256;
   color: white;
-  bottom: 0;
-  left: 0;
-  right: 0;
   padding: 10px;
-  text-align: center;
 }
 
 .center-all{
@@ -152,7 +147,7 @@ footer {
 
 
 .squared-button{
-height: 16vh;
+min-height: 16vh;
 width: 16vh;
 font-size: 0.8rem;
 border-radius: 12%;
@@ -185,4 +180,12 @@ color: #092256 !important;
   border-color: white !important;
   box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
   font-weight: 500 !important;
+}
+
+.display-flex{
+  display: flex;
+}
+
+.space-between{
+  justify-content: space-between;
 }
