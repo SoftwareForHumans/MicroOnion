@@ -4,14 +4,9 @@ import Row from "react-bootstrap/Row";
 import StepButton from "./StepButton";
 
 function FileDependency({
-  project,
-  service,
   refactoringItems,
   setRefactoringItems,
-  refactoring,
-  refactoringItems2,
-  setRefactoringItems2,
-  showNumber,
+  refactoring
 }) {
   const [step, setStep] = useState(undefined);
   const [scrollToElementId, setScrollToElement] = useState();
@@ -43,31 +38,7 @@ function FileDependency({
   }, [scrollToElementId]);
 
   return (
-    <Row className="mt-2 blue-text">
-      <p style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
-        {showNumber ? (refactoringItems.index + 1).toString() + ". " : ""}
-        {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
-      </p>
-      <p style={{ fontWeight: "bold", fontSize: "0.9rem" }}>
-        Of{" "}
-        {refactoring.notes.new_classes
-          ? refactoring.notes.new_classes
-          : refactoring.notes.interfaces}
-      </p>
-      <div className="intermediate-text">
-        <p className="d-flex align-self-start ms-5">
-          Refactoring schematical representation:
-        </p>
-        <img
-          className="pb-3"
-          style={{maxHeight:"25rem", maxWidth:"100%", alignSelf: "center" }}
-          src={`data:image/png;base64,${refactoringItems.image}`}
-          alt="refactoring change schema"
-        ></img>
-        <p>
-          To apply this refactoring, follow the below sequence of steps (
-          <b>click on each of them to find out how to implement them</b>):
-        </p>
+    <>
         {refactoring.notes.new_classes !== undefined ||
           refactoring.notes.interfaces !== undefined ? (
           <div className="d-inline my-4">
@@ -104,8 +75,7 @@ function FileDependency({
             { step }
           )}
         </Row>
-      </div>
-    </Row>
+      </>
   );
 }
 

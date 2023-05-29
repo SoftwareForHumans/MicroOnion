@@ -7,7 +7,6 @@ function DTO({
   refactoringItems,
   setRefactoringItems,
   refactoring,
-  showNumber,
 }) {
   const text =
     "Create an entity (Data Transfer Object), " +
@@ -22,15 +21,18 @@ function DTO({
     if (element) {
       setTimeout(scroll, 500);
       function scroll() {
-        window.scrollTo(element.offsetLeft, element.offsetTop - header.offsetHeight);
-        setScrollToElement('');
+        window.scrollTo(
+          element.offsetLeft,
+          element.offsetTop - header.offsetHeight
+        );
+        setScrollToElement("");
       }
     }
-  }
+  };
 
   const handleOnClick = (index, text) => {
     setStep(text);
-    setScrollToElement('implementationSecondStep');
+    setScrollToElement("implementationSecondStep");
     setRefactoringItems((prev) => ({
       ...prev,
       selected: index,
@@ -43,53 +45,30 @@ function DTO({
   }, [scrollToElementId]);
 
   return (
-    <Row className="mt-2 blue-text">
-      <p style={{ fontSize: "1.15rem", fontWeight: "bold" }}>
-        {showNumber ? (refactoringItems.index + 1).toString() + ". " : ""}
-        {refactoring.name[0] + refactoring.name.slice(1).toLowerCase()}
-      </p>
-      <p style={{ fontWeight: "bold", fontSize: "0.9rem" }}>
-        {refactoring.notes.created}
-      </p>
-      <div className="intermediate-text">
-        <p className="d-flex align-self-start ms-5">
-          Refactoring schematical representation:
-        </p>
-        <img
-          className="pb-3"
-          style={{ maxHeight:"25rem", maxWidth:"100%", alignSelf: "center" }}
-          src={`data:image/png;base64,${refactoringItems.image}`}
-          alt="refactoring change schema"
-        ></img>
-        <p>
-          To apply this refactoring, follow the below sequence of steps (
-          <b>click on each of them to find out how to implement them</b>):
-        </p>
-        <div className="d-inline my-4">
-          <Col className="d-inline me-3">
-            <StepButton
-              name="Create an entity (Data Transfer Object)"
-              index={0}
-              active={refactoringItems.selected}
-              hasNext={false}
-              handleClick={handleOnClick}
-              text={text}
-            ></StepButton>
-          </Col>
-        </div>
-        <Row 
-          id="implementationSecondStep"
-          className="mx-5">
-          {step !== undefined && (
-            <div 
-              className="d-flex justify-content-center py-3 my-3"
-              style={{ border: "3px dashed " +  refactoringItems.color }}>
-              {step}
-            </div>
-          )}
-        </Row>
+    <>
+      <div className="d-inline my-4">
+        <Col className="d-inline me-3">
+          <StepButton
+            name="Create an entity (Data Transfer Object)"
+            index={0}
+            active={refactoringItems.selected}
+            hasNext={false}
+            handleClick={handleOnClick}
+            text={text}
+          ></StepButton>
+        </Col>
       </div>
-    </Row>
+      <Row id="implementationSecondStep" className="mx-5">
+        {step !== undefined && (
+          <div
+            className="d-flex justify-content-center py-3 my-3"
+            style={{ border: "3px dashed " + refactoringItems.color }}
+          >
+            {step}
+          </div>
+        )}
+      </Row>
+    </>
   );
 }
 
