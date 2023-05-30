@@ -3,7 +3,6 @@ class RefactoringSequence:
     def __init__(self, name):
         self.project_name = name
         self.initial_refactoring = None
-        self.snapshot_number = 0
     
     def write_refactoring_sequence(self):
         res = {}
@@ -24,6 +23,3 @@ class RefactoringSequence:
     
     def get_refactorings(self):
         return self.refactorings
-
-    def new_snapshot(self):
-        self.snapshot_number += 1

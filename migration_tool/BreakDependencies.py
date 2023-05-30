@@ -29,34 +29,29 @@ class BreakDependencies:
 
 
     def break_dependencies(self, strategy = None):
-        dependencies = dict(sorted(self.dependencies.items(), key=lambda x: len(x[1]), reverse=False))
+        dependencies = dict(sorted(self.dependencies.items(), key=lambda x: len(x[1]), reverse=False)) # by default the strategy will be less dependencies first
         
         for microservice, deps in dependencies.items():
-            # service_ids = []
             print(f"\nEXTRACT MICROSERVICE {microservice}")
+
             service = self.get_service_by_id(microservice)
             current_refactoring = self.initial_refactoring.add_refactoring(Refactoring("EXTRACT MICROSERVICE", self.initial_refactoring.get_level() + 1, int(microservice), -1))
-            for k, v in deps.items():
+            for k, v in deps.items(): #break service dependencies
                 print(f"---\nBreaking dependencies with microservice {k} \n")
                 dependent_service = self.get_service_by_id(k)
                 self.break_dependency_file_by_file(service, dependent_service, v, current_refactoring)
                 
-   
-            for m, d in dependencies.items():
+            for m, d in dependencies.items(): #break dependencies to service
                 if microservice in d.keys():
                     d_service = self.get_service_by_id(m)
                     print(f"\nBreaking dependencies of microservice {m} with microservice {microservice}\n")
                     self.break_dependency_file_by_file(d_service, service, dependencies[m][microservice], current_refactoring)
-                    
-            
-            services = []
+    
             for i in self.services:
                 extracting = (i.get_id() == microservice)
                 i.clean_dependencies(extracting)
-                services.append(i)
-  
-            self.update_service(service)
-            self.refactoring_representation.set_services(services)
+                self.update_service(service)
+
             self.refactoring_representation.create_new_snapshot()
 
             print("\n------------------------------------\n")

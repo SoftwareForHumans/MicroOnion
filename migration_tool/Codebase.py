@@ -7,8 +7,7 @@ class Codebase:
     
     def extract_codebase(self, code_representation):
         code = json.loads(code_representation)
-
-       
+        
         for _, c in code.items():
             new_class = self.extract_class_information(c)
             self.classes[new_class.get_file_name()] = new_class
