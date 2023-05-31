@@ -87,12 +87,13 @@ function createDataTypeDependencyUML(ref) {
 
 function createChangeLocalMethodUML(ref) {
   let res = "@startuml \nallow_mixing\nleft to right direction\n";
+  let sizeOfNewClasses = null;
   res += 'package "' + ref["microservice"] + '"{\n';
-  res = createChangeLocalMethodUMLRequester(ref, res);
+  [res, sizeOfNewClasses] = createChangeLocalMethodUMLRequester(ref, sizeOfNewClasses, res);
   res += "\n}\n";
 
   res += 'package "' + ref["dependent_microservice"] + '"{\n';
-  res = createChangeLocalMethodUMLOwner(ref, res);
+  res = createChangeLocalMethodUMLOwner(ref, sizeOfNewClasses, res);
 
   res += "\n}\n";
 
@@ -116,11 +117,11 @@ function createChangeLocalMethodUMLServiceCall(ref, res){
   return res;
 }
 
-function createChangeLocalMethodUMLRequester(ref, res){
+function createChangeLocalMethodUMLRequester(ref, sizeOfNewClasses, res){
   res += "class " + ref["notes"]["requester"] + "\n";
 
   if (ref["notes"]["new_classes"]) {
-    let sizeOfNewClasses = ref["notes"]["new_classes"].length;
+    sizeOfNewClasses = ref["notes"]["new_classes"].length;
 
     if (sizeOfNewClasses === 2)
       res += "class " + ref["notes"]["new_classes"][0] + "\n";
@@ -132,10 +133,10 @@ function createChangeLocalMethodUMLRequester(ref, res){
 
   if (ref["notes"]["interfaces"])
     res += "interface " + ref["notes"]["interfaces"][0] + "\n";
-  return res;
+  return [res, sizeOfNewClasses];
 }
 
-function createChangeLocalMethodUMLOwner(ref, res){
+function createChangeLocalMethodUMLOwner(ref, sizeOfNewClasses, res){
   res += "class " + ref["notes"]["target"] + "\n";
   if (sizeOfNewClasses === 2)
     res += "class " + ref["notes"]["new_classes"][1] + "\n";
@@ -153,6 +154,7 @@ function createChangeDataOwnershipUML(ref) {
 
 function createMoveForeignKeyUML(ref) {
   let r = null;
+  let sizeOfNewClasses = null;
   if(ref["refactorings"]){
     for (let i in ref["refactorings"])
       if (ref["refactorings"][i]["name"] === "CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL")
@@ -170,7 +172,7 @@ function createMoveForeignKeyUML(ref) {
         res += "interface " + ref["notes"]["interfaces"][0] + "\n";
   }
   if(r !== null)
-    res = createChangeLocalMethodUMLRequester(r, res);
+    [res, sizeOfNewClasses] = createChangeLocalMethodUMLRequester(r, sizeOfNewClasses, res);
   
   res += "\n}\n";
 
@@ -184,7 +186,7 @@ function createMoveForeignKeyUML(ref) {
         res += "interface " + ref["notes"]["interfaces"][0] + "\n";
   }
   if(r !== null)
-    res = createChangeLocalMethodUMLOwner(r, res);
+    res = createChangeLocalMethodUMLOwner(r, sizeOfNewClasses, res);
   
   res += "\n}\n";
 
