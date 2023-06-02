@@ -54,6 +54,8 @@ class Service:
     def add_new_class(self, new_class):
         if new_class not in self.new_classes:
             self.new_classes.append(new_class)
+            return 0
+        else: return -1
 
     def add_files(self, files):
         self.file_names.extend(files)

@@ -113,13 +113,17 @@ class BreakDependencies:
         entity_name = dependent_file.split('.').pop()
         if microservice.check_if_class_is_entity(file):
             notes["entities"].append(file)
-            microservice.add_interface(file + "Interface")
-            notes["interfaces"].append(file + "Interface")
+            ret = microservice.add_interface(file + "Interface") 
+            if ret != -1:
+                notes["interfaces"].append(file + "Interface")
         if dependent_microservice.check_if_class_is_entity(entity_name):
             notes["entities"].append(entity_name)
-            dependent_microservice.add_interface(entity_name + "Interface")
-            notes["interfaces"].append(entity_name + "Interface")
+            ret = dependent_microservice.add_interface(entity_name + "Interface")
+            if ret != -1:
+                notes["interfaces"].append(entity_name + "Interface")
         
+        if not notes["interfaces"]:
+            del notes["interfaces"]
 
         current_refactoring = current_refactoring.add_refactoring(Refactoring("MOVE FOREIGN-KEY RELATIONSHIP TO CODE", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice.get_id(), notes))
         types.remove('databaseDependency')
@@ -149,11 +153,20 @@ class BreakDependencies:
         notes["type"] = "synchronous"
         notes["target"] = class_name
         notes["requester"] = file
-        notes["new_classes"] = [class_name + "RequestInterfaceImpl", class_name + "HandleRequest"]
-        notes["interfaces"] = [class_name + "RequestInterface"]
-        microservice.add_interface(class_name + "RequestInterface")
-        microservice.add_new_class(class_name + "RequestInterfaceImpl")
-        dependent_microservice.add_new_class(class_name + "HandleRequest")
+        notes["new_classes"] = []
+       
+        ret = microservice.add_interface(class_name + "RequestInterface")
+        if ret != -1:
+            notes["interfaces"] = [class_name + "RequestInterface"]
+        ret = microservice.add_new_class(class_name + "RequestInterfaceImpl")
+        if ret != -1:
+            notes["new_classes"].append(class_name + "RequestInterfaceImpl")
+        ret = dependent_microservice.add_new_class(class_name + "HandleRequest")
+        if ret != -1:
+            notes["new_classes"].append(class_name + "HandleRequest")
+        if not notes["new_classes"]:
+            del notes["new_classes"]
+
         microservice.add_service_call("synchronous", "HTTP", method, dependent_microservice.get_id(), file, dependent_file)
 
         current_refactoring.add_refactoring(Refactoring("CHANGE LOCAL METHOD CALL DEPENDENCY TO A SERVICE CALL", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice.get_id(), notes))
@@ -236,8 +249,9 @@ class BreakDependencies:
         file_name = dependent_file.split('.').pop()
         notes = {}
 
-        microservice.add_new_class(file_name)
-        notes["new_classes"] = [file_name]
+        ret = microservice.add_new_class(file_name)
+        if ret != -1:
+            notes["new_classes"] = [file_name]
 
         current_refactoring.add_refactoring(Refactoring("IMPORT DEPENDENCY", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice.get_id(), notes))
 
@@ -251,11 +265,13 @@ class BreakDependencies:
         file_name = dependent_file.split('.').pop()
         notes = {}
         if is_interface:
-            microservice.add_interface(file_name)
-            notes["interfaces"] = [file_name]
+            ret = microservice.add_interface(file_name)
+            if ret != -1:
+                notes["interfaces"] = [file_name]
         else:
-            microservice.add_new_class(file_name)
-            notes["new_classes"] = [file_name]
+            ret = microservice.add_new_class(file_name)
+            if ret != -1:
+                notes["new_classes"] = [file_name]
 
         current_refactoring.add_refactoring(Refactoring("FILE DEPENDENCY", current_refactoring.get_level() + 1, microservice.get_id(), dependent_microservice.get_id(), notes))
         

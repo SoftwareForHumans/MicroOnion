@@ -127,7 +127,7 @@ function MoveForeignKey({
             text="Separate the tables into the databases of the different owners (at this moment, this might be more conceptual, but in the future, this will represent the databases of the different microservices)."
           ></StepButton>
         </Col>
-        {refactoring.notes.interfaces.length === 2 ? (
+        {refactoring.notes.interfaces !== undefined && refactoring.notes.interfaces.length === 2 ? (
           <Col className="d-inline me-3">
             <StepButton
               name="Create an Interface for each database"
@@ -146,7 +146,7 @@ function MoveForeignKey({
         ) : (
           <></>
         )}
-        {refactoring.notes.interfaces.length === 1 ? (
+        {refactoring.notes.interfaces !== undefined &&  refactoring.notes.interfaces.length === 1 ? (
           <Col className="d-inline me-3">
             <StepButton
               name="Create an Interface for each database"
@@ -200,7 +200,7 @@ function MoveForeignKey({
             );
           })}
       </div>
-      {refactoring.notes.interfaces.length === 0 ? (
+      {refactoring.notes.interfaces !== undefined &&  refactoring.notes.interfaces.length === 0 ? (
         <p>
           You don't need to create either interface that implements the methods
           of data manipulation again because it was already built during a

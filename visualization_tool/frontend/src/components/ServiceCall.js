@@ -125,7 +125,7 @@ function ServiceCall({
                 ".",
               "\n",
               "2. Create a class that implements that interface and makes the service calls, a Request Class - " +
-                (refactoring.notes.new_classes[0] !== undefined
+                (refactoring.notes.new_classes !== undefined && refactoring.notes.new_classes[0]!== undefined
                   ? refactoring.notes.new_classes[0]
                   : "the request class was already created in a previous refactoring") +
                 ".",
@@ -143,7 +143,7 @@ function ServiceCall({
               "Arrange the microservice owning the method to respond to this communication strategy, creating an API to respond to the service calls.",
               "\n",
               "1. Create a class that defines the resource paths for the requests and processes them producing a response - " +
-                (refactoring.notes.new_classes[1] !== undefined
+                (refactoring.notes.new_classes !== undefined && refactoring.notes.new_classes[1] !== undefined
                   ? refactoring.notes.new_classes[1]
                   : "the request handler class was already created in a previous refactoring") +
                 ".",

@@ -1,4 +1,4 @@
-from utils import get_is_part_of_key, check_if_primitive
+from utils import get_is_part_of_key, check_if_primitive, getManyToMany, getManyToOne, getOneToOne
 from Method import Method
 import re 
 
@@ -120,28 +120,14 @@ class Class:
 
                 elif any(re.match("^@ManyToMany",line) for line in variable_annotations):
                     if any(re.match("^@JoinTable",line) for line in variable_annotations):
-                        s = [x for x in variable_annotations if re.match("^@JoinTable", x)][0]
-                        s = s.replace(" ", "")
-                        parts = s.split(",")
-                        table = re.sub('@JoinTable\(name=\\\"', '', parts[0])
-                        table = re.sub('"', '', table)
-                        column = re.sub('joinColumns=@JoinColumn\(name=\\\"','', parts[1])
-                        column = re.sub('"\)', '', column)
-                        inverse_column = re.sub('inverseJoinColumns=@JoinColumn\(name=\\\"', '', parts[2])
-                        inverse_column = re.sub('"\)\)', '', inverse_column)
-                        
+                        [table, column, inverse_column] = getManyToMany(variable_annotations)
                         self.database_dependencies["variables"].append(["ManyToMany",  variable["identifier"][1], table, column, inverse_column])
                     else: 
                         self.database_dependencies["variables"].append(["ManyToMany", variable["identifier"][1]])
 
                 elif any(re.match("^@OneToOne",line) for line in variable_annotations):
                     if any(re.match("^@JoinColumn",line) for line in variable_annotations):
-                        annotation = [x for x in variable_annotations if re.match("^@JoinColumn", x)][0]
-                        column_name = annotation.replace(" ", "")
-                        column_name = re.sub('@JoinColumn\(name=\\\"', '', column_name)
-                        column_name = re.sub('referencedColumnName=\\\"', '',column_name)
-                        column_name = re.sub('\)', '',column_name)
-                        column_name = re.sub('\"', '',column_name)
+                        column_name = getOneToOne(variable_annotations)
                         self.database_dependencies["variables"].append(["OneToOne", variable["identifier"], column_name.split(",")[0], column_name.split(",")[1]])
                     else:
                         column_name = re.sub('@JoinColumn\(name = \\\"', '',variable['annotations'][1])
@@ -149,12 +135,8 @@ class Class:
 
                 elif any(re.match("^@ManyToOne",line) for line in variable_annotations):
                     if any(re.match("^@JoinColumn",line) for line in variable_annotations):
-                        annotation = [x for x in variable_annotations if re.match("^@JoinColumn", x)][0]
-                        column_name = annotation.replace(" ", "")
-                        column_name = re.sub('@JoinColumn\(name=\\\"', '', column_name)
-                        column_name = re.sub('\"\)', '',column_name)
-
-                        self.database_dependencies["variables"].append(["ManyToOne",variable["type"], column_name])
+                        column_name = getManyToOne(variable_annotations)
+                        self.database_dependencies["variables"].append(["ManyToOne", variable["type"], column_name])
                     else: 
                         self.database_dependencies["variables"].append(["ManyToOne",variable["type"]])
 
