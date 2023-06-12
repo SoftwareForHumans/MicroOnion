@@ -35,7 +35,7 @@ class BreakDependencies:
             print(f"\nEXTRACT MICROSERVICE {microservice}")
 
             service = self.get_service_by_id(microservice)
-            current_refactoring = self.initial_refactoring.add_refactoring(Refactoring("EXTRACT MICROSERVICE", self.initial_refactoring.get_level() + 1, int(microservice), -1))
+            current_refactoring = self.initial_refactoring.add_refactoring(Refactoring("EXTRACT MICROSERVICE", self.initial_refactoring.get_level() + 1, microservice, "-1"))
             for k, v in deps.items(): #break service dependencies
                 print(f"---\nBreaking dependencies with microservice {k} \n")
                 dependent_service = self.get_service_by_id(k)

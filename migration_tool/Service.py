@@ -4,13 +4,13 @@ class Service:
 
     newid = itertools.count()
 
-    def __init__(self):
-        self.id = str(next(self.newid))
+    def __init__(self, id=None):
+        self.id =  str(next(self.newid)) if id == None else id
         self.file_names = list()
         self.classes = list()
         self.dependencies = {}
         self.service_calls = []
-        self.interfaces = [] # new interfaces
+        self.interfaces = []
         self.dtos = []
         self.new_classes = [] 
         self.independent = False

@@ -67,7 +67,7 @@ function Refactoring({
         </p>
         <div className="intermediate-text">
           <p className="d-flex align-self-start ms-5">
-            Refactoring schematical representation:
+            Refactoring schematic representation:
           </p>
           <img
             className="pb-3"
