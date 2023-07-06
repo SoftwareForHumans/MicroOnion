@@ -46,9 +46,9 @@ app.use('/projects', projectsRouter);
 // error handler
 
   
-  app.listen(port, () => {
-    console.log(`Backend running on port: ${port}`);
-  });
+app.listen(port, () => {
+  console.log(`Backend running on port: ${port}`);
+});
   
-  module.exports = app;
+module.exports = app;
   
